@@ -1,0 +1,28 @@
+Recipe Key,recipe_wearable_leather_chest_pilgrim_bol2_t2_uncommon
+Recipe Name,recipe_wearable_leather_chest_pilgrim_bol2_t2_uncommon
+Skill,skill_leatherworking
+UnlockAtSkillLevel,6
+SkillDifficulty,14
+XPMultiplier,2.2
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+6,16%,421,458,494,35,102
+7,26%,397,431,466,36,138
+8,39%,372,405,437,37,180
+9,54%,348,378,409,38,222
+10,68%,324,352,380,39,253
+11,80%,300,326,352,40,268
+12,88%,275,299,323,41,268
+13,93%,251,273,295,42,257
+14,100%,27,29,31,,29
+15,100%,24,26,28,,26
+16,100%,21,23,25,,23
+17,100%,18,20,22,,20
+18,100%,16,17,18,,17
+19,100%,13,14,15,,14
+20,100%,10,11,12,,11
+21,100%,7,8,9,,8
+22,100%,5,5,5,,5
+23,100%,2,2,2,,2
+24+,100%,0,0,0,,0

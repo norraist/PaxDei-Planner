@@ -1,0 +1,23 @@
+Recipe Key,recipe_wieldable_bow_2h_0_t1_uncommon
+Recipe Name,recipe_wieldable_bow_2h_0_t1_uncommon
+Skill,skill_fletching
+UnlockAtSkillLevel,3
+SkillDifficulty,6
+XPMultiplier,1.2
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+3,80%,163,178,192,35,149
+4,88%,150,163,176,36,148
+5,93%,137,149,161,37,141
+6,100%,19,21,23,,21
+7,100%,17,18,19,,18
+8,100%,14,15,16,,15
+9,100%,11,12,13,,12
+10,100%,8,9,10,,9
+11,100%,6,6,6,,6
+12,100%,3,3,3,,3
+13,100%,0,0,0,,0
+14,100%,0,0,0,,0
+15,100%,0,0,0,,0
+16+,100%,0,0,0,,0

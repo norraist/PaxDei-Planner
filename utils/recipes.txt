@@ -1,0 +1,59 @@
+# --- Cooking ---
+recipe_activatable_foodcooked_bread_resistancebuff_5
+recipe_activatable_foodcooked_meatpie_resistancebuff_4
+recipe_activatable_foodcooked_vegetablestew_staminabuff_3
+recipe_item_unlock_crafter_bread_oven_2
+recipe_item_unlock_crafter_bread_oven_3
+
+# --- Tailoring / Leatherworking ---
+recipe_item_unlock_crafter_tailor_workbench_1
+recipe_item_unlock_crafter_tailor_workbench_2
+recipe_item_unlock_crafter_tannery_1
+recipe_item_unlock_crafter_tannery_2
+recipe_clothing_light_tunic_tier3
+recipe_clothing_light_tunic_tier4
+
+# --- Blacksmithing / Weaponsmithing ---
+recipe_item_unlock_crafter_blacksmith_forge_1
+recipe_item_unlock_crafter_blacksmith_forge_2
+recipe_weapon_melee_sword_tier3
+recipe_weapon_melee_sword_tier4
+recipe_weapon_melee_sword_tier5
+recipe_weapon_ranged_bow_tier4
+
+# --- Carpentry / Engineering ---
+recipe_item_unlock_crafter_carpentry_bench_1
+recipe_item_unlock_crafter_carpentry_bench_2
+recipe_item_unlock_crafter_engineering_workbench_1
+recipe_item_unlock_crafter_engineering_workbench_2
+recipe_tool_carpenterhammer_tier3
+recipe_tool_carpenterhammer_tier4
+
+# --- Alchemy / Potions ---
+recipe_item_unlock_crafter_alchemy_reagent_distillery_1
+recipe_item_unlock_crafter_alchemy_reagent_distillery_2
+recipe_potion_tier3_staminabuff
+recipe_potion_tier4_staminabuff
+recipe_potion_tier5_resistancebuff
+
+# --- Masonry / Building Props ---
+recipe_item_unlock_crafter_masonry_table_1
+recipe_item_unlock_crafter_masonry_table_2
+recipe_building_prop_stonewall_tier3
+recipe_building_prop_stonewall_tier4
+recipe_building_prop_grapevinepatch_arch
+
+# --- Jewelry / Toolmaking ---
+recipe_item_unlock_crafter_jeweler_bench_1
+recipe_item_unlock_crafter_jeweler_bench_2
+recipe_ring_tier3_staminabuff
+recipe_ring_tier4_resistancebuff
+recipe_item_unlock_crafter_toolmakers_bench_1
+recipe_item_unlock_crafter_toolmakers_bench_2
+recipe_tool_blacksmithhammer_tier3
+
+# --- Hunting / Gathering / Misc ---
+recipe_item_unlock_crafter_hunters_cabin_1
+recipe_item_unlock_crafter_hunters_cabin_2
+recipe_item_unlock_crafter_fishing_hut_1
+recipe_item_unlock_crafter_fishing_hut_2

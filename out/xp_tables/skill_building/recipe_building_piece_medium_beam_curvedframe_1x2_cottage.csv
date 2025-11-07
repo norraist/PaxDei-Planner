@@ -1,0 +1,9 @@
+Recipe Key,recipe_building_piece_medium_beam_curvedframe_1x2_cottage
+Recipe Name,recipe_building_piece_medium_beam_curvedframe_1x2_cottage
+Skill,skill_building
+UnlockAtSkillLevel,20
+SkillDifficulty,1
+XPMultiplier,0.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg

@@ -1,0 +1,28 @@
+Recipe Key,recipe_wieldable_spear_2h_0_t2_common
+Recipe Name,recipe_wieldable_spear_2h_0_t2_common
+Skill,skill_weapon_smithing
+UnlockAtSkillLevel,7
+SkillDifficulty,15
+XPMultiplier,1.9
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+7,16%,364,395,427,35,93
+8,26%,343,372,402,36,123
+9,39%,322,350,378,37,159
+10,54%,301,327,353,38,194
+11,68%,280,304,328,39,220
+12,80%,259,281,304,40,232
+13,88%,238,258,279,41,232
+14,93%,217,236,254,42,222
+15,100%,28,30,32,,30
+16,100%,25,27,29,,27
+17,100%,22,24,26,,24
+18,100%,19,21,23,,21
+19,100%,17,18,19,,18
+20,100%,14,15,16,,15
+21,100%,11,12,13,,12
+22,100%,8,9,10,,9
+23,100%,6,6,6,,6
+24,100%,3,3,3,,3
+25+,100%,0,0,0,,0

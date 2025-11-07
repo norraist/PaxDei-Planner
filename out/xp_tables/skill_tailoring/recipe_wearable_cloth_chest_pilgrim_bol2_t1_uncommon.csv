@@ -1,0 +1,23 @@
+Recipe Key,recipe_wearable_cloth_chest_pilgrim_bol2_t1_uncommon
+Recipe Name,recipe_wearable_cloth_chest_pilgrim_bol2_t1_uncommon
+Skill,skill_tailoring
+UnlockAtSkillLevel,3
+SkillDifficulty,6
+XPMultiplier,1.3
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+3,80%,177,192,208,35,160
+4,88%,163,177,191,36,160
+5,93%,148,161,174,37,152
+6,100%,19,21,23,,21
+7,100%,17,18,19,,18
+8,100%,14,15,16,,15
+9,100%,11,12,13,,12
+10,100%,8,9,10,,9
+11,100%,6,6,6,,6
+12,100%,3,3,3,,3
+13,100%,0,0,0,,0
+14,100%,0,0,0,,0
+15,100%,0,0,0,,0
+16+,100%,0,0,0,,0

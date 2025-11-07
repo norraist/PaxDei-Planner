@@ -1,0 +1,23 @@
+Recipe Key,recipe_wearable_leather_legs_templar_lgm_t1_common
+Recipe Name,recipe_wearable_leather_legs_templar_lgm_t1_common
+Skill,skill_leatherworking
+UnlockAtSkillLevel,2
+SkillDifficulty,5
+XPMultiplier,1.1
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+2,80%,150,163,176,35,137
+3,88%,138,150,162,36,136
+4,93%,125,136,147,37,129
+5,100%,18,20,22,,20
+6,100%,16,17,18,,17
+7,100%,13,14,15,,14
+8,100%,10,11,12,,11
+9,100%,7,8,9,,8
+10,100%,5,5,5,,5
+11,100%,2,2,2,,2
+12,100%,0,0,0,,0
+13,100%,0,0,0,,0
+14,100%,0,0,0,,0
+15+,100%,0,0,0,,0

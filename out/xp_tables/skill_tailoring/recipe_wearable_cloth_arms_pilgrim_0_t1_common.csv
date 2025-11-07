@@ -1,0 +1,25 @@
+Recipe Key,recipe_wearable_cloth_arms_pilgrim_0_t1_common
+Recipe Name,recipe_wearable_cloth_arms_pilgrim_0_t1_common
+Skill,skill_tailoring
+UnlockAtSkillLevel,4
+SkillDifficulty,9
+XPMultiplier,1.4
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+4,54%,222,241,260,35,146
+5,68%,206,224,242,36,164
+6,80%,191,207,224,37,173
+7,88%,175,190,206,38,172
+8,93%,160,174,187,39,164
+9,100%,22,24,26,,24
+10,100%,19,21,23,,21
+11,100%,17,18,19,,18
+12,100%,14,15,16,,15
+13,100%,11,12,13,,12
+14,100%,8,9,10,,9
+15,100%,6,6,6,,6
+16,100%,3,3,3,,3
+17,100%,0,0,0,,0
+18,100%,0,0,0,,0
+19+,100%,0,0,0,,0

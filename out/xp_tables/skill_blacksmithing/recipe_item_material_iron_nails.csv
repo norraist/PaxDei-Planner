@@ -1,0 +1,28 @@
+Recipe Key,recipe_item_material_iron_nails
+Recipe Name,recipe_item_material_iron_nails
+Skill,skill_blacksmithing
+UnlockAtSkillLevel,7
+SkillDifficulty,15
+XPMultiplier,1.6
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+7,16%,306,333,359,35,83
+8,26%,289,314,339,36,108
+9,39%,271,294,318,37,137
+10,54%,253,275,297,38,166
+11,68%,236,256,276,39,187
+12,80%,218,237,256,40,197
+13,88%,200,218,235,41,196
+14,93%,183,198,214,42,187
+15,100%,28,30,32,,30
+16,100%,25,27,29,,27
+17,100%,22,24,26,,24
+18,100%,19,21,23,,21
+19,100%,17,18,19,,18
+20,100%,14,15,16,,15
+21,100%,11,12,13,,12
+22,100%,8,9,10,,9
+23,100%,6,6,6,,6
+24,100%,3,3,3,,3
+25+,100%,0,0,0,,0

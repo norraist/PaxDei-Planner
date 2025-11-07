@@ -1,0 +1,29 @@
+Recipe Key,recipe_wearable_metal_legs_ironside_ps_t2_uncommon
+Recipe Name,recipe_wearable_metal_legs_ironside_ps_t2_uncommon
+Skill,skill_armor_smithing
+UnlockAtSkillLevel,7
+SkillDifficulty,16
+XPMultiplier,2.3
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+7,9%,466,506,546,35,79
+8,16%,440,478,517,36,107
+9,26%,415,451,487,37,144
+10,39%,389,423,457,38,188
+11,54%,364,396,427,39,231
+12,68%,339,368,397,40,264
+13,80%,313,340,368,41,280
+14,88%,288,313,338,42,280
+15,93%,262,285,308,43,268
+16,100%,29,31,33,,31
+17,100%,26,28,30,,28
+18,100%,23,25,27,,25
+19,100%,20,22,24,,22
+20,100%,17,19,21,,19
+21,100%,15,16,17,,16
+22,100%,12,13,14,,13
+23,100%,9,10,11,,10
+24,100%,6,7,8,,7
+25,100%,4,4,4,,4
+26+,100%,1,1,1,,1

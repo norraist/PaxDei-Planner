@@ -1,0 +1,21 @@
+Recipe Key,recipe_building_prop_simple_chest
+Recipe Name,recipe_building_prop_simple_chest
+Skill,skill_building
+UnlockAtSkillLevel,0
+SkillDifficulty,1
+XPMultiplier,0.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,93%,0,0,0,35,2
+1,100%,15,16,17,,16
+2,100%,12,13,14,,13
+3,100%,9,10,11,,10
+4,100%,6,7,8,,7
+5,100%,4,4,4,,4
+6,100%,1,1,1,,1
+7,100%,0,0,0,,0
+8,100%,0,0,0,,0
+9,100%,0,0,0,,0
+10,100%,0,0,0,,0
+11+,100%,0,0,0,,0

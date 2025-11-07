@@ -1,0 +1,30 @@
+Recipe Key,recipe_item_material_linen_cloth_fine
+Recipe Name,recipe_item_material_linen_cloth_fine
+Skill,skill_tailoring
+UnlockAtSkillLevel,10
+SkillDifficulty,20
+XPMultiplier,1.9
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+10,5%,406,441,476,35,57
+11,9%,385,418,451,36,72
+12,16%,364,395,427,37,94
+13,26%,343,372,402,38,124
+14,39%,322,350,378,39,160
+15,54%,301,327,353,40,195
+16,68%,280,304,328,41,220
+17,80%,259,281,304,42,233
+18,88%,238,258,279,43,232
+19,93%,217,236,254,44,222
+20,100%,32,35,38,,35
+21,100%,29,32,35,,32
+22,100%,27,29,31,,29
+23,100%,24,26,28,,26
+24,100%,21,23,25,,23
+25,100%,18,20,22,,20
+26,100%,16,17,18,,17
+27,100%,13,14,15,,14
+28,100%,10,11,12,,11
+29,100%,7,8,9,,8
+30+,100%,5,5,5,,5

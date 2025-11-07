@@ -1,0 +1,484 @@
+{
+  "id": "recipe_item_unlock_crafter_bread_oven_2",
+  "name": "Baking Tools",
+  "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/menu_tab_crafters/tab_group_craftertools/t_icon_baking_tools_02.webp",
+  "tier": 4,
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier4.webp",
+  "itemLevel": 31,
+  "description": "Required to craft the Bread Oven.",
+  "outputs": [
+    {
+      "entity": {
+        "id": "item_unlock_crafter_bread_oven_2",
+        "name": "Baking Tools",
+        "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/menu_tab_crafters/tab_group_craftertools/t_icon_baking_tools_02.webp",
+        "tier": 4,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier4.webp",
+        "itemLevel": 31,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "crafterunlocks"
+        ]
+      },
+      "count": 1
+    }
+  ],
+  "crafters": [
+    {
+      "id": "crafter_cooking_workbench_1",
+      "name": "Basic Cooking Workbench",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_kitchenworkbench_l02.webp",
+      "tier": 1,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+      "skills": [
+        {
+          "id": "skill_baking",
+          "name": "Baking",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        {
+          "id": "skill_cooking",
+          "name": "Cooking",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        {
+          "id": "skill_winery_and_brewing",
+          "name": "Winemaking and Brewing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "cooking"
+      ]
+    }
+  ],
+  "craftingStats": [
+    {
+      "level": 16,
+      "probability": 0.041624177,
+      "calculatedProbability": 0.0417,
+      "successMinXp": 769.2493286132812,
+      "successMaxXp": 840.1126098632812,
+      "successAvgXp": 784.0621948242188,
+      "failureMinXp": 16.753995895385742,
+      "failureMaxXp": 52.746009826660156,
+      "failureAvgXp": 30.71561050415039
+    },
+    {
+      "level": 17,
+      "probability": 0.07155478,
+      "calculatedProbability": 0.0766,
+      "successMinXp": 738.4678955078125,
+      "successMaxXp": 816.0052490234375,
+      "successAvgXp": 754.4302978515625,
+      "failureMinXp": 18.795066833496094,
+      "failureMaxXp": 52.77399444580078,
+      "failureAvgXp": 32.94020462036133
+    },
+    {
+      "level": 18,
+      "probability": 0.118286915,
+      "calculatedProbability": 0.1157,
+      "successMinXp": 707.7174072265625,
+      "successMaxXp": 790.421630859375,
+      "successAvgXp": 723.7978515625,
+      "failureMinXp": 20.98625373840332,
+      "failureMaxXp": 52.79573440551758,
+      "failureAvgXp": 35.572689056396484
+    },
+    {
+      "level": 19,
+      "probability": 0.18619075,
+      "calculatedProbability": 0.1841,
+      "successMinXp": 676.936767578125,
+      "successMaxXp": 766.601318359375,
+      "successAvgXp": 694.1239013671875,
+      "failureMinXp": 23.324735641479492,
+      "failureMaxXp": 52.792354583740234,
+      "failureAvgXp": 37.875614166259766
+    },
+    {
+      "level": 20,
+      "probability": 0.27710077,
+      "calculatedProbability": 0.2789,
+      "successMinXp": 646.1541137695312,
+      "successMaxXp": 737.6104125976562,
+      "successAvgXp": 665.1244506835938,
+      "failureMinXp": 25.80569076538086,
+      "failureMaxXp": 52.79894256591797,
+      "failureAvgXp": 40.10843276977539
+    },
+    {
+      "level": 21,
+      "probability": 0.38798854,
+      "calculatedProbability": 0.3904,
+      "successMinXp": 615.38671875,
+      "successMaxXp": 714.852294921875,
+      "successAvgXp": 636.1593627929688,
+      "failureMinXp": 28.42228126525879,
+      "failureMaxXp": 52.78879165649414,
+      "failureAvgXp": 41.700862884521484
+    },
+    {
+      "level": 22,
+      "probability": 0.51044977,
+      "calculatedProbability": 0.5082,
+      "successMinXp": 584.6184692382812,
+      "successMaxXp": 687.831787109375,
+      "successAvgXp": 607.0955200195312,
+      "failureMinXp": 31.165645599365234,
+      "failureMaxXp": 52.79169464111328,
+      "failureAvgXp": 43.2307014465332
+    },
+    {
+      "level": 23,
+      "probability": 0.6323619,
+      "calculatedProbability": 0.6284,
+      "successMinXp": 553.84814453125,
+      "successMaxXp": 659.9241943359375,
+      "successAvgXp": 578.421142578125,
+      "failureMinXp": 34.02497100830078,
+      "failureMaxXp": 52.795806884765625,
+      "failureAvgXp": 44.55931854248047
+    },
+    {
+      "level": 24,
+      "probability": 0.74170095,
+      "calculatedProbability": 0.739,
+      "successMinXp": 523.093505859375,
+      "successMaxXp": 627.6923217773438,
+      "successAvgXp": 550.26904296875,
+      "failureMinXp": 36.987579345703125,
+      "failureMaxXp": 52.797607421875,
+      "failureAvgXp": 45.82191848754883
+    },
+    {
+      "level": 25,
+      "probability": 0.8300842,
+      "calculatedProbability": 0.8289,
+      "successMinXp": 492.30950927734375,
+      "successMaxXp": 590.769287109375,
+      "successAvgXp": 522.0404052734375,
+      "failureMinXp": 40.03910827636719,
+      "failureMaxXp": 52.79638671875,
+      "failureAvgXp": 46.72536849975586
+    },
+    {
+      "level": 26,
+      "probability": 0.89007014,
+      "calculatedProbability": 0.8935,
+      "successMinXp": 461.5440673828125,
+      "successMaxXp": 553.8461303710938,
+      "successAvgXp": 493.9358215332031,
+      "failureMinXp": 43.1636848449707,
+      "failureMaxXp": 52.790611267089844,
+      "failureAvgXp": 47.538761138916016
+    },
+    {
+      "level": 27,
+      "probability": 0.9200302,
+      "calculatedProbability": 0.9192,
+      "successMinXp": 430.80059814453125,
+      "successMaxXp": 516.923095703125,
+      "successAvgXp": 466.1873779296875,
+      "failureMinXp": 46.344200134277344,
+      "failureMaxXp": 52.78778076171875,
+      "failureAvgXp": 48.57072448730469
+    },
+    {
+      "level": 28,
+      "probability": 0.9394794,
+      "calculatedProbability": 0.9376,
+      "successMinXp": 400.0107421875,
+      "successMaxXp": 480.0,
+      "successAvgXp": 437.5601806640625,
+      "failureMinXp": 49.56255340576172,
+      "failureMaxXp": 52.79195785522461,
+      "failureAvgXp": 50.1216926574707
+    },
+    {
+      "level": 29,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 47.999996185302734,
+      "successMaxXp": 57.599998474121094,
+      "successAvgXp": 52.81692123413086
+    },
+    {
+      "level": 30,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 45.5384635925293,
+      "successMaxXp": 54.64615249633789,
+      "successAvgXp": 50.325523376464844
+    },
+    {
+      "level": 31,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 43.076927185058594,
+      "successMaxXp": 51.69231033325195,
+      "successAvgXp": 47.84645462036133
+    },
+    {
+      "level": 32,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 40.615386962890625,
+      "successMaxXp": 48.738460540771484,
+      "successAvgXp": 45.31507873535156
+    },
+    {
+      "level": 33,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 38.15384292602539,
+      "successMaxXp": 45.78461456298828,
+      "successAvgXp": 42.702735900878906
+    },
+    {
+      "level": 34,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 35.69230651855469,
+      "successMaxXp": 42.83076477050781,
+      "successAvgXp": 40.10274887084961
+    },
+    {
+      "level": 35,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 33.230770111083984,
+      "successMaxXp": 39.876922607421875,
+      "successAvgXp": 37.45659255981445
+    },
+    {
+      "level": 36,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 30.769229888916016,
+      "successMaxXp": 36.923072814941406,
+      "successAvgXp": 34.78238296508789
+    },
+    {
+      "level": 37,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 28.307689666748047,
+      "successMaxXp": 33.96923065185547,
+      "successAvgXp": 32.11363983154297
+    },
+    {
+      "level": 38,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 25.846153259277344,
+      "successMaxXp": 31.015384674072266,
+      "successAvgXp": 29.395862579345703
+    },
+    {
+      "level": 39,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 23.384613037109375,
+      "successMaxXp": 28.061538696289062,
+      "successAvgXp": 26.6484375
+    },
+    {
+      "level": 40,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 20.923076629638672,
+      "successMaxXp": 25.107690811157227,
+      "successAvgXp": 23.872554779052734
+    }
+  ],
+  "skillRequired": {
+    "id": "skill_baking",
+    "name": "Baking",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 29,
+  "skillMinRolls": 3,
+  "skillMaxRolls": 6,
+  "skillSuccessPercentage": 0.5,
+  "skillCriticalPercentage": 0.8,
+  "craftingTool": "None",
+  "craftingToolLevel": "None",
+  "defaultUnlock": false,
+  "unlockAtSkillLevel": 15,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_material_wrought_iron_sheet",
+        "name": "Wrought Iron Sheet",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_sheet_wrought_iron.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "itemLevel": 21,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "blacksmithing"
+        ]
+      },
+      "count": 4
+    },
+    {
+      "entity": {
+        "id": "item_material_linen_cloth_fine",
+        "name": "Fine Linen Cloth",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_linen_cloth_fine.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "itemLevel": 22,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "tailoring"
+        ]
+      },
+      "count": 5
+    },
+    {
+      "entity": {
+        "id": "item_material_wood_planks_fine",
+        "name": "Fine Wooden Plank",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_wood_planks_fine.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "itemLevel": 20,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 2
+    },
+    {
+      "entity": {
+        "id": "item_raw_material_grain_wheat",
+        "name": "Wheat Grain",
+        "iconPath": "/images/{height}/environment/nature/resources/grasscloth/wheat/t_wheat_v2_icon.webp",
+        "tier": 4,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier4.webp",
+        "itemLevel": 32,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "grains"
+        ]
+      },
+      "count": 20
+    }
+  ],
+  "xpMultiplier": 3.2,
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [
+    {
+      "id": "crafter_cooking_workbench_1",
+      "name": "Basic Cooking Workbench",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_kitchenworkbench_l02.webp",
+      "tier": 1,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+      "skills": [
+        {
+          "id": "skill_baking",
+          "name": "Baking",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        {
+          "id": "skill_cooking",
+          "name": "Cooking",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        {
+          "id": "skill_winery_and_brewing",
+          "name": "Winemaking and Brewing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "cooking"
+      ]
+    }
+  ],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "baking",
+    "crafterunlocks"
+  ]
+}

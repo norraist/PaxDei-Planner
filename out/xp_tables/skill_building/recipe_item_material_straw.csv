@@ -1,0 +1,24 @@
+Recipe Key,recipe_item_material_straw
+Recipe Name,recipe_item_material_straw
+Skill,skill_building
+UnlockAtSkillLevel,3
+SkillDifficulty,7
+XPMultiplier,1.2
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+3,68%,177,192,207,35,142
+4,80%,163,178,192,36,149
+5,88%,150,163,176,37,148
+6,93%,137,149,161,38,141
+7,100%,20,22,24,,22
+8,100%,17,19,21,,19
+9,100%,15,16,17,,16
+10,100%,12,13,14,,13
+11,100%,9,10,11,,10
+12,100%,6,7,8,,7
+13,100%,4,4,4,,4
+14,100%,1,1,1,,1
+15,100%,0,0,0,,0
+16,100%,0,0,0,,0
+17+,100%,0,0,0,,0

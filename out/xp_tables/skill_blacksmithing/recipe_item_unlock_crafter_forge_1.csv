@@ -1,0 +1,22 @@
+Recipe Key,recipe_item_unlock_crafter_forge_1
+Recipe Name,recipe_item_unlock_crafter_forge_1
+Skill,skill_blacksmithing
+UnlockAtSkillLevel,1
+SkillDifficulty,3
+XPMultiplier,1.2
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+1,88%,150,163,176,35,148
+2,93%,137,149,161,36,141
+3,100%,17,18,19,,18
+4,100%,14,15,16,,15
+5,100%,11,12,13,,12
+6,100%,8,9,10,,9
+7,100%,6,6,6,,6
+8,100%,3,3,3,,3
+9,100%,0,0,0,,0
+10,100%,0,0,0,,0
+11,100%,0,0,0,,0
+12,100%,0,0,0,,0
+13+,100%,0,0,0,,0

@@ -1,0 +1,30 @@
+Recipe Key,recipe_wearable_metal_feet_pilgrim_boj2_t2_uncommon
+Recipe Name,recipe_wearable_metal_feet_pilgrim_boj2_t2_uncommon
+Skill,skill_armor_smithing
+UnlockAtSkillLevel,7
+SkillDifficulty,17
+XPMultiplier,2.6
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+7,5%,555,603,651,35,65
+8,9%,526,572,618,36,86
+9,16%,498,541,584,37,117
+10,26%,469,510,550,38,160
+11,39%,440,478,517,39,210
+12,54%,411,447,483,40,260
+13,68%,383,416,449,41,297
+14,80%,354,385,416,42,315
+15,88%,325,354,382,43,316
+16,93%,297,322,348,44,303
+17,100%,29,32,35,,32
+18,100%,27,29,31,,29
+19,100%,24,26,28,,26
+20,100%,21,23,25,,23
+21,100%,18,20,22,,20
+22,100%,16,17,18,,17
+23,100%,13,14,15,,14
+24,100%,10,11,12,,11
+25,100%,7,8,9,,8
+26,100%,5,5,5,,5
+27+,100%,2,2,2,,2

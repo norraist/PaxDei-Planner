@@ -1,0 +1,31 @@
+Recipe Key,recipe_wieldable_tool_mining_pickaxe_t1_rare
+Recipe Name,recipe_wieldable_tool_mining_pickaxe_t1_rare
+Skill,skill_weapon_smithing
+UnlockAtSkillLevel,0
+SkillDifficulty,11
+XPMultiplier,3.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,4%,673,732,791,35,63
+1,5%,640,696,752,36,71
+2,9%,607,660,713,37,96
+3,16%,574,624,674,38,132
+4,26%,541,588,635,39,181
+5,39%,508,552,596,40,240
+6,54%,475,516,557,41,297
+7,68%,442,480,518,42,341
+8,80%,408,444,480,43,363
+9,88%,375,408,441,44,364
+10,93%,342,372,402,45,349
+11,100%,24,26,28,,26
+12,100%,21,23,25,,23
+13,100%,18,20,22,,20
+14,100%,16,17,18,,17
+15,100%,13,14,15,,14
+16,100%,10,11,12,,11
+17,100%,7,8,9,,8
+18,100%,5,5,5,,5
+19,100%,2,2,2,,2
+20,100%,0,0,0,,0
+21+,100%,0,0,0,,0

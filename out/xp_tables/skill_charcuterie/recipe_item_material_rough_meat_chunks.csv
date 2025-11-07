@@ -1,0 +1,24 @@
+Recipe Key,recipe_item_material_rough_meat_chunks
+Recipe Name,recipe_item_material_rough_meat_chunks
+Skill,skill_charcuterie
+UnlockAtSkillLevel,0
+SkillDifficulty,4
+XPMultiplier,1.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,68%,147,160,173,35,120
+1,80%,136,148,160,36,125
+2,88%,125,136,147,37,124
+3,93%,114,124,134,38,118
+4,100%,17,19,21,,19
+5,100%,15,16,17,,16
+6,100%,12,13,14,,13
+7,100%,9,10,11,,10
+8,100%,6,7,8,,7
+9,100%,4,4,4,,4
+10,100%,1,1,1,,1
+11,100%,0,0,0,,0
+12,100%,0,0,0,,0
+13,100%,0,0,0,,0
+14+,100%,0,0,0,,0

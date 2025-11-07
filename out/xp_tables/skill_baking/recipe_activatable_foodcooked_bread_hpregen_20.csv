@@ -1,0 +1,30 @@
+Recipe Key,recipe_activatable_foodcooked_bread_hpregen_20
+Recipe Name,recipe_activatable_foodcooked_bread_hpregen_20
+Skill,skill_baking
+UnlockAtSkillLevel,7
+SkillDifficulty,17
+XPMultiplier,1.9
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+7,5%,406,441,476,35,57
+8,9%,385,418,451,36,72
+9,16%,364,395,427,37,94
+10,26%,343,372,402,38,124
+11,39%,322,350,378,39,160
+12,54%,301,327,353,40,195
+13,68%,280,304,328,41,220
+14,80%,259,281,304,42,233
+15,88%,238,258,279,43,232
+16,93%,217,236,254,44,222
+17,100%,29,32,35,,32
+18,100%,27,29,31,,29
+19,100%,24,26,28,,26
+20,100%,21,23,25,,23
+21,100%,18,20,22,,20
+22,100%,16,17,18,,17
+23,100%,13,14,15,,14
+24,100%,10,11,12,,11
+25,100%,7,8,9,,8
+26,100%,5,5,5,,5
+27+,100%,2,2,2,,2

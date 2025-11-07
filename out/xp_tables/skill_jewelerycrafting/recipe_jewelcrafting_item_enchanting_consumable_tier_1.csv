@@ -1,0 +1,25 @@
+Recipe Key,recipe_jewelcrafting_item_enchanting_consumable_tier_1
+Recipe Name,recipe_jewelcrafting_item_enchanting_consumable_tier_1
+Skill,skill_jewelerycrafting
+UnlockAtSkillLevel,0
+SkillDifficulty,5
+XPMultiplier,1.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,54%,158,172,186,35,109
+1,68%,147,160,173,36,121
+2,80%,136,148,160,37,126
+3,88%,125,136,147,38,124
+4,93%,114,124,134,39,118
+5,100%,18,20,22,,20
+6,100%,16,17,18,,17
+7,100%,13,14,15,,14
+8,100%,10,11,12,,11
+9,100%,7,8,9,,8
+10,100%,5,5,5,,5
+11,100%,2,2,2,,2
+12,100%,0,0,0,,0
+13,100%,0,0,0,,0
+14,100%,0,0,0,,0
+15+,100%,0,0,0,,0

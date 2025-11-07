@@ -1,0 +1,25 @@
+Recipe Key,recipe_item_prop_simple_brazier
+Recipe Name,recipe_item_prop_simple_brazier
+Skill,skill_building
+UnlockAtSkillLevel,10
+SkillDifficulty,15
+XPMultiplier,1.8
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+10,54%,285,310,334,35,183
+11,68%,265,288,311,36,208
+12,80%,245,266,288,37,220
+13,88%,225,245,264,38,220
+14,93%,205,223,241,39,210
+15,100%,28,30,32,,30
+16,100%,25,27,29,,27
+17,100%,22,24,26,,24
+18,100%,19,21,23,,21
+19,100%,17,18,19,,18
+20,100%,14,15,16,,15
+21,100%,11,12,13,,12
+22,100%,8,9,10,,9
+23,100%,6,6,6,,6
+24,100%,3,3,3,,3
+25+,100%,0,0,0,,0

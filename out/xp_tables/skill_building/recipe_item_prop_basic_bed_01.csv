@@ -1,0 +1,24 @@
+Recipe Key,recipe_item_prop_basic_bed_01
+Recipe Name,recipe_item_prop_basic_bed_01
+Skill,skill_building
+UnlockAtSkillLevel,0
+SkillDifficulty,4
+XPMultiplier,1.2
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,68%,177,192,207,35,142
+1,80%,163,178,192,36,149
+2,88%,150,163,176,37,148
+3,93%,137,149,161,38,141
+4,100%,17,19,21,,19
+5,100%,15,16,17,,16
+6,100%,12,13,14,,13
+7,100%,9,10,11,,10
+8,100%,6,7,8,,7
+9,100%,4,4,4,,4
+10,100%,1,1,1,,1
+11,100%,0,0,0,,0
+12,100%,0,0,0,,0
+13,100%,0,0,0,,0
+14+,100%,0,0,0,,0

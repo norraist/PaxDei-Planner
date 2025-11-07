@@ -1,0 +1,26 @@
+Recipe Key,recipe_item_prop_chandelier_metal_ornamental_tall
+Recipe Name,recipe_item_prop_chandelier_metal_ornamental_tall
+Skill,skill_building
+UnlockAtSkillLevel,21
+SkillDifficulty,27
+XPMultiplier,2.9
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+21,39%,486,528,570,38,229
+22,54%,454,493,532,39,284
+23,68%,422,458,495,40,325
+24,80%,390,423,457,41,346
+25,88%,358,389,420,42,346
+26,93%,325,354,382,43,332
+27,100%,39,42,45,,42
+28,100%,36,39,42,,39
+29,100%,33,36,39,,36
+30,100%,30,33,36,,33
+31,100%,28,30,32,,30
+32,100%,25,27,29,,27
+33,100%,22,24,26,,24
+34,100%,19,21,23,,21
+35,100%,17,18,19,,18
+36,100%,14,15,16,,15
+37+,100%,11,12,13,,12

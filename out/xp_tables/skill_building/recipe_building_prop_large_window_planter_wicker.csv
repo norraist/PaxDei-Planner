@@ -1,0 +1,27 @@
+Recipe Key,recipe_building_prop_large_window_planter_wicker
+Recipe Name,recipe_building_prop_large_window_planter_wicker
+Skill,skill_building
+UnlockAtSkillLevel,0
+SkillDifficulty,7
+XPMultiplier,0.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,26%,0,0,0,35,26
+1,39%,0,0,0,36,22
+2,54%,0,0,0,37,17
+3,68%,0,0,0,38,12
+4,80%,0,0,0,39,8
+5,88%,0,0,0,40,5
+6,93%,0,0,0,41,3
+7,100%,20,22,24,,22
+8,100%,17,19,21,,19
+9,100%,15,16,17,,16
+10,100%,12,13,14,,13
+11,100%,9,10,11,,10
+12,100%,6,7,8,,7
+13,100%,4,4,4,,4
+14,100%,1,1,1,,1
+15,100%,0,0,0,,0
+16,100%,0,0,0,,0
+17+,100%,0,0,0,,0

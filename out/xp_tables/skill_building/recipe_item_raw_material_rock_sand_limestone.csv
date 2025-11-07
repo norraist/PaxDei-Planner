@@ -1,0 +1,31 @@
+Recipe Key,recipe_item_raw_material_rock_sand_limestone
+Recipe Name,recipe_item_raw_material_rock_sand_limestone
+Skill,skill_building
+UnlockAtSkillLevel,9
+SkillDifficulty,20
+XPMultiplier,1.9
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+9,4%,427,464,501,35,52
+10,5%,406,441,476,36,58
+11,9%,385,418,451,37,73
+12,16%,364,395,427,38,95
+13,26%,343,372,402,39,125
+14,39%,322,350,378,40,161
+15,54%,301,327,353,41,195
+16,68%,280,304,328,42,221
+17,80%,259,281,304,43,233
+18,88%,238,258,279,44,232
+19,93%,217,236,254,45,222
+20,100%,32,35,38,,35
+21,100%,29,32,35,,32
+22,100%,27,29,31,,29
+23,100%,24,26,28,,26
+24,100%,21,23,25,,23
+25,100%,18,20,22,,20
+26,100%,16,17,18,,17
+27,100%,13,14,15,,14
+28,100%,10,11,12,,11
+29,100%,7,8,9,,8
+30+,100%,5,5,5,,5

@@ -1,0 +1,27 @@
+Recipe Key,recipe_item_prop_grapevinepatch_arch
+Recipe Name,recipe_item_prop_grapevinepatch_arch
+Skill,skill_building
+UnlockAtSkillLevel,23
+SkillDifficulty,30
+XPMultiplier,3.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+23,26%,535,582,629,38,179
+24,39%,502,546,590,39,237
+25,54%,469,510,551,40,293
+26,68%,436,474,512,41,336
+27,80%,403,438,473,42,358
+28,88%,370,402,434,43,358
+29,93%,337,366,395,44,343
+30,100%,41,45,49,,45
+31,100%,39,42,45,,42
+32,100%,36,39,42,,39
+33,100%,33,36,39,,36
+34,100%,30,33,36,,33
+35,100%,28,30,32,,30
+36,100%,25,27,29,,27
+37,100%,22,24,26,,24
+38,100%,19,21,23,,21
+39,100%,17,18,19,,18
+40+,100%,14,15,16,,15

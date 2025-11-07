@@ -1,0 +1,31 @@
+Recipe Key,recipe_wieldable_tool_skinning_knife_t2_uncommon
+Recipe Name,recipe_wieldable_tool_skinning_knife_t2_uncommon
+Skill,skill_weapon_smithing
+UnlockAtSkillLevel,9
+SkillDifficulty,20
+XPMultiplier,2.8
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+9,4%,629,683,738,35,61
+10,5%,598,650,702,36,69
+11,9%,567,616,665,37,91
+12,16%,536,582,629,38,125
+13,26%,505,549,593,39,171
+14,39%,474,515,556,40,225
+15,54%,443,482,520,41,279
+16,68%,412,448,484,42,319
+17,80%,381,414,448,43,339
+18,88%,350,381,411,44,340
+19,93%,319,347,375,45,326
+20,100%,32,35,38,,35
+21,100%,29,32,35,,32
+22,100%,27,29,31,,29
+23,100%,24,26,28,,26
+24,100%,21,23,25,,23
+25,100%,18,20,22,,20
+26,100%,16,17,18,,17
+27,100%,13,14,15,,14
+28,100%,10,11,12,,11
+29,100%,7,8,9,,8
+30+,100%,5,5,5,,5

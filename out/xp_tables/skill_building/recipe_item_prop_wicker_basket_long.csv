@@ -1,0 +1,27 @@
+Recipe Key,recipe_item_prop_wicker_basket_long
+Recipe Name,recipe_item_prop_wicker_basket_long
+Skill,skill_building
+UnlockAtSkillLevel,0
+SkillDifficulty,7
+XPMultiplier,1.2
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,26%,216,235,254,35,87
+1,39%,203,221,238,36,108
+2,54%,190,206,223,37,128
+3,68%,177,192,207,38,143
+4,80%,163,178,192,39,150
+5,88%,150,163,176,40,148
+6,93%,137,149,161,41,141
+7,100%,20,22,24,,22
+8,100%,17,19,21,,19
+9,100%,15,16,17,,16
+10,100%,12,13,14,,13
+11,100%,9,10,11,,10
+12,100%,6,7,8,,7
+13,100%,4,4,4,,4
+14,100%,1,1,1,,1
+15,100%,0,0,0,,0
+16,100%,0,0,0,,0
+17+,100%,0,0,0,,0

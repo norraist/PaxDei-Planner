@@ -1,0 +1,30 @@
+Recipe Key,recipe_wearable_metal_hands_pilgrim_0_t2_common
+Recipe Name,recipe_wearable_metal_hands_pilgrim_0_t2_common
+Skill,skill_armor_smithing
+UnlockAtSkillLevel,8
+SkillDifficulty,18
+XPMultiplier,1.9
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+8,5%,406,441,476,35,57
+9,9%,385,418,451,36,72
+10,16%,364,395,427,37,94
+11,26%,343,372,402,38,124
+12,39%,322,350,378,39,160
+13,54%,301,327,353,40,195
+14,68%,280,304,328,41,220
+15,80%,259,281,304,42,233
+16,88%,238,258,279,43,232
+17,93%,217,236,254,44,222
+18,100%,30,33,36,,33
+19,100%,28,30,32,,30
+20,100%,25,27,29,,27
+21,100%,22,24,26,,24
+22,100%,19,21,23,,21
+23,100%,17,18,19,,18
+24,100%,14,15,16,,15
+25,100%,11,12,13,,12
+26,100%,8,9,10,,9
+27,100%,6,6,6,,6
+28+,100%,3,3,3,,3

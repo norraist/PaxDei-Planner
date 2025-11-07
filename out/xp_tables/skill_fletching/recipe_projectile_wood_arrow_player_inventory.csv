@@ -1,0 +1,21 @@
+Recipe Key,recipe_projectile_wood_arrow_player_inventory
+Recipe Name,recipe_projectile_wood_arrow_player_inventory
+Skill,skill_fletching
+UnlockAtSkillLevel,1
+SkillDifficulty,2
+XPMultiplier,1.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+1,93%,114,124,134,35,118
+2,100%,16,17,18,,17
+3,100%,13,14,15,,14
+4,100%,10,11,12,,11
+5,100%,7,8,9,,8
+6,100%,5,5,5,,5
+7,100%,2,2,2,,2
+8,100%,0,0,0,,0
+9,100%,0,0,0,,0
+10,100%,0,0,0,,0
+11,100%,0,0,0,,0
+12+,100%,0,0,0,,0

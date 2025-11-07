@@ -1,0 +1,31 @@
+Recipe Key,recipe_wearable_leather_head_trickster_sg_t2_uncommon
+Recipe Name,recipe_wearable_leather_head_trickster_sg_t2_uncommon
+Skill,skill_leatherworking
+UnlockAtSkillLevel,8
+SkillDifficulty,19
+XPMultiplier,2.7
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+8,4%,606,659,712,35,60
+9,5%,576,626,677,36,68
+10,9%,546,594,642,37,89
+11,16%,517,562,607,38,122
+12,26%,487,529,572,39,166
+13,39%,457,497,537,40,218
+14,54%,427,464,502,41,269
+15,68%,397,432,467,42,308
+16,80%,368,400,432,43,327
+17,88%,338,367,397,44,328
+18,93%,308,335,362,45,314
+19,100%,31,34,37,,34
+20,100%,29,31,33,,31
+21,100%,26,28,30,,28
+22,100%,23,25,27,,25
+23,100%,20,22,24,,22
+24,100%,17,19,21,,19
+25,100%,15,16,17,,16
+26,100%,12,13,14,,13
+27,100%,9,10,11,,10
+28,100%,6,7,8,,7
+29+,100%,4,4,4,,4

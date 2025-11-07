@@ -1,0 +1,30 @@
+Recipe Key,recipe_wearable_cloth_hands_pilgrim_0_t2_common
+Recipe Name,recipe_wearable_cloth_hands_pilgrim_0_t2_common
+Skill,skill_tailoring
+UnlockAtSkillLevel,8
+SkillDifficulty,18
+XPMultiplier,2.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+8,5%,427,464,501,35,58
+9,9%,405,440,475,36,74
+10,16%,383,416,449,37,98
+11,26%,361,392,423,38,129
+12,39%,339,368,397,39,167
+13,54%,316,344,372,40,204
+14,68%,294,320,346,41,231
+15,80%,272,296,320,42,245
+16,88%,250,272,294,43,244
+17,93%,228,248,268,44,234
+18,100%,30,33,36,,33
+19,100%,28,30,32,,30
+20,100%,25,27,29,,27
+21,100%,22,24,26,,24
+22,100%,19,21,23,,21
+23,100%,17,18,19,,18
+24,100%,14,15,16,,15
+25,100%,11,12,13,,12
+26,100%,8,9,10,,9
+27,100%,6,6,6,,6
+28+,100%,3,3,3,,3

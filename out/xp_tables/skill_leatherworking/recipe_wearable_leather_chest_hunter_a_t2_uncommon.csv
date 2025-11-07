@@ -1,0 +1,28 @@
+Recipe Key,recipe_wearable_leather_chest_hunter_a_t2_uncommon
+Recipe Name,recipe_wearable_leather_chest_hunter_a_t2_uncommon
+Skill,skill_leatherworking
+UnlockAtSkillLevel,7
+SkillDifficulty,15
+XPMultiplier,2.3
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+7,16%,440,478,517,35,106
+8,26%,415,451,487,36,143
+9,39%,389,423,457,37,188
+10,54%,364,396,427,38,231
+11,68%,339,368,397,39,263
+12,80%,313,340,368,40,280
+13,88%,288,313,338,41,280
+14,93%,262,285,308,42,268
+15,100%,28,30,32,,30
+16,100%,25,27,29,,27
+17,100%,22,24,26,,24
+18,100%,19,21,23,,21
+19,100%,17,18,19,,18
+20,100%,14,15,16,,15
+21,100%,11,12,13,,12
+22,100%,8,9,10,,9
+23,100%,6,6,6,,6
+24,100%,3,3,3,,3
+25+,100%,0,0,0,,0

@@ -1,0 +1,26 @@
+Recipe Key,recipe_item_prop_stone_planter_rectangular
+Recipe Name,recipe_item_prop_stone_planter_rectangular
+Skill,skill_building
+UnlockAtSkillLevel,0
+SkillDifficulty,6
+XPMultiplier,1.2
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,39%,203,221,238,35,107
+1,54%,190,206,223,36,128
+2,68%,177,192,207,37,143
+3,80%,163,178,192,38,149
+4,88%,150,163,176,39,148
+5,93%,137,149,161,40,141
+6,100%,19,21,23,,21
+7,100%,17,18,19,,18
+8,100%,14,15,16,,15
+9,100%,11,12,13,,12
+10,100%,8,9,10,,9
+11,100%,6,6,6,,6
+12,100%,3,3,3,,3
+13,100%,0,0,0,,0
+14,100%,0,0,0,,0
+15,100%,0,0,0,,0
+16+,100%,0,0,0,,0

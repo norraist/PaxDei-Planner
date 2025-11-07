@@ -1,0 +1,25 @@
+Recipe Key,recipe_wearable_cloth_head_rp_hat_06_bright
+Recipe Name,recipe_wearable_cloth_head_rp_hat_06_bright
+Skill,skill_tailoring
+UnlockAtSkillLevel,15
+SkillDifficulty,20
+XPMultiplier,2.2
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+15,54%,348,378,409,35,220
+16,68%,324,352,380,36,252
+17,80%,300,326,352,37,267
+18,88%,275,299,323,38,267
+19,93%,251,273,295,39,256
+20,100%,32,35,38,,35
+21,100%,29,32,35,,32
+22,100%,27,29,31,,29
+23,100%,24,26,28,,26
+24,100%,21,23,25,,23
+25,100%,18,20,22,,20
+26,100%,16,17,18,,17
+27,100%,13,14,15,,14
+28,100%,10,11,12,,11
+29,100%,7,8,9,,8
+30+,100%,5,5,5,,5

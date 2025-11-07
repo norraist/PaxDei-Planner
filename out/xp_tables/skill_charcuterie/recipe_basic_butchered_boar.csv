@@ -1,0 +1,28 @@
+Recipe Key,recipe_basic_butchered_boar
+Recipe Name,recipe_basic_butchered_boar
+Skill,skill_charcuterie
+UnlockAtSkillLevel,6
+SkillDifficulty,14
+XPMultiplier,1.5
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+6,16%,287,312,337,35,79
+7,26%,270,294,318,36,103
+8,39%,254,276,298,37,130
+9,54%,237,258,279,38,157
+10,68%,221,240,259,39,176
+11,80%,204,222,240,40,185
+12,88%,188,204,220,41,184
+13,93%,171,186,201,42,176
+14,100%,27,29,31,,29
+15,100%,24,26,28,,26
+16,100%,21,23,25,,23
+17,100%,18,20,22,,20
+18,100%,16,17,18,,17
+19,100%,13,14,15,,14
+20,100%,10,11,12,,11
+21,100%,7,8,9,,8
+22,100%,5,5,5,,5
+23,100%,2,2,2,,2
+24+,100%,0,0,0,,0

@@ -1,0 +1,30 @@
+Recipe Key,recipe_wearable_cloth_feet_shepherd_rd_t2_uncommon
+Recipe Name,recipe_wearable_cloth_feet_shepherd_rd_t2_uncommon
+Skill,skill_tailoring
+UnlockAtSkillLevel,8
+SkillDifficulty,18
+XPMultiplier,2.6
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+8,5%,555,603,651,35,65
+9,9%,526,572,618,36,86
+10,16%,498,541,584,37,117
+11,26%,469,510,550,38,160
+12,39%,440,478,517,39,210
+13,54%,411,447,483,40,260
+14,68%,383,416,449,41,297
+15,80%,354,385,416,42,315
+16,88%,325,354,382,43,316
+17,93%,297,322,348,44,303
+18,100%,30,33,36,,33
+19,100%,28,30,32,,30
+20,100%,25,27,29,,27
+21,100%,22,24,26,,24
+22,100%,19,21,23,,21
+23,100%,17,18,19,,18
+24,100%,14,15,16,,15
+25,100%,11,12,13,,12
+26,100%,8,9,10,,9
+27,100%,6,6,6,,6
+28+,100%,3,3,3,,3

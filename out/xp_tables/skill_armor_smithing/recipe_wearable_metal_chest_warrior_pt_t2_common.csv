@@ -1,0 +1,26 @@
+Recipe Key,recipe_wearable_metal_chest_warrior_pt_t2_common
+Recipe Name,recipe_wearable_metal_chest_warrior_pt_t2_common
+Skill,skill_armor_smithing
+UnlockAtSkillLevel,6
+SkillDifficulty,12
+XPMultiplier,1.6
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+6,39%,271,294,318,35,136
+7,54%,253,275,297,36,165
+8,68%,236,256,276,37,186
+9,80%,218,237,256,38,197
+10,88%,200,218,235,39,196
+11,93%,183,198,214,40,187
+12,100%,25,27,29,,27
+13,100%,22,24,26,,24
+14,100%,19,21,23,,21
+15,100%,17,18,19,,18
+16,100%,14,15,16,,15
+17,100%,11,12,13,,12
+18,100%,8,9,10,,9
+19,100%,6,6,6,,6
+20,100%,3,3,3,,3
+21,100%,0,0,0,,0
+22+,100%,0,0,0,,0

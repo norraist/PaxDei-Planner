@@ -1,0 +1,26 @@
+Recipe Key,recipe_basic_butchered_deer
+Recipe Name,recipe_basic_butchered_deer
+Skill,skill_charcuterie
+UnlockAtSkillLevel,6
+SkillDifficulty,12
+XPMultiplier,1.4
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+6,39%,237,258,278,35,122
+7,54%,222,241,260,36,146
+8,68%,206,224,242,37,165
+9,80%,191,207,224,38,173
+10,88%,175,190,206,39,172
+11,93%,160,174,187,40,164
+12,100%,25,27,29,,27
+13,100%,22,24,26,,24
+14,100%,19,21,23,,21
+15,100%,17,18,19,,18
+16,100%,14,15,16,,15
+17,100%,11,12,13,,12
+18,100%,8,9,10,,9
+19,100%,6,6,6,,6
+20,100%,3,3,3,,3
+21,100%,0,0,0,,0
+22+,100%,0,0,0,,0

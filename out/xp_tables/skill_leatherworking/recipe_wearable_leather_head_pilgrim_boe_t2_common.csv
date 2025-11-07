@@ -1,0 +1,28 @@
+Recipe Key,recipe_wearable_leather_head_pilgrim_boe_t2_common
+Recipe Name,recipe_wearable_leather_head_pilgrim_boe_t2_common
+Skill,skill_leatherworking
+UnlockAtSkillLevel,7
+SkillDifficulty,15
+XPMultiplier,1.8
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+7,16%,344,374,404,35,89
+8,26%,325,353,381,36,118
+9,39%,305,331,358,37,152
+10,54%,285,310,334,38,184
+11,68%,265,288,311,39,209
+12,80%,245,266,288,40,221
+13,88%,225,245,264,41,220
+14,93%,205,223,241,42,210
+15,100%,28,30,32,,30
+16,100%,25,27,29,,27
+17,100%,22,24,26,,24
+18,100%,19,21,23,,21
+19,100%,17,18,19,,18
+20,100%,14,15,16,,15
+21,100%,11,12,13,,12
+22,100%,8,9,10,,9
+23,100%,6,6,6,,6
+24,100%,3,3,3,,3
+25+,100%,0,0,0,,0

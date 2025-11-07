@@ -1,0 +1,29 @@
+Recipe Key,recipe_item_prop_stone_planter_square
+Recipe Name,recipe_item_prop_stone_planter_square
+Skill,skill_building
+UnlockAtSkillLevel,0
+SkillDifficulty,9
+XPMultiplier,1.3
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,9%,263,286,309,35,59
+1,16%,249,270,292,36,73
+2,26%,234,255,275,37,93
+3,39%,220,239,258,38,116
+4,54%,206,224,241,39,139
+5,68%,191,208,225,40,155
+6,80%,177,192,208,41,162
+7,88%,163,177,191,42,160
+8,93%,148,161,174,43,153
+9,100%,22,24,26,,24
+10,100%,19,21,23,,21
+11,100%,17,18,19,,18
+12,100%,14,15,16,,15
+13,100%,11,12,13,,12
+14,100%,8,9,10,,9
+15,100%,6,6,6,,6
+16,100%,3,3,3,,3
+17,100%,0,0,0,,0
+18,100%,0,0,0,,0
+19+,100%,0,0,0,,0

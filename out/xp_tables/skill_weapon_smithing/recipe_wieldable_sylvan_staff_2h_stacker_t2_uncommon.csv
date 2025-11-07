@@ -1,0 +1,31 @@
+Recipe Key,recipe_wieldable_sylvan_staff_2h_stacker_t2_uncommon
+Recipe Name,recipe_wieldable_sylvan_staff_2h_stacker_t2_uncommon
+Skill,skill_weapon_smithing
+UnlockAtSkillLevel,9
+SkillDifficulty,20
+XPMultiplier,2.9
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+9,4%,651,708,764,35,62
+10,5%,619,673,727,36,70
+11,9%,587,638,689,37,93
+12,16%,555,603,651,38,128
+13,26%,523,568,614,39,176
+14,39%,491,534,576,40,232
+15,54%,459,499,539,41,288
+16,68%,427,464,501,42,330
+17,80%,395,429,464,43,351
+18,88%,363,394,426,44,352
+19,93%,331,360,388,45,337
+20,100%,32,35,38,,35
+21,100%,29,32,35,,32
+22,100%,27,29,31,,29
+23,100%,24,26,28,,26
+24,100%,21,23,25,,23
+25,100%,18,20,22,,20
+26,100%,16,17,18,,17
+27,100%,13,14,15,,14
+28,100%,10,11,12,,11
+29,100%,7,8,9,,8
+30+,100%,5,5,5,,5

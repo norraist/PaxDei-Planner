@@ -1,0 +1,31 @@
+Recipe Key,recipe_activatable_potion_potion_of_protection_tiny_11
+Recipe Name,recipe_activatable_potion_potion_of_protection_tiny_11
+Skill,skill_alchemy
+UnlockAtSkillLevel,0
+SkillDifficulty,11
+XPMultiplier,1.5
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,4%,337,366,395,35,48
+1,5%,320,348,376,36,53
+2,9%,304,330,356,37,65
+3,16%,287,312,337,38,82
+4,26%,270,294,318,39,105
+5,39%,254,276,298,40,132
+6,54%,237,258,279,41,158
+7,68%,221,240,259,42,177
+8,80%,204,222,240,43,186
+9,88%,188,204,220,44,185
+10,93%,171,186,201,45,176
+11,100%,24,26,28,,26
+12,100%,21,23,25,,23
+13,100%,18,20,22,,20
+14,100%,16,17,18,,17
+15,100%,13,14,15,,14
+16,100%,10,11,12,,11
+17,100%,7,8,9,,8
+18,100%,5,5,5,,5
+19,100%,2,2,2,,2
+20,100%,0,0,0,,0
+21+,100%,0,0,0,,0

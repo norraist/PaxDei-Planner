@@ -1,0 +1,25 @@
+Recipe Key,recipe_wearable_back_cloth_rp_capehood_01_plain
+Recipe Name,recipe_wearable_back_cloth_rp_capehood_01_plain
+Skill,skill_tailoring
+UnlockAtSkillLevel,0
+SkillDifficulty,5
+XPMultiplier,1.2
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,54%,190,206,223,35,127
+1,68%,177,192,207,36,142
+2,80%,163,178,192,37,149
+3,88%,150,163,176,38,148
+4,93%,137,149,161,39,141
+5,100%,18,20,22,,20
+6,100%,16,17,18,,17
+7,100%,13,14,15,,14
+8,100%,10,11,12,,11
+9,100%,7,8,9,,8
+10,100%,5,5,5,,5
+11,100%,2,2,2,,2
+12,100%,0,0,0,,0
+13,100%,0,0,0,,0
+14,100%,0,0,0,,0
+15+,100%,0,0,0,,0

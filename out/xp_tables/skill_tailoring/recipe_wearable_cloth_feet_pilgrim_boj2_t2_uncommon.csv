@@ -1,0 +1,30 @@
+Recipe Key,recipe_wearable_cloth_feet_pilgrim_boj2_t2_uncommon
+Recipe Name,recipe_wearable_cloth_feet_pilgrim_boj2_t2_uncommon
+Skill,skill_tailoring
+UnlockAtSkillLevel,7
+SkillDifficulty,17
+XPMultiplier,2.5
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+7,5%,534,580,626,35,64
+8,9%,506,550,594,36,84
+9,16%,478,520,562,37,114
+10,26%,451,490,529,38,155
+11,39%,423,460,497,39,203
+12,54%,396,430,464,40,250
+13,68%,368,400,432,41,286
+14,80%,340,370,400,42,304
+15,88%,313,340,367,43,304
+16,93%,285,310,335,44,291
+17,100%,29,32,35,,32
+18,100%,27,29,31,,29
+19,100%,24,26,28,,26
+20,100%,21,23,25,,23
+21,100%,18,20,22,,20
+22,100%,16,17,18,,17
+23,100%,13,14,15,,14
+24,100%,10,11,12,,11
+25,100%,7,8,9,,8
+26,100%,5,5,5,,5
+27+,100%,2,2,2,,2

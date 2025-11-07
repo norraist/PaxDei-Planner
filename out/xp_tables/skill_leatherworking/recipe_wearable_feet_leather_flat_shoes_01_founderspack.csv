@@ -1,0 +1,22 @@
+Recipe Key,recipe_wearable_feet_leather_flat_shoes_01_founderspack
+Recipe Name,recipe_wearable_feet_leather_flat_shoes_01_founderspack
+Skill,skill_leatherworking
+UnlockAtSkillLevel,0
+SkillDifficulty,2
+XPMultiplier,2.53
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,88%,317,344,372,35,306
+1,93%,289,314,339,36,294
+2,100%,16,17,18,,17
+3,100%,13,14,15,,14
+4,100%,10,11,12,,11
+5,100%,7,8,9,,8
+6,100%,5,5,5,,5
+7,100%,2,2,2,,2
+8,100%,0,0,0,,0
+9,100%,0,0,0,,0
+10,100%,0,0,0,,0
+11,100%,0,0,0,,0
+12+,100%,0,0,0,,0

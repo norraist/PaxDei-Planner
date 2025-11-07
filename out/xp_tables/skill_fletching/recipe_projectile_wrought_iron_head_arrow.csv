@@ -1,0 +1,28 @@
+Recipe Key,recipe_projectile_wrought_iron_head_arrow
+Recipe Name,recipe_projectile_wrought_iron_head_arrow
+Skill,skill_fletching
+UnlockAtSkillLevel,6
+SkillDifficulty,14
+XPMultiplier,1.6
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+6,16%,306,333,359,35,83
+7,26%,289,314,339,36,108
+8,39%,271,294,318,37,137
+9,54%,253,275,297,38,166
+10,68%,236,256,276,39,187
+11,80%,218,237,256,40,197
+12,88%,200,218,235,41,196
+13,93%,183,198,214,42,187
+14,100%,27,29,31,,29
+15,100%,24,26,28,,26
+16,100%,21,23,25,,23
+17,100%,18,20,22,,20
+18,100%,16,17,18,,17
+19,100%,13,14,15,,14
+20,100%,10,11,12,,11
+21,100%,7,8,9,,8
+22,100%,5,5,5,,5
+23,100%,2,2,2,,2
+24+,100%,0,0,0,,0

@@ -1,0 +1,28 @@
+Recipe Key,recipe_wearable_jewellery_neck_common_1
+Recipe Name,recipe_wearable_jewellery_neck_common_1
+Skill,skill_jewelerycrafting
+UnlockAtSkillLevel,0
+SkillDifficulty,8
+XPMultiplier,2.46
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,16%,471,512,553,35,111
+1,26%,444,482,521,36,151
+2,39%,416,453,489,37,199
+3,54%,389,423,457,38,246
+4,68%,362,394,425,39,281
+5,80%,335,364,393,40,298
+6,88%,308,335,361,41,299
+7,93%,281,305,329,42,287
+8,100%,21,23,25,,23
+9,100%,18,20,22,,20
+10,100%,16,17,18,,17
+11,100%,13,14,15,,14
+12,100%,10,11,12,,11
+13,100%,7,8,9,,8
+14,100%,5,5,5,,5
+15,100%,2,2,2,,2
+16,100%,0,0,0,,0
+17,100%,0,0,0,,0
+18+,100%,0,0,0,,0

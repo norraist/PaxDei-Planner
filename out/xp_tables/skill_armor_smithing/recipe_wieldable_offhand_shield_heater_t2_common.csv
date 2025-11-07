@@ -1,0 +1,27 @@
+Recipe Key,recipe_wieldable_offhand_shield_heater_t2_common
+Recipe Name,recipe_wieldable_offhand_shield_heater_t2_common
+Skill,skill_armor_smithing
+UnlockAtSkillLevel,6
+SkillDifficulty,13
+XPMultiplier,1.7
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+6,26%,307,333,360,35,112
+7,39%,288,313,338,36,144
+8,54%,269,292,316,37,175
+9,68%,250,272,294,38,198
+10,80%,231,252,272,39,209
+11,88%,213,231,250,40,208
+12,93%,194,211,228,41,199
+13,100%,26,28,30,,28
+14,100%,23,25,27,,25
+15,100%,20,22,24,,22
+16,100%,17,19,21,,19
+17,100%,15,16,17,,16
+18,100%,12,13,14,,13
+19,100%,9,10,11,,10
+20,100%,6,7,8,,7
+21,100%,4,4,4,,4
+22,100%,1,1,1,,1
+23+,100%,0,0,0,,0

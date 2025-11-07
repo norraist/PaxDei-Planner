@@ -1,0 +1,29 @@
+Recipe Key,recipe_standard-cut_deer
+Recipe Name,recipe_standard-cut_deer
+Skill,skill_charcuterie
+UnlockAtSkillLevel,7
+SkillDifficulty,16
+XPMultiplier,1.7
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+7,9%,344,374,404,35,67
+8,16%,325,354,382,36,87
+9,26%,307,333,360,37,114
+10,39%,288,313,338,38,145
+11,54%,269,292,316,39,176
+12,68%,250,272,294,40,198
+13,80%,231,252,272,41,209
+14,88%,213,231,250,42,208
+15,93%,194,211,228,43,199
+16,100%,29,31,33,,31
+17,100%,26,28,30,,28
+18,100%,23,25,27,,25
+19,100%,20,22,24,,22
+20,100%,17,19,21,,19
+21,100%,15,16,17,,16
+22,100%,12,13,14,,13
+23,100%,9,10,11,,10
+24,100%,6,7,8,,7
+25,100%,4,4,4,,4
+26+,100%,1,1,1,,1

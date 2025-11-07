@@ -1,0 +1,25 @@
+Recipe Key,recipe_wearable_hat_jewellery_rp_diadem_01_bronze
+Recipe Name,recipe_wearable_hat_jewellery_rp_diadem_01_bronze
+Skill,skill_jewelerycrafting
+UnlockAtSkillLevel,10
+SkillDifficulty,15
+XPMultiplier,1.7
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+10,54%,269,292,316,35,174
+11,68%,250,272,294,36,197
+12,80%,231,252,272,37,208
+13,88%,213,231,250,38,208
+14,93%,194,211,228,39,199
+15,100%,28,30,32,,30
+16,100%,25,27,29,,27
+17,100%,22,24,26,,24
+18,100%,19,21,23,,21
+19,100%,17,18,19,,18
+20,100%,14,15,16,,15
+21,100%,11,12,13,,12
+22,100%,8,9,10,,9
+23,100%,6,6,6,,6
+24,100%,3,3,3,,3
+25+,100%,0,0,0,,0

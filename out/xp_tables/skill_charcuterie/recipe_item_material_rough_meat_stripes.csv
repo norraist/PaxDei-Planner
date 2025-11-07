@@ -1,0 +1,23 @@
+Recipe Key,recipe_item_material_rough_meat_stripes
+Recipe Name,recipe_item_material_rough_meat_stripes
+Skill,skill_charcuterie
+UnlockAtSkillLevel,3
+SkillDifficulty,6
+XPMultiplier,1.1
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+3,80%,150,163,176,35,137
+4,88%,138,150,162,36,136
+5,93%,125,136,147,37,129
+6,100%,19,21,23,,21
+7,100%,17,18,19,,18
+8,100%,14,15,16,,15
+9,100%,11,12,13,,12
+10,100%,8,9,10,,9
+11,100%,6,6,6,,6
+12,100%,3,3,3,,3
+13,100%,0,0,0,,0
+14,100%,0,0,0,,0
+15,100%,0,0,0,,0
+16+,100%,0,0,0,,0

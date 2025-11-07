@@ -1,0 +1,23 @@
+Recipe Key,recipe_item_material_leather_string_coarse
+Recipe Name,recipe_item_material_leather_string_coarse
+Skill,skill_leatherworking
+UnlockAtSkillLevel,0
+SkillDifficulty,3
+XPMultiplier,1.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,80%,136,148,160,35,125
+1,88%,125,136,147,36,124
+2,93%,114,124,134,37,118
+3,100%,17,18,19,,18
+4,100%,14,15,16,,15
+5,100%,11,12,13,,12
+6,100%,8,9,10,,9
+7,100%,6,6,6,,6
+8,100%,3,3,3,,3
+9,100%,0,0,0,,0
+10,100%,0,0,0,,0
+11,100%,0,0,0,,0
+12,100%,0,0,0,,0
+13+,100%,0,0,0,,0

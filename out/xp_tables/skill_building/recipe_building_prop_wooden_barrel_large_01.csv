@@ -1,0 +1,34 @@
+Recipe Key,recipe_building_prop_wooden_barrel_large_01
+Recipe Name,recipe_building_prop_wooden_barrel_large_01
+Skill,skill_building
+UnlockAtSkillLevel,0
+SkillDifficulty,14
+XPMultiplier,0.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,4%,0,0,0,35,34
+1,4%,0,0,0,36,35
+2,4%,0,0,0,37,36
+3,4%,0,0,0,38,36
+4,5%,0,0,0,39,37
+5,9%,0,0,0,40,36
+6,16%,0,0,0,41,34
+7,26%,0,0,0,42,31
+8,39%,0,0,0,43,26
+9,54%,0,0,0,44,20
+10,68%,0,0,0,45,14
+11,80%,0,0,0,46,9
+12,88%,0,0,0,47,6
+13,93%,0,0,0,48,3
+14,100%,27,29,31,,29
+15,100%,24,26,28,,26
+16,100%,21,23,25,,23
+17,100%,18,20,22,,20
+18,100%,16,17,18,,17
+19,100%,13,14,15,,14
+20,100%,10,11,12,,11
+21,100%,7,8,9,,8
+22,100%,5,5,5,,5
+23,100%,2,2,2,,2
+24+,100%,0,0,0,,0

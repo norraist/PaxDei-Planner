@@ -1,0 +1,32 @@
+Recipe Key,recipe_building_prop_decorated_chest
+Recipe Name,recipe_building_prop_decorated_chest
+Skill,skill_building
+UnlockAtSkillLevel,0
+SkillDifficulty,12
+XPMultiplier,0.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,4%,0,0,0,35,34
+1,4%,0,0,0,36,35
+2,5%,0,0,0,37,35
+3,9%,0,0,0,38,34
+4,16%,0,0,0,39,33
+5,26%,0,0,0,40,30
+6,39%,0,0,0,41,25
+7,54%,0,0,0,42,19
+8,68%,0,0,0,43,14
+9,80%,0,0,0,44,9
+10,88%,0,0,0,45,5
+11,93%,0,0,0,46,3
+12,100%,25,27,29,,27
+13,100%,22,24,26,,24
+14,100%,19,21,23,,21
+15,100%,17,18,19,,18
+16,100%,14,15,16,,15
+17,100%,11,12,13,,12
+18,100%,8,9,10,,9
+19,100%,6,6,6,,6
+20,100%,3,3,3,,3
+21,100%,0,0,0,,0
+22+,100%,0,0,0,,0

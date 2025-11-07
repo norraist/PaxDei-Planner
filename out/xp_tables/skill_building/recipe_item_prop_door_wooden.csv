@@ -1,0 +1,26 @@
+Recipe Key,recipe_item_prop_door_wooden
+Recipe Name,recipe_item_prop_door_wooden
+Skill,skill_building
+UnlockAtSkillLevel,14
+SkillDifficulty,20
+XPMultiplier,2.1
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+14,39%,355,386,417,35,172
+15,54%,332,361,390,36,211
+16,68%,309,336,363,37,241
+17,80%,286,311,336,38,256
+18,88%,263,286,308,39,256
+19,93%,240,260,281,40,245
+20,100%,32,35,38,,35
+21,100%,29,32,35,,32
+22,100%,27,29,31,,29
+23,100%,24,26,28,,26
+24,100%,21,23,25,,23
+25,100%,18,20,22,,20
+26,100%,16,17,18,,17
+27,100%,13,14,15,,14
+28,100%,10,11,12,,11
+29,100%,7,8,9,,8
+30+,100%,5,5,5,,5

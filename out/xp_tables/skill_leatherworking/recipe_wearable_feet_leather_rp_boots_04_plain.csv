@@ -1,0 +1,25 @@
+Recipe Key,recipe_wearable_feet_leather_rp_boots_04_plain
+Recipe Name,recipe_wearable_feet_leather_rp_boots_04_plain
+Skill,skill_leatherworking
+UnlockAtSkillLevel,0
+SkillDifficulty,5
+XPMultiplier,1.1
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,54%,174,189,204,35,118
+1,68%,162,176,190,36,131
+2,80%,150,163,176,37,137
+3,88%,138,150,162,38,136
+4,93%,125,136,147,39,130
+5,100%,18,20,22,,20
+6,100%,16,17,18,,17
+7,100%,13,14,15,,14
+8,100%,10,11,12,,11
+9,100%,7,8,9,,8
+10,100%,5,5,5,,5
+11,100%,2,2,2,,2
+12,100%,0,0,0,,0
+13,100%,0,0,0,,0
+14,100%,0,0,0,,0
+15+,100%,0,0,0,,0

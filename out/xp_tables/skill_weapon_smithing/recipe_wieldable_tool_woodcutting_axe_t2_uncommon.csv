@@ -1,0 +1,30 @@
+Recipe Key,recipe_wieldable_tool_woodcutting_axe_t2_uncommon
+Recipe Name,recipe_wieldable_tool_woodcutting_axe_t2_uncommon
+Skill,skill_weapon_smithing
+UnlockAtSkillLevel,8
+SkillDifficulty,18
+XPMultiplier,2.5
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+8,5%,534,580,626,35,64
+9,9%,506,550,594,36,84
+10,16%,478,520,562,37,114
+11,26%,451,490,529,38,155
+12,39%,423,460,497,39,203
+13,54%,396,430,464,40,250
+14,68%,368,400,432,41,286
+15,80%,340,370,400,42,304
+16,88%,313,340,367,43,304
+17,93%,285,310,335,44,291
+18,100%,30,33,36,,33
+19,100%,28,30,32,,30
+20,100%,25,27,29,,27
+21,100%,22,24,26,,24
+22,100%,19,21,23,,21
+23,100%,17,18,19,,18
+24,100%,14,15,16,,15
+25,100%,11,12,13,,12
+26,100%,8,9,10,,9
+27,100%,6,6,6,,6
+28+,100%,3,3,3,,3

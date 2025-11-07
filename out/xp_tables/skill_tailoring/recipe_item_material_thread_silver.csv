@@ -1,0 +1,30 @@
+Recipe Key,recipe_item_material_thread_silver
+Recipe Name,recipe_item_material_thread_silver
+Skill,skill_tailoring
+UnlockAtSkillLevel,7
+SkillDifficulty,17
+XPMultiplier,1.8
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+7,5%,384,418,451,35,55
+8,9%,364,396,428,36,70
+9,16%,344,374,404,37,91
+10,26%,325,353,381,38,119
+11,39%,305,331,358,39,153
+12,54%,285,310,334,40,185
+13,68%,265,288,311,41,209
+14,80%,245,266,288,42,221
+15,88%,225,245,264,43,220
+16,93%,205,223,241,44,211
+17,100%,29,32,35,,32
+18,100%,27,29,31,,29
+19,100%,24,26,28,,26
+20,100%,21,23,25,,23
+21,100%,18,20,22,,20
+22,100%,16,17,18,,17
+23,100%,13,14,15,,14
+24,100%,10,11,12,,11
+25,100%,7,8,9,,8
+26,100%,5,5,5,,5
+27+,100%,2,2,2,,2

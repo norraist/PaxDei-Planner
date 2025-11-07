@@ -1,0 +1,15 @@
+Recipe Key,recipe_market_stall_alchemy_01
+Recipe Name,recipe_market_stall_alchemy_01
+Skill,skill_building
+UnlockAtSkillLevel,5
+SkillDifficulty,0
+XPMultiplier,1.0
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+5,100%,0,0,0,,0
+6,100%,0,0,0,,0
+7,100%,0,0,0,,0
+8,100%,0,0,0,,0
+9,100%,0,0,0,,0
+10+,100%,0,0,0,,0

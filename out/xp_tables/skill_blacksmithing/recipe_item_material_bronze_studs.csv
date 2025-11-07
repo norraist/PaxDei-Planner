@@ -1,0 +1,26 @@
+Recipe Key,recipe_item_material_bronze_studs
+Recipe Name,recipe_item_material_bronze_studs
+Skill,skill_blacksmithing
+UnlockAtSkillLevel,5
+SkillDifficulty,11
+XPMultiplier,1.4
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+5,39%,237,258,278,35,122
+6,54%,222,241,260,36,146
+7,68%,206,224,242,37,165
+8,80%,191,207,224,38,173
+9,88%,175,190,206,39,172
+10,93%,160,174,187,40,164
+11,100%,24,26,28,,26
+12,100%,21,23,25,,23
+13,100%,18,20,22,,20
+14,100%,16,17,18,,17
+15,100%,13,14,15,,14
+16,100%,10,11,12,,11
+17,100%,7,8,9,,8
+18,100%,5,5,5,,5
+19,100%,2,2,2,,2
+20,100%,0,0,0,,0
+21+,100%,0,0,0,,0

@@ -1,0 +1,25 @@
+Recipe Key,recipe_item_prop_reinforced_chest_01
+Recipe Name,recipe_item_prop_reinforced_chest_01
+Skill,skill_building
+UnlockAtSkillLevel,9
+SkillDifficulty,14
+XPMultiplier,1.8
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+9,54%,285,310,334,35,183
+10,68%,265,288,311,36,208
+11,80%,245,266,288,37,220
+12,88%,225,245,264,38,220
+13,93%,205,223,241,39,210
+14,100%,27,29,31,,29
+15,100%,24,26,28,,26
+16,100%,21,23,25,,23
+17,100%,18,20,22,,20
+18,100%,16,17,18,,17
+19,100%,13,14,15,,14
+20,100%,10,11,12,,11
+21,100%,7,8,9,,8
+22,100%,5,5,5,,5
+23,100%,2,2,2,,2
+24+,100%,0,0,0,,0

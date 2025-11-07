@@ -1,0 +1,430 @@
+# planner/level_planner.py
+from __future__ import annotations
+
+import math, os, csv, json
+from dataclasses import dataclass
+from typing import Dict, List, Optional, Tuple, Set, Iterable, Any
+
+from .data_loader import load_game_data
+from .xp_model import xp_expected  # expects (level, difficulty, unlock, xp_multiplier) OR adapt as needed
+
+# ---- Utility safe accessors over unknown/variant schema ------------------------------------------
+
+def _first_attr(obj: Any, names: Iterable[str], default=None):
+    """Return the first present, non-None attribute by name from 'names' or default."""
+    for n in names:
+        if hasattr(obj, n):
+            v = getattr(obj, n)
+            if v is not None:
+                return v
+    return default
+
+def _as_int(x, default: int = 0) -> int:
+    try:
+        return int(x)
+    except Exception:
+        return default
+
+def _as_float(x, default: float = 0.0) -> float:
+    try:
+        return float(x)
+    except Exception:
+        return default
+
+def _recipe_key(r) -> str:
+    return _first_attr(r, ["key", "id", "recipe_key"], "unknown_recipe")
+
+def _recipe_name(r) -> str:
+    return _first_attr(r, ["name", "localized_name", "display_name"], _recipe_key(r))
+
+def _recipe_skill(r) -> str:
+    # common variants: "skill", "skill_required", "SkillRequired"
+    return _first_attr(r, ["skill", "skill_required", "SkillRequired"], "")
+
+def _recipe_unlock_at(r) -> int:
+    # variants: unlock_at, unlock_level, UnlockLevel, UnlockAtSkillLevel
+    return _as_int(_first_attr(r, ["unlock_at", "unlock_level", "UnlockLevel", "UnlockAtSkillLevel"], 0), 0)
+
+def _recipe_difficulty(r) -> int:
+    # variants: difficulty, skill_difficulty, SkillDifficulty
+    return _as_int(_first_attr(r, ["difficulty", "skill_difficulty", "SkillDifficulty"], 0), 0)
+
+def _recipe_xpmult(r) -> float:
+    # variants: xp_multiplier, XPMultiplier, xpMult
+    return _as_float(_first_attr(r, ["xp_multiplier", "XPMultiplier", "xpMult"], 1.0), 1.0)
+
+def _recipe_station(r) -> Optional[str]:
+    # variants: station, crafter, station_key, required_crafter, Station
+    return _first_attr(r, ["station", "crafter", "station_key", "required_crafter", "Station"], None)
+
+def _recipe_output_item(r) -> Optional[str]:
+    # variants: output_item, output, product, produces, result_item, result
+    return _first_attr(r, ["output_item", "output", "product", "produces", "result_item", "result"], None)
+
+def _recipe_is_dev(r) -> bool:
+    # variants: is_dev, IsDev
+    v = _first_attr(r, ["is_dev", "IsDev"], False)
+    return bool(v)
+
+def _recipe_ingredients(r) -> List[Tuple[str, int]]:
+    """
+    Normalize ingredients to list[(item_key, qty)].
+    Accepts:
+      - r.ingredients as list[tuple] or list[dict {item, key, id, quantity, qty}]
+      - r.inputs, r.materials as alternatives
+    """
+    raw = _first_attr(r, ["ingredients", "inputs", "materials"], []) or []
+    norm: List[Tuple[str, int]] = []
+    for it in raw:
+        if isinstance(it, (list, tuple)) and len(it) >= 2:
+            key = str(it[0])
+            qty = _as_int(it[1], 0)
+            if qty > 0:
+                norm.append((key, qty))
+        elif isinstance(it, dict):
+            key = it.get("item") or it.get("key") or it.get("id") or it.get("Item") or it.get("Key")
+            qty = it.get("quantity", it.get("qty", it.get("Quantity", 0)))
+            key = str(key) if key is not None else None
+            qty = _as_int(qty, 0)
+            if key and qty > 0:
+                norm.append((key, qty))
+        # else: ignore unknown shapes
+    return norm
+
+# Fallbacks if GameData doesn't expose helpers
+def _recipes_for_skill(g, skill: str):
+    if hasattr(g, "recipes_for_skill"):
+        return g.recipes_for_skill(skill)
+    # fallback: filter g.recipes by skill
+    return [r for r in getattr(g, "recipes", []) if _recipe_skill(r) == skill]
+
+def _xp_to_next_level(g, skill: str, level: int) -> int:
+    if hasattr(g, "xp_to_next_level"):
+        return g.xp_to_next_level(skill, level)
+    # Hard failure: we need this to plan.
+    raise RuntimeError("GameData.xp_to_next_level(skill, level) is required by level_planner.")
+
+# --------------------------------------------------------------------------------------------------
+
+@dataclass
+class PlanStepOption:
+    recipe_key: str
+    recipe_name: str
+    crafter: Optional[str]
+    crafts: int
+    xp_per_craft: float
+    total_xp: float
+    material_burden: float
+    materials: List[Tuple[str, int]]
+
+@dataclass
+class PlanStep:
+    skill: str
+    from_level: int
+    to_level: int
+    options: List[PlanStepOption]
+    note: str = ""
+
+class LevelPlanner:
+    """
+    Multi-skill, dependency-aware leveling planner.
+    - Prioritizes fewer/common materials via a rarity-weighted burden.
+    - Inserts prerequisites (crafter unlocks / cross-skill levels) when needed.
+    - Offers top-K recipe options per step.
+    """
+
+    def __init__(self, static_path: str, loc_path: str, profile_path: str, xp_tables_dir: str):
+        self.g = load_game_data(static_path, loc_path)
+
+        with open(profile_path, "r", encoding="utf-8") as f:
+            self.profile = json.load(f)
+
+        # Current mutable world state
+        self.cur_level: Dict[str, int] = {k: int(v["current_level"]) for k, v in self.profile["skills"].items()}
+        self.cur_xp: Dict[str, int]    = {k: int(v["current_xp"]) for k, v in self.profile["skills"].items()}
+        self.target_level: Dict[str, int] = {k: int(v["target_level"]) for k, v in self.profile["skills"].items()}
+        self.owned_crafter: Dict[str, bool] = {k: bool(v["owned"]) for k, v in self.profile["crafters"].items()}
+
+        # Build indices for rarity and feasibility
+        self.producers: Dict[str, List[Any]] = {}   # item -> recipes that produce it
+        self.usage_count: Dict[str, int] = {}       # item -> how many recipes consume it
+        self._index_items()
+
+        # Sanity: ensure xp accessor exists (or fallback already raises)
+        _ = _xp_to_next_level(self.g, next(iter(self.cur_level.keys())), 1)
+
+    # ---------- Indexing & rarity ----------
+
+    def _index_items(self) -> None:
+        """Build producer and usage indices from self.g.recipes."""
+        for r in getattr(self.g, "recipes", []):
+            if _recipe_is_dev(r):
+                continue
+
+            out_item = _recipe_output_item(r)
+            if out_item:
+                self.producers.setdefault(out_item, []).append(r)
+
+            for ing_key, qty in _recipe_ingredients(r):
+                self.usage_count[ing_key] = self.usage_count.get(ing_key, 0) + 1
+
+    def _is_leaf_item(self, item_key: str) -> bool:
+        """True if no recipe in current dataset produces this item."""
+        return item_key not in self.producers
+
+    def _rarity_score(self, item_key: str, depth: int = 0) -> float:
+        """
+        Heuristic rarity: fewer usages => rarer (higher burden).
+        Leaf items count as common (bias down). Crafted chains get a penalty.
+        """
+        use = self.usage_count.get(item_key, 0)
+        usage_weight = 1.0 / (1.0 + use)     # more usage ⇒ more common ⇒ smaller number
+        rarity = max(0.2, usage_weight)
+
+        if self._is_leaf_item(item_key):
+            rarity *= 0.5                    # gatherable/common bias
+
+        rarity *= (1.0 + min(depth, 2) * 0.5)  # depth penalty up to x2.0
+        return rarity
+
+    # ---------- Feasibility & material burden ----------
+
+    def _can_use_crafter(self, crafter_key: Optional[str]) -> bool:
+        if not crafter_key:
+            return True
+        return bool(self.owned_crafter.get(crafter_key, False))
+
+    def _recipe_unlocked(self, recipe, skill_level: int) -> bool:
+        unlock = _recipe_unlock_at(recipe)
+        return skill_level >= unlock
+
+    def _material_burden(self, recipe, crafts: int, depth: int = 0) -> Tuple[float, List[Tuple[str, int]]]:
+        """
+        Rarity-weighted material burden for 'crafts' copies of 'recipe'.
+        Returns (burden_score, flat_requirements) for reporting.
+        """
+        reqs: Dict[str, int] = {}
+        score = 0.0
+        for item_key, qty in _recipe_ingredients(recipe):
+            need = qty * crafts
+            reqs[item_key] = reqs.get(item_key, 0) + need
+            score += need * self._rarity_score(item_key, depth)
+        flat = sorted(reqs.items(), key=lambda x: x[0])
+        return score, flat
+
+    def _feasible_now(self, recipe, state_levels: Dict[str, int]) -> bool:
+        """
+        A recipe is feasible if:
+          - crafter is owned
+          - unlock level is met in its skill
+          - each ingredient is either a leaf (gatherable) or craftable by some unlocked recipe with owned crafter
+        """
+        if not self._can_use_crafter(_recipe_station(recipe)):
+            return False
+        if not self._recipe_unlocked(recipe, state_levels.get(_recipe_skill(recipe), 0)):
+            return False
+
+        # Ingredients: if producers exist, at least one must itself be unlocked & crafter-owned in its own skill
+        for item_key, _qty in _recipe_ingredients(recipe):
+            prods = self.producers.get(item_key, [])
+            if not prods:
+                continue  # leaf / gatherable
+            craftable = False
+            for pr in prods:
+                if self._can_use_crafter(_recipe_station(pr)) and self._recipe_unlocked(pr, state_levels.get(_recipe_skill(pr), 0)):
+                    craftable = True
+                    break
+            if not craftable:
+                return False
+        return True
+
+    # ---------- Choosing best options for a single level ----------
+
+    def _best_options_for_level(self, skill: str, level: int, top_k: int = 3) -> List[PlanStepOption]:
+        """
+        Among feasible recipes for 'skill' at 'level', return top-K options by
+        score = xp_expected / (1 + material_burden_per_craft).
+        """
+        candidates = []
+        for r in _recipes_for_skill(self.g, skill):
+            if _recipe_is_dev(r):
+                continue
+            if not self._feasible_now(r, self.cur_level):
+                continue
+
+            diff = _recipe_difficulty(r)
+            unlock = _recipe_unlock_at(r)
+            xpm = _recipe_xpmult(r)
+            xpc = xp_expected(level, diff, unlock, xpm)
+            if xpc <= 0:
+                continue
+
+            burden_one, mats_one = self._material_burden(r, crafts=1)
+            score = xpc / (1.0 + burden_one)
+
+            candidates.append((score, r, xpc, burden_one, mats_one))
+
+        candidates.sort(key=lambda t: t[0], reverse=True)
+        top: List[PlanStepOption] = []
+        for score, r, xpc, burden_one, mats_one in candidates[:top_k]:
+            # crafts to reach next level from current XP
+            xp_needed = _xp_to_next_level(self.g, skill, level) - self.cur_xp.get(skill, 0)
+            crafts = max(1, math.ceil(xp_needed / max(1e-9, xpc)))
+            total_xp = crafts * xpc
+            top.append(PlanStepOption(
+                recipe_key=_recipe_key(r),
+                recipe_name=_recipe_name(r),
+                crafter=_recipe_station(r),
+                crafts=crafts,
+                xp_per_craft=xpc,
+                total_xp=total_xp,
+                material_burden=burden_one * crafts,
+                materials=[(k, q * crafts) for k, q in mats_one]
+            ))
+        return top
+
+    # ---------- Prereq resolution ----------
+
+    def _missing_prereq(self, skill: str, level: int) -> Optional[PlanStep]:
+        """
+        If no feasible recipe exists for (skill, level), return a prerequisite PlanStep to unlock options:
+        - Prefer building/unlocking a missing crafter if one is close.
+        - Else, level another skill minimally to make an intermediate ingredient.
+        """
+        # 1) Try crafter unlocks for the skill first
+        for r in _recipes_for_skill(self.g, skill):
+            if _recipe_is_dev(r):
+                continue
+            if self._recipe_unlocked(r, level) and not self._can_use_crafter(_recipe_station(r)):
+                # Heuristic: look for unlocker recipes whose output == station, or name pattern contains station key
+                station_key = _recipe_station(r)
+                unlockers = [
+                    ur for ur in getattr(self.g, "recipes", [])
+                    if (_recipe_output_item(ur) == station_key) or
+                       (_recipe_key(ur).startswith("recipe_item_unlock_crafter_") and station_key and station_key in _recipe_key(ur))
+                ]
+                if unlockers:
+                    ur = unlockers[0]
+                    note = f"Unlock required crafter: {_recipe_name(ur)}"
+                    # If unlocking requires levels in the same skill, push a level step there
+                    if level < _recipe_unlock_at(ur) and _recipe_skill(ur) == skill:
+                        return PlanStep(skill=skill, from_level=level, to_level=level+1,
+                                        options=self._best_options_for_level(skill, level), note=note)
+                    return PlanStep(skill=_recipe_skill(ur),
+                                    from_level=self.cur_level[_recipe_skill(ur)],
+                                    to_level=max(self.cur_level[_recipe_skill(ur)], _recipe_unlock_at(ur)),
+                                    options=self._best_options_for_level(_recipe_skill(ur), self.cur_level[_recipe_skill(ur)]),
+                                    note=note)
+
+        # 2) Cross-skill minimal leveling for an intermediate
+        best: Optional[Tuple[PlanStep, int]] = None
+        for r in _recipes_for_skill(self.g, skill):
+            if _recipe_is_dev(r) or not self._recipe_unlocked(r, level):
+                continue
+            for item_key, _qty in _recipe_ingredients(r):
+                prods = self.producers.get(item_key, [])
+                for pr in prods:
+                    need_skill = _recipe_skill(pr)
+                    need_level = max(_recipe_unlock_at(pr), _recipe_difficulty(pr) - 1)
+                    cur = self.cur_level.get(need_skill, 1)
+                    if need_level > cur:
+                        cost = need_level - cur
+                        step = PlanStep(
+                            skill=need_skill,
+                            from_level=cur,
+                            to_level=cur + 1,
+                            options=self._best_options_for_level(need_skill, cur),
+                            note=f"Prereq: level {need_skill} towards crafting {item_key}"
+                        )
+                        if step.options and (best is None or cost < best[1]):
+                            best = (step, cost)
+        if best:
+            return best[0]
+
+        return None
+
+    # ---------- Public API ----------
+
+    def plan(self, top_k: int = 3, max_steps: int = 500) -> List[PlanStep]:
+        """
+        Build a global, step-by-step plan to reach all target levels.
+        Returns a list of PlanSteps; each has 'options' (top-K recipes).
+        """
+        plan: List[PlanStep] = []
+        steps = 0
+
+        while steps < max_steps:
+            needs = [sk for sk, tgt in self.target_level.items() if self.cur_level.get(sk, 1) < tgt]
+            if not needs:
+                break
+
+            # Choose the skill most behind
+            skill = sorted(needs, key=lambda sk: (self.target_level[sk] - self.cur_level[sk], sk), reverse=True)[0]
+            lvl = self.cur_level[skill]
+
+            options = self._best_options_for_level(skill, lvl, top_k=top_k)
+            if options:
+                plan.append(PlanStep(skill=skill, from_level=lvl, to_level=lvl+1, options=options))
+                # Simulate taking first option to progress
+                self.cur_level[skill] += 1
+                self.cur_xp[skill] = 0
+                steps += 1
+                continue
+
+            # No feasible options: add a prerequisite step
+            prereq = self._missing_prereq(skill, lvl)
+            if prereq:
+                plan.append(prereq)
+                if prereq.options:
+                    # advance at least one level in that prereq skill to keep moving
+                    self.cur_level[prereq.skill] = max(self.cur_level[prereq.skill], prereq.to_level)
+                    self.cur_xp[prereq.skill] = 0
+                steps += 1
+                continue
+
+            plan.append(PlanStep(skill=skill, from_level=lvl, to_level=lvl, options=[], note="No feasible path found; check crafters/targets."))
+            break
+
+        return plan
+
+    def write_csv(self, plan: List[PlanStep], path: str) -> None:
+        os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+        with open(path, "w", newline="", encoding="utf-8") as f:
+            w = csv.writer(f)
+            w.writerow(["skill","from_level","to_level","note","option_rank","recipe_key","recipe_name","crafter","crafts","xp_per_craft","total_xp","material_burden","materials"])
+            for step in plan:
+                if not step.options:
+                    w.writerow([step.skill, step.from_level, step.to_level, step.note, "", "", "", "", "", "", "", "", ""])
+                    continue
+                for i, opt in enumerate(step.options, start=1):
+                    mats_str = "; ".join([f"{k}×{q}" for k, q in opt.materials])
+                    w.writerow([
+                        step.skill, step.from_level, step.to_level, step.note,
+                        i, opt.recipe_key, opt.recipe_name, opt.crafter or "",
+                        opt.crafts, f"{opt.xp_per_craft:.1f}", f"{opt.total_xp:.1f}",
+                        f"{opt.material_burden:.2f}", mats_str
+                    ])
+
+# ----------------------------- CLI -------------------------------------------
+
+def main():
+    import argparse
+    ap = argparse.ArgumentParser(description="Generate a multi-skill, dependency-aware leveling plan with top-K recipe options.")
+    ap.add_argument("--static", required=True, help="Path to StaticDataBundle.json")
+    ap.add_argument("--loc", required=False, help="Path to localisation_en.json (if omitted, inferred from --static folder)")
+    ap.add_argument("--profile", required=True, help="Path to your profile JSON")
+    ap.add_argument("--xpdir", required=False, default="out/xp_tables", help="(Optional) XP tables dir if your xp_model needs it")
+    ap.add_argument("--out", required=True, help="Path to write the CSV plan, e.g., out/level_plan.csv")
+    ap.add_argument("--topk", type=int, default=3, help="How many options per step")
+    args = ap.parse_args()
+
+    # Infer loc path if not provided
+    loc_path = args.loc or os.path.join(os.path.dirname(args.static), "localisation_en.json")
+
+    planner = LevelPlanner(args.static, loc_path, args.profile, args.xpdir)
+    plan = planner.plan(top_k=args.topk)
+    planner.write_csv(plan, args.out)
+    print(f"✅ Plan written to {args.out} with {len(plan)} steps.")
+
+if __name__ == "__main__":
+    main()

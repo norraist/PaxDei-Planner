@@ -1,0 +1,32 @@
+Recipe Key,recipe_activatable_potion_potion_of_vitality_very_small_14
+Recipe Name,recipe_activatable_potion_potion_of_vitality_very_small_14
+Skill,skill_alchemy
+UnlockAtSkillLevel,0
+SkillDifficulty,12
+XPMultiplier,1.6
+Station,
+
+Skill Level,Success Chance,XP (Success) Min,XP (Success) Avg,XP (Success) Max,XP (Failure) Avg,XP (Expected) Avg
+0,4%,377,410,442,35,50
+1,4%,359,390,422,36,50
+2,5%,342,371,401,37,55
+3,9%,324,352,380,38,67
+4,16%,306,333,359,39,86
+5,26%,289,314,339,40,111
+6,39%,271,294,318,41,140
+7,54%,253,275,297,42,168
+8,68%,236,256,276,43,188
+9,80%,218,237,256,44,198
+10,88%,200,218,235,45,197
+11,93%,183,198,214,46,188
+12,100%,25,27,29,,27
+13,100%,22,24,26,,24
+14,100%,19,21,23,,21
+15,100%,17,18,19,,18
+16,100%,14,15,16,,15
+17,100%,11,12,13,,12
+18,100%,8,9,10,,9
+19,100%,6,6,6,,6
+20,100%,3,3,3,,3
+21,100%,0,0,0,,0
+22+,100%,0,0,0,,0
