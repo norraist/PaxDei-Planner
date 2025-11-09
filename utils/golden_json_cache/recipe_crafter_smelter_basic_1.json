@@ -1,0 +1,142 @@
+{
+  "id": "recipe_crafter_smelter_basic_1",
+  "name": "Basic Furnace",
+  "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_smelter_l01.webp",
+  "tier": 1,
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+  "description": "<italic>Size matters not when it's the temper that determines the result.</>",
+  "outputs": [
+    {
+      "entity": {
+        "id": "crafter_smelter_basic_1",
+        "name": "Basic Furnace",
+        "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_smelter_l01.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "skills": [
+          {
+            "id": "skill_blacksmithing",
+            "name": "Blacksmithing",
+            "uiGroup": "crafting",
+            "skillLevelCap": 40,
+            "skillBaseXp": 100,
+            "entityType": "Skill",
+            "entityTypeName": "Skill",
+            "listingPath": "skills",
+            "categoryIds": [
+              "crafting"
+            ]
+          },
+          {
+            "id": "skill_building",
+            "name": "Carpentry",
+            "uiGroup": "crafting",
+            "skillLevelCap": 40,
+            "skillBaseXp": 100,
+            "entityType": "Skill",
+            "entityTypeName": "Skill",
+            "listingPath": "skills",
+            "categoryIds": [
+              "crafting"
+            ]
+          }
+        ],
+        "entityType": "Crafter",
+        "entityTypeName": "Crafter",
+        "listingPath": "crafters",
+        "categoryIds": [
+          "builder"
+        ]
+      },
+      "count": 1
+    }
+  ],
+  "crafters": [],
+  "craftingStats": [],
+  "skillRequired": {
+    "id": "skill_blacksmithing",
+    "name": "Blacksmithing",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 1,
+  "skillMinRolls": 1,
+  "skillMaxRolls": 1,
+  "skillSuccessPercentage": 0.1,
+  "skillCriticalPercentage": 0.1,
+  "craftingTool": "None",
+  "craftingToolLevel": "None",
+  "defaultUnlock": true,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_raw_material_soil_clay",
+        "name": "Clay",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_earthresources_clay_basket.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 2,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "stone"
+        ]
+      },
+      "count": 60
+    },
+    {
+      "entity": {
+        "id": "item_material_wood_long_stock",
+        "name": "Long Wood Stock",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_long_stock.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 6,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 12
+    },
+    {
+      "entity": {
+        "id": "item_raw_material_rock_gneiss",
+        "name": "Gneiss",
+        "iconPath": "/images/{height}/environment/nature/resources/gatherabledebris/gneiss/t_gneiss_02_icon.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 1,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "stone"
+        ]
+      },
+      "count": 8
+    }
+  ],
+  "xpMultiplier": 1.1,
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "builder",
+    "blacksmithing"
+  ]
+}

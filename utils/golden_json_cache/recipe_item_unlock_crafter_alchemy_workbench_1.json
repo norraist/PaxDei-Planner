@@ -1,0 +1,158 @@
+{
+  "id": "recipe_item_unlock_crafter_alchemy_workbench_1",
+  "name": "Basic Alchemy Instruments",
+  "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/menu_tab_crafters/tab_group_craftertools/t_icon_alchemist_tools_01.webp",
+  "tier": 1,
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+  "itemLevel": 5,
+  "description": "Required to manufacture the Basic Alchemy Table.",
+  "outputs": [
+    {
+      "entity": {
+        "id": "item_unlock_crafter_alchemy_workbench_1",
+        "name": "Basic Alchemy Instruments",
+        "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/menu_tab_crafters/tab_group_craftertools/t_icon_alchemist_tools_01.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 5,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "crafterunlocks"
+        ]
+      },
+      "count": 1
+    }
+  ],
+  "crafters": [],
+  "craftingStats": [
+    {
+      "level": 1,
+      "probability": 0.8032246,
+      "calculatedProbability": 0.7996,
+      "successMinXp": 137.5059814453125,
+      "successMaxXp": 165.0,
+      "successAvgXp": 145.39178466796875,
+      "failureMinXp": 13.410720825195312,
+      "failureMaxXp": 18.149633407592773,
+      "failureAvgXp": 15.944196701049805
+    },
+    {
+      "level": 2,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 16.499998092651367,
+      "successMaxXp": 19.799999237060547,
+      "successAvgXp": 18.15652847290039
+    },
+    {
+      "level": 3,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 12.833333015441895,
+      "successMaxXp": 15.399998664855957,
+      "successAvgXp": 14.390259742736816
+    },
+    {
+      "level": 4,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 9.166666030883789,
+      "successMaxXp": 10.999999046325684,
+      "successAvgXp": 10.409625053405762
+    },
+    {
+      "level": 5,
+      "probability": 1.0,
+      "calculatedProbability": 1.0
+    }
+  ],
+  "skillRequired": {
+    "id": "skill_alchemy",
+    "name": "Alchemy",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 2,
+  "skillMinRolls": 3,
+  "skillMaxRolls": 6,
+  "skillSuccessPercentage": 0.5,
+  "skillCriticalPercentage": 0.8,
+  "craftingTool": "None",
+  "craftingToolLevel": "None",
+  "defaultUnlock": true,
+  "unlockAtSkillLevel": 1,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_material_ingot_copper",
+        "name": "Copper Ingot",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/ingots/t_ingot_copper_stack_icon.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 2,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "blacksmithing"
+        ]
+      },
+      "count": 5
+    },
+    {
+      "entity": {
+        "id": "item_material_bronze_bar",
+        "name": "Bronze Bar",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_bar_bronze.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 3,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "blacksmithing"
+        ]
+      },
+      "count": 2
+    },
+    {
+      "entity": {
+        "id": "item_material_glass_rough",
+        "name": "Rough Glass",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_glassraw_rough.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 8,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "glass"
+        ]
+      },
+      "count": 5
+    }
+  ],
+  "xpMultiplier": 1.1,
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "alchemy",
+    "crafterunlocks"
+  ]
+}

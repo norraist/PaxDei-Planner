@@ -1,5 +1,5 @@
 Recipe Key,recipe_wieldable_tool_woodcutting_axe_t2_common
-Recipe Name,recipe_wieldable_tool_woodcutting_axe_t2_common
+Recipe Name,Iron Chopping Axe
 Skill,skill_weapon_smithing
 UnlockAtSkillLevel,7
 SkillDifficulty,15

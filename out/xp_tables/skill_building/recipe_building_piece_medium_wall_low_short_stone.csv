@@ -1,5 +1,5 @@
 Recipe Key,recipe_building_piece_medium_wall_low_short_stone
-Recipe Name,recipe_building_piece_medium_wall_low_short_stone
+Recipe Name,"Small Wall, Limestone"
 Skill,skill_building
 UnlockAtSkillLevel,30
 SkillDifficulty,1

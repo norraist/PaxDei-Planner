@@ -1,0 +1,370 @@
+{
+  "id": "recipe_activatable_potion_hp_regeneration_tiny_3",
+  "name": "Weak Healing Potion I",
+  "iconPath": "/images/{height}/environment/props/economy/consumables/potions/icons/t_icon_potion_healing_regen_l01.webp",
+  "tier": 1,
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+  "itemLevel": 3,
+  "description": "A remedy concocted from the more benign spirits of the nightshades.",
+  "outputs": [
+    {
+      "entity": {
+        "id": "activatable_potion_hp_regeneration_tiny_3",
+        "name": "Weak Healing Potion I",
+        "iconPath": "/images/{height}/environment/props/economy/consumables/potions/icons/t_icon_potion_healing_regen_l01.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 3,
+        "givesAttributes": [
+          {
+            "key": "HealthRgn",
+            "value": 8.0
+          }
+        ],
+        "entityType": "Consumable",
+        "entityTypeName": "Consumable",
+        "listingPath": "consumables",
+        "categoryIds": [
+          "potion",
+          "healthrgn"
+        ]
+      },
+      "count": 5
+    }
+  ],
+  "crafters": [
+    {
+      "id": "crafter_alchemy_workbench_1",
+      "name": "Basic Alchemy Table",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_alchemytable.webp",
+      "tier": 1,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+      "skills": [
+        {
+          "id": "skill_alchemy",
+          "name": "Alchemy",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        {
+          "id": "skill_weapon_smithing",
+          "name": "Weaponsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "alchemy"
+      ]
+    },
+    {
+      "id": "crafter_alchemy_workbench_2",
+      "name": "Alchemy Table",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_alchemytable_l02.webp",
+      "tier": 3,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+      "skills": [
+        {
+          "id": "skill_alchemy",
+          "name": "Alchemy",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        {
+          "id": "skill_weapon_smithing",
+          "name": "Weaponsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "alchemy"
+      ]
+    }
+  ],
+  "craftingStats": [
+    {
+      "level": 1,
+      "probability": 0.41191283,
+      "calculatedProbability": 0.4172,
+      "successMinXp": 192.50135803222656,
+      "successMaxXp": 224.18690490722656,
+      "successAvgXp": 199.25027465820312,
+      "failureMinXp": 9.955389022827148,
+      "failureMaxXp": 18.149953842163086,
+      "failureAvgXp": 14.390264511108398
+    },
+    {
+      "level": 2,
+      "probability": 0.721302,
+      "calculatedProbability": 0.7249,
+      "successMinXp": 165.00115966796875,
+      "successMaxXp": 198.00001525878906,
+      "successAvgXp": 173.37037658691406,
+      "failureMinXp": 12.508190155029297,
+      "failureMaxXp": 18.14984703063965,
+      "failureAvgXp": 15.651497840881348
+    },
+    {
+      "level": 3,
+      "probability": 0.90373564,
+      "calculatedProbability": 0.9034,
+      "successMinXp": 137.51925659179688,
+      "successMaxXp": 165.0,
+      "successAvgXp": 147.9254913330078,
+      "failureMinXp": 15.272872924804688,
+      "failureMaxXp": 18.147171020507812,
+      "failureAvgXp": 16.44217300415039
+    },
+    {
+      "level": 4,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 16.499998092651367,
+      "successMaxXp": 19.799999237060547,
+      "successAvgXp": 18.14960479736328
+    },
+    {
+      "level": 5,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 14.299999237060547,
+      "successMaxXp": 17.15999984741211,
+      "successAvgXp": 15.92697811126709
+    },
+    {
+      "level": 6,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 12.100000381469727,
+      "successMaxXp": 14.519999504089355,
+      "successAvgXp": 13.605210304260254
+    },
+    {
+      "level": 7,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 9.899999618530273,
+      "successMaxXp": 11.879999160766602,
+      "successAvgXp": 11.204992294311523
+    },
+    {
+      "level": 8,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 7.699999809265137,
+      "successMaxXp": 9.239999771118164,
+      "successAvgXp": 8.773429870605469
+    },
+    {
+      "level": 9,
+      "probability": 1.0,
+      "calculatedProbability": 1.0
+    }
+  ],
+  "skillRequired": {
+    "id": "skill_alchemy",
+    "name": "Alchemy",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 4,
+  "skillMinRolls": 3,
+  "skillMaxRolls": 6,
+  "skillSuccessPercentage": 0.5,
+  "skillCriticalPercentage": 0.8,
+  "craftingTool": "None",
+  "craftingToolLevel": "None",
+  "defaultUnlock": true,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_material_extract_plant_flower_datura_fruit",
+        "name": "Datura Fruit Extract",
+        "iconPath": "/images/{height}/environment/props/economy/consumables/vials/icons/t_icon_vial_05_liquid_04.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 4,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "alchemy"
+        ]
+      },
+      "count": 1
+    },
+    {
+      "entity": {
+        "id": "item_material_water",
+        "name": "Water",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_water.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 1,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "craftingcomponents"
+        ]
+      },
+      "count": 6
+    },
+    {
+      "entity": {
+        "id": "item_vial_tiny",
+        "name": "Tiny Vial",
+        "iconPath": "/images/{height}/environment/props/economy/consumables/potions/icons/t_icon_potion_bottle_l01.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 3,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "alchemy",
+          "glass"
+        ]
+      },
+      "count": 5
+    }
+  ],
+  "xpMultiplier": 1.1,
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [
+    {
+      "id": "crafter_alchemy_workbench_1",
+      "name": "Basic Alchemy Table",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_alchemytable.webp",
+      "tier": 1,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+      "skills": [
+        {
+          "id": "skill_alchemy",
+          "name": "Alchemy",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        {
+          "id": "skill_weapon_smithing",
+          "name": "Weaponsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "alchemy"
+      ]
+    },
+    {
+      "id": "crafter_alchemy_workbench_2",
+      "name": "Alchemy Table",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_alchemytable_l02.webp",
+      "tier": 3,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+      "skills": [
+        {
+          "id": "skill_alchemy",
+          "name": "Alchemy",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        {
+          "id": "skill_weapon_smithing",
+          "name": "Weaponsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "alchemy"
+      ]
+    }
+  ],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "alchemy",
+    "potion",
+    "healthrgn"
+  ]
+}

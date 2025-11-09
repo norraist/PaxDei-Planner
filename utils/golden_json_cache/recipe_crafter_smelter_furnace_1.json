@@ -1,0 +1,224 @@
+{
+  "id": "recipe_crafter_smelter_furnace_1",
+  "name": "Furnace",
+  "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_blastfurnace.webp",
+  "tier": 3,
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+  "description": "<italic>Where dreams of empire are born.</>",
+  "outputs": [
+    {
+      "entity": {
+        "id": "crafter_smelter_furnace_1",
+        "name": "Furnace",
+        "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_blastfurnace.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "skills": [
+          {
+            "id": "skill_building",
+            "name": "Carpentry",
+            "uiGroup": "crafting",
+            "skillLevelCap": 40,
+            "skillBaseXp": 100,
+            "entityType": "Skill",
+            "entityTypeName": "Skill",
+            "listingPath": "skills",
+            "categoryIds": [
+              "crafting"
+            ]
+          },
+          {
+            "id": "skill_blacksmithing",
+            "name": "Blacksmithing",
+            "uiGroup": "crafting",
+            "skillLevelCap": 40,
+            "skillBaseXp": 100,
+            "entityType": "Skill",
+            "entityTypeName": "Skill",
+            "listingPath": "skills",
+            "categoryIds": [
+              "crafting"
+            ]
+          }
+        ],
+        "entityType": "Crafter",
+        "entityTypeName": "Crafter",
+        "listingPath": "crafters",
+        "categoryIds": [
+          "builder"
+        ]
+      },
+      "count": 1
+    }
+  ],
+  "crafters": [],
+  "craftingStats": [],
+  "skillRequired": {
+    "id": "skill_blacksmithing",
+    "name": "Blacksmithing",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 21,
+  "skillMinRolls": 1,
+  "skillMaxRolls": 1,
+  "skillSuccessPercentage": 0.1,
+  "skillCriticalPercentage": 0.1,
+  "craftingTool": "None",
+  "craftingToolLevel": "None",
+  "defaultUnlock": false,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "recipeUnlockItemName": {
+    "id": "item_unlock_crafter_smelter_furnace_1",
+    "name": "Furnace Parts",
+    "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/menu_tab_crafters/tab_group_craftertools/t_icon_blastfurnace_tools_01.webp",
+    "tier": 3,
+    "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+    "itemLevel": 20,
+    "entityType": "Item",
+    "entityTypeName": "Item",
+    "listingPath": "items",
+    "categoryIds": [
+      "crafterunlocks"
+    ]
+  },
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_unlock_crafter_smelter_furnace_1",
+        "name": "Furnace Parts",
+        "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/menu_tab_crafters/tab_group_craftertools/t_icon_blastfurnace_tools_01.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "itemLevel": 20,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "crafterunlocks"
+        ]
+      },
+      "count": 1
+    },
+    {
+      "entity": {
+        "id": "item_material_clay_bricks",
+        "name": "Brick",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_clay_bricks.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 8,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 120
+    },
+    {
+      "entity": {
+        "id": "item_raw_material_soil_clay",
+        "name": "Clay",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_earthresources_clay_basket.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 2,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "stone"
+        ]
+      },
+      "count": 30
+    },
+    {
+      "entity": {
+        "id": "item_raw_material_rock_limestone",
+        "name": "Limestone",
+        "iconPath": "/images/{height}/environment/nature/resources/gatherabledebris/limestone/t_limestone_01_icon.webp",
+        "tier": 2,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+        "itemLevel": 19,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "stone"
+        ]
+      },
+      "count": 60
+    },
+    {
+      "entity": {
+        "id": "item_raw_material_rock_gneiss",
+        "name": "Gneiss",
+        "iconPath": "/images/{height}/environment/nature/resources/gatherabledebris/gneiss/t_gneiss_02_icon.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 1,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "stone"
+        ]
+      },
+      "count": 60
+    },
+    {
+      "entity": {
+        "id": "item_material_wood_planks_fine",
+        "name": "Fine Wooden Plank",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_wood_planks_fine.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "itemLevel": 20,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 10
+    },
+    {
+      "entity": {
+        "id": "item_material_iron_bar",
+        "name": "Iron Bar",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_bar_iron_.webp",
+        "tier": 2,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+        "itemLevel": 11,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "blacksmithing"
+        ]
+      },
+      "count": 3
+    }
+  ],
+  "xpMultiplier": 2.6,
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "builder",
+    "blacksmithing"
+  ]
+}

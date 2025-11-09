@@ -1,0 +1,152 @@
+{
+  "id": "recipe_wieldable_offhand_shield_heater_t0_common",
+  "name": "Wooden Shield",
+  "iconPath": "/images/{height}/game/inventory/icons/t_icon_wieldable_offhand_shield_heater_t0_common.webp",
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier0.webp",
+  "description": "It's not much, but it blocks the odd bite from a boar.",
+  "outputs": [
+    {
+      "entity": {
+        "id": "wieldable_offhand_shield_heater_t0_common",
+        "name": "Wooden Shield",
+        "iconPath": "/images/{height}/game/inventory/icons/t_icon_wieldable_offhand_shield_heater_t0_common.webp",
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier0.webp",
+        "category": "Shield",
+        "categoryName": "Shield",
+        "craftingSkill": {
+          "id": "skill_armor_smithing",
+          "name": "Armorsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        "craftingDifficulty": 2,
+        "damageMapMin": [],
+        "damageMapMax": [],
+        "baseItemPower": 50.0,
+        "givesAttributes": [
+          {
+            "key": "AggroModifier",
+            "value": 20.0
+          },
+          {
+            "key": "PseudoMaxHealth",
+            "value": 241.0
+          },
+          {
+            "key": "CrowdControlResistanceModifier",
+            "value": 47.0
+          }
+        ],
+        "givesAttributesMin": [
+          {
+            "key": "AggroModifier",
+            "value": 20.0
+          },
+          {
+            "key": "PseudoMaxHealth",
+            "value": 35.0
+          },
+          {
+            "key": "CrowdControlResistanceModifier",
+            "value": 14.0
+          }
+        ],
+        "givesAttributesMax": [
+          {
+            "key": "AggroModifier",
+            "value": 20.0
+          },
+          {
+            "key": "PseudoMaxHealth",
+            "value": 241.0
+          },
+          {
+            "key": "CrowdControlResistanceModifier",
+            "value": 47.0
+          }
+        ],
+        "quality": "common",
+        "entityType": "Wieldable",
+        "entityTypeName": "Wieldable",
+        "listingPath": "wieldables",
+        "categoryIds": [
+          "shields",
+          "c_skill_offhand_shields"
+        ]
+      },
+      "count": 1
+    }
+  ],
+  "crafters": [],
+  "craftingStats": [
+    {
+      "level": 1,
+      "probability": 0.8032246,
+      "calculatedProbability": 0.7996
+    },
+    {
+      "level": 2,
+      "probability": 1.0,
+      "calculatedProbability": 1.0
+    }
+  ],
+  "skillRequired": {
+    "id": "skill_armor_smithing",
+    "name": "Armorsmithing",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 2,
+  "skillMinRolls": 3,
+  "skillMaxRolls": 9,
+  "skillSuccessPercentage": 0.5,
+  "skillCriticalPercentage": 0.9,
+  "defaultUnlock": false,
+  "unlockAtSkillLevel": 1,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_raw_material_sapwood_beech",
+        "name": "Sapwood",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_sapwood_beech.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 1,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "wood"
+        ]
+      },
+      "count": 6
+    }
+  ],
+  "quality": "common",
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "armor_smithing",
+    "shields",
+    "c_skill_offhand_shields"
+  ]
+}

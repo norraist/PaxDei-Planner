@@ -1,0 +1,502 @@
+{
+  "id": "recipe_wearable_metal_legs_herald_rb_t4_common",
+  "name": "Herald's Greaves of the Unfallen IV",
+  "iconPath": "/images/{height}/game/inventory/icons/t_icon_wearable_metal_legs_herald_rb_t4_common.webp",
+  "tier": 4,
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier4.webp",
+  "description": "<italic>Herald bring order the way a hammer brings silence.</>",
+  "outputs": [
+    {
+      "entity": {
+        "id": "wearable_metal_legs_herald_rb_t4_common",
+        "name": "Herald's Greaves of the Unfallen IV",
+        "iconPath": "/images/{height}/game/inventory/icons/t_icon_wearable_metal_legs_herald_rb_t4_common.webp",
+        "tier": 4,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier4.webp",
+        "category": "Bottom",
+        "categoryName": "Bottom",
+        "spell": {
+          "id": "spell_rallyingbanner",
+          "name": "Rallying Banner",
+          "iconPath": "/images/{height}/game/ux/abilities/weapon_abilities/spells/t_ui_rallying_banner.webp",
+          "cooldownDuration": 90.0,
+          "range": 3000.0,
+          "costAttribute": "Energy",
+          "costAmountMin": 12.0,
+          "entityType": "Spell",
+          "entityTypeName": "Spell",
+          "listingPath": "spells",
+          "categoryIds": []
+        },
+        "craftingSkill": {
+          "id": "skill_armor_smithing",
+          "name": "Armorsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        "craftingDifficulty": 33,
+        "baseItemPower": 400.0,
+        "givesAttributes": [
+          {
+            "key": "PhysicalDefense",
+            "value": 101.0
+          },
+          {
+            "key": "CrowdControlResistanceModifier",
+            "value": 7.0
+          },
+          {
+            "key": "HealingReceivedModifier",
+            "value": 5.0
+          },
+          {
+            "key": "MeleeBlockRating",
+            "value": 40.0
+          },
+          {
+            "key": "AggroModifier",
+            "value": 22.0
+          },
+          {
+            "key": "PseudoMaxHealth",
+            "value": 482.0
+          },
+          {
+            "key": "PseudoMaxEnergy",
+            "value": 58.0
+          }
+        ],
+        "givesAttributesMin": [
+          {
+            "key": "PhysicalDefense",
+            "value": 56.0
+          },
+          {
+            "key": "CrowdControlResistanceModifier",
+            "value": 4.0
+          },
+          {
+            "key": "HealingReceivedModifier",
+            "value": 5.0
+          },
+          {
+            "key": "MeleeBlockRating",
+            "value": 6.0
+          },
+          {
+            "key": "AggroModifier",
+            "value": 22.0
+          },
+          {
+            "key": "PseudoMaxHealth",
+            "value": 69.0
+          },
+          {
+            "key": "PseudoMaxEnergy",
+            "value": 5.0
+          }
+        ],
+        "givesAttributesMax": [
+          {
+            "key": "PhysicalDefense",
+            "value": 101.0
+          },
+          {
+            "key": "CrowdControlResistanceModifier",
+            "value": 7.0
+          },
+          {
+            "key": "HealingReceivedModifier",
+            "value": 5.0
+          },
+          {
+            "key": "MeleeBlockRating",
+            "value": 40.0
+          },
+          {
+            "key": "AggroModifier",
+            "value": 22.0
+          },
+          {
+            "key": "PseudoMaxHealth",
+            "value": 482.0
+          },
+          {
+            "key": "PseudoMaxEnergy",
+            "value": 58.0
+          }
+        ],
+        "quality": "common",
+        "hasVariants": true,
+        "entityType": "Wearable",
+        "entityTypeName": "Wearable",
+        "listingPath": "wearables",
+        "categoryIds": [
+          "bottom"
+        ]
+      },
+      "count": 1
+    }
+  ],
+  "crafters": [
+    {
+      "id": "crafter_blacksmith_armor_workbench_2",
+      "name": "Armorer Workbench",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_armorsmithworkbench_l02.webp",
+      "tier": 3,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+      "skills": [
+        {
+          "id": "skill_armor_smithing",
+          "name": "Armorsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "blacksmithing"
+      ]
+    }
+  ],
+  "craftingStats": [
+    {
+      "level": 20,
+      "probability": 0.041624177,
+      "calculatedProbability": 0.0422,
+      "successMinXp": 865.4338989257812,
+      "successMaxXp": 945.126708984375,
+      "successAvgXp": 882.7987670898438,
+      "failureMinXp": 18.84824562072754,
+      "failureMaxXp": 59.35376739501953,
+      "failureAvgXp": 34.389739990234375
+    },
+    {
+      "level": 21,
+      "probability": 0.07155478,
+      "calculatedProbability": 0.0689,
+      "successMinXp": 830.8120727539062,
+      "successMaxXp": 918.0059204101562,
+      "successAvgXp": 847.8294677734375,
+      "failureMinXp": 21.14444923400879,
+      "failureMaxXp": 59.393001556396484,
+      "failureAvgXp": 37.383541107177734
+    },
+    {
+      "level": 22,
+      "probability": 0.118286915,
+      "calculatedProbability": 0.1202,
+      "successMinXp": 796.1703491210938,
+      "successMaxXp": 890.482421875,
+      "successAvgXp": 814.7982788085938,
+      "failureMinXp": 23.609535217285156,
+      "failureMaxXp": 59.39520263671875,
+      "failureAvgXp": 39.87742233276367
+    },
+    {
+      "level": 23,
+      "probability": 0.18619075,
+      "calculatedProbability": 0.1877,
+      "successMinXp": 761.5413818359375,
+      "successMaxXp": 862.426513671875,
+      "successAvgXp": 780.547607421875,
+      "failureMinXp": 26.240327835083008,
+      "failureMaxXp": 59.39950942993164,
+      "failureAvgXp": 42.70124053955078
+    },
+    {
+      "level": 24,
+      "probability": 0.27710077,
+      "calculatedProbability": 0.2768,
+      "successMinXp": 726.926513671875,
+      "successMaxXp": 824.2677001953125,
+      "successAvgXp": 748.5452270507812,
+      "failureMinXp": 29.031400680541992,
+      "failureMaxXp": 59.39751434326172,
+      "failureAvgXp": 44.78611373901367
+    },
+    {
+      "level": 25,
+      "probability": 0.38798854,
+      "calculatedProbability": 0.3923,
+      "successMinXp": 692.312744140625,
+      "successMaxXp": 804.2088623046875,
+      "successAvgXp": 715.2028198242188,
+      "failureMinXp": 31.975067138671875,
+      "failureMaxXp": 59.3964729309082,
+      "failureAvgXp": 46.998046875
+    },
+    {
+      "level": 26,
+      "probability": 0.51044977,
+      "calculatedProbability": 0.5022,
+      "successMinXp": 657.6932983398438,
+      "successMaxXp": 769.21240234375,
+      "successAvgXp": 683.7186279296875,
+      "failureMinXp": 35.06135177612305,
+      "failureMaxXp": 59.393924713134766,
+      "failureAvgXp": 48.83946990966797
+    },
+    {
+      "level": 27,
+      "probability": 0.6323619,
+      "calculatedProbability": 0.6297,
+      "successMinXp": 623.0816040039062,
+      "successMaxXp": 742.4146728515625,
+      "successAvgXp": 650.8585815429688,
+      "failureMinXp": 38.27809143066406,
+      "failureMaxXp": 59.39874267578125,
+      "failureAvgXp": 50.17814254760742
+    },
+    {
+      "level": 28,
+      "probability": 0.74170095,
+      "calculatedProbability": 0.7429,
+      "successMinXp": 588.4749145507812,
+      "successMaxXp": 706.15380859375,
+      "successAvgXp": 619.2894897460938,
+      "failureMinXp": 41.61103057861328,
+      "failureMaxXp": 59.39865493774414,
+      "failureAvgXp": 51.53840637207031
+    },
+    {
+      "level": 29,
+      "probability": 0.8300842,
+      "calculatedProbability": 0.8305,
+      "successMinXp": 553.8482055664062,
+      "successMaxXp": 664.6154174804688,
+      "successAvgXp": 587.62060546875,
+      "failureMinXp": 45.04399871826172,
+      "failureMaxXp": 59.39077377319336,
+      "failureAvgXp": 52.62199401855469
+    },
+    {
+      "level": 30,
+      "probability": 0.89007014,
+      "calculatedProbability": 0.8923,
+      "successMinXp": 519.2618408203125,
+      "successMaxXp": 623.076904296875,
+      "successAvgXp": 555.4806518554688,
+      "failureMinXp": 48.559146881103516,
+      "failureMaxXp": 59.39653778076172,
+      "failureAvgXp": 53.543731689453125
+    },
+    {
+      "level": 31,
+      "probability": 0.9200302,
+      "calculatedProbability": 0.9198,
+      "successMinXp": 484.6296691894531,
+      "successMaxXp": 581.5385131835938,
+      "successAvgXp": 524.8107299804688,
+      "failureMinXp": 52.13722229003906,
+      "failureMaxXp": 59.39911651611328,
+      "failureAvgXp": 54.56940841674805
+    },
+    {
+      "level": 32,
+      "probability": 0.9394794,
+      "calculatedProbability": 0.9409,
+      "successMinXp": 450.0314025878906,
+      "successMaxXp": 540.0,
+      "successAvgXp": 492.961181640625,
+      "failureMinXp": 55.75787353515625,
+      "failureMaxXp": 59.382423400878906,
+      "failureAvgXp": 56.48212814331055
+    },
+    {
+      "level": 33,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 53.999996185302734,
+      "successMaxXp": 64.79999542236328,
+      "successAvgXp": 59.44559860229492
+    },
+    {
+      "level": 34,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 51.230770111083984,
+      "successMaxXp": 61.47692108154297,
+      "successAvgXp": 56.606353759765625
+    },
+    {
+      "level": 35,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 48.46154022216797,
+      "successMaxXp": 58.153846740722656,
+      "successAvgXp": 53.794830322265625
+    },
+    {
+      "level": 36,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 45.69231033325195,
+      "successMaxXp": 54.83076858520508,
+      "successAvgXp": 50.91276931762695
+    },
+    {
+      "level": 37,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 42.923072814941406,
+      "successMaxXp": 51.507694244384766,
+      "successAvgXp": 48.10022735595703
+    },
+    {
+      "level": 38,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 40.15384292602539,
+      "successMaxXp": 48.184608459472656,
+      "successAvgXp": 45.117523193359375
+    },
+    {
+      "level": 39,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 37.38461685180664,
+      "successMaxXp": 44.86153793334961,
+      "successAvgXp": 42.20995330810547
+    },
+    {
+      "level": 40,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 34.61538314819336,
+      "successMaxXp": 41.53845977783203,
+      "successAvgXp": 39.14014434814453
+    }
+  ],
+  "skillRequired": {
+    "id": "skill_armor_smithing",
+    "name": "Armorsmithing",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 33,
+  "skillMinRolls": 4,
+  "skillMaxRolls": 12,
+  "skillSuccessPercentage": 0.5,
+  "skillCriticalPercentage": 0.9,
+  "defaultUnlock": false,
+  "unlockAtSkillLevel": 19,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_material_steel_wire",
+        "name": "Steel Wire",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_wire_steel.webp",
+        "tier": 4,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier4.webp",
+        "itemLevel": 32,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "blacksmithing"
+        ]
+      },
+      "count": 200
+    },
+    {
+      "entity": {
+        "id": "item_material_pressed_wool_felt",
+        "name": "Wool Felt",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_gambesoncomponents_pressedwoolfelt.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "itemLevel": 28,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "tailoring"
+        ]
+      },
+      "count": 3
+    },
+    {
+      "entity": {
+        "id": "item_material_linen_cloth",
+        "name": "Linen Cloth",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_linen_cloth.webp",
+        "tier": 2,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+        "itemLevel": 12,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "tailoring"
+        ]
+      },
+      "count": 4
+    }
+  ],
+  "xpMultiplier": 3.6,
+  "quality": "common",
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [
+    {
+      "id": "crafter_blacksmith_armor_workbench_2",
+      "name": "Armorer Workbench",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_armorsmithworkbench_l02.webp",
+      "tier": 3,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+      "skills": [
+        {
+          "id": "skill_armor_smithing",
+          "name": "Armorsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "blacksmithing"
+      ]
+    }
+  ],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "armor_smithing",
+    "bottom"
+  ]
+}

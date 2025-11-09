@@ -1,5 +1,5 @@
 Recipe Key,recipe_wieldable_tool_mining_pickaxe_t4_common
-Recipe Name,recipe_wieldable_tool_mining_pickaxe_t4_common
+Recipe Name,Steel Pickaxe
 Skill,skill_weapon_smithing
 UnlockAtSkillLevel,21
 SkillDifficulty,36

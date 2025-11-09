@@ -1,5 +1,5 @@
 Recipe Key,recipe_item_unlock_crafter_blacksmith_weapon_workbench_1
-Recipe Name,recipe_item_unlock_crafter_blacksmith_weapon_workbench_1
+Recipe Name,Basic Weaponsmithing Tools
 Skill,skill_blacksmithing
 UnlockAtSkillLevel,1
 SkillDifficulty,3

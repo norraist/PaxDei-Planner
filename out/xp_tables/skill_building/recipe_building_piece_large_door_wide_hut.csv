@@ -1,5 +1,5 @@
 Recipe Key,recipe_building_piece_large_door_wide_hut
-Recipe Name,recipe_building_piece_large_door_wide_hut
+Recipe Name,"Double Doorway, Hut"
 Skill,skill_building
 UnlockAtSkillLevel,3
 SkillDifficulty,1

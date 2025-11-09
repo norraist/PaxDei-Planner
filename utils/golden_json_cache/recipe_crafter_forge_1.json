@@ -1,0 +1,176 @@
+{
+  "id": "recipe_crafter_forge_1",
+  "name": "Basic Forge",
+  "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_blacksmith_forge_l02.webp",
+  "tier": 1,
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+  "description": "<italic>Bonds are broken and bound anew with every element added.</>",
+  "outputs": [
+    {
+      "entity": {
+        "id": "crafter_forge_1",
+        "name": "Basic Forge",
+        "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_blacksmith_forge_l02.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "skills": [
+          {
+            "id": "skill_blacksmithing",
+            "name": "Blacksmithing",
+            "uiGroup": "crafting",
+            "skillLevelCap": 40,
+            "skillBaseXp": 100,
+            "entityType": "Skill",
+            "entityTypeName": "Skill",
+            "listingPath": "skills",
+            "categoryIds": [
+              "crafting"
+            ]
+          }
+        ],
+        "entityType": "Crafter",
+        "entityTypeName": "Crafter",
+        "listingPath": "crafters",
+        "categoryIds": [
+          "blacksmithing"
+        ]
+      },
+      "count": 1
+    }
+  ],
+  "crafters": [],
+  "craftingStats": [],
+  "skillRequired": {
+    "id": "skill_blacksmithing",
+    "name": "Blacksmithing",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 1,
+  "skillMinRolls": 1,
+  "skillMaxRolls": 1,
+  "skillSuccessPercentage": 0.1,
+  "skillCriticalPercentage": 0.1,
+  "craftingTool": "None",
+  "craftingToolLevel": "None",
+  "defaultUnlock": false,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "recipeUnlockItemName": {
+    "id": "item_unlock_crafter_forge_1",
+    "name": "Basic Forge Parts",
+    "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/menu_tab_crafters/tab_group_craftertools/t_icon_bellows_01.webp",
+    "tier": 2,
+    "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+    "itemLevel": 12,
+    "entityType": "Item",
+    "entityTypeName": "Item",
+    "listingPath": "items",
+    "categoryIds": [
+      "crafterunlocks"
+    ]
+  },
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_unlock_crafter_forge_1",
+        "name": "Basic Forge Parts",
+        "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/menu_tab_crafters/tab_group_craftertools/t_icon_bellows_01.webp",
+        "tier": 2,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+        "itemLevel": 12,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "crafterunlocks"
+        ]
+      },
+      "count": 1
+    },
+    {
+      "entity": {
+        "id": "item_material_wood_beams",
+        "name": "Wooden Beam",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_wood_beams.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 5,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 10
+    },
+    {
+      "entity": {
+        "id": "item_material_wood_planks",
+        "name": "Plank",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_wood_planks.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 5,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 10
+    },
+    {
+      "entity": {
+        "id": "item_raw_material_soil_clay",
+        "name": "Clay",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_earthresources_clay_basket.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 2,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "stone"
+        ]
+      },
+      "count": 50
+    },
+    {
+      "entity": {
+        "id": "item_raw_material_rock_gneiss",
+        "name": "Gneiss",
+        "iconPath": "/images/{height}/environment/nature/resources/gatherabledebris/gneiss/t_gneiss_02_icon.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 1,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "stone"
+        ]
+      },
+      "count": 20
+    }
+  ],
+  "xpMultiplier": 1.2,
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "blacksmithing"
+  ]
+}

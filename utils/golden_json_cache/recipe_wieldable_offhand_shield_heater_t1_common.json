@@ -1,0 +1,317 @@
+{
+  "id": "recipe_wieldable_offhand_shield_heater_t1_common",
+  "name": "Bronze Heater",
+  "iconPath": "/images/{height}/game/inventory/icons/t_icon_wieldable_offhand_shield_heater_t1_common.webp",
+  "tier": 1,
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+  "description": "Use it to politely deflect danger, preferably before your enemies notice its questionable craftsmanship.",
+  "outputs": [
+    {
+      "entity": {
+        "id": "wieldable_offhand_shield_heater_t1_common",
+        "name": "Bronze Heater",
+        "iconPath": "/images/{height}/game/inventory/icons/t_icon_wieldable_offhand_shield_heater_t1_common.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "category": "Shield",
+        "categoryName": "Shield",
+        "craftingSkill": {
+          "id": "skill_armor_smithing",
+          "name": "Armorsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        "craftingDifficulty": 2,
+        "damageMapMin": [],
+        "damageMapMax": [],
+        "baseItemPower": 100.0,
+        "givesAttributes": [
+          {
+            "key": "AggroModifier",
+            "value": 20.0
+          },
+          {
+            "key": "PseudoMaxHealth",
+            "value": 241.0
+          },
+          {
+            "key": "CrowdControlResistanceModifier",
+            "value": 47.0
+          }
+        ],
+        "givesAttributesMin": [
+          {
+            "key": "AggroModifier",
+            "value": 20.0
+          },
+          {
+            "key": "PseudoMaxHealth",
+            "value": 35.0
+          },
+          {
+            "key": "CrowdControlResistanceModifier",
+            "value": 14.0
+          }
+        ],
+        "givesAttributesMax": [
+          {
+            "key": "AggroModifier",
+            "value": 20.0
+          },
+          {
+            "key": "PseudoMaxHealth",
+            "value": 241.0
+          },
+          {
+            "key": "CrowdControlResistanceModifier",
+            "value": 47.0
+          }
+        ],
+        "quality": "common",
+        "hasVariants": true,
+        "entityType": "Wieldable",
+        "entityTypeName": "Wieldable",
+        "listingPath": "wieldables",
+        "categoryIds": [
+          "shields",
+          "c_skill_offhand_shields"
+        ]
+      },
+      "count": 1
+    }
+  ],
+  "crafters": [
+    {
+      "id": "crafter_blacksmith_armor_workbench_1",
+      "name": "Basic Armorer Workbench",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_station_armor_l01.webp",
+      "tier": 1,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+      "skills": [
+        {
+          "id": "skill_armor_smithing",
+          "name": "Armorsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "blacksmithing"
+      ]
+    },
+    {
+      "id": "crafter_blacksmith_armor_workbench_2",
+      "name": "Armorer Workbench",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_armorsmithworkbench_l02.webp",
+      "tier": 3,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+      "skills": [
+        {
+          "id": "skill_armor_smithing",
+          "name": "Armorsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "blacksmithing"
+      ]
+    }
+  ],
+  "craftingStats": [
+    {
+      "level": 1,
+      "probability": 0.8032246,
+      "calculatedProbability": 0.7996,
+      "successMinXp": 137.5059814453125,
+      "successMaxXp": 165.0,
+      "successAvgXp": 145.39178466796875,
+      "failureMinXp": 13.410720825195312,
+      "failureMaxXp": 18.149633407592773,
+      "failureAvgXp": 15.944196701049805
+    },
+    {
+      "level": 2,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 16.499998092651367,
+      "successMaxXp": 19.799999237060547,
+      "successAvgXp": 18.15652847290039
+    },
+    {
+      "level": 3,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 12.833333015441895,
+      "successMaxXp": 15.399998664855957,
+      "successAvgXp": 14.390259742736816
+    },
+    {
+      "level": 4,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 9.166666030883789,
+      "successMaxXp": 10.999999046325684,
+      "successAvgXp": 10.409625053405762
+    },
+    {
+      "level": 5,
+      "probability": 1.0,
+      "calculatedProbability": 1.0
+    }
+  ],
+  "skillRequired": {
+    "id": "skill_armor_smithing",
+    "name": "Armorsmithing",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 2,
+  "skillMinRolls": 3,
+  "skillMaxRolls": 9,
+  "skillSuccessPercentage": 0.5,
+  "skillCriticalPercentage": 0.9,
+  "defaultUnlock": false,
+  "unlockAtSkillLevel": 1,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_material_wood_planks",
+        "name": "Plank",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_wood_planks.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 5,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 10
+    },
+    {
+      "entity": {
+        "id": "item_material_bronze_sheet",
+        "name": "Bronze Sheet",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_sheet_bronze.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 4,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "blacksmithing"
+        ]
+      },
+      "count": 4
+    }
+  ],
+  "xpMultiplier": 1.1,
+  "quality": "common",
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [
+    {
+      "id": "crafter_blacksmith_armor_workbench_1",
+      "name": "Basic Armorer Workbench",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_station_armor_l01.webp",
+      "tier": 1,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+      "skills": [
+        {
+          "id": "skill_armor_smithing",
+          "name": "Armorsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "blacksmithing"
+      ]
+    },
+    {
+      "id": "crafter_blacksmith_armor_workbench_2",
+      "name": "Armorer Workbench",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_armorsmithworkbench_l02.webp",
+      "tier": 3,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+      "skills": [
+        {
+          "id": "skill_armor_smithing",
+          "name": "Armorsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "blacksmithing"
+      ]
+    }
+  ],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "armor_smithing",
+    "shields",
+    "c_skill_offhand_shields"
+  ]
+}

@@ -8,3 +8,12 @@ dependencies = [
     "bs4>=0.0.2",
     "requests>=2.32.5",
 ]
+
+[project.scripts]
+paxdei-planner = "paxdei_planner.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

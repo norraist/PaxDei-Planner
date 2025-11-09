@@ -1,0 +1,227 @@
+{
+  "id": "recipe_crafter_forge_2",
+  "name": "Forge",
+  "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_blacksmith_forge_l03.webp",
+  "tier": 3,
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+  "description": "<italic>Of the four elements, air, earth, water, and fire, man stole only one from the gods. Fire. And with it, man forged his will upon the world.</>",
+  "outputs": [
+    {
+      "entity": {
+        "id": "crafter_forge_2",
+        "name": "Forge",
+        "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_blacksmith_forge_l03.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "skills": [
+          {
+            "id": "skill_blacksmithing",
+            "name": "Blacksmithing",
+            "uiGroup": "crafting",
+            "skillLevelCap": 40,
+            "skillBaseXp": 100,
+            "entityType": "Skill",
+            "entityTypeName": "Skill",
+            "listingPath": "skills",
+            "categoryIds": [
+              "crafting"
+            ]
+          }
+        ],
+        "entityType": "Crafter",
+        "entityTypeName": "Crafter",
+        "listingPath": "crafters",
+        "categoryIds": [
+          "blacksmithing"
+        ]
+      },
+      "count": 1
+    }
+  ],
+  "crafters": [],
+  "craftingStats": [],
+  "skillRequired": {
+    "id": "skill_blacksmithing",
+    "name": "Blacksmithing",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 21,
+  "skillMinRolls": 1,
+  "skillMaxRolls": 1,
+  "skillSuccessPercentage": 0.1,
+  "skillCriticalPercentage": 0.1,
+  "craftingTool": "None",
+  "craftingToolLevel": "None",
+  "defaultUnlock": false,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "recipeUnlockItemName": {
+    "id": "item_unlock_crafter_forge_2",
+    "name": "Forge parts",
+    "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/menu_tab_crafters/tab_group_craftertools/t_icon_bellows_02.webp",
+    "tier": 3,
+    "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+    "itemLevel": 21,
+    "entityType": "Item",
+    "entityTypeName": "Item",
+    "listingPath": "items",
+    "categoryIds": [
+      "crafterunlocks"
+    ]
+  },
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_unlock_crafter_forge_2",
+        "name": "Forge parts",
+        "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/menu_tab_crafters/tab_group_craftertools/t_icon_bellows_02.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "itemLevel": 21,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "crafterunlocks"
+        ]
+      },
+      "count": 1
+    },
+    {
+      "entity": {
+        "id": "item_material_wood_beams_fine",
+        "name": "Fine Wood Beam",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_wood_beams_fine.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "itemLevel": 20,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 10
+    },
+    {
+      "entity": {
+        "id": "item_material_wood_planks_fine",
+        "name": "Fine Wooden Plank",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_wood_planks_fine.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "itemLevel": 20,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 10
+    },
+    {
+      "entity": {
+        "id": "item_material_clay_bricks",
+        "name": "Brick",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_clay_bricks.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 8,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 100
+    },
+    {
+      "entity": {
+        "id": "item_material_charcoal",
+        "name": "Charcoal",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_charcoal.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 1,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "charcoal"
+        ]
+      },
+      "count": 100
+    },
+    {
+      "entity": {
+        "id": "item_raw_material_rock_limestone",
+        "name": "Limestone",
+        "iconPath": "/images/{height}/environment/nature/resources/gatherabledebris/limestone/t_limestone_01_icon.webp",
+        "tier": 2,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+        "itemLevel": 19,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "stone"
+        ]
+      },
+      "count": 3
+    },
+    {
+      "entity": {
+        "id": "item_material_linen_cloth",
+        "name": "Linen Cloth",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_linen_cloth.webp",
+        "tier": 2,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+        "itemLevel": 12,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "tailoring"
+        ]
+      },
+      "count": 10
+    },
+    {
+      "entity": {
+        "id": "item_material_wood_long_stock",
+        "name": "Long Wood Stock",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_long_stock.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 6,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 10
+    }
+  ],
+  "xpMultiplier": 2.7,
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "blacksmithing"
+  ]
+}

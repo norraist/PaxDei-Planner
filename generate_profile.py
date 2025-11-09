@@ -126,7 +126,13 @@ def merge_base(new_profile: Dict[str, Any], base_path: str) -> Dict[str, Any]:
         base_crafters = {s: {"name": s, "owned": True} for s in base["owned_stations"]}
 
     # Merge into new profile
-    merged = {"skills": {}, "crafters": {}}
+    merged = {
+        "skills": {},
+        "crafters": {},
+        "premium_account": bool(base.get("premium_account", new_profile.get("premium_account", False))),
+        "avoid_relics": bool(base.get("avoid_relics", new_profile.get("avoid_relics", False))),
+        "max_cross_skill_gap": int(base.get("max_cross_skill_gap", new_profile.get("max_cross_skill_gap", 5)))
+    }
 
     # Skills: include only keys present in new_profile['skills'] (drop removed ones), carry user values
     for sk, node in new_profile["skills"].items():
@@ -173,7 +179,7 @@ def main():
     skills_obj = { sk: {"name": prettify_skill(sk), "current_level": 1, "current_xp": 0, "target_level": 40} for sk in skills }
     crafters = collect_nondev_crafters(static, loc_idx)
 
-    profile = {"skills": skills_obj, "crafters": crafters}
+    profile = {"skills": skills_obj, "crafters": crafters, "premium_account": False, "avoid_relics": False, "max_cross_skill_gap": 5}
 
     if args.base:
         profile = merge_base(profile, args.base)

@@ -1,0 +1,452 @@
+{
+  "id": "recipe_item_material_iron_studs",
+  "name": "Iron Studs",
+  "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_stud_iron.webp",
+  "tier": 2,
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+  "itemLevel": 13,
+  "description": "Tack pieces of metal or leather together.",
+  "outputs": [
+    {
+      "entity": {
+        "id": "item_material_iron_studs",
+        "name": "Iron Studs",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_stud_iron.webp",
+        "tier": 2,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+        "itemLevel": 13,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "blacksmithing"
+        ]
+      },
+      "count": 200
+    }
+  ],
+  "crafters": [
+    {
+      "id": "crafter_forge_1",
+      "name": "Basic Forge",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_blacksmith_forge_l02.webp",
+      "tier": 1,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+      "skills": [
+        {
+          "id": "skill_blacksmithing",
+          "name": "Blacksmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "blacksmithing"
+      ]
+    },
+    {
+      "id": "crafter_forge_2",
+      "name": "Forge",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_blacksmith_forge_l03.webp",
+      "tier": 3,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+      "skills": [
+        {
+          "id": "skill_blacksmithing",
+          "name": "Blacksmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "blacksmithing"
+      ]
+    },
+    {
+      "id": "crafter_forge_3",
+      "name": "Craftsman Forge",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_blacksmith_forge_l04.webp",
+      "tier": 4,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier4.webp",
+      "skills": [
+        {
+          "id": "skill_blacksmithing",
+          "name": "Blacksmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": []
+    }
+  ],
+  "craftingStats": [
+    {
+      "level": 7,
+      "probability": 0.07866965,
+      "calculatedProbability": 0.0761,
+      "successMinXp": 386.3887634277344,
+      "successMaxXp": 427.8642883300781,
+      "successAvgXp": 394.972900390625,
+      "failureMinXp": 10.19062614440918,
+      "failureMaxXp": 28.046518325805664,
+      "failureAvgXp": 17.82763671875
+    },
+    {
+      "level": 8,
+      "probability": 0.14037807,
+      "calculatedProbability": 0.1438,
+      "successMinXp": 367.0540771484375,
+      "successMaxXp": 409.8148498535156,
+      "successAvgXp": 375.94512939453125,
+      "failureMinXp": 11.591757774353027,
+      "failureMaxXp": 28.04685401916504,
+      "failureAvgXp": 19.389291763305664
+    },
+    {
+      "level": 9,
+      "probability": 0.23301113,
+      "calculatedProbability": 0.2283,
+      "successMinXp": 347.7339172363281,
+      "successMaxXp": 394.6484069824219,
+      "successAvgXp": 357.27947998046875,
+      "failureMinXp": 13.10100269317627,
+      "failureMaxXp": 28.049985885620117,
+      "failureAvgXp": 20.770278930664062
+    },
+    {
+      "level": 10,
+      "probability": 0.356188,
+      "calculatedProbability": 0.3528,
+      "successMinXp": 328.4148254394531,
+      "successMaxXp": 380.16387939453125,
+      "successAvgXp": 338.82440185546875,
+      "failureMinXp": 14.71333122253418,
+      "failureMaxXp": 28.049152374267578,
+      "failureAvgXp": 21.876436233520508
+    },
+    {
+      "level": 11,
+      "probability": 0.4991838,
+      "calculatedProbability": 0.4972,
+      "successMinXp": 309.0919189453125,
+      "successMaxXp": 363.2417297363281,
+      "successAvgXp": 320.8724670410156,
+      "failureMinXp": 16.421619415283203,
+      "failureMaxXp": 28.04994010925293,
+      "failureAvgXp": 22.956186294555664
+    },
+    {
+      "level": 12,
+      "probability": 0.64306456,
+      "calculatedProbability": 0.6428,
+      "successMinXp": 289.77490234375,
+      "successMaxXp": 345.6667785644531,
+      "successAvgXp": 302.83349609375,
+      "failureMinXp": 18.21668815612793,
+      "failureMaxXp": 28.03839111328125,
+      "failureAvgXp": 23.73649024963379
+    },
+    {
+      "level": 13,
+      "probability": 0.76807415,
+      "calculatedProbability": 0.7734,
+      "successMinXp": 270.4595947265625,
+      "successMaxXp": 324.5454406738281,
+      "successAvgXp": 285.0988464355469,
+      "failureMinXp": 20.087434768676758,
+      "failureMaxXp": 28.048585891723633,
+      "failureAvgXp": 24.51152992248535
+    },
+    {
+      "level": 14,
+      "probability": 0.86239856,
+      "calculatedProbability": 0.8643,
+      "successMinXp": 251.1392059326172,
+      "successMaxXp": 301.3636474609375,
+      "successAvgXp": 267.3341979980469,
+      "failureMinXp": 22.021013259887695,
+      "failureMaxXp": 28.045045852661133,
+      "failureAvgXp": 25.027450561523438
+    },
+    {
+      "level": 15,
+      "probability": 0.91071415,
+      "calculatedProbability": 0.9075,
+      "successMinXp": 231.8275909423828,
+      "successMaxXp": 278.18182373046875,
+      "successAvgXp": 250.15280151367188,
+      "failureMinXp": 24.00309944152832,
+      "failureMaxXp": 28.04887580871582,
+      "failureAvgXp": 25.5349063873291
+    },
+    {
+      "level": 16,
+      "probability": 0.93654895,
+      "calculatedProbability": 0.9351,
+      "successMinXp": 212.5049285888672,
+      "successMaxXp": 255.0,
+      "successAvgXp": 231.88511657714844,
+      "failureMinXp": 26.0181941986084,
+      "failureMaxXp": 28.041748046875,
+      "failureAvgXp": 26.497472763061523
+    },
+    {
+      "level": 17,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 25.499998092651367,
+      "successMaxXp": 30.599998474121094,
+      "successAvgXp": 28.034732818603516
+    },
+    {
+      "level": 18,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 23.954545974731445,
+      "successMaxXp": 28.745452880859375,
+      "successAvgXp": 26.507282257080078
+    },
+    {
+      "level": 19,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 22.409090042114258,
+      "successMaxXp": 26.89090919494629,
+      "successAvgXp": 24.92978286743164
+    },
+    {
+      "level": 20,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 20.863636016845703,
+      "successMaxXp": 25.036361694335938,
+      "successAvgXp": 23.309463500976562
+    },
+    {
+      "level": 21,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 19.31818199157715,
+      "successMaxXp": 23.18181610107422,
+      "successAvgXp": 21.674758911132812
+    },
+    {
+      "level": 22,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 17.77272605895996,
+      "successMaxXp": 21.327272415161133,
+      "successAvgXp": 20.02707862854004
+    },
+    {
+      "level": 23,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 16.227272033691406,
+      "successMaxXp": 19.472726821899414,
+      "successAvgXp": 18.349660873413086
+    },
+    {
+      "level": 24,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 14.681818008422852,
+      "successMaxXp": 17.618183135986328,
+      "successAvgXp": 16.65184211730957
+    },
+    {
+      "level": 25,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 13.136362075805664,
+      "successMaxXp": 15.763635635375977,
+      "successAvgXp": 14.930646896362305
+    },
+    {
+      "level": 26,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 11.590909004211426,
+      "successMaxXp": 13.909090042114258,
+      "successAvgXp": 13.214193344116211
+    },
+    {
+      "level": 27,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 10.045454025268555,
+      "successMaxXp": 12.054544448852539,
+      "successAvgXp": 11.471156120300293
+    },
+    {
+      "level": 28,
+      "probability": 1.0,
+      "calculatedProbability": 1.0
+    }
+  ],
+  "skillRequired": {
+    "id": "skill_blacksmithing",
+    "name": "Blacksmithing",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 17,
+  "skillMinRolls": 3,
+  "skillMaxRolls": 6,
+  "skillSuccessPercentage": 0.5,
+  "skillCriticalPercentage": 0.8,
+  "craftingTool": "None",
+  "craftingToolLevel": "None",
+  "defaultUnlock": false,
+  "unlockAtSkillLevel": 7,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_material_iron_bar",
+        "name": "Iron Bar",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_bar_iron_.webp",
+        "tier": 2,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+        "itemLevel": 11,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "blacksmithing"
+        ]
+      },
+      "count": 1
+    }
+  ],
+  "xpMultiplier": 1.7,
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [
+    {
+      "id": "crafter_forge_1",
+      "name": "Basic Forge",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_blacksmith_forge_l02.webp",
+      "tier": 1,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+      "skills": [
+        {
+          "id": "skill_blacksmithing",
+          "name": "Blacksmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "blacksmithing"
+      ]
+    },
+    {
+      "id": "crafter_forge_2",
+      "name": "Forge",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_blacksmith_forge_l03.webp",
+      "tier": 3,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+      "skills": [
+        {
+          "id": "skill_blacksmithing",
+          "name": "Blacksmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "blacksmithing"
+      ]
+    },
+    {
+      "id": "crafter_forge_3",
+      "name": "Craftsman Forge",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_blacksmith_forge_l04.webp",
+      "tier": 4,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier4.webp",
+      "skills": [
+        {
+          "id": "skill_blacksmithing",
+          "name": "Blacksmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": []
+    }
+  ],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "blacksmithing"
+  ]
+}

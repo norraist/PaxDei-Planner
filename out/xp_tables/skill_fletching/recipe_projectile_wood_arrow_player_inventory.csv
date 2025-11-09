@@ -1,5 +1,5 @@
 Recipe Key,recipe_projectile_wood_arrow_player_inventory
-Recipe Name,recipe_projectile_wood_arrow_player_inventory
+Recipe Name,Wooden Arrow
 Skill,skill_fletching
 UnlockAtSkillLevel,1
 SkillDifficulty,2

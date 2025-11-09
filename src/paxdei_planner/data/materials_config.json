@@ -1,0 +1,1932 @@
+{
+  "item_bow_stave": {
+    "name": "Bow Stave",
+    "description": "A fair, but rather heavy bow stave, offering tension through strength.",
+    "enabled": true
+  },
+  "item_bow_stave_coarse": {
+    "name": "Coarse Bow Stave",
+    "description": "Considering how short you have been practicing fletching, this attempt at a bow stave is not bad at all.",
+    "enabled": true
+  },
+  "item_bow_stave_rough": {
+    "name": "Rough Bow Stave",
+    "description": "Considering how long you have been practicing fletching, this attempt at a bow stave is not bad at all.",
+    "enabled": true
+  },
+  "item_material_ale_base_cloudy": {
+    "name": "Cloudy Ale Base",
+    "description": "The fermented and ready to bottle base condition for your tasty drink.",
+    "enabled": true
+  },
+  "item_material_ale_base_strong": {
+    "name": "Strong Ale Base",
+    "description": "The fermented and ready to bottle base condition for your tasty drink.",
+    "enabled": true
+  },
+  "item_material_ale_base_weak": {
+    "name": "Weak Ale Base",
+    "description": "The fermented and ready to bottle base condition for your tasty drink.",
+    "enabled": true
+  },
+  "item_material_animal_glue": {
+    "name": "Glue",
+    "description": "Traditional adhesive made from animal collagen.",
+    "enabled": true
+  },
+  "item_material_animal_glue_fine": {
+    "name": "Fine Glue",
+    "description": "Refined animal glue for precise or high-quality work.",
+    "enabled": true
+  },
+  "item_material_animal_lard": {
+    "name": "Lard",
+    "description": "Rendered animal fat, a delicious and versatile cooking ingredient.",
+    "enabled": true
+  },
+  "item_material_animal_tallow": {
+    "name": "Tallow",
+    "description": "Rendered suet. A pure fat product that is valuable for all sorts of crafting processes.",
+    "enabled": true
+  },
+  "item_material_axe_handle": {
+    "name": "Axe Handle",
+    "description": "A rugged wooden haft designed to withstand impact force.",
+    "enabled": true
+  },
+  "item_material_axe_handle_fine": {
+    "name": "Fine Axe Handle",
+    "description": "A balanced and reinforced handle, carved for optimized swing.",
+    "enabled": true
+  },
+  "item_material_bee_honey": {
+    "name": "Honey",
+    "description": "The floral scent belies its sticky sweetness.",
+    "enabled": true
+  },
+  "item_material_bee_wax": {
+    "name": "Beeswax",
+    "description": "Tacky with an oily texture. Beeswax has a range of uses including in candles and beauty products.",
+    "enabled": true
+  },
+  "item_material_beer_base_cloudy": {
+    "name": "Cloudy Beer Base",
+    "description": "The fermented and ready to bottle base condition for your tasty drink.",
+    "enabled": true
+  },
+  "item_material_beer_base_weak": {
+    "name": "Weak Beer Base",
+    "description": "The fermented and ready to bottle base condition for your tasty drink.",
+    "enabled": true
+  },
+  "item_material_bronze_arrowhead": {
+    "name": "Bronze Arrowhead",
+    "description": "An arrowhead made of bronze.",
+    "enabled": true
+  },
+  "item_material_bronze_axe_blade": {
+    "name": "Bronze Axe Head",
+    "description": "One short shaft away from glory.",
+    "enabled": true
+  },
+  "item_material_bronze_bar": {
+    "name": "Bronze Bar",
+    "description": "A long, shaped piece of raw metal.",
+    "enabled": true
+  },
+  "item_material_bronze_buckles": {
+    "name": "Bronze Buckle",
+    "description": "For securing otherwise loose ends.",
+    "enabled": true
+  },
+  "item_material_bronze_nails": {
+    "name": "Bronze Nails",
+    "description": "The joiner's pointy friend.",
+    "enabled": true
+  },
+  "item_material_bronze_sheet": {
+    "name": "Bronze Sheet",
+    "description": "Sheet of metal, processed and ready to be shaped to the crafters needs.",
+    "enabled": true
+  },
+  "item_material_bronze_spike": {
+    "name": "Bronze Spike",
+    "description": "For when a nail is not enough.",
+    "enabled": true
+  },
+  "item_material_bronze_studs": {
+    "name": "Bronze Studs",
+    "description": "For applying strength and beauty.",
+    "enabled": true
+  },
+  "item_material_bronze_sword_blade": {
+    "name": "Bronze Sword Blade",
+    "description": "Enduring and non corrosive.",
+    "enabled": true
+  },
+  "item_material_button_gold": {
+    "name": "Aurum Buttons",
+    "description": "Decorative fasteners crafted from or plated with gold.",
+    "enabled": true
+  },
+  "item_material_button_horn": {
+    "name": "Horn Buttons",
+    "description": "Buttons shaped from polished horn, durable and natural.",
+    "enabled": true
+  },
+  "item_material_button_silver": {
+    "name": "Silver Buttons",
+    "description": "Metal buttons with shine and resilience.",
+    "enabled": true
+  },
+  "item_material_button_wood": {
+    "name": "Wood Buttons",
+    "description": "Simple, carved fasteners made from treated wood.",
+    "enabled": true
+  },
+  "item_material_charcoal": {
+    "name": "Charcoal",
+    "description": "Burns hot, used in smelting.",
+    "enabled": true
+  },
+  "item_material_clay_bricks": {
+    "name": "Brick",
+    "description": "A basic building material.",
+    "enabled": true
+  },
+  "item_material_clay_shingles": {
+    "name": "Clay Shingles",
+    "description": "A roofing tile made of baked clay.",
+    "enabled": true
+  },
+  "item_material_cotton_cloth": {
+    "name": "Cotton Cloth",
+    "description": "The manufacturing of cotton is said to have originated in Anatolia.",
+    "enabled": true
+  },
+  "item_material_cotton_cloth_coarse": {
+    "name": "Coarse Cotton Cloth",
+    "description": "Coarse cloth made from cotton.",
+    "enabled": true
+  },
+  "item_material_cotton_string": {
+    "name": "Cotton Cord",
+    "description": "Smooth and strong cord made of cotton.",
+    "enabled": true
+  },
+  "item_material_cotton_wadding": {
+    "name": "Cotton Wadding",
+    "description": "A soft inner fill used for warmth or insulation beneath armor.",
+    "enabled": true
+  },
+  "item_material_crafting_iron_anvil_head": {
+    "name": "Iron Anvil Head",
+    "description": "Used to make some Forge Parts.",
+    "enabled": true
+  },
+  "item_material_crafting_sewing_needles": {
+    "name": "Sewing Needles",
+    "description": "Used for sewing and stitching when making clothes.",
+    "enabled": true
+  },
+  "item_material_crafting_steel_anvil_head": {
+    "name": "Steel Anvil Head",
+    "description": "Necessary to make the Craftsman Forge Parts.",
+    "enabled": true
+  },
+  "item_material_dough_barley": {
+    "name": "Barley Dough",
+    "description": "Hearty and rustic, it carries a nutty essence and promises a comforting taste of tradition with every bite.",
+    "enabled": true
+  },
+  "item_material_dough_oat": {
+    "name": "Oat Dough",
+    "description": "Coarse yet comforting, it cradles hints of nuttiness and earthiness, promising wholesome satisfaction with each bite.",
+    "enabled": true
+  },
+  "item_material_dough_rye": {
+    "name": "Rye Dough",
+    "description": "Hearty and dense, it whispers of earthiness and warmth, promising a rustic indulgence.",
+    "enabled": true
+  },
+  "item_material_dough_wheat": {
+    "name": "Wheat Dough",
+    "description": "A golden canvas, supple and elastic, ready to yield to the hands of the artisan, promising warmth, nourishment, and the aroma of home.",
+    "enabled": true
+  },
+  "item_material_enchanting_extract_crude": {
+    "name": "Ambergrasp Extract",
+    "description": "Fresh sap roughly drawn from Ambergrasp, thick and cloudy. The work of a novice alchemist.",
+    "enabled": false
+  },
+  "item_material_enchanting_extract_exquisite": {
+    "name": "Ambergrasp Resin",
+    "description": "Crystalized Ambergrasp sap, smooth and warm to the touch.",
+    "enabled": false
+  },
+  "item_material_enchanting_extract_fine": {
+    "name": "Ambergrasp Concentrate",
+    "description": "A denser, purified form of Ambergrasp sap that glows faintly.",
+    "enabled": false
+  },
+  "item_material_enchanting_powder_crude": {
+    "name": "Chiseled Canonites",
+    "description": "Jagged Canonite fragments roughly cut from shattered Papal constructs. Their scorched faces bear broken lines of scripture, most too worn to read.",
+    "enabled": true
+  },
+  "item_material_enchanting_powder_exquisite": {
+    "name": "Canonite Pearls",
+    "description": "A perfectly rounded Canonite relic, polished to a soft sheen. Only a few pristine runes remain, glowing faintly with lingering holy power.”",
+    "enabled": true
+  },
+  "item_material_enchanting_powder_fine": {
+    "name": "Rounded Canonites",
+    "description": "Canonite stones ground and shaped smooth. Circular bands of scripture wrap their surface, faintly glowing where blessings remain intact.",
+    "enabled": true
+  },
+  "item_material_extract_amanitaregalis": {
+    "name": "Amanita Regalis Extract",
+    "description": "Elixir sought for its mystical properties in the alchemist's quest for enlightenment.",
+    "enabled": true
+  },
+  "item_material_extract_berserker": {
+    "name": "Fly Agaric Extract",
+    "description": "Extract of primal fury, by commoners thought to unlock untamed strength in the hearts of warriors.",
+    "enabled": true
+  },
+  "item_material_extract_deathcap": {
+    "name": "Death Cap Extract",
+    "description": "Bewitched essence, harbinger of peril and power in the alchemical arts.",
+    "enabled": true
+  },
+  "item_material_extract_fools_webcap": {
+    "name": "Fool's Webcap Extract",
+    "description": "Concoction of trickery, believed to veil secrets and ensnare the senses.",
+    "enabled": true
+  },
+  "item_material_extract_loios_tears": {
+    "name": "Extract from Loios' Tears",
+    "description": "Precious drops of compassion and love.",
+    "enabled": true
+  },
+  "item_material_extract_plant_bushy_starworth": {
+    "name": "Starwort Extract",
+    "description": "Celestial elixir, imbued with the magic of the cosmos in the alchemist's pursuit of divine knowledge.",
+    "enabled": true
+  },
+  "item_material_extract_plant_castor_plant": {
+    "name": "Castor Extract",
+    "description": "Extract of transformation, said to unlock the gates to other realms in the hands of the skilled alchemist.",
+    "enabled": true
+  },
+  "item_material_extract_plant_crown_beard": {
+    "name": "Crown Beard Extract",
+    "description": "Essence of sovereignty, revered for its ability to bestow regal wisdom upon the enlightened.",
+    "enabled": true
+  },
+  "item_material_extract_plant_daisy": {
+    "name": "Daisy Extract",
+    "description": "Blossom of innocence, prized for its purity and mythic properties.",
+    "enabled": true
+  },
+  "item_material_extract_plant_dandelion": {
+    "name": "Dandelion Extract",
+    "description": "Elixir of resilience, known for its ability to fortify the body and spirit in the alchemist's pursuit of vitality.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_alfalfa": {
+    "name": "Alfalfa Extract",
+    "description": "Essence of abundance, believed to attract prosperity and fertility in the alchemical arts.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_batflower_flower": {
+    "name": "Batflower Extract",
+    "description": "Shadowed Extract, said to harness the mysteries of the night in the alchemist's quest for arcane knowledge.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_californianpoppy": {
+    "name": "Golden Poppy Extract",
+    "description": "Nectar of joy, revered for its ability to soothe the troubled mind and lift the spirit.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_campion": {
+    "name": "Bladder Campion Extract",
+    "description": "Extract of protection, whispered to shield the soul from harm in the hands of the alchemist.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_crane": {
+    "name": "Crane Flower Extract",
+    "description": "Elixir of grace, believed to bestow elegance and beauty upon those who partake.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_datura_fruit": {
+    "name": "Datura Fruit Extract",
+    "description": "Forbidden fruit, said to unlock visions of the beyond in the alchemist's pursuit of enlightenment.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_datura_leaves": {
+    "name": "Datura Leaf Extract",
+    "description": "Leaf of delirium, known to blur the boundaries between worlds in the hands of the adept alchemist.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_deadly_nightshade_fruit": {
+    "name": "Deadly Nightshade Fruit Extract",
+    "description": "Extract of shadows, believed to hold the secrets of the underworld in ancient alchemy.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_deadly_nightshade_leaves": {
+    "name": "Deadly Nightshade Leaf Extract",
+    "description": "Leaf of darkness, said to veil the mind in the mysteries of the night.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_highmallow": {
+    "name": "High Mallow Extract",
+    "description": "Elixir of tranquility, known to calm the restless soul and soothe troubled spirits.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_lavender": {
+    "name": "Lavender Extract",
+    "description": "Essence of serenity, cherished for its ability to bring peace and harmony to the alchemist's laboratory.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_loios_tears_leaves": {
+    "name": "Loios' Tears Leaf Extract",
+    "description": "An extract from a legendary plant, with tiny, gleaming pieces of residue suspended and playing with the light.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_pasque": {
+    "name": "Pasque Flower Extract",
+    "description": "Blossom of rebirth, whispered to awaken dormant potential in the alchemist's hands.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_plantago": {
+    "name": "Plantago Extract",
+    "description": "Extract of healing, known for its ability to mend wounds and soothe ailments in the alchemist's art.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_redpoppy": {
+    "name": "Red Poppy Extract",
+    "description": "Essence of dreams, believed to unlock the gates to the realm of visions.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_soapwort": {
+    "name": "Soapwort Extract",
+    "description": "Cleansing elixir, revered for its ability to purify body and soul in the hands of the alchemist.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_tansy": {
+    "name": "Tansy Extract",
+    "description": "Herb of protection, believed to ward off malevolent forces and bring fortune to the alchemist's endeavors.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_wolfsbane_leaves": {
+    "name": "Wolfsbane Leaf Extract",
+    "description": "Extract of transformation, said to harness the primal energies of the wolf in the hands of the adept alchemist.",
+    "enabled": true
+  },
+  "item_material_extract_plant_flower_wolfsbane_seeds": {
+    "name": "Wolfsbane Seed Extract",
+    "description": "Seed of power, whispered to unlock the secrets of the hunt in alchemical lore.",
+    "enabled": true
+  },
+  "item_material_extract_plant_herb_angelica": {
+    "name": "Angelica Extract",
+    "description": "Essence of celestial guidance, believed to bring clarity and insight to the alchemist's mind.",
+    "enabled": true
+  },
+  "item_material_extract_plant_herb_lily": {
+    "name": "Lily of the Valley Extract",
+    "description": "Elixir of purity, revered for its ability to cleanse and protect.",
+    "enabled": true
+  },
+  "item_material_extract_plant_herb_meadowsweet": {
+    "name": "Meadowsweet Extract",
+    "description": "Blossom of enchantment, believed to attract love and joy to the alchemist's life.",
+    "enabled": true
+  },
+  "item_material_extract_plant_periwinkle": {
+    "name": "Periwinkle Extract",
+    "description": "Extract of memory, whispered to unlock forgotten knowledge in the alchemist's quest for wisdom.",
+    "enabled": true
+  },
+  "item_material_extract_plant_sowthistle": {
+    "name": "Sow Thistle Extract",
+    "description": "Herb of fortune, believed to bring luck and prosperity to the alchemist's endeavors.",
+    "enabled": true
+  },
+  "item_material_extract_skullcap": {
+    "name": "Skullcap Extract",
+    "description": "Poisonous extract? Should be used with care.",
+    "enabled": true
+  },
+  "item_material_extract_stinkhorn": {
+    "name": "Elegant Stinkhorn Extract",
+    "description": "Elixir of allure, whispered to ensnare the senses and captivate the heart.",
+    "enabled": true
+  },
+  "item_material_flour_barley": {
+    "name": "Barley Flour",
+    "description": "A foundation for countless baked delights, barley flour lends rustic quality to a loaf.",
+    "enabled": true
+  },
+  "item_material_flour_oat": {
+    "name": "Oat Flour",
+    "description": "Nutritious and versatile, providing a subtly sweet flavor and hearty texture to baked goods and recipes.",
+    "enabled": true
+  },
+  "item_material_flour_rye": {
+    "name": "Rye Flour",
+    "description": "Robust, earthy alternative to wheat flour, lending a distinct flavor and texture to baked goods.",
+    "enabled": true
+  },
+  "item_material_flour_wheat": {
+    "name": "Wheat Flour",
+    "description": "Versatile, staple ingredient for baking, cooking, and thickening, derived from ground wheat grains.",
+    "enabled": true
+  },
+  "item_material_glass_pure": {
+    "name": "Pure Glass",
+    "description": "Earth in its purest form.",
+    "enabled": true
+  },
+  "item_material_glass_regular": {
+    "name": "Glass",
+    "description": "An extract of the earth.",
+    "enabled": true
+  },
+  "item_material_glass_rough": {
+    "name": "Rough Glass",
+    "description": "Refined earth.",
+    "enabled": true
+  },
+  "item_material_hardened_corded_padding_linen": {
+    "name": "Corded Linen Padding",
+    "description": "Reinforced padding made from densely corded linen.",
+    "enabled": true
+  },
+  "item_material_heavy_quilted_wool_core": {
+    "name": "Heavy Quilted Wool Core",
+    "description": "A thick, resilient core material for advanced padded armor.",
+    "enabled": true
+  },
+  "item_material_horn_pins_and_needles": {
+    "name": "Horn Needles",
+    "description": "Sturdy sewing tools carved from horn, ideal for both tailoring and leatherworking.",
+    "enabled": true
+  },
+  "item_material_ingot_bronze": {
+    "name": "Bronze Ingot",
+    "description": "Brittle but strong, bronze will do well for most tools.",
+    "enabled": true
+  },
+  "item_material_ingot_copper": {
+    "name": "Copper Ingot",
+    "description": "The simplest of metals, waiting to be shaped.",
+    "enabled": true
+  },
+  "item_material_ingot_gold": {
+    "name": "Aurum Ingot",
+    "description": "Warm to the touch, and yet so cold.",
+    "enabled": true
+  },
+  "item_material_ingot_iron": {
+    "name": "Iron Ingot",
+    "description": "The hard currency of industry.",
+    "enabled": true
+  },
+  "item_material_ingot_silver": {
+    "name": "Silver Ingot",
+    "description": "Deep, smooth, with a lunar glow.",
+    "enabled": true
+  },
+  "item_material_ingot_steel": {
+    "name": "Steel Ingot",
+    "description": "Strong and durable.",
+    "enabled": true
+  },
+  "item_material_ingot_tin": {
+    "name": "Tin Ingot",
+    "description": "The companion metal.",
+    "enabled": true
+  },
+  "item_material_ingot_wrought_iron": {
+    "name": "Wrought Iron Ingot",
+    "description": "A soft, ductile and fibrous variety of Iron.",
+    "enabled": true
+  },
+  "item_material_iron_arrowhead": {
+    "name": "Iron Arrowhead",
+    "description": "An arrowhead made of iron. Sharp and heavy.",
+    "enabled": true
+  },
+  "item_material_iron_axe_blade": {
+    "name": "Iron Axe Head",
+    "description": "The sharp bit of an axe that is meant to bite into its target.",
+    "enabled": true
+  },
+  "item_material_iron_bar": {
+    "name": "Iron Bar",
+    "description": "A long-shaped piece of metal.",
+    "enabled": true
+  },
+  "item_material_iron_hinges": {
+    "name": "Iron Hinges",
+    "description": "For connecting doors and windows to their walls, and allowing them to open and close.",
+    "enabled": true
+  },
+  "item_material_iron_knife_blade": {
+    "name": "Iron Knife Blade",
+    "description": "The working end of a knife.",
+    "enabled": true
+  },
+  "item_material_iron_nails": {
+    "name": "Iron Nails",
+    "description": "Nails, hammer them.",
+    "enabled": true
+  },
+  "item_material_iron_sheet": {
+    "name": "Iron Sheet",
+    "description": "Thin, strong piece of metal.",
+    "enabled": true
+  },
+  "item_material_iron_spike": {
+    "name": "Iron Spike",
+    "description": "A sharpened iron cone.",
+    "enabled": true
+  },
+  "item_material_iron_studs": {
+    "name": "Iron Studs",
+    "description": "Tack pieces of metal or leather together.",
+    "enabled": true
+  },
+  "item_material_iron_sword_blade": {
+    "name": "Iron Sword Blade",
+    "description": "A blade for making a sword.",
+    "enabled": true
+  },
+  "item_material_iron_wire": {
+    "name": "Iron Wire",
+    "description": "Wire made of iron.",
+    "enabled": true
+  },
+  "item_material_leather_bands": {
+    "name": "Leather Band",
+    "description": "A versatile leather crafting material.",
+    "enabled": true
+  },
+  "item_material_leather_bands_coarse": {
+    "name": "Coarse Leather Band",
+    "description": "Simple leather band of low quality.",
+    "enabled": true
+  },
+  "item_material_leather_generic_boiled": {
+    "name": "Boiled Leather",
+    "description": "Generic leather that has been strengthened by boiling it with waxes and oils.",
+    "enabled": true
+  },
+  "item_material_leather_generic_fine": {
+    "name": "Fine Leather",
+    "description": "Processed leather.",
+    "enabled": true
+  },
+  "item_material_leather_generic_fur": {
+    "name": "Fur Leather",
+    "description": "Unshaved processed leather.",
+    "enabled": true
+  },
+  "item_material_leather_generic_fur_fine": {
+    "name": "Fine Fur",
+    "description": "Soft and warm.",
+    "enabled": true
+  },
+  "item_material_leather_generic_inferior": {
+    "name": "Inferior Leather",
+    "description": "Processed leather, from the bottom of the barrel.",
+    "enabled": true
+  },
+  "item_material_leather_generic_rawhide": {
+    "name": "Rawhide",
+    "description": "Cleaned and dried animal hide.",
+    "enabled": true
+  },
+  "item_material_leather_handles": {
+    "name": "Leather Handles",
+    "description": "Sturdy loops and grips cut from thick leather.",
+    "enabled": true
+  },
+  "item_material_leather_pads": {
+    "name": "Leather Pads",
+    "description": "Flat leather layers used for armor padding or reinforcement.",
+    "enabled": true
+  },
+  "item_material_leather_reinforced_cuir_bouilli_linen": {
+    "name": "Cuirbound Linen",
+    "description": "Stiffened linen reinforced with hardened leather plates.",
+    "enabled": true
+  },
+  "item_material_leather_reinforced_plate": {
+    "name": "Reinforced Leather Plate",
+    "description": "A dense plate hardened with internal layering, used for light armor.",
+    "enabled": true
+  },
+  "item_material_leather_reinforced_plate_rough": {
+    "name": "Rough Leather Plate",
+    "description": "A coarser variant of the reinforced leather plate, less refined but functional.",
+    "enabled": true
+  },
+  "item_material_leather_splits_nubuk": {
+    "name": "Nubuck Leather",
+    "description": "Cured with care and ready for the stitch.",
+    "enabled": true
+  },
+  "item_material_leather_splits_suede": {
+    "name": "Suede Leather",
+    "description": "Well-prepared leather, ideal for reliable craftwork.",
+    "enabled": true
+  },
+  "item_material_leather_splits_top_grain_heavy": {
+    "name": "Heavy Top Grain Leather",
+    "description": "Thick, durable top-grain leather used in robust pieces.",
+    "enabled": true
+  },
+  "item_material_leather_splits_top_grain_medium": {
+    "name": "Medium Top Grain Leather",
+    "description": "A balanced leather grade, combining strength and flexibility.",
+    "enabled": true
+  },
+  "item_material_leather_strap": {
+    "name": "Leather Straps",
+    "description": "Narrow leather lengths for fastening or reinforcement.",
+    "enabled": true
+  },
+  "item_material_leather_strap_rough": {
+    "name": "Rough Leather Straps",
+    "description": "Unrefined straps cut from coarser hides.",
+    "enabled": true
+  },
+  "item_material_leather_string": {
+    "name": "Leather String",
+    "description": "Thin string of leather, great for tying.",
+    "enabled": true
+  },
+  "item_material_leather_string_coarse": {
+    "name": "Coarse Leather String",
+    "description": "Simple leather string of low quality.",
+    "enabled": true
+  },
+  "item_material_leather_weapons_belt": {
+    "name": "Weapons Belt",
+    "description": "A wide leather belt for mounting weapons and gear.",
+    "enabled": true
+  },
+  "item_material_leather_weapons_belt_fine": {
+    "name": "Fine Weapons Belt",
+    "description": "A well-crafted belt with reinforced stitching and polished finish.",
+    "enabled": true
+  },
+  "item_material_lime_mortar": {
+    "name": "Lime Mortar",
+    "description": "A pliable binding paste prized by builders for its breathability and resilience.",
+    "enabled": true
+  },
+  "item_material_linen_cloth": {
+    "name": "Linen Cloth",
+    "description": "It's nice and feels good.",
+    "enabled": true
+  },
+  "item_material_linen_cloth_coarse": {
+    "name": "Coarse Linen Cloth",
+    "description": "Derelict style is also fashionable.",
+    "enabled": true
+  },
+  "item_material_linen_cloth_fine": {
+    "name": "Fine Linen Cloth",
+    "description": "A fine cloth for a fine person.",
+    "enabled": true
+  },
+  "item_material_linen_string": {
+    "name": "Linen String",
+    "description": "You can sew with this.",
+    "enabled": true
+  },
+  "item_material_mace_grip": {
+    "name": "Mace Grip",
+    "description": "Leather-wrapped shaft section designed for sturdy one-handed control.",
+    "enabled": true
+  },
+  "item_material_mace_grip_fine": {
+    "name": "Fine Mace Grip",
+    "description": "A reinforced mace grip made with select materials for balance and feel.",
+    "enabled": true
+  },
+  "item_material_malt": {
+    "name": "Malt",
+    "description": "A sweet, toasted essence adding depth to beverages and baked goods.",
+    "enabled": true
+  },
+  "item_material_mead_base_cloudy": {
+    "name": "Cloudy Mead Base",
+    "description": "The fermented and ready to bottle base condition for your tasty drink.",
+    "enabled": true
+  },
+  "item_material_mead_base_intense": {
+    "name": "Intense Mead Base",
+    "description": "The fermented and ready to bottle base condition for your tasty drink.",
+    "enabled": true
+  },
+  "item_material_mead_base_strong": {
+    "name": "Strong Mead Base",
+    "description": "The fermented and ready to bottle base condition for your tasty drink.",
+    "enabled": true
+  },
+  "item_material_mead_base_weak": {
+    "name": "Weak Mead Base",
+    "description": "The fermented and ready to bottle base condition for your tasty drink.",
+    "enabled": true
+  },
+  "item_material_meat_bear_flank": {
+    "name": "Bear Flank Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_bear_neck": {
+    "name": "Bear Neck Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_bear_round": {
+    "name": "Bear Round Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_bear_rump": {
+    "name": "Bear Rump Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_bear_shank": {
+    "name": "Bear Shank Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_bear_shoulder": {
+    "name": "Bear Shoulder Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_boar_flank": {
+    "name": "Boar Flank Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_boar_neck": {
+    "name": "Boar Neck Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_boar_round": {
+    "name": "Boar Round Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_boar_rump": {
+    "name": "Boar Rump Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_boar_shank": {
+    "name": "Boar Shank Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_boar_shoulder": {
+    "name": "Boar Shoulder Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_deer_flank": {
+    "name": "Deer Flank Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_deer_neck": {
+    "name": "Deer Neck Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_deer_round": {
+    "name": "Deer Round Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_deer_rump": {
+    "name": "Deer Rump Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_deer_shank": {
+    "name": "Deer Shank Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_deer_shoulder": {
+    "name": "Deer Shoulder Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_wolf_round": {
+    "name": "Wolf Round Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_wolf_rump": {
+    "name": "Wolf Rump Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_wolf_shank": {
+    "name": "Wolf Shank Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_meat_wolf_shoulder": {
+    "name": "Wolf Shoulder Meat",
+    "description": "Tender, succulent meat, bursting with rich flavor.",
+    "enabled": true
+  },
+  "item_material_oil_flax_linseed": {
+    "name": "Linseed Oil",
+    "description": "A natural oil used to waterproof or treat wood and leather.",
+    "enabled": true
+  },
+  "item_material_pressed_wool_felt": {
+    "name": "Wool Felt",
+    "description": "Compressed wool matting used for padding, insulation, or decoration.",
+    "enabled": true
+  },
+  "item_material_quick_lime": {
+    "name": "Lime",
+    "description": "Caustic powder used in tanning, preservation, or construction.",
+    "enabled": true
+  },
+  "item_material_quilted_padding_linen": {
+    "name": "Quilted Linen Padding",
+    "description": "Layered linen stitched with inner fill for basic protection.",
+    "enabled": true
+  },
+  "item_material_quilted_padding_wool": {
+    "name": "Quilted Wool Padding",
+    "description": "A soft quilt made with wool layers, offering both warmth and cushioning.",
+    "enabled": true
+  },
+  "item_material_redwine_base_weak": {
+    "name": "Weak Red Wine Base",
+    "description": "The fermented and ready to bottle base condition for your tasty drink.",
+    "enabled": true
+  },
+  "item_material_rough_meat_chunks": {
+    "name": "Meat Chunks",
+    "description": "Stew meat, riddled with connective tissue and rather tough, perfect for slow simmered stews and the like.",
+    "enabled": true
+  },
+  "item_material_rough_meat_stripes": {
+    "name": "Meat Strips",
+    "description": "Tender clean shavings of raw meat.",
+    "enabled": true
+  },
+  "item_material_silver_arrowhead": {
+    "name": "Silver Arrowhead",
+    "description": "A thin chevron made of silver that is flexible yet sharp and dangerous.",
+    "enabled": true
+  },
+  "item_material_spear_shaft": {
+    "name": "Spear Shaft",
+    "description": "Wooden or composite staff used as the main body of a spear.",
+    "enabled": true
+  },
+  "item_material_spear_shaft_fine": {
+    "name": "Fine Spear Shaft",
+    "description": "Straight-grained and lacquered shaft for high-quality spear making.",
+    "enabled": true
+  },
+  "item_material_steel_arrowhead": {
+    "name": "Steel Arrowhead",
+    "description": "Straight and to the point, there is little that will resist such persuasion.",
+    "enabled": true
+  },
+  "item_material_steel_axe_blade": {
+    "name": "Steel Axe Head",
+    "description": "The defining component when making a regular steel axe.",
+    "enabled": true
+  },
+  "item_material_steel_bar": {
+    "name": "Steel Bar",
+    "description": "Carbonated iron, waiting to be forged.",
+    "enabled": true
+  },
+  "item_material_steel_cuirass": {
+    "name": "Steel Cuirass",
+    "description": "Protective chestplate piece made of tempered steel.",
+    "enabled": true
+  },
+  "item_material_steel_lames": {
+    "name": "Steel Lames",
+    "description": "Segmented steel strips designed for jointed protection.",
+    "enabled": true
+  },
+  "item_material_steel_sheet": {
+    "name": "Steel Sheet",
+    "description": "Thin and strong piece of hammered metal.",
+    "enabled": true
+  },
+  "item_material_steel_spike": {
+    "name": "Steel Spike",
+    "description": "A small steel rod with a pointy end.",
+    "enabled": true
+  },
+  "item_material_steel_studs": {
+    "name": "Steel Studs",
+    "description": "Small pieces of metal used to connect items together or strengthen them.",
+    "enabled": true
+  },
+  "item_material_steel_sword_blade": {
+    "name": "Steel Sword Blade",
+    "description": "Blade for making a regular steel sword.",
+    "enabled": true
+  },
+  "item_material_steel_wire": {
+    "name": "Steel Wire",
+    "description": "A long thin strand of steel which is both flexible and strong.",
+    "enabled": true
+  },
+  "item_material_straw": {
+    "name": "Straw",
+    "description": "The humblest of building materials.",
+    "enabled": true
+  },
+  "item_material_stuffed_padding_linen": {
+    "name": "Stuffed Linen Padding",
+    "description": "Linen casing packed with natural fiber, used in under-armor garments.",
+    "enabled": true
+  },
+  "item_material_sword_hilt": {
+    "name": "Sword Hilt",
+    "description": "The heart of any blade’s balance, where hand meets steel. Includes the guard, grip, and socket for the tang.",
+    "enabled": true
+  },
+  "item_material_sword_hilt_fine": {
+    "name": "Fine Sword Hilt",
+    "description": "A crafted hilt with ornamental or enhanced grip materials.",
+    "enabled": true
+  },
+  "item_material_thread_gold": {
+    "name": "Aurum Thread",
+    "description": "A sturdy textile thread meticulously coated in gold leaf.",
+    "enabled": true
+  },
+  "item_material_thread_silver": {
+    "name": "Silver Thread",
+    "description": "A base thread finely wrapped in hammered silver.",
+    "enabled": true
+  },
+  "item_material_tiles_glazed": {
+    "name": "Glazed Tiles",
+    "description": "Fired ceramic tiles coated in a protective glossy layer.",
+    "enabled": true
+  },
+  "item_material_water": {
+    "name": "Water",
+    "description": "The essence of life.",
+    "enabled": true
+  },
+  "item_material_whitewine_base_cloudy": {
+    "name": "Cloudy White Wine Base",
+    "description": "The fermented and ready to bottle base condition for your tasty drink.",
+    "enabled": true
+  },
+  "item_material_whitewine_base_weak": {
+    "name": "Weak White Wine Base",
+    "description": "The fermented and ready to bottle base condition for your tasty drink.",
+    "enabled": true
+  },
+  "item_material_wood_beams": {
+    "name": "Wooden Beam",
+    "description": "A building material.",
+    "enabled": true
+  },
+  "item_material_wood_beams_fine": {
+    "name": "Fine Wood Beam",
+    "description": "A fine building material.",
+    "enabled": true
+  },
+  "item_material_wood_long_stock": {
+    "name": "Long Wood Stock",
+    "description": "For making handles for tools and weapons.",
+    "enabled": true
+  },
+  "item_material_wood_long_stock_fine": {
+    "name": "Long Fine Wood Stock",
+    "description": "For making handles for tools and weapons.",
+    "enabled": true
+  },
+  "item_material_wood_planks": {
+    "name": "Plank",
+    "description": "Building material.",
+    "enabled": true
+  },
+  "item_material_wood_planks_fine": {
+    "name": "Fine Wooden Plank",
+    "description": "Building material.",
+    "enabled": true
+  },
+  "item_material_wood_short_stock": {
+    "name": "Short Wood Stock",
+    "description": "For making handles for tools and weapons and other uses.",
+    "enabled": true
+  },
+  "item_material_wood_short_stock_fine": {
+    "name": "Short Fine Wood Stock",
+    "description": "For making handles for tools and weapons and other uses.",
+    "enabled": true
+  },
+  "item_material_wool_cloth": {
+    "name": "Wool Cloth",
+    "description": "A piece of comfort and warmth.",
+    "enabled": true
+  },
+  "item_material_wool_cloth_coarse": {
+    "name": "Coarse Wool Cloth",
+    "description": "Coarse cloth made from wool.",
+    "enabled": true
+  },
+  "item_material_wool_cloth_fine": {
+    "name": "Fine Wool Cloth",
+    "description": "Fine cloth made from wool.",
+    "enabled": true
+  },
+  "item_material_wool_string": {
+    "name": "Wool Yarn",
+    "description": "Soft and light.",
+    "enabled": true
+  },
+  "item_material_wrought_iron_arrowhead": {
+    "name": "Wrought Iron Arrowhead",
+    "description": "The business end of an arrow.",
+    "enabled": true
+  },
+  "item_material_wrought_iron_axe_blade": {
+    "name": "Wrought Iron Axe Head",
+    "description": "The main component when making a regular axe.",
+    "enabled": true
+  },
+  "item_material_wrought_iron_bar": {
+    "name": "Wrought Iron Bar",
+    "description": "A versatile material.",
+    "enabled": true
+  },
+  "item_material_wrought_iron_cuirass": {
+    "name": "Wrought Iron Cuirass",
+    "description": "Armor torso piece forged from malleable iron.",
+    "enabled": true
+  },
+  "item_material_wrought_iron_hinges": {
+    "name": "Wrought Iron Hinges",
+    "description": "Windows, doors, and chests must open and close. These hand-forged hinges make that possible. Simple in purpose, sturdy in design, essential in every build.",
+    "enabled": true
+  },
+  "item_material_wrought_iron_lames": {
+    "name": "Wrought Iron Lames",
+    "description": "Interlocking iron strips used in articulated armor.",
+    "enabled": true
+  },
+  "item_material_wrought_iron_nails": {
+    "name": "Wrought Iron Nails",
+    "description": "For conjoining pieces of wood.",
+    "enabled": true
+  },
+  "item_material_wrought_iron_sheet": {
+    "name": "Wrought Iron Sheet",
+    "description": "A flat, hammered sheet of metal.",
+    "enabled": true
+  },
+  "item_material_wrought_iron_spike": {
+    "name": "Wrought Iron Spike",
+    "description": "Pointy and sharp.",
+    "enabled": true
+  },
+  "item_material_wrought_iron_studs": {
+    "name": "Wrought Iron Studs",
+    "description": "For riveting.",
+    "enabled": true
+  },
+  "item_material_wrought_iron_sword_blade": {
+    "name": "Wrought Iron Sword Blade",
+    "description": "For making regular swords.",
+    "enabled": true
+  },
+  "item_material_yeast": {
+    "name": "Yeast",
+    "description": "Mysterious substance, bestowed upon bakers by the grace of the heavens.",
+    "enabled": true
+  },
+  "item_raw_material_animal_antler": {
+    "name": "Antler",
+    "description": "Stags Pride.",
+    "enabled": true
+  },
+  "item_raw_material_animal_carcass_bear": {
+    "name": "Bear Carcass",
+    "description": "A formidable presence, now a source of sustenance for both predator and scavenger, embodying the raw power and primal instincts of the untamed wilderness.",
+    "enabled": true
+  },
+  "item_raw_material_animal_carcass_boar": {
+    "name": "Boar Carcass",
+    "description": "A robust offering from the wild, providing sustenance and strength to those who rely on the bounty of the forest for survival.",
+    "enabled": true
+  },
+  "item_raw_material_animal_carcass_deer": {
+    "name": "Deer Carcass",
+    "description": "Nature's bounty, sustaining life in the forest.",
+    "enabled": true
+  },
+  "item_raw_material_animal_carcass_rabbit": {
+    "name": "Rabbit Carcass",
+    "description": "Once a symbol of life and vitality, now a humble offering to sustain those in need, embodying the cycle of nature and the resourcefulness of survival in the wilderness.",
+    "enabled": true
+  },
+  "item_raw_material_animal_carcass_wolf": {
+    "name": "Wolf Carcass",
+    "description": "Once a hunter of the wild, now a provider for the ecosystem, sustaining life in the forest's intricate web of existence.",
+    "enabled": true
+  },
+  "item_raw_material_animal_fat": {
+    "name": "Animal Fat",
+    "description": "Rendering this will produce lard.",
+    "enabled": true
+  },
+  "item_raw_material_animal_fibre_wool": {
+    "name": "Wool Fiber",
+    "description": "For strengthening threads and weaves.",
+    "enabled": true
+  },
+  "item_raw_material_animal_hoofs": {
+    "name": "Animal Hoof",
+    "description": "Both hard and supple crafting material.",
+    "enabled": true
+  },
+  "item_raw_material_animal_intestines": {
+    "name": "Animal Intestines",
+    "description": "A basic cooking ingredient.",
+    "enabled": true
+  },
+  "item_raw_material_animal_sinew": {
+    "name": "Sinew",
+    "description": "Thin and strong material for crafting, especially bow strings.",
+    "enabled": true
+  },
+  "item_raw_material_animal_suet": {
+    "name": "Suet",
+    "description": "Rendering this produces tallow.",
+    "enabled": true
+  },
+  "item_raw_material_bone_fragments": {
+    "name": "Bone Fragments",
+    "description": "Good for making pointy utilities.",
+    "enabled": true
+  },
+  "item_raw_material_enchanting_demira_resin": {
+    "name": "Ambergrasp",
+    "description": "A dark, thorny plant with coiled branches gripping a glowing humming amber sap. \\nCan be gathered in all biomes in the Lyonesse.",
+    "enabled": false
+  },
+  "item_raw_material_enchanting_shard": {
+    "name": "Canonite",
+    "description": "Broken chunks of stone scorched and marked by faint inscriptions. Many believe them cursed, for even the Inquisition avoids their touch. \\nCan be gathered in all biomes in the Lyonesse.",
+    "enabled": false
+  },
+  "item_raw_material_gemstone_amber": {
+    "name": "Amber",
+    "description": "Congealed drops of sweat from ancient trees. \\nFound by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_gemstone_blizzard_stone": {
+    "name": "Blizzard Stone",
+    "description": "The poor man's diamond. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "enabled": true
+  },
+  "item_raw_material_gemstone_citrine": {
+    "name": "Citrine",
+    "description": "Rays of the sun, trapped in a gem. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "enabled": true
+  },
+  "item_raw_material_gemstone_emeralds": {
+    "name": "Emerald",
+    "description": "A gemstone of life. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_gemstone_garnet": {
+    "name": "Garnet",
+    "description": "A protective stone said to hold a drop of pure fire within its heart. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "enabled": true
+  },
+  "item_raw_material_gemstone_obsidian": {
+    "name": "Obsidian",
+    "description": "A fragment of the darkest night. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "enabled": true
+  },
+  "item_raw_material_gemstone_onyx": {
+    "name": "Onyx",
+    "description": "Dampens love and is said to cause misfortune. \\nFound by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_gemstone_opal": {
+    "name": "Opal",
+    "description": "Strands of the rainbow, trapped in a gem. \\nFound by mining Iron deposits in all biomes in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_gemstone_pearls": {
+    "name": "Pearl",
+    "description": "Reflections of the moon on the ocean of time. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_gemstone_topaz": {
+    "name": "Topaz",
+    "description": "The stone that harmonizes most fortunately with gold. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "enabled": true
+  },
+  "item_raw_material_gemstone_tourmaline": {
+    "name": "Tourmaline",
+    "description": "A stone to bring clarity of mind. \\nFound by mining Iron deposits in all biomes in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_grain_barley": {
+    "name": "Barley Grain",
+    "description": "A versatile and ancient cereal crop, prized for its nutritional value and used in brewing, cooking, and animal feed throughout history. \\nCan be gathered in Lands of Stone and Scrublands biomes in the Home Valleys.",
+    "enabled": true
+  },
+  "item_raw_material_grain_oat": {
+    "name": "Oat Grain",
+    "description": "A hearty and nutritious cereal crop, renowned for its versatility in various culinary applications, from breakfast cereals to baking and brewing. \\nCan be gathered in Old Forest and Lands of Stone biomes.",
+    "enabled": true
+  },
+  "item_raw_material_grain_rye": {
+    "name": "Rye Grain",
+    "description": "Rye grain, a sturdy crop that withstands the harshest winters, provides bread to fill our bellies and strength to toil the fields. \\nCan be gathered in Lands of Stone, Scrublands and 2 other biomes.",
+    "enabled": true
+  },
+  "item_raw_material_grain_wheat": {
+    "name": "Wheat Grain",
+    "description": "The lifeblood of our sustenance, harvested with sweat and toil, yielding the golden flour that feeds our families and sustains our villages. \\nCan be gathered in The Pale.",
+    "enabled": true
+  },
+  "item_raw_material_grass_barley": {
+    "name": "Barley Stalks",
+    "description": "A humble yet essential crop, harvested from the earth's bounty, offering nourishment in the form of hearty bread, sustaining us through the seasons of toil and harvest. \\nCan be gathered in Lands of Stone and Scrublands biomes in the Home Valleys.",
+    "enabled": true
+  },
+  "item_raw_material_grass_reeds": {
+    "name": "Reed",
+    "description": "Poor man's wood. \\nCan be gathered in all biomes near water.",
+    "enabled": true
+  },
+  "item_raw_material_heartwood_beech": {
+    "name": "Heartwood",
+    "description": "The forest giant's inner strength.",
+    "enabled": true
+  },
+  "item_raw_material_large_animal_hide": {
+    "name": "Large Animal Hide",
+    "description": "A fair quality animal hide. Must be cut to produce usable animal hide.",
+    "enabled": true
+  },
+  "item_raw_material_large_animal_hide_rough": {
+    "name": "Large Rough Animal Hide",
+    "description": "A low-quality animal hide. Must be cut to produce usable animal hide.",
+    "enabled": true
+  },
+  "item_raw_material_medium_animal_hide": {
+    "name": "Animal Hide",
+    "description": "A fair quality animal hide, ready to be processed in the tannery.",
+    "enabled": true
+  },
+  "item_raw_material_medium_animal_hide_rough": {
+    "name": "Rough Animal Hide",
+    "description": "A low-quality hide, ready to be dried and cleaned for making rawhide, or to be processed into leather.",
+    "enabled": true
+  },
+  "item_raw_material_mineral_agate": {
+    "name": "Agate",
+    "description": "Nature's artwork, a mesmerizing display of swirling colors and patterns, forged in the depths of the earth and cherished for its beauty and symbolism throughout the ages. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_mineral_cuprite": {
+    "name": "Cuprite",
+    "description": "The crimson heart of the earth, its fiery hue captivating alchemists' imaginations, believed to hold secrets of transformation and vitality within its radiant depths. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_mineral_fluorite": {
+    "name": "Fluorite",
+    "description": "Mystical gem, enhances alchemical transformations. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_mineral_hematite": {
+    "name": "Hematite",
+    "description": "Earth's magnetic gem, revered by alchemists for its transformative powers. \\nFound by mining Iron deposits in all biomes in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_mineral_lead": {
+    "name": "Lead",
+    "description": "One of Alchemist's base metals, a cornerstone of transformation and other ancient alchemical endeavors. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "enabled": true
+  },
+  "item_raw_material_mineral_magnetite": {
+    "name": "Magnetite",
+    "description": "Nature's magnetic marvel, revered by alchemists for its potent energy and transformative properties. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "enabled": true
+  },
+  "item_raw_material_mineral_pyrite": {
+    "name": "Pyrite",
+    "description": "Earth's golden illusion, captivating alchemists with its deceptive beauty and transformative potential. \\nFound by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_mineral_quartz": {
+    "name": "Quartz",
+    "description": "Earth's crystal guardian, revered by alchemists for its clarity and amplification of energies. \\nFound by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_mineral_quicksilver": {
+    "name": "Quicksilver",
+    "description": "One of the three Primes of Alchemy. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_mineral_sepentine": {
+    "name": "Serpentine",
+    "description": "This stone has been described as being extra natural. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_mineral_sulfur": {
+    "name": "Sulfur",
+    "description": "One of the three Primes of Alchemy. \\nFound by mining Iron deposits in all biomes in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_mineral_turquoise": {
+    "name": "Turquoise",
+    "description": "Some believe the turquoise can warn its bearer of impending danger. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_ore_copper": {
+    "name": "Copper Ore",
+    "description": "Lifeblood of the ancient miners. \\nFound by mining Copper deposits in all biomes in the Home Valleys.",
+    "enabled": true
+  },
+  "item_raw_material_ore_gold": {
+    "name": "Aurum Ore",
+    "description": "Valuable metal, smelt it into coins and ingots. \\nFound by mining Gneiss, Granite and Limestone deposits.",
+    "enabled": true
+  },
+  "item_raw_material_ore_iron": {
+    "name": "Iron Ore",
+    "description": "Smelt it down. \\nFound by mining Iron deposits in all biomes in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_ore_iron_impure": {
+    "name": "Impure Iron Ore",
+    "description": "Impure iron ore, wrested from the bowels of the earth by the sweat of laborers' brows. \\nFound by mining Iron deposits in all biomes in the Home Valleys.",
+    "enabled": true
+  },
+  "item_raw_material_ore_iron_pure": {
+    "name": "Pure Iron Ore",
+    "description": "High quality iron ore. \\nFound by mining Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_ore_silver": {
+    "name": "Silver Ore",
+    "description": "Smelt it down. \\nFound by mining Gneiss, Granite and Limestone deposits.",
+    "enabled": true
+  },
+  "item_raw_material_ore_tin": {
+    "name": "Tin Ore",
+    "description": "Soft, dull to the eye. \\nFound by mining Tin deposits in all biomes in the Home Valleys.",
+    "enabled": true
+  },
+  "item_raw_material_plant_cabbage_red": {
+    "name": "Red Cabbage",
+    "description": "Food fit for kings. And pigs. \\nCan be gathered in Lands of Stone in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_fiber_cotton": {
+    "name": "Cotton Fiber",
+    "description": "A soft fiber, used to make finer and more comfortable textiles. \\nCan be gathered in Drowned Lands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_fiber_flax": {
+    "name": "Flax Fiber",
+    "description": "Strong fibrous plant, used to make linen. \\nCan be gathered in Grasslands, Blessed Meadows and 2 other biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_fiber_flax_seeds": {
+    "name": "Flax Seeds",
+    "description": "Tiny, glossy seeds harvested from the flax plant. \\nCan be gathered in Grasslands, Blessed Meadows and 2 other biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_alfalfa": {
+    "name": "Alfalfa",
+    "description": "Vigorous legume with vibrant green foliage, enriches soils and serves as a nutritious fodder for livestock, sustaining farms and fields with its abundant growth. \\nCan be gathered in Scrublands and The Pale biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_alpine_juniper_needles": {
+    "name": "Juniper Needles",
+    "description": "Hardy foliage of mountainous regions, exuding a resinous scent and is resilient in harsh climates.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_batflower_flower": {
+    "name": "Batflower",
+    "description": "Dark, intricate blossom, evokes twilight magic. \\nCan be gathered in Forsaken Forest in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_beardediris": {
+    "name": "Bearded Iris",
+    "description": "Majestic blooms with velvety petals, crowned by fuzzy \"beards,\" lending regal elegance and vibrant color to gardens and landscapes alike. \\nCan be gathered in Grasslands in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_bushy_starworth": {
+    "name": "Starwort",
+    "description": "A humble plant. \\nCan be gathered in Forsaken Forest.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_californianpoppy": {
+    "name": "Golden Poppy",
+    "description": "A floral treasure. \\nCan be gathered in The Pale.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_campion": {
+    "name": "Bladder Campion",
+    "description": "Delicate wildflower with inflated calyxes, its white petals dance in the breeze, adorning meadows and hedgerows with ephemeral beauty. \\nCan be gathered in The Pale in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_castor_plant": {
+    "name": "Castor Plant",
+    "description": "Produces slow burning oil that is also said to be used to purge evil. \\nCan be gathered in Drowned Lands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_crane": {
+    "name": "Crane Flower",
+    "description": "Exotic bloom, reminiscent of crane wings, captivates with vibrant hues. \\nCan be gathered in Drowned Lands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_crown_beard": {
+    "name": "Crown Beard",
+    "description": "Majestic wildflower, its golden clusters resembling regal crowns, gracing meadows with a touch of royal splendor. \\nCan be gathered in Drowned Lands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_daisy": {
+    "name": "Daisy",
+    "description": "A delicate bloom of the meadows, whispering tales of innocence and simplicity, adorning fields with its cheerful presence. \\nCan be gathered in Grasslands and Scrublands biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_dandelion": {
+    "name": "Dandelion",
+    "description": "Cheerful yellow flower, offers culinary and herbal benefits. \\nCan be gathered in Grasslands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_datura_leaves": {
+    "name": "Datura's Leaves",
+    "description": "Velvety green foliage, adorned with intricate veins, harboring the potent essence of the night, veiled in an aura of mystique and danger. \\nCan be gathered in Scrublands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_datura_seed_pod": {
+    "name": "Datura's Seed Pod",
+    "description": "A curious orb, resembling a prickly vessel of secrets, harboring potent seeds within, enticing curious minds with its mystical allure and enigmatic beauty. \\nCan be gathered in Scrublands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_edelweis": {
+    "name": "Edelweiss",
+    "description": "An emblem of purity and resilience, its woolly white petals are though to symbolize courage and enduring beauty. \\nCan be gathered in Cursed Rocklands in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_hemlock_roots": {
+    "name": "Hemlock Roots",
+    "description": "Twisted and deadly, buried in the earth's embrace. \\nCan be gathered in Drowned Lands in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_hemlock_sap": {
+    "name": "Hemlock Sap",
+    "description": "Lethal essence, coursing through twisted veins, harboring nature's silent killer, a sinister whisper in the forest's shadows. \\nCan be gathered in Drowned Lands in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_henbane_seeds": {
+    "name": "Henbane Seeds",
+    "description": "Tiny orbs of peril, nestled within sinister pods, their innocent appearance belies the deadly potency they hold, a warning whispered by the winds of the wild. \\nCan be gathered in Scrublands, Corrupted Plains and Drowned Lands biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_highmallow": {
+    "name": "High Mallow",
+    "description": "A resilient herb of the wild, its tall stems adorned with pale pink blooms, offering medicinal properties and a touch of grace to untamed landscapes. \\nCan be gathered in The Pale.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_hops": {
+    "name": "Hops",
+    "description": "The fragrant, bitter flowers of the hop plant, essential for brewing beer, imparting aroma, flavor, and bitterness. \\nCan be gathered in Forsaken Forest in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_lavender": {
+    "name": "Lavender",
+    "description": "A fragrant treasure of nature, its delicate purple blooms release an aromatic symphony, enchanting the air with a calming embrace. \\nCan be gathered in Drowned Lands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_loios_tears_leaves": {
+    "name": "Loios' Tears Leaves",
+    "description": "Leaves of wisdom, believed to hold the knowledge of the ages in the alchemist's quest for enlightenment. \\nCan be gathered in Eerie Pines in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_marshmerigold": {
+    "name": "Marsh Marigold",
+    "description": "A cheerful herald of spring, its golden blooms brightening damp meadows and stream banks, welcoming the return of warmth and life to the marshy realms. \\nCan be gathered in Drowned Lands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_pasque": {
+    "name": "Pasque Flower",
+    "description": "A delicate harbinger of spring, its velvet petals unfurling amidst the lingering frost, symbolizing renewal and hope in the awakening of nature's slumber. \\nCan be gathered in Lands of Stone.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_periwinkle": {
+    "name": "Periwinkle",
+    "description": "Delicate woodland flower, carpets the forest floor in hues of blue. \\nCan be gathered in Grasslands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_plantago": {
+    "name": "Plantago",
+    "description": "A humble herb of the fields, its slender stems and ribbed leaves offer healing properties and sustenance, quietly thriving amidst nature's tapestry. \\nCan be gathered in Grasslands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_rain_lily": {
+    "name": "Rain Lily",
+    "description": "Lily that typically blooms following heavy rains. \\nCan be gathered in all biomes near water.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_redpoppy": {
+    "name": "Red Poppy",
+    "description": "A vibrant symbol of remembrance, its scarlet petals dance in the wind, honoring the sacrifices of the fallen with timeless grace and solemn beauty. \\nCan be gathered in Lands of Stone.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_soapwort": {
+    "name": "Soapwort",
+    "description": "A hardy herb of ancient lore, its frothy white blooms and cleansing properties have been cherished through the ages, offering purity and freshness to those who seek it. \\nCan be gathered in Scrublands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_sowthistle": {
+    "name": "Sow Thistle",
+    "description": "Hardy wild plant, prized by foragers. \\nCan be gathered in Lands of Stone and Scrublands biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_tansy": {
+    "name": "Tansy",
+    "description": "A hardy herb of the countryside, its sunny yellow blossoms and aromatic leaves bring cheer to meadows and hedgerows, warding off pests and delighting passersby with its vibrant presence. \\nCan be gathered in Lands of Stone.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_wolfsbane_leaves": {
+    "name": "Wolfsbane's Leaves",
+    "description": "Dark and ominous, their serrated edges and deep green hue conceal nature's deadly poison, a silent warning to all who tread among the shadows of the forest. \\nCan be gathered in Evergreen Forest and Cursed Rocklands biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_flower_wolfsbane_seeds": {
+    "name": "Wolfsbane's Seeds",
+    "description": "Tiny capsules of danger, nestled within the sinister embrace of the plant's foliage, harboring lethal toxins and whispered tales of the wild's dark secrets. \\nCan be gathered in Evergreen Forest and Cursed Rocklands biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_aeonium": {
+    "name": "Aeonium",
+    "description": "A striking succulent with rosette-shaped leaves, its unique appearance adding a touch of exotic beauty to gardens and landscapes. \\nCan be gathered in Cursed Rocklands, Lands of Stone and Scrublands biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_angelica": {
+    "name": "Angelica",
+    "description": "A regal herb of the wild, known for its fragrant blooms and aromatic leaves, lending a touch of elegance to the countryside. \\nCan be gathered in Old Forest and Lands of Stone biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_beebalm": {
+    "name": "Bee Balm",
+    "description": "A fragrant herb of the wild, its vibrant blooms attract bees and butterflies, filling the air with a sweet aroma and adding a splash of color to meadows and gardens alike. \\nCan be gathered in Old Forest, Forsaken Forest and Grasslands biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_cobralily": {
+    "name": "Cobra Lily",
+    "description": "A fascinating carnivorous plant, its hooded structure and intricate patterns lure unsuspecting prey, embodying nature's ingenuity and the beauty of adaptation. \\nCan be gathered in Drowned Lands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_fennel": {
+    "name": "Fennel",
+    "description": "A fragrant herb with feathery leaves and a licorice-like flavor, prized for its culinary versatility and digestive properties, adding depth to dishes and delighting the palate. \\nCan be gathered in The Pale in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_garlic": {
+    "name": "Garlic",
+    "description": "A small miracle of nature. \\nCan be gathered in Old Forest and Evergreen Forest biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_hellebore": {
+    "name": "Hellebore",
+    "description": "A resilient flower of winter's embrace, its elegant blooms defy the cold, bringing hope and beauty to the frost-kissed landscape with their subtle charm and quiet strength. \\nCan be gathered in Evergreen Forest in the Home Valleys.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_lemongrass": {
+    "name": "Lemongrass",
+    "description": "A fragrant herb with slender stalks and a citrusy aroma, prized for its culinary uses and refreshing scent, infusing dishes with zesty flavor and invigorating the senses. \\nCan be gathered in Lands of Stone in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_lily": {
+    "name": "Lily of the Valley",
+    "description": "A delicate woodland flower, its tiny bell-shaped blooms exude a sweet fragrance, evoking the magic of springtime and adding a touch of enchantment to shaded gardens. \\nCan be gathered in Grasslands and Scrublands biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_mandrake": {
+    "name": "Mandrake",
+    "description": "A mystical herb with forked roots, steeped in legend and folklore, believed to possess magical properties and ancient wisdom, shrouded in mystery and reverence throughout the ages. \\nCan be gathered in Evergreen Forest and Eerie Pines biomes in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_meadowsweet": {
+    "name": "Meadowsweet",
+    "description": "A graceful wildflower with clusters of fragrant white blooms, known for its delicate beauty and herbal remedies, gracing meadows and stream banks with its serene presence. \\nCan be gathered in all biomes near water.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_mistletoe": {
+    "name": "Mistletoe",
+    "description": "A symbol of holiday tradition and romance, its evergreen leaves and white berries evoke festive cheer and the promise of affectionate kisses beneath its boughs. \\nCan be gathered in Old Forest and Forsaken Forest biomes in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_mustard": {
+    "name": "Mustard",
+    "description": "Fiery flowers from ancient seeds, enlivens feasts. \\nCan be gathered in Scrublands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_parsley": {
+    "name": "Parsley",
+    "description": "A versatile herb with vibrant green leaves, prized for its fresh flavor and culinary versatility, adding a pop of color and a burst of freshness to dishes both savory and sweet. \\nCan be gathered in Drowned Lands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_rosemary": {
+    "name": "Rosemary",
+    "description": "Fragrant herb with pine-like aroma, adding robust flavor to dishes. \\nCan be gathered in The Pale.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_sage": {
+    "name": "Sage",
+    "description": "Fragrant herb, adds savory flavor to dishes. \\nCan be gathered in Grasslands.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_snapdragon": {
+    "name": "Snapdragon",
+    "description": "A charming flower with colorful blossoms resembling dragon mouths, bringing whimsy and vibrancy to gardens and bouquets, enchanting all who behold its playful allure. \\nCan be gathered in Cursed Rocklands and Lands of Stone biomes.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_thyme": {
+    "name": "Thyme",
+    "description": "A fragrant herb with tiny leaves, prized for its versatility and earthy flavor, adding depth to culinary dishes and herbal remedies alike. \\nCan be gathered in Lands of Stone.",
+    "enabled": true
+  },
+  "item_raw_material_plant_herb_watercress": {
+    "name": "Watercress",
+    "description": "Peppery aquatic herb, adds bite to salads.\n",
+    "enabled": true
+  },
+  "item_raw_material_plant_onion_red": {
+    "name": "Red Onion",
+    "description": "A vibrant bulb of the earth, bestowing pungent flavor and colorful zest to our culinary creations, enlivening dishes with its bold presence. \\nCan be gathered in Forsaken Forest.",
+    "enabled": true
+  },
+  "item_raw_material_plant_onion_yellow": {
+    "name": "Yellow Onion",
+    "description": "A staple of the kitchen, its layers hold the essence of savory flavor, enriching dishes with its robust taste and aromatic depth. \\nCan be gathered in Old Forest, Blessed Meadows and Evergreen Forest biomes.",
+    "enabled": true
+  },
+  "item_raw_material_rock_flint": {
+    "name": "Flint",
+    "description": "Splinters with sharp edges. \\nCan be gathered in all biomes in the Home Valleys near water.",
+    "enabled": true
+  },
+  "item_raw_material_rock_gneiss": {
+    "name": "Gneiss",
+    "description": "Metamorphic rock, hard and sparkly. \\nFound by mining Gneiss deposits and by gathering in all biomes in the Home Valleys and Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_rock_granite": {
+    "name": "Granite",
+    "description": "A noble stone of formidable strength and enduring beauty. \\nFound by mining Granite deposits in Forsaken Forest and The Pale biomes in the Wildlands.",
+    "enabled": true
+  },
+  "item_raw_material_rock_limestone": {
+    "name": "Limestone",
+    "description": "Durable yet porous, best kept away from the elements. \\nFound by mining Limestone deposits in Scrublands, Drowned Lands and The Pale biomes.",
+    "enabled": true
+  },
+  "item_raw_material_rock_sand": {
+    "name": "Sand",
+    "description": "Time treated rocks. \\nFound by mining Copper, Gneiss, Granite, Iron, Limestone and Tin deposits in all biomes.",
+    "enabled": true
+  },
+  "item_raw_material_rock_sandstone": {
+    "name": "Sandstone",
+    "description": "A temp description",
+    "enabled": true
+  },
+  "item_raw_material_sapwood_beech": {
+    "name": "Sapwood",
+    "description": "Easy to work and shape, but this wood type is neither very strong nor durable. \\nCan be gathered in all biomes in the Home Valleys and Wildlands and chopped from trees with an axe.",
+    "enabled": true
+  },
+  "item_raw_material_small_animal_hide": {
+    "name": "Small Animal Hide",
+    "description": "Stitch together enough of these to get a workable animal hide.",
+    "enabled": true
+  },
+  "item_raw_material_small_animal_hide_rough": {
+    "name": "Small Rough Animal Hide",
+    "description": "Stitch together enough of these to get a workable rough animal hide.",
+    "enabled": true
+  },
+  "item_raw_material_soil_clay": {
+    "name": "Clay",
+    "description": "Soft, until baked. \\nCan be gathered in all biomes near water.",
+    "enabled": true
+  },
+  "item_raw_material_tree_resin": {
+    "name": "Resin",
+    "description": "Used for fire or glue.",
+    "enabled": true
+  },
+  "item_unlock_crafter_alchemy_workbench_1": {
+    "name": "Basic Alchemy Instruments",
+    "description": "Required to manufacture the Basic Alchemy Table.",
+    "enabled": true
+  },
+  "item_unlock_crafter_alchemy_workbench_2": {
+    "name": "Alchemy Instruments",
+    "description": "Required to craft the Alchemy Table.",
+    "enabled": true
+  },
+  "item_unlock_crafter_alcohol_crafters_1": {
+    "name": "Barrel Pieces",
+    "description": "Required to craft the Wine Barrel (Carpentry).",
+    "enabled": true
+  },
+  "item_unlock_crafter_anvil_stone_1": {
+    "name": "Anvil Stone",
+    "description": "Required to craft the Stone Anvil.",
+    "enabled": true
+  },
+  "item_unlock_crafter_beehive_1": {
+    "name": "Beehive Pieces",
+    "description": "Required to craft the Basic Beehive.",
+    "enabled": true
+  },
+  "item_unlock_crafter_blacksmith_armor_workbench_1": {
+    "name": "Basic Armorer Tools",
+    "description": "Required to craft the Basic Armorer Workbench.",
+    "enabled": true
+  },
+  "item_unlock_crafter_blacksmith_armor_workbench_2": {
+    "name": "Armorer Tools",
+    "description": "Required to craft the Armorer Workbench.",
+    "enabled": true
+  },
+  "item_unlock_crafter_blacksmith_weapon_workbench_1": {
+    "name": "Basic Weaponsmithing Tools",
+    "description": "Required to craft the Basic Weaponsmith Workbench.",
+    "enabled": true
+  },
+  "item_unlock_crafter_blacksmith_weapon_workbench_2": {
+    "name": "Weaponsmithing Tools",
+    "description": "Required to craft the Weaponsmith Workbench.",
+    "enabled": true
+  },
+  "item_unlock_crafter_bread_oven_1": {
+    "name": "Basic Baking Tools",
+    "description": "Required to craft the Basic Bread Oven.",
+    "enabled": true
+  },
+  "item_unlock_crafter_bread_oven_2": {
+    "name": "Baking Tools",
+    "description": "Required to craft the Bread Oven.",
+    "enabled": true
+  },
+  "item_unlock_crafter_brick_dryer_1": {
+    "name": "Pottery Molds",
+    "description": "Required to craft the Pottery Kiln.",
+    "enabled": true
+  },
+  "item_unlock_crafter_builder_workbench_2": {
+    "name": "Carpenter's Tools",
+    "description": "Required to craft the Carpenter Workbench.",
+    "enabled": true
+  },
+  "item_unlock_crafter_charcoal_kiln_2": {
+    "name": "Charcoal Kiln Plans",
+    "description": "Required to craft the Charcoal Kiln.",
+    "enabled": true
+  },
+  "item_unlock_crafter_charcuterie_workbench_2": {
+    "name": "Charcuterie Tools",
+    "description": "Required to craft the Charcuterie Workbench.",
+    "enabled": true
+  },
+  "item_unlock_crafter_cooking_hearth_1": {
+    "name": "Basic Cooking Tools",
+    "description": "Required to build the Basic Cooking Hearth and Basic Cooking Workbench.",
+    "enabled": true
+  },
+  "item_unlock_crafter_cooking_hearth_2": {
+    "name": "Cooking Tools",
+    "description": "Required to build the Cooking Hearth.",
+    "enabled": true
+  },
+  "item_unlock_crafter_cooking_hearth_3": {
+    "name": "Craftsman Cooking Tools",
+    "description": "Required to create the Craftsman Cooking Hearth.",
+    "enabled": true
+  },
+  "item_unlock_crafter_fletching_workbench_1": {
+    "name": "Basic Fletching Tools",
+    "description": "Required to craft the Basic Fletching Table.",
+    "enabled": true
+  },
+  "item_unlock_crafter_fletching_workbench_2": {
+    "name": "Fletching Tools",
+    "description": "Required to craft the Fletching Table.",
+    "enabled": true
+  },
+  "item_unlock_crafter_forge_1": {
+    "name": "Basic Forge Parts",
+    "description": "Required to craft the Basic Forge.",
+    "enabled": true
+  },
+  "item_unlock_crafter_forge_2": {
+    "name": "Forge parts",
+    "description": "Required to craft the Forge.",
+    "enabled": true
+  },
+  "item_unlock_crafter_forge_3": {
+    "name": "Craftsman Forge parts",
+    "description": "Required to craft the Craftsman Forge.",
+    "enabled": true
+  },
+  "item_unlock_crafter_jewelcrafting_workbench_1": {
+    "name": "Basic Jewelcrafting Tools",
+    "description": "Required to craft the Basic Jeweler Table.",
+    "enabled": true
+  },
+  "item_unlock_crafter_jewelcrafting_workbench_2": {
+    "name": "Jewelcrafting Tools",
+    "description": "Required to craft the Jeweler Table.",
+    "enabled": true
+  },
+  "item_unlock_crafter_leatherworking_workbench_1": {
+    "name": "Basic Leatherworking Tools",
+    "description": "Required to craft the Simple Leatherworking Table.",
+    "enabled": true
+  },
+  "item_unlock_crafter_leatherworking_workbench_2": {
+    "name": "Leatherworking Tools",
+    "description": "Required to craft the Leatherworking Table.",
+    "enabled": true
+  },
+  "item_unlock_crafter_smelter_furnace_1": {
+    "name": "Furnace Parts",
+    "description": "Required to craft the Furnace.",
+    "enabled": true
+  },
+  "item_unlock_crafter_tailoring_workbench_1": {
+    "name": "Basic Tailoring Tools",
+    "description": "Required to craft the Simple Tailoring Table and the Spinning Wheel.",
+    "enabled": true
+  },
+  "item_unlock_crafter_tailoring_workbench_2": {
+    "name": "Tailoring Tools",
+    "description": "Required to craft the Tailoring Table and the Loom.",
+    "enabled": true
+  },
+  "item_unlock_crafter_water_well_1": {
+    "name": "Wooden Winch",
+    "description": "Required to craft the Water Well.",
+    "enabled": true
+  },
+  "item_vial_large": {
+    "name": "Large Vial",
+    "description": "Some would call it a bottle.",
+    "enabled": true
+  },
+  "item_vial_medium": {
+    "name": "Vial",
+    "description": "The shade of the thick glass obscures the contents.",
+    "enabled": true
+  },
+  "item_vial_tiny": {
+    "name": "Tiny Vial",
+    "description": "When a drop is all that is needed.",
+    "enabled": true
+  },
+  "item_vial_very_small": {
+    "name": "Small Vial",
+    "description": "Fits in the palm of your hand.",
+    "enabled": true
+  }
+}

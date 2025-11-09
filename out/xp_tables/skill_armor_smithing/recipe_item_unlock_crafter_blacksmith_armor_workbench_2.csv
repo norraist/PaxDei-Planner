@@ -1,5 +1,5 @@
 Recipe Key,recipe_item_unlock_crafter_blacksmith_armor_workbench_2
-Recipe Name,recipe_item_unlock_crafter_blacksmith_armor_workbench_2
+Recipe Name,Armorer Tools
 Skill,skill_armor_smithing
 UnlockAtSkillLevel,9
 SkillDifficulty,21

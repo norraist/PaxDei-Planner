@@ -1,0 +1,155 @@
+{
+  "id": "recipe_crafter_alchemy_workbench_2",
+  "name": "Alchemy Table",
+  "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_alchemytable_l02.webp",
+  "tier": 3,
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+  "description": "<italic>The highest degree of medicine is Love.</>",
+  "outputs": [
+    {
+      "entity": {
+        "id": "crafter_alchemy_workbench_2",
+        "name": "Alchemy Table",
+        "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_alchemytable_l02.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "skills": [
+          {
+            "id": "skill_alchemy",
+            "name": "Alchemy",
+            "uiGroup": "crafting",
+            "skillLevelCap": 40,
+            "skillBaseXp": 100,
+            "entityType": "Skill",
+            "entityTypeName": "Skill",
+            "listingPath": "skills",
+            "categoryIds": [
+              "crafting"
+            ]
+          },
+          {
+            "id": "skill_weapon_smithing",
+            "name": "Weaponsmithing",
+            "uiGroup": "crafting",
+            "skillLevelCap": 40,
+            "skillBaseXp": 100,
+            "entityType": "Skill",
+            "entityTypeName": "Skill",
+            "listingPath": "skills",
+            "categoryIds": [
+              "crafting"
+            ]
+          }
+        ],
+        "entityType": "Crafter",
+        "entityTypeName": "Crafter",
+        "listingPath": "crafters",
+        "categoryIds": [
+          "alchemy"
+        ]
+      },
+      "count": 1
+    }
+  ],
+  "crafters": [],
+  "craftingStats": [],
+  "skillRequired": {
+    "id": "skill_alchemy",
+    "name": "Alchemy",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 21,
+  "skillMinRolls": 1,
+  "skillMaxRolls": 1,
+  "skillSuccessPercentage": 0.1,
+  "skillCriticalPercentage": 0.1,
+  "craftingTool": "None",
+  "craftingToolLevel": "None",
+  "defaultUnlock": false,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "recipeUnlockItemName": {
+    "id": "item_unlock_crafter_alchemy_workbench_2",
+    "name": "Alchemy Instruments",
+    "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/menu_tab_crafters/tab_group_craftertools/t_icon_alchemist_tools_02.webp",
+    "tier": 3,
+    "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+    "itemLevel": 21,
+    "entityType": "Item",
+    "entityTypeName": "Item",
+    "listingPath": "items",
+    "categoryIds": [
+      "crafterunlocks"
+    ]
+  },
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_unlock_crafter_alchemy_workbench_2",
+        "name": "Alchemy Instruments",
+        "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/menu_tab_crafters/tab_group_craftertools/t_icon_alchemist_tools_02.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "itemLevel": 21,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "crafterunlocks"
+        ]
+      },
+      "count": 1
+    },
+    {
+      "entity": {
+        "id": "item_material_wood_beams_fine",
+        "name": "Fine Wood Beam",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_wood_beams_fine.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "itemLevel": 20,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 4
+    },
+    {
+      "entity": {
+        "id": "item_material_wood_planks_fine",
+        "name": "Fine Wooden Plank",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_wood_planks_fine.webp",
+        "tier": 3,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+        "itemLevel": 20,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "building"
+        ]
+      },
+      "count": 6
+    }
+  ],
+  "xpMultiplier": 2.2,
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "alchemy"
+  ]
+}

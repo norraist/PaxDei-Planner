@@ -1,5 +1,5 @@
 Recipe Key,recipe_building_piece_large_wall_window_hut
-Recipe Name,recipe_building_piece_large_wall_window_hut
+Recipe Name,"Window Wall, Hut"
 Skill,skill_building
 UnlockAtSkillLevel,3
 SkillDifficulty,1

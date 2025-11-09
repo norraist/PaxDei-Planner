@@ -1,0 +1,520 @@
+{
+  "id": "recipe_activatable_potion_potion_of_vitality_very_small_27",
+  "name": "Weak Tonic of Vitality III",
+  "iconPath": "/images/{height}/environment/props/economy/consumables/potions/icons/t_icon_potion_strength_l02.webp",
+  "tier": 2,
+  "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+  "itemLevel": 17,
+  "description": "Empowered by the laughter of the little folks.",
+  "outputs": [
+    {
+      "entity": {
+        "id": "activatable_potion_potion_of_vitality_very_small_27",
+        "name": "Weak Tonic of Vitality III",
+        "iconPath": "/images/{height}/environment/props/economy/consumables/potions/icons/t_icon_potion_strength_l02.webp",
+        "tier": 2,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+        "itemLevel": 17,
+        "givesAttributes": [
+          {
+            "key": "StaminaRgn",
+            "value": 20.0
+          }
+        ],
+        "entityType": "Consumable",
+        "entityTypeName": "Consumable",
+        "listingPath": "consumables",
+        "categoryIds": [
+          "potion",
+          "staminargn"
+        ]
+      },
+      "count": 5
+    }
+  ],
+  "crafters": [
+    {
+      "id": "crafter_alchemy_workbench_1",
+      "name": "Basic Alchemy Table",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_alchemytable.webp",
+      "tier": 1,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+      "skills": [
+        {
+          "id": "skill_alchemy",
+          "name": "Alchemy",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        {
+          "id": "skill_weapon_smithing",
+          "name": "Weaponsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "alchemy"
+      ]
+    },
+    {
+      "id": "crafter_alchemy_workbench_2",
+      "name": "Alchemy Table",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_alchemytable_l02.webp",
+      "tier": 3,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+      "skills": [
+        {
+          "id": "skill_alchemy",
+          "name": "Alchemy",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        {
+          "id": "skill_weapon_smithing",
+          "name": "Weaponsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "alchemy"
+      ]
+    }
+  ],
+  "craftingStats": [
+    {
+      "level": 6,
+      "probability": 0.041624177,
+      "calculatedProbability": 0.0429,
+      "successMinXp": 453.4424133300781,
+      "successMaxXp": 495.18914794921875,
+      "successAvgXp": 462.3574523925781,
+      "failureMinXp": 9.947685241699219,
+      "failureMaxXp": 31.348655700683594,
+      "failureAvgXp": 18.19038963317871
+    },
+    {
+      "level": 7,
+      "probability": 0.07866965,
+      "calculatedProbability": 0.0761,
+      "successMinXp": 431.84625244140625,
+      "successMaxXp": 478.2012634277344,
+      "successAvgXp": 441.4403076171875,
+      "failureMinXp": 11.389522552490234,
+      "failureMaxXp": 31.346107482910156,
+      "failureAvgXp": 19.925004959106445
+    },
+    {
+      "level": 8,
+      "probability": 0.14037807,
+      "calculatedProbability": 0.1438,
+      "successMinXp": 410.23687744140625,
+      "successMaxXp": 458.0283508300781,
+      "successAvgXp": 420.1739807128906,
+      "failureMinXp": 12.955493927001953,
+      "failureMaxXp": 31.346485137939453,
+      "failureAvgXp": 21.670385360717773
+    },
+    {
+      "level": 9,
+      "probability": 0.23301113,
+      "calculatedProbability": 0.2283,
+      "successMinXp": 388.643798828125,
+      "successMaxXp": 441.07763671875,
+      "successAvgXp": 399.3123779296875,
+      "failureMinXp": 14.642297744750977,
+      "failureMaxXp": 31.349985122680664,
+      "failureAvgXp": 23.21384048461914
+    },
+    {
+      "level": 10,
+      "probability": 0.356188,
+      "calculatedProbability": 0.3528,
+      "successMinXp": 367.0518798828125,
+      "successMaxXp": 424.8890380859375,
+      "successAvgXp": 378.68609619140625,
+      "failureMinXp": 16.444311141967773,
+      "failureMaxXp": 31.34905242919922,
+      "failureAvgXp": 24.450136184692383
+    },
+    {
+      "level": 11,
+      "probability": 0.4991838,
+      "calculatedProbability": 0.4972,
+      "successMinXp": 345.4556579589844,
+      "successMaxXp": 405.97607421875,
+      "successAvgXp": 358.6221923828125,
+      "failureMinXp": 18.353574752807617,
+      "failureMaxXp": 31.349933624267578,
+      "failureAvgXp": 25.65691566467285
+    },
+    {
+      "level": 12,
+      "probability": 0.64306456,
+      "calculatedProbability": 0.6428,
+      "successMinXp": 323.8660583496094,
+      "successMaxXp": 386.3334655761719,
+      "successAvgXp": 338.4609680175781,
+      "failureMinXp": 20.35982894897461,
+      "failureMaxXp": 31.337026596069336,
+      "failureAvgXp": 26.52901840209961
+    },
+    {
+      "level": 13,
+      "probability": 0.76807415,
+      "calculatedProbability": 0.7734,
+      "successMinXp": 302.27838134765625,
+      "successMaxXp": 362.7272644042969,
+      "successAvgXp": 318.639892578125,
+      "failureMinXp": 22.45066261291504,
+      "failureMaxXp": 31.348419189453125,
+      "failureAvgXp": 27.395238876342773
+    },
+    {
+      "level": 14,
+      "probability": 0.86239856,
+      "calculatedProbability": 0.8643,
+      "successMinXp": 280.68499755859375,
+      "successMaxXp": 336.8182067871094,
+      "successAvgXp": 298.7852783203125,
+      "failureMinXp": 24.61172103881836,
+      "failureMaxXp": 31.344463348388672,
+      "failureAvgXp": 27.97185707092285
+    },
+    {
+      "level": 15,
+      "probability": 0.91071415,
+      "calculatedProbability": 0.9075,
+      "successMinXp": 259.1014099121094,
+      "successMaxXp": 310.90911865234375,
+      "successAvgXp": 279.5825500488281,
+      "failureMinXp": 26.826993942260742,
+      "failureMaxXp": 31.348743438720703,
+      "failureAvgXp": 28.539012908935547
+    },
+    {
+      "level": 16,
+      "probability": 0.93654895,
+      "calculatedProbability": 0.9351,
+      "successMinXp": 237.50550842285156,
+      "successMaxXp": 285.0,
+      "successAvgXp": 259.16571044921875,
+      "failureMinXp": 29.079158782958984,
+      "failureMaxXp": 31.340776443481445,
+      "failureAvgXp": 29.614822387695312
+    },
+    {
+      "level": 17,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 28.499998092651367,
+      "successMaxXp": 34.19999694824219,
+      "successAvgXp": 31.332937240600586
+    },
+    {
+      "level": 18,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 26.772727966308594,
+      "successMaxXp": 32.12726974487305,
+      "successAvgXp": 29.62578582763672
+    },
+    {
+      "level": 19,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 25.045454025268555,
+      "successMaxXp": 30.05454444885254,
+      "successAvgXp": 27.862699508666992
+    },
+    {
+      "level": 20,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 23.318180084228516,
+      "successMaxXp": 27.9818172454834,
+      "successAvgXp": 26.051753997802734
+    },
+    {
+      "level": 21,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 21.59090805053711,
+      "successMaxXp": 25.909088134765625,
+      "successAvgXp": 24.2247314453125
+    },
+    {
+      "level": 22,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 19.86363410949707,
+      "successMaxXp": 23.836362838745117,
+      "successAvgXp": 22.38320541381836
+    },
+    {
+      "level": 23,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 18.136363983154297,
+      "successMaxXp": 21.76363754272461,
+      "successAvgXp": 20.508445739746094
+    },
+    {
+      "level": 24,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 16.409090042114258,
+      "successMaxXp": 19.69091033935547,
+      "successAvgXp": 18.610883712768555
+    },
+    {
+      "level": 25,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 14.681817054748535,
+      "successMaxXp": 17.618181228637695,
+      "successAvgXp": 16.687192916870117
+    },
+    {
+      "level": 26,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 12.954545974731445,
+      "successMaxXp": 15.545454025268555,
+      "successAvgXp": 14.768804550170898
+    },
+    {
+      "level": 27,
+      "probability": 1.0,
+      "calculatedProbability": 1.0,
+      "successMinXp": 11.227272033691406,
+      "successMaxXp": 13.472725868225098,
+      "successAvgXp": 12.820704460144043
+    },
+    {
+      "level": 28,
+      "probability": 1.0,
+      "calculatedProbability": 1.0
+    }
+  ],
+  "skillRequired": {
+    "id": "skill_alchemy",
+    "name": "Alchemy",
+    "uiGroup": "crafting",
+    "skillLevelCap": 40,
+    "skillBaseXp": 100,
+    "entityType": "Skill",
+    "entityTypeName": "Skill",
+    "listingPath": "skills",
+    "categoryIds": [
+      "crafting"
+    ]
+  },
+  "skillDifficulty": 17,
+  "skillMinRolls": 3,
+  "skillMaxRolls": 6,
+  "skillSuccessPercentage": 0.5,
+  "skillCriticalPercentage": 0.8,
+  "craftingTool": "None",
+  "craftingToolLevel": "None",
+  "defaultUnlock": false,
+  "keyIngredientType": "KEY_UNLOCK_ITEM",
+  "keyIngredientTypeName": "KEY UNLOCK ITEM",
+  "recipeUnlockItemName": {
+    "id": "item_material_extract_amanitaregalis",
+    "name": "Amanita Regalis Extract",
+    "iconPath": "/images/{height}/environment/props/economy/consumables/vials/icons/t_icon_vial_01_liquid_05.webp",
+    "tier": 2,
+    "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+    "itemLevel": 17,
+    "entityType": "Item",
+    "entityTypeName": "Item",
+    "listingPath": "items",
+    "categoryIds": [
+      "alchemy"
+    ]
+  },
+  "itemIngredients": [
+    {
+      "entity": {
+        "id": "item_material_extract_amanitaregalis",
+        "name": "Amanita Regalis Extract",
+        "iconPath": "/images/{height}/environment/props/economy/consumables/vials/icons/t_icon_vial_01_liquid_05.webp",
+        "tier": 2,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+        "itemLevel": 17,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "alchemy"
+        ]
+      },
+      "count": 2
+    },
+    {
+      "entity": {
+        "id": "item_material_water",
+        "name": "Water",
+        "iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_water.webp",
+        "tier": 1,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+        "itemLevel": 1,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "craftingcomponents"
+        ]
+      },
+      "count": 8
+    },
+    {
+      "entity": {
+        "id": "item_vial_very_small",
+        "name": "Small Vial",
+        "iconPath": "/images/{height}/environment/props/economy/consumables/potions/icons/t_icon_potion_bottle_l02.webp",
+        "tier": 2,
+        "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+        "itemLevel": 11,
+        "entityType": "Item",
+        "entityTypeName": "Item",
+        "listingPath": "items",
+        "categoryIds": [
+          "alchemy",
+          "glass"
+        ]
+      },
+      "count": 5
+    }
+  ],
+  "xpMultiplier": 1.9,
+  "entityType": "Recipe",
+  "entityTypeName": "Recipe",
+  "sources": [
+    {
+      "id": "crafter_alchemy_workbench_1",
+      "name": "Basic Alchemy Table",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_alchemytable.webp",
+      "tier": 1,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+      "skills": [
+        {
+          "id": "skill_alchemy",
+          "name": "Alchemy",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        {
+          "id": "skill_weapon_smithing",
+          "name": "Weaponsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "alchemy"
+      ]
+    },
+    {
+      "id": "crafter_alchemy_workbench_2",
+      "name": "Alchemy Table",
+      "iconPath": "/images/{height}/environment/props/economy/da_crafters/icons/t_alchemytable_l02.webp",
+      "tier": 3,
+      "tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
+      "skills": [
+        {
+          "id": "skill_alchemy",
+          "name": "Alchemy",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        },
+        {
+          "id": "skill_weapon_smithing",
+          "name": "Weaponsmithing",
+          "uiGroup": "crafting",
+          "skillLevelCap": 40,
+          "skillBaseXp": 100,
+          "entityType": "Skill",
+          "entityTypeName": "Skill",
+          "listingPath": "skills",
+          "categoryIds": [
+            "crafting"
+          ]
+        }
+      ],
+      "entityType": "Crafter",
+      "entityTypeName": "Crafter",
+      "listingPath": "crafters",
+      "categoryIds": [
+        "alchemy"
+      ]
+    }
+  ],
+  "usedFor": [],
+  "listingPath": "recipes",
+  "categoryIds": [
+    "alchemy",
+    "potion",
+    "staminargn"
+  ]
+}
