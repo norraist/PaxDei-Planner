@@ -1,0 +1,13 @@
+{
+  "mode": "multi",
+  "static": "source_data/staticdatabundle/StaticDataBundle.json",
+  "loc": "source_data/localisation/localisation_en.json",
+  "profile": "config/player_profile.json",
+  "weights": null,
+  "out_dir": "out",
+  "plan_csv": "out/level_plan.csv",
+  "xp_tables_dir": "xp_tables",
+  "topk": 3,
+  "skills": [],
+  "materials_config": "config/materials_config.json"
+}

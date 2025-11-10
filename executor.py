@@ -15,28 +15,31 @@ from paxdei_planner.planner import plan_skill
 from paxdei_planner.report import write_plan_csv, write_materials_csv
 from paxdei_planner.schemas import Weights
 
-PROJECT_ROOT = Path(__file__).resolve().parent
-DEFAULT_DATA_DIR = PROJECT_ROOT / "src" / "paxdei_planner" / "data"
+DEFAULT_STATIC = "source_data/staticdatabundle/StaticDataBundle.json"
+DEFAULT_LOC = "source_data/localisation/localisation_en.json"
+DEFAULT_PROFILE = "config/player_profile.json"
+DEFAULT_MATERIALS = "config/materials_config.json"
 
 CONFIG_TEMPLATE: Dict[str, Any] = {
     "mode": "multi",  # "multi" (LevelPlanner) or "single" (per-skill greedy planner)
-    "static": str((DEFAULT_DATA_DIR / "StaticDataBundle.json").resolve()),
-    "loc": str((DEFAULT_DATA_DIR / "localisation_en.json").resolve()),
-    "profile": str((DEFAULT_DATA_DIR / "player_profile.json").resolve()),
+    "static": DEFAULT_STATIC,
+    "loc": DEFAULT_LOC,
+    "profile": DEFAULT_PROFILE,
     "weights": None,
     "out_dir": "out",
     "plan_csv": "out/level_plan.csv",
     "shopping_csv": "out/level_plan_materials.csv",
     "steps_txt": "out/level_plan_steps.txt",
-    "xp_tables_dir": "out/xp_tables",
+    "xp_tables_dir": "xp_tables",
     "topk": 3,
     "skills": [],
-    "materials_config": None,
+    "materials_config": DEFAULT_MATERIALS,
 }
 
 
 def _ensure_config(path: Path) -> Dict[str, Any]:
     if not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(CONFIG_TEMPLATE, indent=2), encoding="utf-8")
         raise SystemExit(
             f"Created template config at {path}. Fill in the paths/values and rerun."
@@ -101,7 +104,7 @@ def run_multi_skill(config: Dict[str, Any]) -> None:
         os.path.dirname(static_path), "localisation_en.json"
     )
     profile_path = config["profile"]
-    xp_tables_dir = config.get("xp_tables_dir", "out/xp_tables")
+    xp_tables_dir = config.get("xp_tables_dir", "xp_tables")
     Path(xp_tables_dir).mkdir(parents=True, exist_ok=True)
 
     materials_config_path = config.get("materials_config") or os.path.join(os.path.dirname(profile_path), "materials_config.json")
@@ -125,7 +128,7 @@ def main() -> None:
     )
     ap.add_argument(
         "--config",
-        default="executor_config.json",
+        default="config/executor_config.json",
         help="Path to the executor config JSON (template is auto-created if missing).",
     )
     ap.add_argument(

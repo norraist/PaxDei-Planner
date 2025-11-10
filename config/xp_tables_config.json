@@ -1,0 +1,8 @@
+{
+  "static": "source_data/staticdatabundle/StaticDataBundle.json",
+  "loc": "source_data/localisation/localisation_en.json",
+  "out": "xp_tables",
+  "include_dev": false,
+  "only_skill": null,
+  "name_filter": null
+}

@@ -817,7 +817,7 @@ def main():
     ap.add_argument("--static", required=True, help="Path to StaticDataBundle.json")
     ap.add_argument("--loc", required=False, help="Path to localisation_en.json (if omitted, inferred from --static folder)")
     ap.add_argument("--profile", required=True, help="Path to your profile JSON")
-    ap.add_argument("--xpdir", required=False, default="out/xp_tables", help="(Optional) XP tables dir if your xp_model needs it")
+    ap.add_argument("--xpdir", required=False, default="xp_tables", help="(Optional) XP tables dir if your xp_model needs it")
     ap.add_argument("--out", required=True, help="Path to write the CSV plan, e.g., out/level_plan.csv")
     ap.add_argument("--topk", type=int, default=3, help="How many options per step")
     ap.add_argument("--materials-config", required=False, help="Optional materials_config.json path (defaults next to profile)")
