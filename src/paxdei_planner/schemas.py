@@ -21,6 +21,7 @@ class Recipe:
 class SkillXPTable:
     skill: str
     xp_to_level: list[int]  # XP needed to advance from level L to L+1
+    base_xp: int = 0
 
 @dataclass
 class ItemMeta:

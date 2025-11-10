@@ -435,25 +435,11 @@ class LevelPlanner:
         A recipe is feasible if:
           - crafter is owned
           - unlock level is met in its skill
-          - each ingredient is either a leaf (gatherable) or craftable by some unlocked recipe with owned crafter
         """
         if not self._can_use_crafter(_recipe_station(recipe)):
             return False
         if not self._recipe_unlocked(recipe, state_levels.get(_recipe_skill(recipe), 0)):
             return False
-
-        # Ingredients: if producers exist, at least one must itself be unlocked & crafter-owned in its own skill
-        for item_key, _qty in _recipe_ingredients(recipe):
-            prods = self.producers.get(item_key, [])
-            if not prods:
-                continue  # leaf / gatherable
-            craftable = False
-            for pr in prods:
-                if self._can_use_crafter(_recipe_station(pr)) and self._recipe_unlocked(pr, state_levels.get(_recipe_skill(pr), 0)):
-                    craftable = True
-                    break
-            if not craftable:
-                return False
         return True
 
     # ---------- Choosing best options for a single level ----------
@@ -463,6 +449,7 @@ class LevelPlanner:
         Among feasible recipes for 'skill' at 'level', return top-K options by
         score = xp_expected / (1 + material_burden_per_craft).
         """
+        debug = False
         candidates = []
         for r in _recipes_for_skill(self.g, skill):
             if _recipe_is_dev(r):
@@ -485,7 +472,7 @@ class LevelPlanner:
 
         candidates.sort(key=lambda t: t[0], reverse=True)
         top: List[PlanStepOption] = []
-        for score, r, xpc_unit, burden_one in candidates[:top_k]:
+        for score, r, xpc_unit, burden_one in candidates:
             # crafts to reach next level from current XP
             xp_needed = _xp_to_next_level(self.g, skill, level) - self.cur_xp.get(skill, 0)
             crafts = max(1, math.ceil(xp_needed / max(1e-9, xpc_unit)))
@@ -513,6 +500,8 @@ class LevelPlanner:
                 craft_plan=craft_plan_display,
                 prereq_gaps=prereq_gaps
             ))
+            if len(top) >= top_k:
+                break
         return top
 
     # ---------- Prereq resolution ----------

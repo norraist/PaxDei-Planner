@@ -14,7 +14,7 @@ Usage:
   python generate_profile.py --static data/StaticDataBundle.json --loc data/localisation_en.json --out profile.json [--base existing_profile.json]
 """
 import json, argparse, re, sys
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 
 def index_localization(obj):
     idx = {}
@@ -161,6 +161,26 @@ def merge_base(new_profile: Dict[str, Any], base_path: str) -> Dict[str, Any]:
 
     return merged
 
+def _lookup_loc(loc_idx: Dict[str, str], loc_raw: Dict[str, Any], key: str) -> Optional[str]:
+    if key in loc_idx:
+        return loc_idx[key]
+    val = loc_raw.get(key)
+    if isinstance(val, str):
+        return val
+    return None
+
+def apply_localized_names(profile: Dict[str, Any], loc_idx: Dict[str, str], loc_raw: Dict[str, Any]) -> None:
+    for sk, node in profile.get("skills", {}).items():
+        loc_key = f"{sk}_LocalizationNameKey"
+        name = _lookup_loc(loc_idx, loc_raw, loc_key)
+        if name:
+            node["name"] = name
+    for ck, node in profile.get("crafters", {}).items():
+        loc_key = f"{ck}_LocalizationNameKey"
+        name = _lookup_loc(loc_idx, loc_raw, loc_key)
+        if name:
+            node["name"] = name
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--static", required=True, help="Path to StaticDataBundle.json")
@@ -183,6 +203,8 @@ def main():
 
     if args.base:
         profile = merge_base(profile, args.base)
+
+    apply_localized_names(profile, loc_idx, loc)
 
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(profile, f, indent=2, ensure_ascii=False)

@@ -6,6 +6,20 @@ from typing import Dict, Any, List, Tuple, Optional, Set
 
 from .schemas import Recipe, GameData, SkillXPTable, ItemMeta
 
+def _as_bool(val: Any, default: bool = False) -> bool:
+    if isinstance(val, bool):
+        return val
+    if isinstance(val, str):
+        lower = val.strip().lower()
+        if lower in ("true", "1", "yes", "y"):
+            return True
+        if lower in ("false", "0", "no", "n", ""):
+            return False
+        return default
+    if isinstance(val, (int, float)):
+        return val != 0
+    return default
+
 def _index_localization(loc: Dict[str, Any]) -> Dict[str, str]:
     out: Dict[str, str] = {}
 
@@ -73,6 +87,40 @@ def _find_xp_tables(static: Dict[str, Any]) -> Dict[str, List[int]]:
 
     visit(static)
     return found
+
+def _normalize_key(name: Optional[str]) -> str:
+    if not name:
+        return ""
+    return "".join(ch for ch in str(name).lower() if ch.isalnum())
+
+def _extract_skill_leveling(static: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    out: Dict[str, Dict[str, Any]] = {}
+    skills_block = (
+        static.get("static_data", {})
+        .get("SKILL", {})
+    )
+    if not isinstance(skills_block, dict):
+        return out
+    for key, node in skills_block.items():
+        if not isinstance(node, dict):
+            continue
+        if _as_bool(node.get("IsDev")):
+            continue
+        lvl_table = (
+            node.get("SkillLevelingTableId")
+            or node.get("skill_leveling_table_id")
+            or node.get("SkillLevelingTableID")
+        )
+        base_xp = node.get("SkillBaseXp") or node.get("skill_base_xp") or 0
+        try:
+            base_xp_int = int(base_xp)
+        except Exception:
+            base_xp_int = 0
+        out[str(key)] = {
+            "level_table": str(lvl_table) if isinstance(lvl_table, str) else None,
+            "base_xp": base_xp_int,
+        }
+    return out
 
 def _discover_recipe_station_map(static: Dict[str, Any]) -> Dict[str, str]:
     # If the JSON encodes station categories -> recipe keys, capture mapping; else leave empty and infer later.
@@ -197,7 +245,7 @@ def _load_material_config(static: Dict[str, Any], loc_idx: Dict[str, str], confi
     for idx, (key, node) in enumerate(items.items(), 1):
         if not isinstance(node, dict):
             continue
-        if node.get("IsDev"):
+        if _as_bool(node.get("IsDev")):
             continue
         cats = node.get("Categories") or []
         match = False
@@ -269,7 +317,7 @@ def load_game_data(static_path: str, loc_path: str, materials_config: Optional[s
                     if k.startswith('recipe_'):
                         key = k
                         r = v
-                        is_dev = bool(r.get('IsDev', False))
+                        is_dev = _as_bool(r.get('IsDev', False))
                         skill = r.get('SkillRequired') or r.get('Skill') or ''
                         unlock_at = int(r.get('UnlockAtSkillLevel', 0))
                         difficulty = int(r.get('SkillDifficulty', r.get('Difficulty', 0)))
@@ -304,16 +352,42 @@ def load_game_data(static_path: str, loc_path: str, materials_config: Optional[s
 
     # XP tables
     xp_tables_raw = _find_xp_tables(static)
-    skills = {}
-    for sk, arr in xp_tables_raw.items():
-        skills[str(sk)] = SkillXPTable(skill=str(sk), xp_to_level=[int(x) for x in arr])
+    skill_level_meta = _extract_skill_leveling(static)
+    norm_lookup = {_normalize_key(name): arr for name, arr in xp_tables_raw.items()}
 
-    # Some skills reuse generic leveling tables in the data. Map known aliases explicitly.
-    crafting_table = xp_tables_raw.get("leveling_table_crafting")
-    if crafting_table:
-        for alias in ("skill_jewelerycrafting", "skill_jewelrycrafting"):
-            if alias not in skills:
-                skills[alias] = SkillXPTable(skill=alias, xp_to_level=[int(x) for x in crafting_table])
+    skills: Dict[str, SkillXPTable] = {}
+
+    for skill_key, meta in skill_level_meta.items():
+        level_table = meta.get("level_table")
+        base_xp = int(meta.get("base_xp", 0) or 0)
+        seq: Optional[List[int]] = None
+        if level_table:
+            candidates = [level_table, level_table.lower()]
+            lower = level_table.lower()
+            for prefix in ("leveling_", "levelingtable_", "leveling_table_"):
+                if lower.startswith(prefix):
+                    candidates.append(level_table[len(prefix):])
+                    candidates.append(lower[len(prefix):])
+                    break
+            for cand in candidates:
+                seq = xp_tables_raw.get(cand)
+                if seq:
+                    break
+                seq = norm_lookup.get(_normalize_key(cand))
+                if seq:
+                    break
+        if seq is None:
+            seq = xp_tables_raw.get(skill_key)
+        if seq is None:
+            seq = norm_lookup.get(_normalize_key(skill_key))
+        xp_values = [int(x) for x in seq] if seq else []
+        skills[skill_key] = SkillXPTable(skill=skill_key, xp_to_level=xp_values, base_xp=base_xp)
+
+    # Include any tables we haven't linked yet (development/testing)
+    for name, arr in xp_tables_raw.items():
+        if name in skills:
+            continue
+        skills[name] = SkillXPTable(skill=name, xp_to_level=[int(x) for x in arr])
 
     # Basic names for items from localisation
     item_names: Dict[str, str] = {}
