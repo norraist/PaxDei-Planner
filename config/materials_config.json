@@ -1237,7 +1237,7 @@
   "item_raw_material_gemstone_onyx": {
     "name": "Onyx",
     "description": "Dampens love and is said to cause misfortune. \\nFound by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
-    "enabled": true
+    "enabled": false
   },
   "item_raw_material_gemstone_opal": {
     "name": "Opal",

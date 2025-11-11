@@ -42,6 +42,8 @@ class GameData:
     recipe_to_station: Dict[str, str]
     item_meta: Dict[str, ItemMeta]
     materials_config: Dict[str, Dict[str, Any]]
+    recipe_crafters: Dict[str, List[str]] = field(default_factory=dict)
+    crafter_tiers: Dict[str, int] = field(default_factory=dict)
 
 # New nested profile shape (matches your final JSON)
 @dataclass

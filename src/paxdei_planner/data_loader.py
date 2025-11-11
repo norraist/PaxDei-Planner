@@ -80,6 +80,10 @@ def _find_xp_tables(static: Dict[str, Any]) -> Dict[str, List[int]]:
                         skill = str(v['Skill'])
                     if skill:
                         record(skill, v.get('Values'))
+                    else:
+                        values = v.get('Values')
+                        if isinstance(values, list):
+                            found[str(k)] = [int(x) for x in values if isinstance(x, (int, float))]
                 visit(v)
         elif isinstance(obj, list):
             for v in obj:
@@ -225,6 +229,78 @@ def _collect_processing_books(static: Dict[str, Any]) -> Set[str]:
     return no_xp_recipes
 
 
+def _map_recipe_to_crafters(static: Dict[str, Any]) -> Tuple[Dict[str, List[str]], Dict[str, int]]:
+    recipe_books = (
+        static.get("static_data", {})
+        .get("RECIPE_BOOK", {})
+    )
+    crafter_nodes = (
+        static.get("static_data", {})
+        .get("CRAFTER", {})
+    )
+    if not isinstance(recipe_books, dict) or not isinstance(crafter_nodes, dict):
+        return {}, {}
+
+    resolved_books: Dict[str, Set[str]] = {}
+
+    def resolve_book(book_key: str, trail: Set[str]) -> Set[str]:
+        if book_key in resolved_books:
+            return resolved_books[book_key]
+        if book_key in trail:
+            return set()
+        node = recipe_books.get(book_key)
+        recipes: Set[str] = set()
+        if isinstance(node, dict):
+            ids = node.get("ContainsRecipeIds") or node.get("contains_recipe_ids") or []
+            if isinstance(ids, list):
+                for rid in ids:
+                    if isinstance(rid, str):
+                        recipes.add(rid)
+            child_keys: List[str] = []
+            nested = node.get("ContainsRecipebook") or node.get("contains_recipebook")
+            if isinstance(nested, list):
+                child_keys.extend([str(c) for c in nested if isinstance(c, str)])
+            elif isinstance(nested, str) and nested and nested != "None":
+                child_keys.append(nested)
+            nested_many = node.get("ContainsRecipebooks") or node.get("contains_recipebooks")
+            if isinstance(nested_many, list):
+                child_keys.extend([str(c) for c in nested_many if isinstance(c, str)])
+            for child in child_keys:
+                recipes.update(resolve_book(child, trail | {book_key}))
+        resolved_books[book_key] = recipes
+        return recipes
+
+    recipe_to_crafters: Dict[str, Set[str]] = {}
+    crafter_tiers: Dict[str, int] = {}
+
+    for crafter_key, node in crafter_nodes.items():
+        if not isinstance(node, dict):
+            continue
+        if _as_bool(node.get("IsDev")):
+            continue
+        tier = node.get("Tier", 0)
+        try:
+            crafter_tiers[crafter_key] = int(tier)
+        except Exception:
+            crafter_tiers[crafter_key] = 0
+        provided = node.get("ProvidesRecipeBookID") or node.get("provides_recipe_book_id")
+        book_list: List[str] = []
+        if isinstance(provided, list):
+            book_list = [str(b) for b in provided if isinstance(b, str)]
+        elif isinstance(provided, str) and provided and provided != "None":
+            book_list = [provided]
+        for book_key in book_list:
+            recipes = resolve_book(book_key, set())
+            for recipe_key in recipes:
+                recipe_to_crafters.setdefault(recipe_key, set()).add(crafter_key)
+
+    recipe_to_crafters_sorted: Dict[str, List[str]] = {
+        recipe: sorted(crafters, key=lambda ck: crafter_tiers.get(ck, 0))
+        for recipe, crafters in recipe_to_crafters.items()
+    }
+    return recipe_to_crafters_sorted, crafter_tiers
+
+
 def _load_material_config(static: Dict[str, Any], loc_idx: Dict[str, str], config_path: Optional[str]) -> Dict[str, Dict[str, Any]]:
     if not config_path:
         return {}
@@ -304,8 +380,9 @@ def load_game_data(static_path: str, loc_path: str, materials_config: Optional[s
     recipe_to_station: Dict[str, str] = {}
     item_meta: Dict[str, ItemMeta] = {}
 
-    # Try to discover station→recipe mapping
+    # Try to discover station+recipe mapping
     recipe_to_station = _discover_recipe_station_map(static)
+    recipe_crafters_map, crafter_tiers = _map_recipe_to_crafters(static)
 
     no_xp_recipes = _collect_processing_books(static)
 
@@ -325,9 +402,21 @@ def load_game_data(static_path: str, loc_path: str, materials_config: Optional[s
                         ingred = {}
                         for ing_k, ing_v in (r.get('ItemIngredients') or {}).items():
                             ingred[str(ing_k)] = int(ing_v)
-                        outputs = {}
-                        for out_k, out_v in (r.get('ItemDeliverables') or {}).items():
-                            outputs[str(out_k)] = int(out_v)
+                        outputs: Dict[str, int] = {}
+                        for field in (
+                            'ItemDeliverables',
+                            'ActivatableDeliverables',
+                            'ProjectileDeliverables',
+                            'Deliverables',
+                            'Outputs',
+                        ):
+                            block = r.get(field) or {}
+                            if isinstance(block, dict):
+                                for out_k, out_v in block.items():
+                                    try:
+                                        outputs[str(out_k)] = outputs.get(str(out_k), 0) + int(out_v)
+                                    except Exception:
+                                        continue
                         station = recipe_to_station.get(key) or r.get('CraftingStation') or None
                         name_key = r.get('LocalizationNameKey') or ''
                         desc_key = r.get('LocalizationDescriptionKey') or ''
@@ -389,10 +478,10 @@ def load_game_data(static_path: str, loc_path: str, materials_config: Optional[s
             continue
         skills[name] = SkillXPTable(skill=name, xp_to_level=[int(x) for x in arr])
 
-    # Basic names for items from localisation
+    # Basic names for anything with localisation keys (items, activatables, etc.)
     item_names: Dict[str, str] = {}
     for k, v in loc_idx.items():
-        if not isinstance(k, str) or not k.lower().startswith("item_"):
+        if not isinstance(k, str):
             continue
         lower = k.lower()
         if lower.endswith("_localizationnamekey"):
@@ -411,4 +500,7 @@ def load_game_data(static_path: str, loc_path: str, materials_config: Optional[s
         recipe_to_station=recipe_to_station,
         item_meta=item_meta,
         materials_config=materials_cfg,
+        recipe_crafters=recipe_crafters_map,
+        crafter_tiers=crafter_tiers,
     )
+

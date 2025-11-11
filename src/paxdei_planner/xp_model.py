@@ -4,9 +4,9 @@ from typing import Tuple
 
 # Tier-aware constants (fitted during our session)
 TIER_CONST = {
-    'low':  {'A0':112.0, 'B0':12.0, 'C0':15.0, 'slope_trivial':3.0, 'failure_base':35.0},
-    'mid':  {'A0':110.0, 'B0':12.0, 'C0':15.0, 'slope_trivial':3.0, 'failure_base':38.0},
-    'high': {'A0':108.0, 'B0':12.0, 'C0':15.0, 'slope_trivial':3.0, 'failure_base':40.0},
+    'low':  {'A0':80.0, 'B0':8.0, 'C0':12.0, 'slope_trivial':4.0, 'failure_base':13.0},
+    'mid':  {'A0':78.0, 'B0':8.0, 'C0':12.0, 'slope_trivial':4.0, 'failure_base':16.0},
+    'high': {'A0':76.0, 'B0':8.0, 'C0':12.0, 'slope_trivial':4.0, 'failure_base':18.0},
 }
 SPREAD = 0.08  # ±8% success min/max
 

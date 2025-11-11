@@ -2,26 +2,26 @@
   "skills": {
     "skill_alchemy": {
       "name": "Alchemy",
-      "current_level": 5,
-      "current_xp": 713,
+      "current_level": 8,
+      "current_xp": 451,
       "target_level": 30
     },
     "skill_armor_smithing": {
       "name": "Armorsmithing",
-      "current_level": 7,
-      "current_xp": 243,
+      "current_level": 8,
+      "current_xp": 286,
       "target_level": 30
     },
     "skill_baking": {
       "name": "Baking",
-      "current_level": 8,
-      "current_xp": 95,
+      "current_level": 10,
+      "current_xp": 4528,
       "target_level": 30
     },
     "skill_blacksmithing": {
       "name": "Blacksmithing",
       "current_level": 17,
-      "current_xp": 31153,
+      "current_xp": 37633,
       "target_level": 30
     },
     "skill_building": {
@@ -33,25 +33,25 @@
     "skill_charcuterie": {
       "name": "Charcuterie",
       "current_level": 11,
-      "current_xp": 7763,
+      "current_xp": 11615,
       "target_level": 30
     },
     "skill_cooking": {
       "name": "Cooking",
-      "current_level": 8,
+      "current_level": 4077,
       "current_xp": 2038,
       "target_level": 30
     },
     "skill_fletching": {
       "name": "Fletching",
       "current_level": 10,
-      "current_xp": 1693,
+      "current_xp": 5749,
       "target_level": 30
     },
     "skill_jewelerycrafting": {
       "name": "Jewelry Making",
-      "current_level": 7,
-      "current_xp": 2739,
+      "current_level": 8,
+      "current_xp": 245,
       "target_level": 30
     },
     "skill_leatherworking": {
@@ -74,8 +74,8 @@
     },
     "skill_winery_and_brewing": {
       "name": "Winemaking and Brewing",
-      "current_level": 6,
-      "current_xp": 57,
+      "current_level": 8,
+      "current_xp": 4597,
       "target_level": 30
     }
   },
