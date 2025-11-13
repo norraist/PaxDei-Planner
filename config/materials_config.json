@@ -31,12 +31,12 @@
   },
   "item_material_animal_glue": {
     "name": "Glue",
-    "description": "Traditional adhesive made from animal collagen.",
+    "description": "Adhesive made by rendering animal hooves or bones.",
     "enabled": true
   },
   "item_material_animal_glue_fine": {
     "name": "Fine Glue",
-    "description": "Refined animal glue for precise or high-quality work.",
+    "description": "Refined glue strengthened with antler collagen. Ideal for precise or high-quality work.",
     "enabled": true
   },
   "item_material_animal_lard": {
@@ -217,17 +217,17 @@
   "item_material_enchanting_extract_crude": {
     "name": "Ambergrasp Extract",
     "description": "Fresh sap roughly drawn from Ambergrasp, thick and cloudy. The work of a novice alchemist.",
-    "enabled": false
+    "enabled": true
   },
   "item_material_enchanting_extract_exquisite": {
     "name": "Ambergrasp Resin",
     "description": "Crystalized Ambergrasp sap, smooth and warm to the touch.",
-    "enabled": false
+    "enabled": true
   },
   "item_material_enchanting_extract_fine": {
     "name": "Ambergrasp Concentrate",
     "description": "A denser, purified form of Ambergrasp sap that glows faintly.",
-    "enabled": false
+    "enabled": true
   },
   "item_material_enchanting_powder_crude": {
     "name": "Chiseled Canonites",
@@ -835,22 +835,22 @@
     "enabled": true
   },
   "item_material_meat_wolf_round": {
-    "name": "Wolf Round Meat",
+    "name": "Chamois Round Meat",
     "description": "Tender, succulent meat, bursting with rich flavor.",
     "enabled": true
   },
   "item_material_meat_wolf_rump": {
-    "name": "Wolf Rump Meat",
+    "name": "Chamois Rump Meat",
     "description": "Tender, succulent meat, bursting with rich flavor.",
     "enabled": true
   },
   "item_material_meat_wolf_shank": {
-    "name": "Wolf Shank Meat",
+    "name": "Chamois Shank Meat",
     "description": "Tender, succulent meat, bursting with rich flavor.",
     "enabled": true
   },
   "item_material_meat_wolf_shoulder": {
-    "name": "Wolf Shoulder Meat",
+    "name": "Chamois Shoulder Meat",
     "description": "Tender, succulent meat, bursting with rich flavor.",
     "enabled": true
   },
@@ -1155,8 +1155,8 @@
     "enabled": true
   },
   "item_raw_material_animal_carcass_wolf": {
-    "name": "Wolf Carcass",
-    "description": "Once a hunter of the wild, now a provider for the ecosystem, sustaining life in the forest's intricate web of existence.",
+    "name": "Chamois Carcass",
+    "description": "The remains of a sure-footed chamois. Its hide and meat can sustain a traveler, and its bones serve countless uses.",
     "enabled": true
   },
   "item_raw_material_animal_fat": {
@@ -1175,12 +1175,12 @@
     "enabled": true
   },
   "item_raw_material_animal_intestines": {
-    "name": "Animal Intestines",
-    "description": "A basic cooking ingredient.",
+    "name": "Deer Intestines",
+    "description": "Commonly used as natural sausage casing. A basic but essential cooking ingredient.",
     "enabled": true
   },
   "item_raw_material_animal_sinew": {
-    "name": "Sinew",
+    "name": "Boar Sinew",
     "description": "Thin and strong material for crafting, especially bow strings.",
     "enabled": true
   },
@@ -1191,7 +1191,7 @@
   },
   "item_raw_material_bone_fragments": {
     "name": "Bone Fragments",
-    "description": "Good for making pointy utilities.",
+    "description": "Good for making pointy utilities. Common byproduct of Butchering.",
     "enabled": true
   },
   "item_raw_material_enchanting_demira_resin": {
@@ -1825,8 +1825,8 @@
     "enabled": true
   },
   "item_unlock_crafter_charcuterie_workbench_2": {
-    "name": "Charcuterie Tools",
-    "description": "Required to craft the Charcuterie Workbench.",
+    "name": "Butcher's Tools",
+    "description": "Required to craft the Butcher's Workbench.",
     "enabled": true
   },
   "item_unlock_crafter_cooking_hearth_1": {

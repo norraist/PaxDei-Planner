@@ -8,8 +8,13 @@ import csv
 import json
 import math
 import os
+import sys
 from pathlib import Path
 from typing import Any, Dict, Iterable, Optional
+
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 import bootstrap  # noqa: F401
 from paxdei_planner.data_loader import load_game_data
@@ -78,11 +83,11 @@ def _row_for_level(level, r: Recipe) -> dict:
         base = int(level)
 
     ps = success_chance(base, r.difficulty)
-    xs_min, xs_avg, xs_max = xp_success_range(base, r.difficulty, r.xp_multiplier)
-    xf_avg = xp_failure_avg(base, r.difficulty, r.unlock_at, r.xp_multiplier)
+    xs_min, xs_avg, xs_max = xp_success_range(base, r.difficulty, r.xp_multiplier, skill=r.skill)
+    xf_avg = xp_failure_avg(base, r.difficulty, r.unlock_at, r.xp_multiplier, skill=r.skill)
     # For >= difficulty, xp_failure_avg() returns NaN; display as empty string.
     xf_display = "" if (not isinstance(xf_avg, float) or math.isnan(xf_avg)) else int(round(xf_avg))
-    x_exp = xp_expected(base, r.difficulty, r.unlock_at, r.xp_multiplier)
+    x_exp = xp_expected(base, r.difficulty, r.unlock_at, r.xp_multiplier, skill=r.skill)
 
     return {
         "Skill Level": label,

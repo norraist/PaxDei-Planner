@@ -68,7 +68,7 @@ def _best_recipe_now(g: GameData, rlist: List[Recipe], level: int, weights: Dict
     best_exp = 0.0
     best_cost = 0.0
     for r in rlist:
-        exp = xp_expected(level, r.difficulty, r.unlock_at, r.xp_multiplier)
+        exp = xp_expected(level, r.difficulty, r.unlock_at, r.xp_multiplier, skill=r.skill)
         if exp <= 0:
             continue
         cost = craft_cost(r, weights)

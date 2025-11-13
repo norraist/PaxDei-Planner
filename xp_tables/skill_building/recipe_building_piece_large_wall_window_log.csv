@@ -1,5 +1,5 @@
 Recipe Key,recipe_building_piece_large_wall_window_log
-Recipe Name,"Double Window Wall, Log"
+Recipe Name,"Window Wall, Log"
 Skill,skill_building
 UnlockAtSkillLevel,30
 SkillDifficulty,1

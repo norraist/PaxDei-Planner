@@ -412,7 +412,7 @@ class LevelPlanner:
             diff = _recipe_difficulty(rec)
             unlock = _recipe_unlock_at(rec)
             xpm = _recipe_xpmult(rec)
-            total += count * xp_expected(level, diff, unlock, xpm) * self.xp_boost
+            total += count * xp_expected(level, diff, unlock, xpm, skill=rec_skill) * self.xp_boost
         return total
 
     def _xp_breakdown(self, craft_steps: List[Tuple[Any, int, str]], level: int, skill: str) -> List[Tuple[str, float, float, float, int]]:
@@ -425,11 +425,11 @@ class LevelPlanner:
             diff = _recipe_difficulty(rec)
             unlock = _recipe_unlock_at(rec)
             xpm = _recipe_xpmult(rec)
-            success = xp_success_avg(level, diff, xpm) * self.xp_boost
-            failure = xp_failure_avg(level, diff, unlock, xpm)
+            success = xp_success_avg(level, diff, xpm, skill=rec_skill) * self.xp_boost
+            failure = xp_failure_avg(level, diff, unlock, xpm, skill=rec_skill)
             if isinstance(failure, float):
                 failure *= self.xp_boost
-            avg = xp_expected(level, diff, unlock, xpm) * self.xp_boost
+            avg = xp_expected(level, diff, unlock, xpm, skill=rec_skill) * self.xp_boost
             entries.append((_recipe_name(rec), success, failure, avg, count))
         return entries
 
