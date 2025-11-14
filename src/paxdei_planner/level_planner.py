@@ -2,11 +2,12 @@
 from __future__ import annotations
 
 import math, os, csv, json, time
+from pathlib import Path
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple, Set, Iterable, Any
+from typing import Dict, List, Optional, Tuple, Set, Iterable, Any, Callable
 
 from .data_loader import load_game_data
-from .xp_model import xp_expected, xp_success_avg, xp_failure_avg  # expects (level, difficulty, unlock, xp_multiplier) OR adapt as needed
+from .xp_model import xp_expected, xp_success_avg, xp_failure_avg, success_chance  # expects (level, difficulty, unlock, xp_multiplier) OR adapt as needed
 from .skills import get_skill_table
 
 XP_EPS = 1e-6
@@ -149,7 +150,7 @@ class PlanStepOption:
     materials_tree: str = ""
     craft_summary: List[Dict[str, Any]] = field(default_factory=list)
     prereq_gaps: List[Tuple[str, int, str, int]] = field(default_factory=list)
-    xp_breakdown: List[Tuple[str, float, float, float, int]] = field(default_factory=list)
+    xp_breakdown: List[Tuple[str, float, float, float, float, int]] = field(default_factory=list)
 
 @dataclass
 class PlanStep:
@@ -200,14 +201,74 @@ class LevelPlanner:
         # Sanity: ensure xp accessor exists (or fallback already raises)
         _ = _xp_to_next_level(self.g, next(iter(self.cur_level.keys())), 1)
 
+        self.recipe_xp_tables = self._load_recipe_xp_tables(xp_tables_dir)
+        self.skill_crafters = self._map_skill_crafters()
+
         self._total_levels_needed = sum(
             max(0, self.target_level.get(sk, lvl) - lvl)
             for sk, lvl in self.cur_level.items()
         )
         self._progress_levels_done = 0
         self._last_progress_emit = 0.0
+        self._progress_callback: Optional[Callable[[float, int, int], None]] = None
 
     # ---------- Indexing & rarity ----------
+
+    def _load_recipe_xp_tables(self, xp_tables_dir: str) -> Dict[str, List[Tuple[int, float, float, float, float]]]:
+        tables: Dict[str, List[Tuple[int, float, float, float, float]]] = {}
+        base = Path(xp_tables_dir)
+        if not base.exists():
+            return tables
+        for csv_path in base.rglob("*.csv"):
+            try:
+                with csv_path.open("r", encoding="utf-8-sig", newline="") as handle:
+                    reader = csv.reader(handle)
+                    recipe_key: Optional[str] = None
+                    data_started = False
+                    rows: List[Tuple[int, float, float, float, float]] = []
+                    for row in reader:
+                        if not row:
+                            continue
+                        head = row[0].strip()
+                        if head == "Recipe Key" and len(row) > 1:
+                            recipe_key = row[1].strip()
+                        elif head == "Skill Level":
+                            data_started = True
+                        elif data_started:
+                            level_token = head
+                            if not level_token:
+                                continue
+                            digits = "".join(ch for ch in level_token if ch.isdigit())
+                            if not digits:
+                                continue
+                            level_val = int(digits)
+                            chance_str = row[1].strip().rstrip("%") if len(row) > 1 else "0"
+                            try:
+                                chance = float(chance_str) / 100.0
+                            except ValueError:
+                                chance = 0.0
+
+                            def parse(idx: int) -> float:
+                                if len(row) <= idx:
+                                    return float("nan")
+                                token = row[idx].strip()
+                                if not token:
+                                    return float("nan")
+                                try:
+                                    return float(token)
+                                except ValueError:
+                                    return float("nan")
+
+                            success_avg = parse(3)
+                            failure_avg = parse(5)
+                            expected_avg = parse(6)
+                            rows.append((level_val, chance, success_avg, failure_avg, expected_avg))
+                    if recipe_key and rows:
+                        rows.sort(key=lambda r: r[0])
+                        tables[recipe_key] = rows
+            except Exception:
+                continue
+        return tables
 
     def _index_items(self) -> None:
         """Build producer and usage indices from self.g.recipes."""
@@ -225,6 +286,22 @@ class LevelPlanner:
 
             for ing_key, qty in _recipe_ingredients(r):
                 self.usage_count[ing_key] = self.usage_count.get(ing_key, 0) + 1
+
+    def _map_skill_crafters(self) -> Dict[str, List[str]]:
+        mapping: Dict[str, Set[str]] = {}
+        for r in getattr(self.g, "recipes", []):
+            if _recipe_is_dev(r):
+                continue
+            skill = _recipe_skill(r)
+            if not skill:
+                continue
+            recipe_key = _recipe_key(r)
+            for ck in self.recipe_crafters.get(recipe_key, []):
+                mapping.setdefault(skill, set()).add(ck)
+        ordered: Dict[str, List[str]] = {}
+        for sk, cset in mapping.items():
+            ordered[sk] = sorted(cset, key=lambda ck: self.crafter_tiers.get(ck, 0))
+        return ordered
 
     def _is_leaf_item(self, item_key: str) -> bool:
         """True if no recipe in current dataset produces this item."""
@@ -409,29 +486,49 @@ class LevelPlanner:
                 continue
             if not getattr(rec, "grants_xp", True):
                 continue
-            diff = _recipe_difficulty(rec)
-            unlock = _recipe_unlock_at(rec)
-            xpm = _recipe_xpmult(rec)
-            total += count * xp_expected(level, diff, unlock, xpm, skill=rec_skill) * self.xp_boost
+            _, _, _, expected = self._recipe_xp_stats(rec, level, rec_skill)
+            total += count * expected
         return total
 
-    def _xp_breakdown(self, craft_steps: List[Tuple[Any, int, str]], level: int, skill: str) -> List[Tuple[str, float, float, float, int]]:
-        entries: List[Tuple[str, float, float, float, int]] = []
+    def _xp_breakdown(self, craft_steps: List[Tuple[Any, int, str]], level: int, skill: str) -> List[Tuple[str, float, float, float, float, int]]:
+        entries: List[Tuple[str, float, float, float, float, int]] = []
         for rec, count, rec_skill in craft_steps:
             if rec_skill != skill:
                 continue
             if not getattr(rec, "grants_xp", True):
                 continue
-            diff = _recipe_difficulty(rec)
-            unlock = _recipe_unlock_at(rec)
-            xpm = _recipe_xpmult(rec)
-            success = xp_success_avg(level, diff, xpm, skill=rec_skill) * self.xp_boost
-            failure = xp_failure_avg(level, diff, unlock, xpm, skill=rec_skill)
-            if isinstance(failure, float):
-                failure *= self.xp_boost
-            avg = xp_expected(level, diff, unlock, xpm, skill=rec_skill) * self.xp_boost
-            entries.append((_recipe_name(rec), success, failure, avg, count))
+            chance, success, failure, avg = self._recipe_xp_stats(rec, level, rec_skill)
+            entries.append((_recipe_name(rec), chance, success, failure, avg, count))
         return entries
+
+    def _recipe_xp_stats(self, recipe, level: int, skill: str) -> Tuple[float, float, float, float]:
+        key = _recipe_key(recipe)
+        table = self.recipe_xp_tables.get(key)
+        if table:
+            row = table[0]
+            for entry in table:
+                if level >= entry[0]:
+                    row = entry
+                else:
+                    break
+            chance = row[1]
+            success = row[2] * self.xp_boost if not math.isnan(row[2]) else 0.0
+            failure = row[3] * self.xp_boost if not math.isnan(row[3]) else float("nan")
+            expected = row[4] * self.xp_boost if not math.isnan(row[4]) else success
+            return chance, success, failure, expected
+
+        diff = _recipe_difficulty(recipe)
+        unlock = _recipe_unlock_at(recipe)
+        xpm = _recipe_xpmult(recipe)
+        chance = success_chance(level, diff)
+        success = xp_success_avg(level, diff, xpm, skill=skill) * self.xp_boost
+        failure = xp_failure_avg(level, diff, unlock, xpm, skill=skill)
+        if isinstance(failure, float):
+            failure = failure * self.xp_boost
+        else:
+            failure = float("nan")
+        expected = xp_expected(level, diff, unlock, xpm, skill=skill) * self.xp_boost
+        return chance, success, failure, expected
 
     def _summarize_crafts(self, craft_steps: List[Tuple[Any, int, str]]) -> List[Dict[str, Any]]:
         summary: Dict[Tuple[str, str, str], Dict[str, Any]] = {}
@@ -594,7 +691,7 @@ class LevelPlanner:
 
     # ---------- Choosing best options for a single level ----------
 
-    def _best_options_for_level(self, skill: str, level: int, top_k: int = 3) -> List[PlanStepOption]:
+    def _best_options_for_level(self, skill: str, level: int, top_k: int = 3, ignore_gap: bool = False) -> List[PlanStepOption]:
         """
         Among feasible recipes for 'skill' at 'level', return top-K options by
         score = xp_expected / (1 + material_burden_per_craft).
@@ -645,7 +742,7 @@ class LevelPlanner:
                 continue
             total_xp = self._xp_from_crafts(crafts_full, level, skill)
             prereq_gaps = self._dependency_gaps(r, crafts, skill)
-            if self.max_cross_skill_gap >= 0 and any(delta > self.max_cross_skill_gap for *_, delta in prereq_gaps):
+            if (not ignore_gap) and self.max_cross_skill_gap >= 0 and any(delta > self.max_cross_skill_gap for *_, delta in prereq_gaps):
                 continue
             craft_summary = self._summarize_crafts(crafts_full)
             xp_breakdown = self._xp_breakdown(crafts_full, level, skill)
@@ -713,50 +810,9 @@ class LevelPlanner:
                     for crafter_key in missing_crafters:
                         if required_crafter and crafter_key != required_crafter:
                             continue
-                        unlockers = [
-                            ur for ur in getattr(self.g, "recipes", [])
-                            if (_recipe_output_item(ur) == crafter_key)
-                            or (_recipe_key(ur).startswith("recipe_item_unlock_crafter_") and crafter_key in _recipe_key(ur))
-                        ]
-                        if unlockers:
-                            ur = unlockers[0]
-                            note = f"Unlock required crafter: {_recipe_name(ur)}"
-                            req_skill = _recipe_skill(ur)
-                            req_unlock = _recipe_unlock_at(ur)
-                            current = self.cur_level.get(req_skill, 1)
-                            if req_skill == skill and level < req_unlock:
-                                opts = self._best_options_for_level(skill, level)
-                                if opts:
-                                    return PlanStep(
-                                        skill=skill,
-                                        from_level=level,
-                                        to_level=level + 1,
-                                        options=opts,
-                                        note=note,
-                                    )
-                            if req_unlock and current < req_unlock:
-                                opts = self._best_options_for_level(req_skill, current)
-                                if opts:
-                                    target = req_unlock
-                                    return PlanStep(
-                                        skill=req_skill,
-                                        from_level=current,
-                                        to_level=target,
-                                        options=opts,
-                                        note=note,
-                                    )
-                            try:
-                                option = self._build_unlock_option(ur)
-                            except MissingCrafterError as err:
-                                return self._missing_prereq(req_skill, current, required_crafter=err.crafter_key)
-                            if option:
-                                return PlanStep(
-                                    skill=req_skill,
-                                    from_level=current,
-                                    to_level=current,
-                                    options=[option],
-                                    note=note,
-                                )
+                        step = self._plan_crafter_unlock_step(crafter_key, skill, level)
+                        if step:
+                            return step
 
         # 2) Cross-skill minimal leveling for an intermediate
         best: Optional[Tuple[PlanStep, int]] = None
@@ -785,13 +841,111 @@ class LevelPlanner:
 
         return None
 
+    def _crafter_unlock_recipes(self, crafter_key: str) -> List[Any]:
+        unlockers = []
+        for ur in getattr(self.g, "recipes", []):
+            if _recipe_is_dev(ur):
+                continue
+            if _recipe_output_item(ur) == crafter_key:
+                unlockers.append(ur)
+                continue
+            key = _recipe_key(ur)
+            if key.startswith("recipe_item_unlock_crafter_") and crafter_key in key:
+                unlockers.append(ur)
+        unlockers.sort(key=lambda rec: _recipe_unlock_at(rec))
+        return unlockers
+
+    def _plan_crafter_unlock_step(
+        self,
+        crafter_key: str,
+        target_skill: str,
+        current_level: int,
+        visited: Optional[Set[str]] = None,
+    ) -> Optional[PlanStep]:
+        if visited is None:
+            visited = set()
+        if crafter_key in visited:
+            return None
+        visited.add(crafter_key)
+        unlockers = self._crafter_unlock_recipes(crafter_key)
+        if not unlockers:
+            return None
+        label = self._station_label(crafter_key) or crafter_key
+        note = f"Unlock {label}"
+        for ur in unlockers:
+            req_skill = _recipe_skill(ur) or target_skill
+            req_unlock = _recipe_unlock_at(ur)
+            current = self.cur_level.get(req_skill, 1)
+            if req_skill == target_skill and current_level < req_unlock:
+                opts = self._best_options_for_level(req_skill, current_level, ignore_gap=True)
+                if opts:
+                    return PlanStep(
+                        skill=req_skill,
+                        from_level=current_level,
+                        to_level=req_unlock,
+                        options=opts,
+                        note=note,
+                    )
+            if req_unlock and current < req_unlock:
+                opts = self._best_options_for_level(req_skill, current, ignore_gap=True)
+                if opts:
+                    return PlanStep(
+                        skill=req_skill,
+                        from_level=current,
+                        to_level=req_unlock,
+                        options=opts,
+                        note=note,
+                    )
+            try:
+                option = self._build_unlock_option(ur)
+            except MissingCrafterError as err:
+                step = self._plan_crafter_unlock_step(err.crafter_key, req_skill, self.cur_level.get(req_skill, 1), visited)
+                if step:
+                    return step
+                continue
+            if option:
+                self.owned_crafter[crafter_key] = True
+                return PlanStep(
+                    skill=req_skill,
+                    from_level=current,
+                    to_level=current,
+                    options=[option],
+                    note=note,
+                )
+        return None
+
+    def _plan_next_crafter(self, skill: str, level: int) -> Optional[PlanStep]:
+        crafters = self.skill_crafters.get(skill, [])
+        if not crafters:
+            return None
+        owned_tier = max(
+            (self.crafter_tiers.get(ck, 0) for ck in crafters if self.owned_crafter.get(ck)),
+            default=0,
+        )
+        for ck in crafters:
+            if self.owned_crafter.get(ck):
+                continue
+            tier = self.crafter_tiers.get(ck, 0)
+            if tier <= owned_tier:
+                continue
+            step = self._plan_crafter_unlock_step(ck, skill, level)
+            if step:
+                return step
+        return None
+
     # ---------- Public API ----------
 
-    def plan(self, top_k: int = 3, max_steps: int = 500) -> List[PlanStep]:
+    def plan(
+        self,
+        top_k: int = 3,
+        max_steps: int = 500,
+        progress_cb: Optional[Callable[[float, int, int], None]] = None,
+    ) -> List[PlanStep]:
         """
         Build a global, step-by-step plan to reach all target levels.
         Returns a list of PlanSteps; each has 'options' (top-K recipes).
         """
+        self._progress_callback = progress_cb
         plan: List[PlanStep] = []
         steps = 0
 
@@ -868,6 +1022,14 @@ class LevelPlanner:
                 stagnant_cycles = 0
                 continue
 
+            crafter_step = self._plan_next_crafter(skill, lvl)
+            if crafter_step:
+                plan.append(crafter_step)
+                steps += 1
+                stagnant_cycles = 0
+                skill_queue.append(skill)
+                continue
+
             stagnant_cycles += 1
             if stagnant_cycles >= len(self.target_level):
                 plan.append(PlanStep(skill=skill, from_level=lvl, to_level=lvl, options=[], note="Planner stalled; remaining skills may require manual intervention."))
@@ -881,6 +1043,7 @@ class LevelPlanner:
                 flush=True,
             )
         self._emit_progress(force=True)
+        self._progress_callback = None
 
         return plan
 
@@ -972,10 +1135,10 @@ class LevelPlanner:
             lines.append(f"  Estimated XP gain: {opt.total_xp:.1f}")
             if opt.xp_breakdown:
                 lines.append("  XP breakdown:")
-                for name, xs, xf, avg, count in opt.xp_breakdown:
+                for name, chance, xs, xf, avg, count in opt.xp_breakdown:
                     failure_str = "-" if (not isinstance(xf, float) or math.isnan(xf)) else f"{xf:.1f}"
                     lines.append(
-                        f"    - {name} x{count}: success {xs:.1f}, failure {failure_str}, expected {avg:.1f}"
+                        f"    - {name} x{count}: {chance*100:5.1f}% success chance, success {xs:.1f}, failure {failure_str}, expected {avg:.1f}"
                     )
             lines.append("  Gather:")
             if opt.materials:
@@ -1039,10 +1202,15 @@ class LevelPlanner:
         pct = min(1.0, self._progress_levels_done / self._total_levels_needed)
         filled = min(PROGRESS_BAR_WIDTH, int(round(pct * PROGRESS_BAR_WIDTH)))
         bar = "#" * filled + "-" * (PROGRESS_BAR_WIDTH - filled)
-        print(
-            f"[planner] [{bar}] {pct*100:5.1f}% ({self._progress_levels_done}/{self._total_levels_needed} levels)",
-            flush=True,
-        )
+        done = self._progress_levels_done
+        total = self._total_levels_needed
+        if self._progress_callback:
+            self._progress_callback(pct, done, total)
+        else:
+            print(
+                f"[planner] [{bar}] {pct*100:5.1f}% ({done}/{total} levels)",
+                flush=True,
+            )
         self._last_progress_emit = now
 
 # ----------------------------- CLI -------------------------------------------

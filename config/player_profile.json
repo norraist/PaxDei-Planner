@@ -1,4 +1,7 @@
 {
+  "premium_account": true,
+  "avoid_relics": false,
+  "max_cross_skill_gap": 5,
   "skills": {
     "skill_alchemy": {
       "name": "Alchemy",
@@ -24,16 +27,16 @@
       "current_xp": 38162,
       "target_level": 30
     },
-    "skill_building": {
-      "name": "Carpentry",
-      "current_level": 20,
-      "current_xp": 286,
-      "target_level": 30
-    },
     "skill_charcuterie": {
       "name": "Butchering",
       "current_level": 13,
       "current_xp": 16291,
+      "target_level": 30
+    },
+    "skill_building": {
+      "name": "Carpentry",
+      "current_level": 20,
+      "current_xp": 286,
       "target_level": 30
     },
     "skill_cooking": {
@@ -80,88 +83,100 @@
     }
   },
   "crafters": {
-    "crafter_alchemy_reagent_distillery_1": {
-      "name": "Basic Reagent Distiller",
-      "owned": true
-    },
-    "crafter_alchemy_reagent_distillery_2": {
-      "name": "Reagent Distiller",
-      "owned": false
-    },
-    "crafter_alchemy_workbench_1": {
-      "name": "Basic Alchemy Table",
-      "owned": true
-    },
     "crafter_alchemy_workbench_2": {
       "name": "Alchemy Table",
       "owned": false
     },
-    "crafter_beehive_1": {
-      "name": "Basic Beehive",
+    "crafter_blacksmith_armor_workbench_2": {
+      "name": "Armorer Workbench",
+      "owned": false
+    },
+    "crafter_bottling_station_1": {
+      "name": "Barrel Bottler",
+      "owned": true
+    },
+    "crafter_alchemy_workbench_1": {
+      "name": "Basic Alchemy Table",
       "owned": true
     },
     "crafter_blacksmith_armor_workbench_1": {
       "name": "Basic Armorer Workbench",
       "owned": true
     },
-    "crafter_blacksmith_armor_workbench_2": {
-      "name": "Armorer Workbench",
-      "owned": false
-    },
-    "crafter_blacksmith_weapon_workbench_1": {
-      "name": "Basic Weaponsmith Workbench",
-      "owned": true
-    },
-    "crafter_blacksmith_weapon_workbench_2": {
-      "name": "Weaponsmith Workbench",
-      "owned": false
-    },
-    "crafter_bread_oven_1": {
-      "name": "Basic Bread Oven",
-      "owned": true
-    },
-    "crafter_bread_oven_2": {
-      "name": "Bread Oven",
-      "owned": false
-    },
-    "crafter_brick_dryer_1": {
-      "name": "Pottery Kiln",
+    "crafter_charcuterie_workbench_1": {
+      "name": "Basic Butcher's Workbench",
       "owned": true
     },
     "crafter_builder_workbench_1": {
       "name": "Basic Carpenter Workbench",
       "owned": true
     },
-    "crafter_builder_workbench_2": {
-      "name": "Carpenter Workbench",
+    "crafter_cooking_workbench_1": {
+      "name": "Basic Cooking Workbench",
+      "owned": true
+    },
+    "crafter_fletching_workbench_1": {
+      "name": "Basic Fletching Table",
+      "owned": true
+    },
+    "crafter_smelter_basic_1": {
+      "name": "Basic Furnace",
+      "owned": true
+    },
+    "crafter_jewelcrafting_workbench_1": {
+      "name": "Basic Jeweler Table",
+      "owned": true
+    },
+    "crafter_alchemy_reagent_distillery_1": {
+      "name": "Basic Reagent Distiller",
+      "owned": true
+    },
+    "crafter_blacksmith_weapon_workbench_1": {
+      "name": "Basic Weaponsmith Workbench",
+      "owned": true
+    },
+    "crafter_beehive_1": {
+      "name": "Basic\u00a0Beehive",
+      "owned": true
+    },
+    "crafter_bread_oven_1": {
+      "name": "Basic\u00a0Bread Oven",
       "owned": true
     },
     "crafter_charcoal_kiln_1": {
-      "name": "Basic Charcoal Kiln",
+      "name": "Basic\u00a0Charcoal Kiln",
       "owned": true
     },
-    "crafter_charcoal_kiln_2": {
-      "name": "Charcoal Kiln",
+    "crafter_cooking_hearth_1": {
+      "name": "Basic\u00a0Cooking Hearth",
       "owned": true
     },
-    "crafter_charcuterie_workbench_1": {
-      "name": "Basic Butcher's Workbench",
+    "crafter_fermenter_1": {
+      "name": "Basic\u00a0Fermenter",
       "owned": true
+    },
+    "crafter_forge_1": {
+      "name": "Basic\u00a0Forge",
+      "owned": true
+    },
+    "crafter_bread_oven_2": {
+      "name": "Bread Oven",
+      "owned": false
     },
     "crafter_charcuterie_workbench_2": {
       "name": "Butcher's Workbench",
       "owned": false
     },
-    "crafter_chopping_block_1": {
-      "name": "Wood Chopping Block",
-      "owned": true
-    },
     "crafter_cooking_camp_fire_1": {
       "name": "Campfire",
       "owned": true
     },
-    "crafter_cooking_hearth_1": {
-      "name": "Basic Cooking Hearth",
+    "crafter_builder_workbench_2": {
+      "name": "Carpenter Workbench",
+      "owned": true
+    },
+    "crafter_charcoal_kiln_2": {
+      "name": "Charcoal Kiln",
       "owned": true
     },
     "crafter_cooking_hearth_2": {
@@ -172,56 +187,44 @@
       "name": "Craftsman Cooking Hearth",
       "owned": false
     },
-    "crafter_fermenter_1": {
-      "name": "Basic Fermenter",
-      "owned": true
+    "crafter_forge_3": {
+      "name": "Craftsman Forge",
+      "owned": false
     },
     "crafter_fermenter_2": {
       "name": "Fermenter",
       "owned": false
     },
-    "crafter_fletching_workbench_1": {
-      "name": "Basic Fletching Table",
-      "owned": true
-    },
     "crafter_fletching_workbench_2": {
       "name": "Fletching Table",
       "owned": false
-    },
-    "crafter_forge_1": {
-      "name": "Basic Forge",
-      "owned": true
     },
     "crafter_forge_2": {
       "name": "Forge",
       "owned": true
     },
-    "crafter_forge_3": {
-      "name": "Craftsman Forge",
-      "owned": false
-    },
-    "crafter_jewelcrafting_workbench_1": {
-      "name": "Basic Jeweler Table",
+    "crafter_founders_station_1": {
+      "name": "Founder Crafting Table",
       "owned": true
+    },
+    "crafter_smelter_furnace_1": {
+      "name": "Furnace",
+      "owned": true
+    },
+    "crafter_mill_grain_2": {
+      "name": "Grain Mill",
+      "owned": false
     },
     "crafter_jewelcrafting_workbench_2": {
       "name": "Jeweler Table",
       "owned": false
     },
-    "crafter_leather_curing_rack_1": {
-      "name": "Simple Tanning Rack",
-      "owned": true
-    },
-    "crafter_leatherworking_workbench_1": {
-      "name": "Simple Leatherworking Table",
-      "owned": true
-    },
     "crafter_leatherworking_workbench_2": {
       "name": "Leatherworking Table",
       "owned": true
     },
-    "crafter_weaving_loom_1": {
-      "name": "Simple Loom",
+    "crafter_generic_workbench_1": {
+      "name": "Log Workbench",
       "owned": true
     },
     "crafter_weaving_loom_2": {
@@ -232,68 +235,65 @@
       "name": "Millstone",
       "owned": true
     },
-    "crafter_mill_grain_2": {
-      "name": "Grain Mill",
+    "crafter_brick_dryer_1": {
+      "name": "Pottery Kiln",
+      "owned": true
+    },
+    "crafter_alchemy_reagent_distillery_2": {
+      "name": "Reagent Distiller",
       "owned": false
     },
-    "crafter_smelter_basic_1": {
-      "name": "Basic Furnace",
+    "crafter_leatherworking_workbench_1": {
+      "name": "Simple Leatherworking Table",
       "owned": true
     },
-    "crafter_smelter_furnace_1": {
-      "name": "Furnace",
-      "owned": true
-    },
-    "crafter_spinning_wheel_1": {
-      "name": "Spinning Wheel",
+    "crafter_weaving_loom_1": {
+      "name": "Simple Loom",
       "owned": true
     },
     "crafter_tailoring_workbench_1": {
       "name": "Simple Tailoring Table",
       "owned": true
     },
-    "crafter_tailoring_workbench_2": {
-      "name": "Tailoring Table",
+    "crafter_leather_curing_rack_1": {
+      "name": "Simple Tanning Rack",
       "owned": true
-    },
-    "crafter_water_well_1": {
-      "name": "Water Well",
-      "owned": true
-    },
-    "crafter_wine_barrel_1": {
-      "name": "Wine Barrel",
-      "owned": false
     },
     "crafter_spit_roast_1": {
       "name": "Small Spit Roast",
+      "owned": true
+    },
+    "crafter_spinning_wheel_1": {
+      "name": "Spinning Wheel",
       "owned": true
     },
     "crafter_spit_roast_2": {
       "name": "Spit Roast",
       "owned": false
     },
-    "crafter_cooking_workbench_1": {
-      "name": "Basic Cooking Workbench",
-      "owned": true
-    },
-    "crafter_founders_station_1": {
-      "name": "Founder Crafting Table",
+    "crafter_tailoring_workbench_2": {
+      "name": "Tailoring Table",
       "owned": true
     },
     "crafter_leather_curing_rack_2": {
       "name": "Tanning Rack",
       "owned": true
     },
-    "crafter_generic_workbench_1": {
-      "name": "Log Workbench",
+    "crafter_water_well_1": {
+      "name": "Water Well",
       "owned": true
     },
-    "crafter_bottling_station_1": {
-      "name": "Barrel Bottler",
+    "crafter_blacksmith_weapon_workbench_2": {
+      "name": "Weaponsmith Workbench",
+      "owned": false
+    },
+    "crafter_wine_barrel_1": {
+      "name": "Wine Barrel",
+      "owned": false
+    },
+    "crafter_chopping_block_1": {
+      "name": "Wood Chopping Block",
       "owned": true
     }
-  },
-  "premium_account": false,
-  "avoid_relics": false,
-  "max_cross_skill_gap": 5
+  }
 }

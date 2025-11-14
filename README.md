@@ -37,6 +37,22 @@ python executor.py
 
 The first run generates `config/executor_config.json`; edit the paths/mode (single-skill vs. multi-skill LevelPlanner), then re-run to execute with those settings. Multi-skill mode now also emits a `shopping_csv` file that aggregates the top option per step.
 
+## Desktop UI prototype
+
+The `paxdei_ui` package contains a PySide6-based desktop shell that renders the same plan data with a sidebar + card layout. Launch it with:
+
+```bash
+python -m paxdei_ui.app
+```
+
+Before running the UI, generate sidebar icons (per skill and for the Config/Checklist categories) via:
+
+```bash
+python utils/generate_ui_icons.py
+```
+
+Icons are written under `assets/icons/` and bundled in subsequent runs. The UI picks up your existing `config/player_profile.json` and `config/materials_config.json`, allows editing/saving, and calls `LevelPlanner` in the background to populate the three-column option cards for the global checklist and each skill.
+
 For XP table generation you can also run `python utils/generate_xp_tables.py` without CLI flags: the first run writes `config/xp_tables_config.json`, which you can edit and re-run from the IDE. The generator now writes into the top-level `xp_tables/` directory (and the executor defaults there as well). The multi-skill executor additionally writes a `steps_txt` file that lists every gather/craft sub-step (with nested breakdowns) for quick reference inside your IDE.
 
 To refresh *all* derived artifacts after dropping in a new `StaticDataBundle.json`/`localisation_en.json`, use:
