@@ -15,7 +15,7 @@ class Sidebar(QtWidgets.QListWidget):
     def __init__(self, parent: QtWidgets.QWidget | None = None) -> None:
         super().__init__(parent)
         self.setIconSize(QtCore.QSize(32, 32))
-        self.setFixedWidth(140)
+        self.setFixedWidth(200)
         self.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.currentRowChanged.connect(self.selectionChanged.emit)
 
@@ -48,6 +48,11 @@ class SkillTable(QtWidgets.QTableWidget):
         )
         self.horizontalHeader().setStretchLastSection(True)
         self.setAlternatingRowColors(True)
+        self.setWordWrap(True)
+        self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        header = self.horizontalHeader()
+        for col in range(4):
+            header.setSectionResizeMode(col, QtWidgets.QHeaderView.Stretch)
 
     def load(self, skills: Iterable) -> None:
         rows = list(skills)
@@ -145,6 +150,12 @@ class MaterialTable(QtWidgets.QTableWidget):
         self.horizontalHeader().setStretchLastSection(True)
         self.verticalHeader().hide()
         self.setAlternatingRowColors(True)
+        self.setWordWrap(True)
+        self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        header = self.horizontalHeader()
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(2, QtWidgets.QHeaderView.Stretch)
         self._checks: List[QtWidgets.QCheckBox] = []
 
     def load(self, materials: Iterable) -> None:
@@ -194,6 +205,11 @@ class CrafterTable(QtWidgets.QTableWidget):
         self.verticalHeader().hide()
         self.horizontalHeader().setStretchLastSection(True)
         self.setAlternatingRowColors(True)
+        self.setWordWrap(True)
+        self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        header = self.horizontalHeader()
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
         self._checks: List[QtWidgets.QCheckBox] = []
 
     def load(self, crafters: Iterable) -> None:
@@ -276,7 +292,8 @@ class OptionCard(QtWidgets.QFrame):
         self.dependency.setReadOnly(True)
         self.dependency.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.dependency.setStyleSheet("font-family: Consolas, 'Courier New', monospace; font-size: 11px; background: transparent;")
-        self.dependency.setLineWrapMode(QtWidgets.QPlainTextEdit.NoWrap)
+        self.dependency.setLineWrapMode(QtWidgets.QPlainTextEdit.WidgetWidth)
+        self.dependency.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         outer.addWidget(self.dependency, 1)
 
     def set_option(self, option: PlanStepOption | None, snapshot) -> None:
@@ -382,6 +399,9 @@ class PlanQueueWidget(QtWidgets.QListWidget):
         self._steps: List[PlanStep] = []
         self.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.setAlternatingRowColors(True)
+        self.setWordWrap(True)
+        self.setUniformItemSizes(False)
+        self.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.currentRowChanged.connect(self._on_row_changed)
 
     def set_steps(
