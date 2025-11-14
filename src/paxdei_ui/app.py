@@ -36,12 +36,15 @@ class ConfigPage(QtWidgets.QWidget):
         layout.addWidget(self.skill_table, 1)
 
         flags_layout = QtWidgets.QHBoxLayout()
+        flags_layout.addStretch(1)
         self.premium_box = QtWidgets.QCheckBox("Premium account (+50% XP)")
         self.premium_box.setChecked(self.store.profile.premium_account)
         self.avoid_relics_box = QtWidgets.QCheckBox("Avoid relic recipes")
         self.avoid_relics_box.setChecked(self.store.profile.avoid_relics)
         flags_layout.addWidget(self.premium_box)
         flags_layout.addWidget(self.avoid_relics_box)
+        flags_layout.addStretch(1)
+        flags_layout.setAlignment(QtCore.Qt.AlignCenter)
         layout.addLayout(flags_layout)
 
         gap_layout = QtWidgets.QHBoxLayout()
@@ -74,9 +77,15 @@ class ConfigPage(QtWidgets.QWidget):
     @QtCore.Slot()
     def save(self) -> None:
         targets = self.skill_table.targets()
+        levels = self.skill_table.levels()
+        xp_values = self.skill_table.xp_values()
         for skill in self.store.profile.skills:
             if skill.key in targets:
                 skill.target_level = targets[skill.key]
+            if skill.key in levels:
+                skill.current_level = levels[skill.key]
+            if skill.key in xp_values:
+                skill.current_xp = xp_values[skill.key]
         self.store.profile.premium_account = self.premium_box.isChecked()
         self.store.profile.avoid_relics = self.avoid_relics_box.isChecked()
         self.store.profile.max_cross_skill_gap = int(self.gap_spin.value())
@@ -131,14 +140,31 @@ class SkillPage(QtWidgets.QWidget):
         layout = QtWidgets.QVBoxLayout(self)
         layout.addWidget(SectionHeader(title))
         layout.addWidget(SectionHeader("Top choices"))
+        content = QtWidgets.QHBoxLayout()
+        self.queue = PlanQueueWidget()
+        self.queue.setMinimumWidth(180)
+        content.addWidget(self.queue, 1)
         self.cards = PlanCardsPanel()
-        layout.addWidget(self.cards, 1)
+        content.addWidget(self.cards, 9)
+        layout.addLayout(content, 1)
         self._snapshot: PlanSnapshot | None = None
+        self.queue.stepSelected.connect(self._handle_selection)
 
     def set_steps(self, snapshot: PlanSnapshot, steps: List[PlanStep]) -> None:
         self._snapshot = snapshot
-        step = steps[0] if steps else None
-        self.cards.set_step(step, snapshot)
+        self.queue.set_steps(
+            steps,
+            snapshot,
+            formatter=lambda idx, step: f"Level {step.from_level}->{step.to_level}",
+        )
+        first = steps[0] if steps else None
+        self.cards.set_step(first, snapshot)
+
+    @QtCore.Slot(object)
+    def _handle_selection(self, step: PlanStep | None) -> None:
+        if not self._snapshot:
+            return
+        self.cards.set_step(step, self._snapshot)
 
 
 class PlannerWindow(QtWidgets.QMainWindow):

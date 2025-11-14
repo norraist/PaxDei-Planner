@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass
-from typing import Iterable, List, Sequence
+from typing import Callable, Iterable, List, Sequence, Optional
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
@@ -57,15 +57,19 @@ class SkillTable(QtWidgets.QTableWidget):
             name_item.setFlags(QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
             self.setItem(idx, 0, name_item)
 
-            current_lvl = QtWidgets.QTableWidgetItem(str(skill.current_level))
-            current_lvl.setFlags(QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
-            current_lvl.setTextAlignment(QtCore.Qt.AlignCenter)
-            self.setItem(idx, 1, current_lvl)
+            lvl_spin = QtWidgets.QSpinBox()
+            lvl_spin.setMinimum(1)
+            lvl_spin.setMaximum(200)
+            lvl_spin.setValue(skill.current_level)
+            lvl_spin.setAlignment(QtCore.Qt.AlignCenter)
+            lvl_spin.setProperty("skill_key", skill.key)
+            self.setCellWidget(idx, 1, lvl_spin)
 
-            current_xp = QtWidgets.QTableWidgetItem(str(skill.current_xp))
-            current_xp.setFlags(QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
-            current_xp.setTextAlignment(QtCore.Qt.AlignCenter)
-            self.setItem(idx, 2, current_xp)
+            xp_edit = QtWidgets.QLineEdit(str(skill.current_xp))
+            xp_edit.setAlignment(QtCore.Qt.AlignCenter)
+            xp_edit.setValidator(QtGui.QIntValidator(0, 1_000_000_000, xp_edit))
+            xp_edit.setProperty("skill_key", skill.key)
+            self.setCellWidget(idx, 2, xp_edit)
 
             spin = QtWidgets.QSpinBox()
             spin.setMinimum(skill.current_level)
@@ -73,6 +77,7 @@ class SkillTable(QtWidgets.QTableWidget):
             spin.setValue(skill.target_level)
             spin.setAlignment(QtCore.Qt.AlignCenter)
             spin.setProperty("skill_key", skill.key)
+            spin.setProperty("target_spin", True)
             self.setCellWidget(idx, 3, spin)
 
     def targets(self) -> dict[str, int]:
@@ -85,6 +90,52 @@ class SkillTable(QtWidgets.QTableWidget):
                     out[str(key)] = int(widget.value())
         return out
 
+    def levels(self) -> dict[str, int]:
+        out: dict[str, int] = {}
+        for row in range(self.rowCount()):
+            widget = self.cellWidget(row, 1)
+            if isinstance(widget, QtWidgets.QSpinBox):
+                key = widget.property("skill_key")
+                if key:
+                    out[str(key)] = int(widget.value())
+        return out
+
+    def xp_values(self) -> dict[str, int]:
+        out: dict[str, int] = {}
+        for row in range(self.rowCount()):
+            widget = self.cellWidget(row, 2)
+            if isinstance(widget, QtWidgets.QLineEdit):
+                key = widget.property("skill_key")
+                if key:
+                    try:
+                        out[str(key)] = int(widget.text() or "0")
+                    except ValueError:
+                        out[str(key)] = 0
+        return out
+
+    def levels(self) -> dict[str, int]:
+        out: dict[str, int] = {}
+        for row in range(self.rowCount()):
+            widget = self.cellWidget(row, 1)
+            if isinstance(widget, QtWidgets.QSpinBox):
+                key = widget.property("skill_key")
+                if key:
+                    out[str(key)] = int(widget.value())
+        return out
+
+    def xp_values(self) -> dict[str, int]:
+        out: dict[str, int] = {}
+        for row in range(self.rowCount()):
+            widget = self.cellWidget(row, 2)
+            if isinstance(widget, QtWidgets.QLineEdit):
+                key = widget.property("skill_key")
+                if key:
+                    try:
+                        out[str(key)] = int(widget.text() or "0")
+                    except ValueError:
+                        out[str(key)] = 0
+        return out
+
 
 class MaterialTable(QtWidgets.QTableWidget):
     def __init__(self, parent: QtWidgets.QWidget | None = None) -> None:
@@ -94,34 +145,44 @@ class MaterialTable(QtWidgets.QTableWidget):
         self.horizontalHeader().setStretchLastSection(True)
         self.verticalHeader().hide()
         self.setAlternatingRowColors(True)
+        self._checks: List[QtWidgets.QCheckBox] = []
 
     def load(self, materials: Iterable) -> None:
         rows = list(materials)
         self.setRowCount(len(rows))
+        self._checks = []
         for idx, m in enumerate(rows):
-            check = QtWidgets.QTableWidgetItem()
-            check.setCheckState(QtCore.Qt.Checked if m.enabled else QtCore.Qt.Unchecked)
-            check.setData(QtCore.Qt.UserRole, m.key)
-            check.setTextAlignment(QtCore.Qt.AlignCenter)
-            self.setItem(idx, 0, check)
+            wrapper = QtWidgets.QWidget()
+            layout = QtWidgets.QHBoxLayout(wrapper)
+            layout.setContentsMargins(0, 0, 0, 0)
+            layout.setAlignment(QtCore.Qt.AlignCenter)
+            check = QtWidgets.QCheckBox()
+            check.setChecked(m.enabled)
+            check.setProperty("material_key", m.key)
+            layout.addWidget(check)
+            self.setCellWidget(idx, 0, wrapper)
+            self._checks.append(check)
 
             name_item = QtWidgets.QTableWidgetItem(m.name)
             name_item.setFlags(QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
             self.setItem(idx, 1, name_item)
 
-            desc_item = QtWidgets.QTableWidgetItem(m.description)
+            clean_desc = (
+                m.description.replace("\\n", " ")
+                .replace("\r\n", " ")
+                .replace("\n", " ")
+                .replace("\r", " ")
+            )
+            desc_item = QtWidgets.QTableWidgetItem(clean_desc)
             desc_item.setFlags(QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
             self.setItem(idx, 2, desc_item)
 
     def toggles(self) -> dict[str, bool]:
         out: dict[str, bool] = {}
-        for row in range(self.rowCount()):
-            item = self.item(row, 0)
-            if not item:
-                continue
-            key = item.data(QtCore.Qt.UserRole)
+        for check in self._checks:
+            key = check.property("material_key")
             if key:
-                out[str(key)] = item.checkState() == QtCore.Qt.Checked
+                out[str(key)] = check.isChecked()
         return out
 
 
@@ -133,16 +194,23 @@ class CrafterTable(QtWidgets.QTableWidget):
         self.verticalHeader().hide()
         self.horizontalHeader().setStretchLastSection(True)
         self.setAlternatingRowColors(True)
+        self._checks: List[QtWidgets.QCheckBox] = []
 
     def load(self, crafters: Iterable) -> None:
         rows = list(crafters)
         self.setRowCount(len(rows))
+        self._checks = []
         for idx, crafter in enumerate(rows):
-            owned_item = QtWidgets.QTableWidgetItem()
-            owned_item.setCheckState(QtCore.Qt.Checked if crafter.owned else QtCore.Qt.Unchecked)
-            owned_item.setData(QtCore.Qt.UserRole, crafter.key)
-            owned_item.setTextAlignment(QtCore.Qt.AlignCenter)
-            self.setItem(idx, 0, owned_item)
+            wrapper = QtWidgets.QWidget()
+            layout = QtWidgets.QHBoxLayout(wrapper)
+            layout.setContentsMargins(0, 0, 0, 0)
+            layout.setAlignment(QtCore.Qt.AlignCenter)
+            owned_check = QtWidgets.QCheckBox()
+            owned_check.setChecked(crafter.owned)
+            owned_check.setProperty("crafter_key", crafter.key)
+            layout.addWidget(owned_check)
+            self.setCellWidget(idx, 0, wrapper)
+            self._checks.append(owned_check)
 
             name_item = QtWidgets.QTableWidgetItem(crafter.name)
             name_item.setFlags(QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
@@ -150,13 +218,10 @@ class CrafterTable(QtWidgets.QTableWidget):
 
     def toggles(self) -> dict[str, bool]:
         out: dict[str, bool] = {}
-        for row in range(self.rowCount()):
-            item = self.item(row, 0)
-            if not item:
-                continue
-            key = item.data(QtCore.Qt.UserRole)
+        for check in self._checks:
+            key = check.property("crafter_key")
             if key:
-                out[str(key)] = item.checkState() == QtCore.Qt.Checked
+                out[str(key)] = check.isChecked()
         return out
 
 
@@ -225,9 +290,13 @@ class OptionCard(QtWidgets.QFrame):
             return
         self.title.setText((option.recipe_name or option.recipe_key) + f" x{option.crafts}")
         crafter = option.crafter or "Any crafter"
-        self.meta.setText(
-            f"Crafter: {crafter}\nCrafts: {option.crafts}\nXP per craft: {option.xp_per_craft:.1f}"
-        )
+        lines = []
+        if option.crafter:
+            crafter_name = snapshot.item_label(option.crafter) if snapshot else option.crafter
+            lines.append(f"Crafter: {crafter_name}")
+        lines.append(f"Crafts: {option.crafts}")
+        lines.append(f"XP per craft: {option.xp_per_craft:.1f}")
+        self.meta.setText("\n".join(lines))
         self.xp_label.setText(self._format_xp(option))
         self.gather_label.setText(self._format_gather(option, snapshot))
         self.craft_label.setText(self._format_crafts(option, snapshot))
@@ -315,12 +384,20 @@ class PlanQueueWidget(QtWidgets.QListWidget):
         self.setAlternatingRowColors(True)
         self.currentRowChanged.connect(self._on_row_changed)
 
-    def set_steps(self, steps: Sequence[PlanStep], snapshot) -> None:
+    def set_steps(
+        self,
+        steps: Sequence[PlanStep],
+        snapshot,
+        formatter: Optional[Callable[[int, PlanStep], str]] = None,
+    ) -> None:
         self._steps = list(steps)
         self.clear()
         for idx, step in enumerate(self._steps, start=1):
-            label = snapshot.skill_label(step.skill) if snapshot else step.skill
-            text = f"{idx}. {label} {step.from_level}->{step.to_level}"
+            if formatter:
+                text = formatter(idx, step)
+            else:
+                label = snapshot.skill_label(step.skill) if snapshot else step.skill
+                text = f"{idx}. {label} {step.from_level}->{step.to_level}"
             self.addItem(QtWidgets.QListWidgetItem(text))
         if self._steps:
             self.setCurrentRow(0)

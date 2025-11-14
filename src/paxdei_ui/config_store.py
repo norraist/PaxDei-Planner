@@ -104,7 +104,7 @@ class ConfigStore:
             MaterialEntry(
                 key=key,
                 name=str(node.get("name", key)),
-                description=str(node.get("description", "")),
+                description=str(node.get("description", "")).replace("\\n", " ").replace("\r\n", " ").replace("\n", " ").replace("\r", " "),
                 enabled=bool(node.get("enabled", True)),
             )
             for key, node in payload.items()
