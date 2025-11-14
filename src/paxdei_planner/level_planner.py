@@ -1,7 +1,7 @@
 # planner/level_planner.py
 from __future__ import annotations
 
-import math, os, csv, json, time
+import math, os, csv, json, time, sys
 from pathlib import Path
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Tuple, Set, Iterable, Any, Callable
@@ -192,11 +192,13 @@ class LevelPlanner:
         self.cur_xp: Dict[str, int]    = {k: int(v["current_xp"]) for k, v in self.profile["skills"].items()}
         self.target_level: Dict[str, int] = {k: int(v["target_level"]) for k, v in self.profile["skills"].items()}
         self.owned_crafter: Dict[str, bool] = {k: bool(v["owned"]) for k, v in self.profile["crafters"].items()}
+        self.crafter_unlock_gap = int(self.profile.get("crafter_unlock_gap", 3))
 
         # Build indices for rarity and feasibility
         self.producers: Dict[str, List[Any]] = {}   # item -> recipes that produce it
         self.usage_count: Dict[str, int] = {}       # item -> how many recipes consume it
         self._index_items()
+        self.recipe_map: Dict[str, Any] = { _recipe_key(r): r for r in getattr(self.g, "recipes", []) if _recipe_key(r)}
 
         # Sanity: ensure xp accessor exists (or fallback already raises)
         _ = _xp_to_next_level(self.g, next(iter(self.cur_level.keys())), 1)
@@ -677,21 +679,9 @@ class LevelPlanner:
         flat = sorted(reqs.items(), key=lambda x: x[0])
         return score, flat
 
-    def _feasible_now(self, recipe, state_levels: Dict[str, int]) -> bool:
-        """
-        A recipe is feasible if:
-          - crafter is owned
-          - unlock level is met in its skill
-        """
-        if not self._has_crafter_for_recipe(recipe):
-            return False
-        if not self._recipe_unlocked(recipe, state_levels.get(_recipe_skill(recipe), 0)):
-            return False
-        return True
-
     # ---------- Choosing best options for a single level ----------
 
-    def _best_options_for_level(self, skill: str, level: int, top_k: int = 3, ignore_gap: bool = False) -> List[PlanStepOption]:
+    def _best_options_for_level(self, skill: str, level: int, top_k: int = 3, ignore_gap: bool = False) -> Tuple[List[PlanStepOption], List[str]]:
         """
         Among feasible recipes for 'skill' at 'level', return top-K options by
         score = xp_expected / (1 + material_burden_per_craft).
@@ -705,7 +695,17 @@ class LevelPlanner:
                 continue
             if hasattr(r, "grants_xp") and not r.grants_xp:
                 continue
-            if not self._feasible_now(r, self.cur_level):
+            rkey = _recipe_key(r)
+            if rkey.startswith("recipe_crafter_") or rkey.startswith("recipe_item_unlock_crafter_"):
+                continue
+            if not self._recipe_unlocked(r, level):
+                continue
+            missing_crafters = self._missing_crafters_for_recipe(r)
+            if missing_crafters:
+                for ck in missing_crafters:
+                    missing_seen.append(ck)
+                if not self._last_missing_crafter:
+                    self._last_missing_crafter = missing_crafters[0]
                 continue
 
             burden_one, _ = self._material_burden(r, crafts=1)
@@ -742,8 +742,6 @@ class LevelPlanner:
                 continue
             total_xp = self._xp_from_crafts(crafts_full, level, skill)
             prereq_gaps = self._dependency_gaps(r, crafts, skill)
-            if (not ignore_gap) and self.max_cross_skill_gap >= 0 and any(delta > self.max_cross_skill_gap for *_, delta in prereq_gaps):
-                continue
             craft_summary = self._summarize_crafts(crafts_full)
             xp_breakdown = self._xp_breakdown(crafts_full, level, skill)
             top.append(PlanStepOption(
@@ -762,9 +760,9 @@ class LevelPlanner:
             ))
             if len(top) >= top_k:
                 break
-        if not top and missing_seen and not self._last_missing_crafter:
+        if missing_seen and not self._last_missing_crafter:
             self._last_missing_crafter = missing_seen[0]
-        return top
+        return top, missing_seen
 
     def _build_unlock_option(self, recipe, crafts: int = 1) -> Optional[PlanStepOption]:
         skill = _recipe_skill(recipe)
@@ -827,14 +825,17 @@ class LevelPlanner:
                     cur = self.cur_level.get(need_skill, 1)
                     if need_level > cur:
                         cost = need_level - cur
+                        opts, _ = self._best_options_for_level(need_skill, cur)
+                        if not opts:
+                            continue
                         step = PlanStep(
                             skill=need_skill,
                             from_level=cur,
                             to_level=cur + 1,
-                            options=self._best_options_for_level(need_skill, cur),
+                            options=opts,
                             note=f"Prereq: level {need_skill} towards crafting {item_key}"
                         )
-                        if step.options and (best is None or cost < best[1]):
+                        if best is None or cost < best[1]:
                             best = (step, cost)
         if best:
             return best[0]
@@ -842,16 +843,25 @@ class LevelPlanner:
         return None
 
     def _crafter_unlock_recipes(self, crafter_key: str) -> List[Any]:
-        unlockers = []
-        for ur in getattr(self.g, "recipes", []):
-            if _recipe_is_dev(ur):
-                continue
-            if _recipe_output_item(ur) == crafter_key:
-                unlockers.append(ur)
-                continue
-            key = _recipe_key(ur)
-            if key.startswith("recipe_item_unlock_crafter_") and crafter_key in key:
-                unlockers.append(ur)
+        unlockers: List[Any] = []
+        suffix = crafter_key[len("crafter_"):] if crafter_key.startswith("crafter_") else crafter_key
+        candidate_keys = [
+            f"recipe_item_unlock_{crafter_key}",
+            f"recipe_item_unlock_{suffix}",
+            f"recipe_crafter_{crafter_key}",
+            f"recipe_crafter_{suffix}",
+        ]
+        seen: Set[str] = set()
+        for key in candidate_keys:
+            rec = self.recipe_map.get(key)
+            if rec and key not in seen:
+                unlockers.append(rec)
+                seen.add(key)
+        if not unlockers:
+            for rec_key, rec in self.recipe_map.items():
+                if rec_key.endswith(suffix) and rec_key not in seen:
+                    unlockers.append(rec)
+                    seen.add(rec_key)
         unlockers.sort(key=lambda rec: _recipe_unlock_at(rec))
         return unlockers
 
@@ -861,6 +871,7 @@ class LevelPlanner:
         target_skill: str,
         current_level: int,
         visited: Optional[Set[str]] = None,
+        force: bool = False,
     ) -> Optional[PlanStep]:
         if visited is None:
             visited = set()
@@ -877,7 +888,9 @@ class LevelPlanner:
             req_unlock = _recipe_unlock_at(ur)
             current = self.cur_level.get(req_skill, 1)
             if req_skill == target_skill and current_level < req_unlock:
-                opts = self._best_options_for_level(req_skill, current_level, ignore_gap=True)
+                if not force and req_unlock - current_level > self.crafter_unlock_gap:
+                    return None
+                opts, _ = self._best_options_for_level(req_skill, current_level, ignore_gap=True)
                 if opts:
                     return PlanStep(
                         skill=req_skill,
@@ -887,7 +900,9 @@ class LevelPlanner:
                         note=note,
                     )
             if req_unlock and current < req_unlock:
-                opts = self._best_options_for_level(req_skill, current, ignore_gap=True)
+                if not force and req_unlock - current > self.crafter_unlock_gap:
+                    return None
+                opts, _ = self._best_options_for_level(req_skill, current, ignore_gap=True)
                 if opts:
                     return PlanStep(
                         skill=req_skill,
@@ -899,12 +914,13 @@ class LevelPlanner:
             try:
                 option = self._build_unlock_option(ur)
             except MissingCrafterError as err:
-                step = self._plan_crafter_unlock_step(err.crafter_key, req_skill, self.cur_level.get(req_skill, 1), visited)
+                step = self._plan_crafter_unlock_step(err.crafter_key, req_skill, self.cur_level.get(req_skill, 1), visited, force=force)
                 if step:
                     return step
                 continue
             if option:
-                self.owned_crafter[crafter_key] = True
+                if _recipe_key(ur).startswith("recipe_crafter_"):
+                    self.owned_crafter[crafter_key] = True
                 return PlanStep(
                     skill=req_skill,
                     from_level=current,
@@ -914,7 +930,7 @@ class LevelPlanner:
                 )
         return None
 
-    def _plan_next_crafter(self, skill: str, level: int) -> Optional[PlanStep]:
+    def _plan_next_crafter(self, skill: str, level: int, force: bool = False) -> Optional[PlanStep]:
         crafters = self.skill_crafters.get(skill, [])
         if not crafters:
             return None
@@ -928,7 +944,7 @@ class LevelPlanner:
             tier = self.crafter_tiers.get(ck, 0)
             if tier <= owned_tier:
                 continue
-            step = self._plan_crafter_unlock_step(ck, skill, level)
+            step = self._plan_crafter_unlock_step(ck, skill, level, force=force)
             if step:
                 return step
         return None
@@ -961,7 +977,24 @@ class LevelPlanner:
                 continue
             lvl = self.cur_level[skill]
 
-            options = self._best_options_for_level(skill, lvl, top_k=top_k)
+            options, missing_crafters = self._best_options_for_level(skill, lvl, top_k=top_k)
+            if missing_crafters and not self._last_missing_crafter:
+                self._last_missing_crafter = missing_crafters[0]
+            if missing_crafters and len(options) < top_k:
+                step = self._plan_crafter_unlock_step(missing_crafters[0], skill, lvl, force=False)
+                if not step and not options:
+                    step = self._plan_crafter_unlock_step(missing_crafters[0], skill, lvl, force=True)
+                if step:
+                    plan.append(step)
+                    if step.options:
+                        prev_lvl = self.cur_level.get(step.skill, 1)
+                        new_lvl = max(prev_lvl, step.to_level)
+                        self.cur_level[step.skill] = new_lvl
+                        self.cur_xp[step.skill] = 0
+                        self._record_progress(step.skill, prev_lvl, new_lvl)
+                    steps += 1
+                    skill_queue.append(skill)
+                    continue
             if options:
                 gap_step = self._resolve_cross_skill_gap(options[0], skill)
                 if gap_step:
@@ -1022,7 +1055,7 @@ class LevelPlanner:
                 stagnant_cycles = 0
                 continue
 
-            crafter_step = self._plan_next_crafter(skill, lvl)
+            crafter_step = self._plan_next_crafter(skill, lvl, force=True)
             if crafter_step:
                 plan.append(crafter_step)
                 steps += 1
@@ -1072,7 +1105,7 @@ class LevelPlanner:
         gap_skill, need_level, item_key, delta = best
         cur = self.cur_level.get(gap_skill, 1)
         to_level = min(need_level, cur + 1)
-        options = self._best_options_for_level(gap_skill, cur, top_k=3)
+        options, _ = self._best_options_for_level(gap_skill, cur, top_k=3)
         note = f"Prerequisite: advance {gap_skill} for crafting {self._item_label(item_key)} used in {target_skill}"
         return PlanStep(
             skill=gap_skill,
@@ -1207,10 +1240,12 @@ class LevelPlanner:
         if self._progress_callback:
             self._progress_callback(pct, done, total)
         else:
-            print(
-                f"[planner] [{bar}] {pct*100:5.1f}% ({done}/{total} levels)",
-                flush=True,
-            )
+            msg = f"[planner] [{bar}] {pct*100:5.1f}% ({done}/{total} levels)\n"
+            try:
+                sys.stdout.write(msg)
+                sys.stdout.flush()
+            except OSError:
+                pass
         self._last_progress_emit = now
 
 # ----------------------------- CLI -------------------------------------------
