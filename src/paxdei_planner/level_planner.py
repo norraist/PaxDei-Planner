@@ -151,6 +151,7 @@ class PlanStepOption:
     craft_summary: List[Dict[str, Any]] = field(default_factory=list)
     prereq_gaps: List[Tuple[str, int, str, int]] = field(default_factory=list)
     xp_breakdown: List[Tuple[str, float, float, float, float, int]] = field(default_factory=list)
+    synergy_support: List[Tuple[str, str, int]] = field(default_factory=list)
 
 @dataclass
 class PlanStep:
@@ -193,6 +194,12 @@ class LevelPlanner:
         self.target_level: Dict[str, int] = {k: int(v["target_level"]) for k, v in self.profile["skills"].items()}
         self.owned_crafter: Dict[str, bool] = {k: bool(v["owned"]) for k, v in self.profile["crafters"].items()}
         self.crafter_unlock_gap = int(self.profile.get("crafter_unlock_gap", 3))
+        self.skill_names: Dict[str, str] = {}
+        for key, node in self.profile.get("skills", {}).items():
+            if isinstance(node, dict):
+                name = node.get("name")
+                if isinstance(name, str) and name:
+                    self.skill_names[key] = name
 
         # Build indices for rarity and feasibility
         self.producers: Dict[str, List[Any]] = {}   # item -> recipes that produce it
@@ -213,6 +220,7 @@ class LevelPlanner:
         self._progress_levels_done = 0
         self._last_progress_emit = 0.0
         self._progress_callback: Optional[Callable[[float, int, int], None]] = None
+        self._synergy_deferrals: Set[str] = set()
 
     # ---------- Indexing & rarity ----------
 
@@ -551,8 +559,33 @@ class LevelPlanner:
                 summary[key] = entry
             entry["count"] += count
             for out_key, out_qty in _recipe_outputs(rec).items():
-                entry["outputs"][out_key] = entry["outputs"].get(out_key, 0) + out_qty * count
+                    entry["outputs"][out_key] = entry["outputs"].get(out_key, 0) + out_qty * count
         return list(summary.values())
+
+    def _synergy_support_from_steps(self, craft_steps: List[Tuple[Any, int, str]], target_skill: str) -> List[Tuple[str, str, int]]:
+        totals: Dict[Tuple[str, str], int] = {}
+        for rec, count, rec_skill in craft_steps:
+            if not rec_skill or rec_skill == target_skill:
+                continue
+            if not getattr(rec, "grants_xp", True):
+                continue
+            outputs = _recipe_outputs(rec)
+            if not outputs:
+                continue
+            for item_key, qty in outputs.items():
+                if qty <= 0:
+                    continue
+                totals[(rec_skill, item_key)] = totals.get((rec_skill, item_key), 0) + qty * count
+        results = [(skill_key, item_key, qty) for (skill_key, item_key), qty in totals.items() if qty > 0]
+        results.sort(key=lambda entry: (entry[0], entry[1]))
+        return results
+
+    def _synergy_score(self, synergy_support: List[Tuple[str, str, int]]) -> float:
+        if not synergy_support:
+            return 0.0
+        unique_skills = {skill for skill, _, _ in synergy_support}
+        qty_bonus = sum(math.log10(max(2, qty)) for _, _, qty in synergy_support) * 0.01
+        return len(unique_skills) * 0.05 + len(synergy_support) * 0.02 + qty_bonus
 
     def _item_label(self, item_key: str) -> str:
         if item_key in self.item_names:
@@ -594,6 +627,17 @@ class LevelPlanner:
         if not getattr(recipe, "grants_xp", True):
             return "Crafter (no XP)"
         return ""
+
+    def _skill_label(self, skill_key: str) -> str:
+        if skill_key in self.skill_names:
+            return self.skill_names[skill_key]
+        node = self.profile.get("skills", {}).get(skill_key)
+        if isinstance(node, dict):
+            name = node.get("name")
+            if isinstance(name, str) and name:
+                self.skill_names[skill_key] = name
+                return name
+        return skill_key
 
     def _contains_relic_materials(self, materials: List[Tuple[str, int]]) -> bool:
         for item, _ in materials:
@@ -722,7 +766,11 @@ class LevelPlanner:
             if xpc_unit <= 0:
                 continue
 
+            synergy_unit = self._synergy_support_from_steps(crafts_unit, skill)
+            synergy_boost = self._synergy_score(synergy_unit)
             score = xpc_unit / (1.0 + burden_one)
+            if synergy_boost > 0:
+                score *= (1.0 + synergy_boost)
             candidates.append((score, r, xpc_unit, burden_one))
 
         candidates.sort(key=lambda t: t[0], reverse=True)
@@ -743,6 +791,7 @@ class LevelPlanner:
             total_xp = self._xp_from_crafts(crafts_full, level, skill)
             prereq_gaps = self._dependency_gaps(r, crafts, skill)
             craft_summary = self._summarize_crafts(crafts_full)
+            synergy_support = self._synergy_support_from_steps(crafts_full, skill)
             xp_breakdown = self._xp_breakdown(crafts_full, level, skill)
             top.append(PlanStepOption(
                 recipe_key=_recipe_key(r),
@@ -757,6 +806,7 @@ class LevelPlanner:
                 craft_summary=craft_summary,
                 prereq_gaps=prereq_gaps,
                 xp_breakdown=xp_breakdown,
+                synergy_support=synergy_support,
             ))
             if len(top) >= top_k:
                 break
@@ -773,6 +823,7 @@ class LevelPlanner:
             return None
         total_xp = self._xp_from_crafts(crafts_full, level, skill)
         craft_summary = self._summarize_crafts(crafts_full)
+        synergy_support = self._synergy_support_from_steps(crafts_full, skill)
         prereq_gaps = self._dependency_gaps(recipe, crafts, skill)
         xp_breakdown = self._xp_breakdown(crafts_full, level, skill)
         return PlanStepOption(
@@ -788,6 +839,7 @@ class LevelPlanner:
             craft_summary=craft_summary,
             prereq_gaps=prereq_gaps,
             xp_breakdown=xp_breakdown,
+            synergy_support=synergy_support,
         )
 
     # ---------- Prereq resolution ----------
@@ -949,6 +1001,72 @@ class LevelPlanner:
                 return step
         return None
 
+    def _pending_synergy_supports(self, option: PlanStepOption, target_skill: str) -> List[str]:
+        pending: List[str] = []
+        for support_skill, _, _ in option.synergy_support:
+            if support_skill == target_skill:
+                continue
+            if self.cur_level.get(support_skill, 0) >= self.target_level.get(support_skill, 0):
+                continue
+            if support_skill not in pending:
+                pending.append(support_skill)
+        return pending
+
+    def _clear_synergy_deferral(self, skill: str) -> None:
+        self._synergy_deferrals.discard(skill)
+
+    def _commit_step(self, skill: str, from_level: int, options: List[PlanStepOption], note: Optional[str] = None) -> PlanStep:
+        total_xp = float(options[0].total_xp) if options and options[0].total_xp is not None else 0.0
+        xp_needed = max(0.0, _xp_to_next_level(self.g, skill, from_level) - self.cur_xp.get(skill, 0))
+        overflow = max(0.0, total_xp - xp_needed)
+        target_goal = self.target_level.get(skill, from_level + 1)
+        goal_level = max(target_goal, from_level + 1)
+        new_level = min(goal_level, from_level + 1)
+        self.cur_level[skill] = new_level
+        self.cur_xp[skill] = 0
+
+        while overflow > XP_EPS and self.cur_level[skill] < goal_level:
+            need_next = _xp_to_next_level(self.g, skill, self.cur_level[skill])
+            if need_next <= 0:
+                break
+            if overflow + XP_EPS >= need_next:
+                overflow -= need_next
+                self.cur_level[skill] += 1
+            else:
+                self.cur_xp[skill] = int(round(overflow))
+                overflow = 0.0
+        if self.cur_level[skill] >= goal_level:
+            self.cur_xp[skill] = 0
+
+        self._record_progress(skill, from_level, self.cur_level[skill])
+        self._clear_synergy_deferral(skill)
+        return PlanStep(skill=skill, from_level=from_level, to_level=self.cur_level[skill], options=options, note=note or "")
+
+    def _plan_synergy_support_step(
+        self,
+        consumer_skill: str,
+        support_skill: str,
+        consumer_option: PlanStepOption,
+        top_k: int,
+    ) -> Optional[PlanStep]:
+        current = self.cur_level.get(support_skill, 1)
+        target = self.target_level.get(support_skill, current)
+        if current >= target:
+            return None
+        opts, _ = self._best_options_for_level(support_skill, current, top_k=top_k)
+        if not opts:
+            return None
+        relevant_items = [
+            f"{self._item_label(item)} x{qty}"
+            for skill_key, item, qty in consumer_option.synergy_support
+            if skill_key == support_skill
+        ]
+        if relevant_items:
+            note = f"Synergy prep for {self._skill_label(consumer_skill)} ({', '.join(relevant_items)})"
+        else:
+            note = f"Synergy prep for {self._skill_label(consumer_skill)}"
+        return self._commit_step(support_skill, current, opts, note=note)
+
     # ---------- Public API ----------
 
     def plan(
@@ -986,6 +1104,7 @@ class LevelPlanner:
                     step = self._plan_crafter_unlock_step(missing_crafters[0], skill, lvl, force=True)
                 if step:
                     plan.append(step)
+                    self._clear_synergy_deferral(step.skill)
                     if step.options:
                         prev_lvl = self.cur_level.get(step.skill, 1)
                         new_lvl = max(prev_lvl, step.to_level)
@@ -996,6 +1115,31 @@ class LevelPlanner:
                     skill_queue.append(skill)
                     continue
             if options:
+                pending_supports = self._pending_synergy_supports(options[0], skill)
+                executed_support = False
+                if pending_supports:
+                    for support in pending_supports:
+                        support_step = self._plan_synergy_support_step(skill, support, options[0], top_k)
+                        if support_step:
+                            plan.append(support_step)
+                            steps += 1
+                            stagnant_cycles = 0
+                            skill_queue.insert(0, skill)
+                            if support in skill_queue:
+                                skill_queue.remove(support)
+                            skill_queue.append(support)
+                            executed_support = True
+                            break
+                if executed_support:
+                    continue
+                if pending_supports and skill not in self._synergy_deferrals:
+                    for support in reversed(pending_supports):
+                        if support in skill_queue:
+                            skill_queue.remove(support)
+                        skill_queue.insert(0, support)
+                    skill_queue.insert(len(pending_supports), skill)
+                    self._synergy_deferrals.add(skill)
+                    continue
                 gap_step = self._resolve_cross_skill_gap(options[0], skill)
                 if gap_step:
                     prev_gap_level = self.cur_level.get(gap_step.skill, 1)
@@ -1005,35 +1149,13 @@ class LevelPlanner:
                         self.cur_level[gap_step.skill] = new_gap_level
                         self.cur_xp[gap_step.skill] = 0
                         self._record_progress(gap_step.skill, prev_gap_level, new_gap_level)
+                    self._clear_synergy_deferral(gap_step.skill)
                     steps += 1
                     skill_queue.append(skill)  # revisit after handling prereq
                     continue
 
-                total_xp = float(options[0].total_xp) if options and options[0].total_xp is not None else 0.0
-                xp_needed = max(0.0, _xp_to_next_level(self.g, skill, lvl) - self.cur_xp.get(skill, 0))
-                overflow = max(0.0, total_xp - xp_needed)
-                target_goal = self.target_level.get(skill, lvl + 1)
-                goal_level = max(target_goal, lvl + 1)
-                new_level = min(goal_level, lvl + 1)
-                self.cur_level[skill] = new_level
-                self.cur_xp[skill] = 0
-
-                while overflow > XP_EPS and self.cur_level[skill] < goal_level:
-                    need_next = _xp_to_next_level(self.g, skill, self.cur_level[skill])
-                    if need_next <= 0:
-                        break
-                    if overflow + XP_EPS >= need_next:
-                        overflow -= need_next
-                        self.cur_level[skill] += 1
-                    else:
-                        self.cur_xp[skill] = int(round(overflow))
-                        overflow = 0.0
-                if self.cur_level[skill] >= goal_level:
-                    self.cur_xp[skill] = 0
-
-                self._record_progress(skill, lvl, self.cur_level[skill])
-
-                plan.append(PlanStep(skill=skill, from_level=lvl, to_level=self.cur_level[skill], options=options))
+                step_entry = self._commit_step(skill, lvl, options)
+                plan.append(step_entry)
                 steps += 1
                 stagnant_cycles = 0
                 skill_queue.append(skill)
@@ -1043,6 +1165,7 @@ class LevelPlanner:
             prereq = self._missing_prereq(skill, lvl, required_crafter=self._last_missing_crafter)
             if prereq:
                 plan.append(prereq)
+                self._clear_synergy_deferral(prereq.skill)
                 if prereq.options:
                     prev_prereq_level = self.cur_level.get(prereq.skill, 1)
                     current_prereq_level = self.cur_level.get(prereq.skill, prev_prereq_level)
@@ -1058,6 +1181,7 @@ class LevelPlanner:
             crafter_step = self._plan_next_crafter(skill, lvl, force=True)
             if crafter_step:
                 plan.append(crafter_step)
+                self._clear_synergy_deferral(crafter_step.skill)
                 steps += 1
                 stagnant_cycles = 0
                 skill_queue.append(skill)
@@ -1066,6 +1190,7 @@ class LevelPlanner:
             stagnant_cycles += 1
             if stagnant_cycles >= len(self.target_level):
                 plan.append(PlanStep(skill=skill, from_level=lvl, to_level=lvl, options=[], note="Planner stalled; remaining skills may require manual intervention."))
+                self._clear_synergy_deferral(skill)
                 break
             skill_queue.append(skill)
 
@@ -1119,19 +1244,23 @@ class LevelPlanner:
         os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
         with open(path, "w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
-            w.writerow(["skill","from_level","to_level","note","option_rank","recipe_key","recipe_name","crafter","crafts","xp_per_craft","total_xp","material_burden","materials","materials_tree"])
+            w.writerow(["skill","from_level","to_level","note","option_rank","recipe_key","recipe_name","crafter","crafts","xp_per_craft","total_xp","material_burden","materials","materials_tree","synergy_support"])
             for step in plan:
                 if not step.options:
-                    w.writerow([step.skill, step.from_level, step.to_level, step.note, "", "", "", "", "", "", "", "", "", ""])
+                    w.writerow([step.skill, step.from_level, step.to_level, step.note, "", "", "", "", "", "", "", "", "", "", ""])
                     continue
                 for i, opt in enumerate(step.options, start=1):
                     mats = [f"{self._item_label(k)}-{q}" for k, q in opt.materials]
                     mats_str = "; ".join(mats)
+                    synergy_str = "; ".join(
+                        f"{self._skill_label(sk)} -> {self._item_label(item)} x{qty}"
+                        for sk, item, qty in opt.synergy_support
+                    )
                     w.writerow([
                         step.skill, step.from_level, step.to_level, step.note,
                         i, opt.recipe_key, opt.recipe_name, opt.crafter or "",
                         opt.crafts, f"{opt.xp_per_craft:.1f}", f"{opt.total_xp:.1f}",
-                        f"{opt.material_burden:.2f}", mats_str, opt.materials_tree
+                        f"{opt.material_burden:.2f}", mats_str, opt.materials_tree, synergy_str
                     ])
 
     def write_materials_csv(self, plan: List[PlanStep], path: str) -> None:
@@ -1173,6 +1302,10 @@ class LevelPlanner:
                     lines.append(
                         f"    - {name} x{count}: {chance*100:5.1f}% success chance, success {xs:.1f}, failure {failure_str}, expected {avg:.1f}"
                     )
+            if opt.synergy_support:
+                lines.append("  Synergy boosts:")
+                for support_skill, item_key, qty in opt.synergy_support:
+                    lines.append(f"    - {self._skill_label(support_skill)} supplies {self._item_label(item_key)} x{qty}")
             lines.append("  Gather:")
             if opt.materials:
                 for item, qty in opt.materials:
