@@ -16,6 +16,7 @@ real game data bundles.
 - Confirms the packaged entrypoint module is importable.
 - Confirms entrypoint imports succeed even when launched outside the repo root.
 - Guards the PyInstaller spec to ensure the src path is included for module discovery.
+- Validates executor config fallback logic when the expected config file is missing.
 
 ## Error and edge cases
 
@@ -26,6 +27,7 @@ real game data bundles.
 - Bundle updates skip downloads when already up to date and invoke refreshes for newer versions.
 - Entry points remain importable when the current working directory is unrelated to the repo.
 - PyInstaller spec includes the source path so bundled modules resolve at runtime.
+- Missing executor config files fall back to bundled defaults or safe in-code defaults.
 
 ## Test isolation
 

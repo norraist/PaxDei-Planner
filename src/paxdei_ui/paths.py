@@ -9,6 +9,24 @@ from typing import Any, Dict, Optional
 DEFAULT_EXECUTOR_CONFIG = Path("config/executor_config.json")
 
 
+def _default_executor_config() -> Dict[str, Any]:
+    return {
+        "bundle_root": ".",
+        "static": "data_bundle/source_data/staticdatabundle/StaticDataBundle.json",
+        "loc": "data_bundle/source_data/localisation/localisation_en.json",
+        "profile": "%APPDATA%/PaxDeiPlanner/profile.json",
+        "materials_config": "%APPDATA%/PaxDeiPlanner/materials_config.json",
+        "out_dir": "%APPDATA%/PaxDeiPlanner/out",
+        "plan_json": "%APPDATA%/PaxDeiPlanner/out/level_plan.json",
+        "shopping_json": "%APPDATA%/PaxDeiPlanner/out/level_plan_materials.json",
+        "steps_json": "%APPDATA%/PaxDeiPlanner/out/level_plan_steps.json",
+        "xp_tables_dir": "%APPDATA%/PaxDeiPlanner/xp_tables",
+        "topk": 3,
+        "skills": [],
+        "default_snapshot": "data_bundle/default_snapshot.json",
+    }
+
+
 @dataclass(slots=True)
 class ExecutorConfig:
     bundle_root: Path
@@ -98,6 +116,22 @@ def load_executor_config(path: Path | None = None) -> ExecutorConfig:
     root = cfg_path.parent
     if root.name == "config":
         root = root.parent
+
+    if not cfg_path.exists():
+        fallback_paths = [
+            root / "data_bundle" / "config" / "executor_config.json",
+            root / "config" / "executor_config.json",
+        ]
+        for candidate in fallback_paths:
+            if candidate.exists():
+                cfg_path = candidate
+                root = cfg_path.parent
+                if root.name == "config":
+                    root = root.parent
+                break
+        else:
+            return ExecutorConfig.from_json(_default_executor_config(), root.resolve())
+
     with cfg_path.open("r", encoding="utf-8") as handle:
         data = json.load(handle)
     return ExecutorConfig.from_json(data, root.resolve())
