@@ -17,6 +17,7 @@ real game data bundles.
 - Confirms entrypoint imports succeed even when launched outside the repo root.
 - Guards the PyInstaller spec to ensure the src path is included for module discovery.
 - Validates executor config fallback logic when the expected config file is missing.
+- Verifies icon assets can be loaded from an explicit asset directory.
 
 ## Error and edge cases
 

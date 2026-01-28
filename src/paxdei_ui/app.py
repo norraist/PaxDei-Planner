@@ -243,7 +243,8 @@ class PlannerWindow(QtWidgets.QMainWindow):
         self.plan_pages: dict[str, SkillPage] = {}
         self.calc_recipe_pages: dict[str, RecipeCalculatorPage] = {}
         self.food_page: FoodCalculatorPage | None = None
-        self.icon_registry = IconRegistry()
+        icon_dir = executor_config.bundle_root / "data_bundle" / "assets" / "icons"
+        self.icon_registry = IconRegistry(icon_dir)
         manifest_path = executor_config.bundle_root / "manifest.json"
         self.update_service = DataUpdateService(
             executor_config.bundle_root,

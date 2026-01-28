@@ -15,7 +15,7 @@ def _normalize(name: str) -> str:
 
 class IconRegistry:
     def __init__(self, assets_dir: Path | None = None) -> None:
-        if assets_dir is not None:
+        if assets_dir is not None and assets_dir.exists():
             resolved = assets_dir
         else:
             resolved = DEFAULT_ICON_DIR if DEFAULT_ICON_DIR.exists() else FALLBACK_ICON_DIR
