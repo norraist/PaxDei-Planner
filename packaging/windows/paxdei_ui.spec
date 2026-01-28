@@ -22,7 +22,7 @@ hidden = collect_submodules("paxdei_planner") + collect_submodules("paxdei_ui")
 datas = collect_data_files("PySide6")
 
 a = Analysis(
-    [str(project_root / "src" / "paxdei_ui" / "app.py")],
+    [str(project_root / "src" / "paxdei_ui" / "__main__.py")],
     pathex=[str(project_root)],
     binaries=[],
     datas=datas + bundle_data + config_files,

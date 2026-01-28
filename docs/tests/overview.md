@@ -13,6 +13,8 @@ real game data bundles.
 - Drives the "Check for data updates" button state and messaging in the Config page.
 - Verifies the bundle update worker handles no-op updates and versioned bundle refreshes.
 - Ensures the UI entry script can be executed without relative-import failures.
+- Confirms the packaged entrypoint module is importable.
+- Confirms entrypoint imports succeed even when launched outside the repo root.
 
 ## Error and edge cases
 
@@ -21,6 +23,7 @@ real game data bundles.
 - Pending synergy support excludes skills already at or above their target level.
 - Update checks re-enable the button and surface success/failure messages.
 - Bundle updates skip downloads when already up to date and invoke refreshes for newer versions.
+- Entry points remain importable when the current working directory is unrelated to the repo.
 
 ## Test isolation
 
