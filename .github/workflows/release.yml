@@ -1,6 +1,12 @@
 name: Release Windows
 
 on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version (e.g., 0.2.1)"
+        required: true
+        type: string
   push:
     tags:
       - "v*"
@@ -14,27 +20,48 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set version from tag
         shell: pwsh
         run: |
           $version = "${{ github.ref_name }}".TrimStart("v")
+          if ("${{ github.event_name }}" -eq "workflow_dispatch") {
+            $version = "${{ inputs.version }}".TrimStart("v")
+          }
           "APP_VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Append
+          "TAG_NAME=v$version" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - name: Update pyproject.toml version
+        shell: pwsh
+        run: |
+          $path = "pyproject.toml"
+          $content = Get-Content -Path $path -Raw
+          $updated = $content -replace 'version\\s*=\\s*\"[^\"]+\"', ('version = "' + $env:APP_VERSION + '"')
+          if ($content -eq $updated) {
+            Write-Host "No version line updated in pyproject.toml"
+            exit 1
+          }
+          Set-Content -Path $path -Value $updated -Encoding UTF8
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-          cache: "pip"
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install -e .
+          uv sync
 
       - name: Build PyInstaller bundle
         run: |
-          python -m PyInstaller packaging/windows/paxdei_ui.spec
+          uv run pyinstaller packaging/windows/paxdei_ui.spec
 
       - name: Install Inno Setup
         run: choco install innosetup --yes --no-progress
@@ -49,6 +76,8 @@ jobs:
       - name: Publish release assets
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ env.TAG_NAME }}
+          name: PaxDeiPlanner ${{ env.APP_VERSION }}
           files: |
             packaging/windows/PaxDeiPlanner_Setup.exe
             dist/PaxDeiPlanner_Portable.zip

@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import argparse
+import shutil
 import sys
+import threading
 from pathlib import Path
 from typing import List
-import threading
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
@@ -297,7 +298,7 @@ class PlannerWindow(QtWidgets.QMainWindow):
         self.status.addPermanentWidget(self.progress_bar)
         self.current_snapshot: PlanSnapshot | None = None
 
-        self.snapshot_path = Path(self.executor_config.plan_csv).with_suffix(".ui_plan.json")
+        self.snapshot_path = Path(self.executor_config.plan_json).with_suffix(".ui_plan.json")
         self._load_cached_snapshot()
 
     def _load_cached_snapshot(self) -> None:
@@ -491,9 +492,9 @@ class PlannerWindow(QtWidgets.QMainWindow):
             cfg.xp_tables_dir,
             cfg.materials_config,
             cfg.topk,
-            cfg.plan_csv,
-            cfg.shopping_csv,
-            cfg.steps_txt,
+            cfg.plan_json,
+            cfg.shopping_json,
+            cfg.steps_json,
         )
 
     @QtCore.Slot(object)
@@ -546,10 +547,41 @@ def _parse_args(argv: list[str]) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
+def _default_bundle_config(bundle_root: Path, filename: str) -> Path:
+    candidates = [
+        bundle_root / "config" / filename,
+        bundle_root / "data_bundle" / "config" / filename,
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return candidates[0]
+
+
+def _ensure_user_config(executor_config: ExecutorConfig) -> None:
+    defaults = {
+        executor_config.profile: _default_bundle_config(executor_config.bundle_root, "first_run_player_profile.json"),
+        executor_config.materials_config: _default_bundle_config(executor_config.bundle_root, "first_run_materials_config.json"),
+    }
+    for target, source in defaults.items():
+        if target.exists():
+            continue
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if source.exists():
+            shutil.copy2(source, target)
+            continue
+        fallback = _default_bundle_config(executor_config.bundle_root, target.name)
+        if fallback.exists():
+            shutil.copy2(fallback, target)
+            continue
+        raise FileNotFoundError(f"Missing default config source: {source}")
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _parse_args(argv or sys.argv[1:])
     cfg_path = Path(args.config)
     executor_config = load_executor_config(cfg_path)
+    _ensure_user_config(executor_config)
     store = ConfigStore(executor_config.profile, executor_config.materials_config)
 
     qt_args = sys.argv if argv is None else [sys.argv[0], *argv]

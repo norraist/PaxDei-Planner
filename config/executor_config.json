@@ -1,13 +1,17 @@
 {
   "mode": "multi",
-  "static": "source_data/staticdatabundle/StaticDataBundle.json",
-  "loc": "source_data/localisation/localisation_en.json",
-  "profile": "config/player_profile.json",
+  "bundle_root": ".",
+  "static": "data_bundle/source_data/staticdatabundle/StaticDataBundle.json",
+  "loc": "data_bundle/source_data/localisation/localisation_en.json",
+  "profile": "%APPDATA%/PaxDeiPlanner/profile.json",
   "weights": null,
-  "out_dir": "out",
-  "plan_csv": "out/level_plan.csv",
-  "xp_tables_dir": "xp_tables",
+  "materials_config": "%APPDATA%/PaxDeiPlanner/materials_config.json",
+  "out_dir": "%APPDATA%/PaxDeiPlanner/out",
+  "plan_json": "%APPDATA%/PaxDeiPlanner/out/level_plan.json",
+  "shopping_json": "%APPDATA%/PaxDeiPlanner/out/level_plan_materials.json",
+  "steps_json": "%APPDATA%/PaxDeiPlanner/out/level_plan_steps.json",
+  "xp_tables_dir": "%APPDATA%/PaxDeiPlanner/xp_tables",
   "topk": 3,
   "skills": [],
-  "materials_config": "config/materials_config.json"
+  "default_snapshot": "data_bundle/default_snapshot.json"
 }

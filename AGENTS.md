@@ -69,11 +69,6 @@ Your job is to make correct, minimal, well-tested changes. Prefer small diffs an
 - Clearly state assumptions and where to adjust if the assumption is wrong.
 - Do not block on questions unless the ambiguity would risk incorrect behavior.
 
-## Output requirements 
-- Provide changes as diff-only when editing code (not snippets),
-  unless the user explicitly wants a complete file outputs approach.
-- When asked to revise Python code, output full implementations of modified methods/functions.
-- Put any new or altered import statements in their own code block.
 
 ## Safety rails
 - Do not expose secrets (keys/tokens) from env files, config, logs, or CI.

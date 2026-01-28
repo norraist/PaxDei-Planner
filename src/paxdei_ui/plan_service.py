@@ -49,9 +49,9 @@ class PlanWorker(QtCore.QObject):
         xp_tables_dir: Path,
         materials_config_path: Path,
         top_k: int,
-        plan_csv: Path,
-        shopping_csv: Path,
-        steps_txt: Path,
+        plan_json: Path,
+        shopping_json: Path,
+        steps_json: Path,
     ) -> None:
         super().__init__()
         self.static_path = static_path
@@ -60,9 +60,9 @@ class PlanWorker(QtCore.QObject):
         self.xp_tables_dir = xp_tables_dir
         self.materials_config_path = materials_config_path
         self.top_k = top_k
-        self.plan_csv = plan_csv
-        self.shopping_csv = shopping_csv
-        self.steps_txt = steps_txt
+        self.plan_json = plan_json
+        self.shopping_json = shopping_json
+        self.steps_json = steps_json
         self._progress_updates: "queue.Queue[tuple[float, int, int]]" = queue.Queue()
 
     def take_progress_updates(self) -> list[tuple[float, int, int]]:
@@ -92,9 +92,9 @@ class PlanWorker(QtCore.QObject):
                 if isinstance(node, dict):
                     skill_names[key] = str(node.get("name", key))
             item_names = getattr(planner, "item_names", {})
-            planner.write_csv(plan, str(self.plan_csv))
-            planner.write_materials_csv(plan, str(self.shopping_csv))
-            planner.write_steps_text(plan, str(self.steps_txt))
+            planner.write_plan_json(plan, str(self.plan_json))
+            planner.write_materials_json(plan, str(self.shopping_json))
+            planner.write_steps_json(plan, str(self.steps_json))
             self.finished.emit(PlanSnapshot(plan, skill_names, item_names))
         except Exception as exc:  # pragma: no cover - UI thread logging
             traceback.print_exc()
@@ -124,9 +124,9 @@ class PlanService(QtCore.QObject):
         xp_tables_dir: Path,
         materials_config_path: Path,
         top_k: int,
-        plan_csv: Path,
-        shopping_csv: Path,
-        steps_txt: Path,
+        plan_json: Path,
+        shopping_json: Path,
+        steps_json: Path,
     ) -> None:
         self.cancel()
         worker = PlanWorker(
@@ -136,9 +136,9 @@ class PlanService(QtCore.QObject):
             xp_tables_dir,
             materials_config_path,
             top_k,
-            plan_csv,
-            shopping_csv,
-            steps_txt,
+            plan_json,
+            shopping_json,
+            steps_json,
         )
         thread = QtCore.QThread(self)
         worker.moveToThread(thread)

@@ -1763,30 +1763,74 @@ class LevelPlanner:
             note=note
         )
 
-    def write_csv(self, plan: List[PlanStep], path: str) -> None:
-        os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
-        with open(path, "w", newline="", encoding="utf-8") as f:
-            w = csv.writer(f)
-            w.writerow(["skill","from_level","to_level","note","option_rank","recipe_key","recipe_name","crafter","crafts","xp_per_craft","total_xp","material_burden","materials","materials_tree","synergy_support"])
-            for step in plan:
-                if not step.options:
-                    w.writerow([step.skill, step.from_level, step.to_level, step.note, "", "", "", "", "", "", "", "", "", "", ""])
-                    continue
-                for i, opt in enumerate(step.options, start=1):
-                    mats = [f"{self._item_label(k)}-{q}" for k, q in opt.materials]
-                    mats_str = "; ".join(mats)
-                    synergy_str = "; ".join(
-                        f"{self._skill_label(sk)} -> {self._item_label(item)} x{qty}"
-                        for sk, item, qty in opt.synergy_support
-                    )
-                    w.writerow([
-                        step.skill, step.from_level, step.to_level, step.note,
-                        i, opt.recipe_key, opt.recipe_name, opt.crafter or "",
-                        opt.crafts, f"{opt.xp_per_craft:.1f}", f"{opt.total_xp:.1f}",
-                        f"{opt.material_burden:.2f}", mats_str, opt.materials_tree, synergy_str
-                    ])
+    def _serialize_xp_breakdown(
+        self,
+        xp_rows: List[Tuple[str, float, float, float, float, int]],
+    ) -> List[Dict[str, Any]]:
+        rows = []
+        for name, chance, success, failure, expected, count in xp_rows:
+            failure_val = None
+            if isinstance(failure, (int, float)) and not math.isnan(failure):
+                failure_val = float(failure)
+            rows.append(
+                {
+                    "name": name,
+                    "chance": float(chance),
+                    "success": float(success),
+                    "failure": failure_val,
+                    "expected": float(expected),
+                    "count": int(count),
+                }
+            )
+        return rows
 
-    def write_materials_csv(self, plan: List[PlanStep], path: str) -> None:
+    def _serialize_option(self, opt: PlanStepOption) -> Dict[str, Any]:
+        return {
+            "recipe_key": opt.recipe_key,
+            "recipe_name": opt.recipe_name,
+            "crafter": opt.crafter,
+            "crafts": opt.crafts,
+            "xp_per_craft": opt.xp_per_craft,
+            "total_xp": opt.total_xp,
+            "total_xp_chain": opt.total_xp_chain,
+            "material_burden": opt.material_burden,
+            "materials": list(opt.materials),
+            "materials_qty": opt.materials_qty,
+            "materials_tree": opt.materials_tree,
+            "craft_summary": opt.craft_summary,
+            "ingredient_breakdown": opt.ingredient_breakdown,
+            "prereq_gaps": opt.prereq_gaps,
+            "xp_breakdown": self._serialize_xp_breakdown(opt.xp_breakdown),
+            "synergy_support": [
+                [skill, item, qty] for skill, item, qty in opt.synergy_support
+            ],
+            "blessing_active": opt.blessing_active,
+        }
+
+    def _serialize_step(self, step: PlanStep) -> Dict[str, Any]:
+        return {
+            "skill": step.skill,
+            "from_level": step.from_level,
+            "to_level": step.to_level,
+            "note": step.note,
+            "options": [self._serialize_option(opt) for opt in step.options],
+            "category_options": {
+                k: [self._serialize_option(opt) for opt in v]
+                for k, v in (step.category_options or {}).items()
+            },
+        }
+
+    def write_plan_json(self, plan: List[PlanStep], path: str) -> None:
+        payload = {
+            "skill_names": dict(self.skill_names),
+            "item_names": dict(self.item_names),
+            "steps": [self._serialize_step(step) for step in plan],
+        }
+        os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=2)
+
+    def write_materials_json(self, plan: List[PlanStep], path: str) -> None:
         """
         Aggregate a simple shopping list by assuming the first option of each step
         is the one the player will execute.
@@ -1798,14 +1842,19 @@ class LevelPlanner:
             for item, qty in step.options[0].materials:
                 totals[item] = totals.get(item, 0) + qty
 
+        payload = [
+            {
+                "item_key": item,
+                "item_name": self._item_label(item),
+                "qty": qty,
+            }
+            for item, qty in sorted(totals.items())
+        ]
         os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
-        with open(path, "w", newline="", encoding="utf-8") as f:
-            w = csv.writer(f)
-            w.writerow(["item_key","item_name","qty"])
-            for item, qty in sorted(totals.items()):
-                w.writerow([item, self._item_label(item), qty])
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=2)
 
-    def write_steps_text(self, plan: List[PlanStep], path: str) -> None:
+    def write_steps_json(self, plan: List[PlanStep], path: str) -> None:
         lines: List[str] = []
         for idx, step in enumerate(plan, start=1):
             lines.append(f"Step {idx}: {step.skill} {step.from_level} -> {step.to_level}")
@@ -1858,9 +1907,10 @@ class LevelPlanner:
                 lines.append(f"    {tree_line}")
             lines.append("")
 
+        payload = {"lines": lines}
         os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
         with open(path, "w", encoding="utf-8") as f:
-            f.write("\n".join(lines).strip() + "\n")
+            json.dump(payload, f, indent=2)
 
     def _record_progress(self, skill: str, prev_level: int, new_level: int) -> None:
         if self._total_levels_needed <= 0:
@@ -1913,7 +1963,7 @@ def main():
     ap.add_argument("--loc", required=False, help="Path to localisation_en.json (if omitted, inferred from --static folder)")
     ap.add_argument("--profile", required=True, help="Path to your profile JSON")
     ap.add_argument("--xpdir", required=False, default="xp_tables", help="(Optional) XP tables dir if your xp_model needs it")
-    ap.add_argument("--out", required=True, help="Path to write the CSV plan, e.g., out/level_plan.csv")
+    ap.add_argument("--out", required=True, help="Path to write the JSON plan, e.g., out/level_plan.json")
     ap.add_argument("--topk", type=int, default=3, help="How many options per step")
     ap.add_argument("--materials-config", required=False, help="Optional materials_config.json path (defaults next to profile)")
     args = ap.parse_args()
@@ -1923,7 +1973,7 @@ def main():
 
     planner = LevelPlanner(args.static, loc_path, args.profile, args.xpdir, materials_config_path=args.materials_config)
     plan = planner.plan(top_k=args.topk)
-    planner.write_csv(plan, args.out)
+    planner.write_plan_json(plan, args.out)
     print(f"âœ… Plan written to {args.out} with {len(plan)} steps.")
 
 if __name__ == "__main__":

@@ -5,7 +5,8 @@ from typing import Dict
 
 from PySide6 import QtGui
 
-DEFAULT_ICON_DIR = Path("assets/icons")
+DEFAULT_ICON_DIR = Path("data_bundle/assets/icons")
+FALLBACK_ICON_DIR = Path("assets/icons")
 
 
 def _normalize(name: str) -> str:
@@ -14,7 +15,11 @@ def _normalize(name: str) -> str:
 
 class IconRegistry:
     def __init__(self, assets_dir: Path | None = None) -> None:
-        self.assets_dir = assets_dir or DEFAULT_ICON_DIR
+        if assets_dir is not None:
+            resolved = assets_dir
+        else:
+            resolved = DEFAULT_ICON_DIR if DEFAULT_ICON_DIR.exists() else FALLBACK_ICON_DIR
+        self.assets_dir = resolved
         self._direct: Dict[str, QtGui.QIcon] = {}
         self._normalized: Dict[str, QtGui.QIcon] = {}
         self._load_directory()

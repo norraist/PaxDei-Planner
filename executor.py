@@ -13,7 +13,7 @@ from paxdei_planner.cli import _load_profile
 from paxdei_planner.data_loader import load_game_data
 from paxdei_planner.level_planner import LevelPlanner
 from paxdei_planner.planner import plan_skill
-from paxdei_planner.report import write_plan_csv, write_materials_csv
+from paxdei_planner.report import write_materials_json, write_plan_json
 from paxdei_planner.schemas import Weights
 
 DEFAULT_STATIC = "source_data/staticdatabundle/StaticDataBundle.json"
@@ -26,18 +26,19 @@ CONFIG_TEMPLATE: Dict[str, Any] = {
     "bundle_manifest_url": "",
     "bundle_archive_url": "",
     "mode": "multi",  # "multi" (LevelPlanner) or "single" (per-skill greedy planner)
-    "static": DEFAULT_STATIC,
-    "loc": DEFAULT_LOC,
-    "profile": DEFAULT_PROFILE,
+    "static": "data_bundle/source_data/staticdatabundle/StaticDataBundle.json",
+    "loc": "data_bundle/source_data/localisation/localisation_en.json",
+    "profile": "%APPDATA%/PaxDeiPlanner/profile.json",
     "weights": None,
-    "out_dir": "out",
-    "plan_csv": "out/level_plan.csv",
-    "shopping_csv": "out/level_plan_materials.csv",
-    "steps_txt": "out/level_plan_steps.txt",
-    "xp_tables_dir": "xp_tables",
+    "out_dir": "%APPDATA%/PaxDeiPlanner/out",
+    "plan_json": "%APPDATA%/PaxDeiPlanner/out/level_plan.json",
+    "shopping_json": "%APPDATA%/PaxDeiPlanner/out/level_plan_materials.json",
+    "steps_json": "%APPDATA%/PaxDeiPlanner/out/level_plan_steps.json",
+    "xp_tables_dir": "%APPDATA%/PaxDeiPlanner/xp_tables",
     "topk": 3,
     "skills": [],
-    "materials_config": DEFAULT_MATERIALS,
+    "materials_config": "%APPDATA%/PaxDeiPlanner/materials_config.json",
+    "default_snapshot": "data_bundle/default_snapshot.json",
 }
 
 
@@ -67,13 +68,15 @@ def _load_weights(path: str | None) -> Weights:
 
 def _bundle_root(config: Dict[str, Any]) -> Path:
     raw = config.get("bundle_root", DEFAULT_BUNDLE_DIR)
-    base = Path(raw)
+    expanded = os.path.expandvars(os.path.expanduser(str(raw)))
+    base = Path(expanded)
     return base if base.is_absolute() else (Path.cwd() / base).resolve()
 
 
 def _bundle_path(config: Dict[str, Any], key: str, default: str) -> str:
     raw = config.get(key) or default
-    candidate = Path(raw)
+    expanded = os.path.expandvars(os.path.expanduser(str(raw)))
+    candidate = Path(expanded)
     if candidate.is_absolute():
         return str(candidate)
     return str((_bundle_root(config) / candidate).resolve())
@@ -108,11 +111,11 @@ def run_single_skill(config: Dict[str, Any]) -> None:
         print(f" - Planning {sk}: {state.current_level} -> {state.target_level}")
         res = plan_skill(g, sk, profile, weights)
         results.append(res)
-        csv_path = write_plan_csv(str(out_dir), res, g)
-        print(f"   wrote {csv_path}")
+        json_path = write_plan_json(str(out_dir), res, g)
+        print(f"   wrote {json_path}")
 
     if results:
-        shop_path = write_materials_csv(str(out_dir), results, g)
+        shop_path = write_materials_json(str(out_dir), results, g)
         print(f"[executor] Shopping list: {shop_path}")
     else:
         print("[executor] Nothing to do")
@@ -130,15 +133,15 @@ def run_multi_skill(config: Dict[str, Any]) -> None:
     planner = LevelPlanner(static_path, loc_path, profile_path, xp_tables_dir, materials_config_path=materials_config_path)
     plan = planner.plan(top_k=int(config.get("topk", 3)))
 
-    out_csv = config.get("plan_csv", "out/level_plan.csv")
-    planner.write_csv(plan, out_csv)
-    shopping_csv = config.get("shopping_csv", "out/level_plan_materials.csv")
-    planner.write_materials_csv(plan, shopping_csv)
-    steps_txt = config.get("steps_txt", "out/level_plan_steps.txt")
-    planner.write_steps_text(plan, steps_txt)
-    print(f"[executor] Wrote plan with {len(plan)} steps to {out_csv}")
-    print(f"[executor] Shopping list: {shopping_csv}")
-    print(f"[executor] Step-by-step guide: {steps_txt}")
+    out_json = config.get("plan_json") or config.get("plan_csv") or "out/level_plan.json"
+    planner.write_plan_json(plan, out_json)
+    shopping_json = config.get("shopping_json") or config.get("shopping_csv") or "out/level_plan_materials.json"
+    planner.write_materials_json(plan, shopping_json)
+    steps_json = config.get("steps_json") or config.get("steps_txt") or "out/level_plan_steps.json"
+    planner.write_steps_json(plan, steps_json)
+    print(f"[executor] Wrote plan with {len(plan)} steps to {out_json}")
+    print(f"[executor] Shopping list: {shopping_json}")
+    print(f"[executor] Step-by-step guide: {steps_json}")
 
 
 def main() -> None:

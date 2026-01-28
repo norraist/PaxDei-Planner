@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Optional
@@ -15,9 +16,9 @@ class ExecutorConfig:
     loc: Path
     profile: Path
     materials_config: Path
-    plan_csv: Path
-    shopping_csv: Path
-    steps_txt: Path
+    plan_json: Path
+    shopping_json: Path
+    steps_json: Path
     xp_tables_dir: Path
     out_dir: Path
     topk: int = 3
@@ -27,16 +28,20 @@ class ExecutorConfig:
 
     @classmethod
     def from_json(cls, data: Dict[str, Any], root: Path) -> "ExecutorConfig":
-        def _resolve(value: str | None, default: str, base: Path | None = None) -> Path:
+        def _expand(value: str) -> Path:
+            expanded = os.path.expandvars(os.path.expanduser(value))
+            return Path(expanded)
+
+        def _resolve(value: str | None, default: str) -> Path:
             raw = value or default
-            p = Path(raw)
+            p = _expand(raw)
             return p if p.is_absolute() else (root / p)
 
         bundle_root = _resolve(data.get("bundle_root"), ".")
 
         def _bundle(value: str | None, default: str) -> Path:
             raw = value or default
-            p = Path(raw)
+            p = _expand(raw)
             return p if p.is_absolute() else (bundle_root / p)
 
         static = _bundle(data.get("static"), "source_data/staticdatabundle/StaticDataBundle.json")
@@ -49,9 +54,12 @@ class ExecutorConfig:
             loc = _bundle(None, "source_data/localisation/localisation_en.json")
         profile = _bundle(data.get("profile"), "config/player_profile.json")
         materials_config = _bundle(data.get("materials_config"), "config/materials_config.json")
-        plan_csv = _resolve(data.get("plan_csv"), "out/level_plan.csv")
-        shopping_csv = _resolve(data.get("shopping_csv"), "out/level_plan_materials.csv")
-        steps_txt = _resolve(data.get("steps_txt"), "out/level_plan_steps.txt")
+        plan_value = data.get("plan_json") or data.get("plan_csv")
+        shopping_value = data.get("shopping_json") or data.get("shopping_csv")
+        steps_value = data.get("steps_json") or data.get("steps_txt")
+        plan_json = _resolve(plan_value, "out/level_plan.json")
+        shopping_json = _resolve(shopping_value, "out/level_plan_materials.json")
+        steps_json = _resolve(steps_value, "out/level_plan_steps.json")
         xp_tables_dir = _resolve(data.get("xp_tables_dir"), "xp_tables")
         out_dir = _resolve(data.get("out_dir"), "out")
         topk = int(data.get("topk", 3))
@@ -60,8 +68,10 @@ class ExecutorConfig:
         default_snapshot = None
         snapshot_value = data.get("default_snapshot")
         if snapshot_value:
-            default_snapshot = Path(snapshot_value)
-            if not default_snapshot.is_absolute():
+            snap_path = _expand(snapshot_value)
+            if snap_path.is_absolute():
+                default_snapshot = snap_path
+            else:
                 default_snapshot = _bundle(snapshot_value, snapshot_value)
         return cls(
             bundle_root=bundle_root,
@@ -69,9 +79,9 @@ class ExecutorConfig:
             loc=loc,
             profile=profile,
             materials_config=materials_config,
-            plan_csv=plan_csv,
-            shopping_csv=shopping_csv,
-            steps_txt=steps_txt,
+            plan_json=plan_json,
+            shopping_json=shopping_json,
+            steps_json=steps_json,
             xp_tables_dir=xp_tables_dir,
             out_dir=out_dir,
             topk=topk,

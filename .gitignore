@@ -5,7 +5,21 @@ build/
 dist/
 wheels/
 *.egg-info
-tests/
+
+# Test/coverage artifacts
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+test-results/
+tests/web_validation/
+
+# Tool caches
+.ruff_cache/
+
+# Local outputs
+out/
+xp_tables/
 
 # Virtual environments
 .venv

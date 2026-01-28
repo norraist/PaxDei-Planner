@@ -7,7 +7,7 @@ from typing import Any, Dict
 from .data_loader import load_game_data
 from .schemas import Profile, Weights, SkillState
 from .planner import plan_skill
-from .report import write_plan_csv, write_materials_csv
+from .report import write_materials_json, write_plan_json
 
 def _load_profile(profile_path: str) -> Profile:
     with open(profile_path, "r", encoding="utf-8") as f:
@@ -60,7 +60,7 @@ def main():
     p.add_argument('--loc', required=True, help='Path to localisation_en.json')
     p.add_argument('--profile', required=True, help='Path to profile.json (nested skills + crafters)')
     p.add_argument('--weights', required=False, help='Path to weights.json', default=None)
-    p.add_argument('--out', required=True, help='Output directory for CSVs')
+    p.add_argument('--out', required=True, help='Output directory for JSON exports')
     args = p.parse_args()
 
     g = load_game_data(args.static, args.loc, materials_config=os.path.join(os.path.dirname(args.profile), "materials_config.json"))
@@ -79,10 +79,10 @@ def main():
         print(f"Planning for {sk} ({state.name}): {state.current_level} -> {state.target_level}")
         res = plan_skill(g, sk, profile, weights)
         results.append(res)
-        path = write_plan_csv(args.out, res, g)
+        path = write_plan_json(args.out, res, g)
         print(f"  wrote: {path}")
 
-    shop_path = write_materials_csv(args.out, results, g)
+    shop_path = write_materials_json(args.out, results, g)
     print(f"Shopping list: {shop_path}")
 
 if __name__ == '__main__':
