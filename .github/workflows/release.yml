@@ -36,14 +36,30 @@ jobs:
       - name: Update pyproject.toml version
         shell: pwsh
         run: |
-          $path = "pyproject.toml"
-          $content = Get-Content -Path $path -Raw
-          $updated = $content -replace 'version\\s*=\\s*\"[^\"]+\"', ('version = "' + $env:APP_VERSION + '"')
-          if ($content -eq $updated) {
-            Write-Host "No version line updated in pyproject.toml"
-            exit 1
-          }
-          Set-Content -Path $path -Value $updated -Encoding UTF8
+          @'
+          import re
+          from pathlib import Path
+          
+          path = Path("pyproject.toml")
+          text = path.read_text(encoding="utf-8")
+          
+          in_project = False
+          updated = False
+          lines = []
+          for line in text.splitlines():
+              stripped = line.strip()
+              if stripped.startswith("[") and stripped.endswith("]"):
+                  in_project = stripped == "[project]"
+              if in_project and re.match(r'^version\\s*=\\s*[\\\"\\\'].*[\\\"\\\']\\s*$', stripped):
+                  line = re.sub(r'version\\s*=\\s*[\\\"\\\'].*[\\\"\\\']', f'version = \"{__import__(\"os\").environ[\"APP_VERSION\"]}\"', line)
+                  updated = True
+              lines.append(line)
+          
+          if not updated:
+              raise SystemExit("No version line updated in pyproject.toml")
+          
+          path.write_text("\\n".join(lines) + "\\n", encoding="utf-8")
+          '@ | python -
 
       - name: Setup Python
         uses: actions/setup-python@v5
