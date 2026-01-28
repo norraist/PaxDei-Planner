@@ -1,97 +1,97 @@
 {
-  "premium_account": false,
-  "avoid_relics": false,
+  "premium_account": true,
+  "avoid_relics": true,
   "max_cross_skill_gap": 5,
   "skills": {
     "skill_alchemy": {
       "name": "Alchemy",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 12,
+      "current_xp": 1831,
+      "target_level": 25,
       "blessing": false
     },
     "skill_armor_smithing": {
       "name": "Armorsmithing",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 10,
+      "current_xp": 31,
+      "target_level": 25,
       "blessing": false
     },
     "skill_baking": {
       "name": "Baking",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 16,
+      "current_xp": 26040,
+      "target_level": 25,
       "blessing": false
     },
     "skill_blacksmithing": {
       "name": "Blacksmithing",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 25,
+      "current_xp": 8966,
+      "target_level": 30,
       "blessing": false
     },
     "skill_charcuterie": {
       "name": "Butchering",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 18,
+      "current_xp": 9120,
+      "target_level": 25,
       "blessing": false
     },
     "skill_building": {
       "name": "Carpentry",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 26,
+      "current_xp": 7580,
+      "target_level": 26,
       "blessing": false
     },
     "skill_cooking": {
       "name": "Cooking",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 19,
+      "current_xp": 6494,
+      "target_level": 25,
       "blessing": false
     },
     "skill_fletching": {
       "name": "Fletching",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 13,
+      "current_xp": 951,
+      "target_level": 25,
       "blessing": false
     },
     "skill_jewelerycrafting": {
       "name": "Jewelry Making",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 10,
+      "current_xp": 8989,
+      "target_level": 25,
       "blessing": false
     },
     "skill_leatherworking": {
       "name": "Leatherworking",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 19,
+      "current_xp": 43807,
+      "target_level": 25,
       "blessing": false
     },
     "skill_tailoring": {
       "name": "Tailoring",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 17,
+      "current_xp": 23200,
+      "target_level": 25,
       "blessing": false
     },
     "skill_weapon_smithing": {
       "name": "Weaponsmithing",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 19,
+      "current_xp": 15339,
+      "target_level": 25,
       "blessing": false
     },
     "skill_winery_and_brewing": {
       "name": "Winemaking and Brewing",
-      "current_level": 1,
-      "current_xp": 0,
-      "target_level": 1,
+      "current_level": 12,
+      "current_xp": 1240,
+      "target_level": 25,
       "blessing": false
     }
   },
@@ -106,99 +106,99 @@
     },
     "crafter_bottling_station_1": {
       "name": "Barrel Bottler",
-      "owned": false
+      "owned": true
     },
     "crafter_alchemy_workbench_1": {
       "name": "Basic Alchemy Table",
-      "owned": false
+      "owned": true
     },
     "crafter_blacksmith_armor_workbench_1": {
       "name": "Basic Armorer Workbench",
-      "owned": false
+      "owned": true
     },
     "crafter_charcuterie_workbench_1": {
       "name": "Basic Butcher's Workbench",
-      "owned": false
+      "owned": true
     },
     "crafter_builder_workbench_1": {
       "name": "Basic Carpenter Workbench",
-      "owned": false
+      "owned": true
     },
     "crafter_cooking_workbench_1": {
       "name": "Basic Cooking Workbench",
-      "owned": false
+      "owned": true
     },
     "crafter_fletching_workbench_1": {
       "name": "Basic Fletching Table",
-      "owned": false
+      "owned": true
     },
     "crafter_smelter_basic_1": {
       "name": "Basic Furnace",
-      "owned": false
+      "owned": true
     },
     "crafter_jewelcrafting_workbench_1": {
       "name": "Basic Jeweler Table",
-      "owned": false
+      "owned": true
     },
     "crafter_alchemy_reagent_distillery_1": {
       "name": "Basic Reagent Distiller",
-      "owned": false
+      "owned": true
     },
     "crafter_blacksmith_weapon_workbench_1": {
       "name": "Basic Weaponsmith Workbench",
-      "owned": false
+      "owned": true
     },
     "crafter_beehive_1": {
       "name": "Basic\u00a0Beehive",
-      "owned": false
+      "owned": true
     },
     "crafter_bread_oven_1": {
       "name": "Basic\u00a0Bread Oven",
-      "owned": false
+      "owned": true
     },
     "crafter_charcoal_kiln_1": {
       "name": "Basic\u00a0Charcoal Kiln",
-      "owned": false
+      "owned": true
     },
     "crafter_cooking_hearth_1": {
       "name": "Basic\u00a0Cooking Hearth",
-      "owned": false
+      "owned": true
     },
     "crafter_fermenter_1": {
       "name": "Basic\u00a0Fermenter",
-      "owned": false
+      "owned": true
     },
     "crafter_forge_1": {
       "name": "Basic\u00a0Forge",
-      "owned": false
+      "owned": true
     },
     "crafter_bread_oven_2": {
       "name": "Bread Oven",
-      "owned": false
+      "owned": true
     },
     "crafter_charcuterie_workbench_2": {
       "name": "Butcher's Workbench",
-      "owned": false
+      "owned": true
     },
     "crafter_cooking_camp_fire_1": {
       "name": "Campfire",
-      "owned": false
+      "owned": true
     },
     "crafter_builder_workbench_2": {
       "name": "Carpenter Workbench",
-      "owned": false
+      "owned": true
     },
     "crafter_charcoal_kiln_2": {
       "name": "Charcoal Kiln",
-      "owned": false
+      "owned": true
     },
     "crafter_cooking_hearth_2": {
       "name": "Cooking Hearth",
-      "owned": false
+      "owned": true
     },
     "crafter_cooking_hearth_3": {
       "name": "Craftsman Cooking Hearth",
-      "owned": false
+      "owned": true
     },
     "crafter_forge_3": {
       "name": "Craftsman Forge",
@@ -206,7 +206,7 @@
     },
     "crafter_fermenter_2": {
       "name": "Fermenter",
-      "owned": false
+      "owned": true
     },
     "crafter_fletching_workbench_2": {
       "name": "Fletching Table",
@@ -214,19 +214,19 @@
     },
     "crafter_forge_2": {
       "name": "Forge",
-      "owned": false
+      "owned": true
     },
     "crafter_founders_station_1": {
       "name": "Founder Crafting Table",
-      "owned": false
+      "owned": true
     },
     "crafter_smelter_furnace_1": {
       "name": "Furnace",
-      "owned": false
+      "owned": true
     },
     "crafter_mill_grain_2": {
       "name": "Grain Mill",
-      "owned": false
+      "owned": true
     },
     "crafter_jewelcrafting_workbench_2": {
       "name": "Jeweler Table",
@@ -234,23 +234,23 @@
     },
     "crafter_leatherworking_workbench_2": {
       "name": "Leatherworking Table",
-      "owned": false
+      "owned": true
     },
     "crafter_generic_workbench_1": {
       "name": "Log Workbench",
-      "owned": false
+      "owned": true
     },
     "crafter_weaving_loom_2": {
       "name": "Loom",
-      "owned": false
+      "owned": true
     },
     "crafter_mill_grain_1": {
       "name": "Millstone",
-      "owned": false
+      "owned": true
     },
     "crafter_brick_dryer_1": {
       "name": "Pottery Kiln",
-      "owned": false
+      "owned": true
     },
     "crafter_alchemy_reagent_distillery_2": {
       "name": "Reagent Distiller",
@@ -258,47 +258,47 @@
     },
     "crafter_leatherworking_workbench_1": {
       "name": "Simple Leatherworking Table",
-      "owned": false
+      "owned": true
     },
     "crafter_weaving_loom_1": {
       "name": "Simple Loom",
-      "owned": false
+      "owned": true
     },
     "crafter_tailoring_workbench_1": {
       "name": "Simple Tailoring Table",
-      "owned": false
+      "owned": true
     },
     "crafter_leather_curing_rack_1": {
       "name": "Simple Tanning Rack",
-      "owned": false
+      "owned": true
     },
     "crafter_spit_roast_1": {
       "name": "Small Spit Roast",
-      "owned": false
+      "owned": true
     },
     "crafter_spinning_wheel_1": {
       "name": "Spinning Wheel",
-      "owned": false
+      "owned": true
     },
     "crafter_spit_roast_2": {
       "name": "Spit Roast",
-      "owned": false
+      "owned": true
     },
     "crafter_tailoring_workbench_2": {
       "name": "Tailoring Table",
-      "owned": false
+      "owned": true
     },
     "crafter_leather_curing_rack_2": {
       "name": "Tanning Rack",
-      "owned": false
+      "owned": true
     },
     "crafter_water_well_1": {
       "name": "Water Well",
-      "owned": false
+      "owned": true
     },
     "crafter_blacksmith_weapon_workbench_2": {
       "name": "Weaponsmith Workbench",
-      "owned": false
+      "owned": true
     },
     "crafter_wine_barrel_1": {
       "name": "Wine Barrel",
@@ -306,7 +306,7 @@
     },
     "crafter_chopping_block_1": {
       "name": "Wood Chopping Block",
-      "owned": false
+      "owned": true
     }
   },
   "food_available": [],

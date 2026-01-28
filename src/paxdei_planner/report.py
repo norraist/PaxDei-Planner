@@ -1,5 +1,7 @@
 from __future__ import annotations
-import csv, os
+
+import csv
+import os
 from typing import Dict, List
 from .schemas import GameData
 from .planner import PlanResult
@@ -28,7 +30,8 @@ def write_materials_csv(out_dir: str, results: List[PlanResult], g: GameData):
             if s.action != 'craft':
                 continue
             r = recipe_map.get(s.key)
-            if not r: continue
+            if not r:
+                continue
             for item, qty in (r.ingredients or {}).items():
                 agg[item] = agg.get(item, 0) + qty * s.count
 
@@ -36,6 +39,6 @@ def write_materials_csv(out_dir: str, results: List[PlanResult], g: GameData):
     with open(path, 'w', newline='', encoding='utf-8') as f:
         w = csv.writer(f)
         w.writerow(['ItemKey','Qty'])
-        for k,v in sorted(agg.items()):
+        for k, v in sorted(agg.items()):
             w.writerow([k, v])
     return path

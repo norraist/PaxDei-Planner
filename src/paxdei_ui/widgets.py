@@ -2,8 +2,7 @@ from __future__ import annotations
 
 import html
 import math
-from dataclasses import dataclass
-from typing import Any, Callable, Iterable, List, Sequence, Optional
+from typing import Any, Callable, Iterable, List, Optional, Sequence
 
 from PySide6 import QtCore, QtGui, QtWidgets
 
@@ -306,7 +305,6 @@ class OptionCard(QtWidgets.QFrame):
             self.base_body.setHtml("<i>No base materials.</i>")
             return
         self.title.setText((option.recipe_name or option.recipe_key) + f" x{option.crafts}")
-        crafter = option.crafter or "Any crafter"
         lines = []
         if option.crafter:
             crafter_name = snapshot.item_label(option.crafter) if snapshot else option.crafter

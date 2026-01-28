@@ -373,7 +373,6 @@ class PlannerWindow(QtWidgets.QMainWindow):
     def _set_mode(self, mode: str) -> None:
         if mode == self.mode:
             return
-        prev_key = self._current_page_key()
         if mode == "calculator":
             if not self._ensure_calculator_model():
                 self.plan_mode_action.setChecked(True)

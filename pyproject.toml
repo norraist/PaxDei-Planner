@@ -22,3 +22,9 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[dependency-groups]
+dev = [
+    "pytest-coverage>=0.0",
+    "ruff>=0.14.14",
+]

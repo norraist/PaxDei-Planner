@@ -352,13 +352,13 @@ class FoodCalculatorModel:
                 value = loadout.total_attributes.get(stat, 0.0)
                 if value > max_totals[stat]:
                     max_totals[stat] = value
-        max_duration = max((l.avg_duration_sec for l in loadouts), default=0.0)
+        max_duration = max((loadout.avg_duration_sec for loadout in loadouts), default=0.0)
 
         results: Dict[str, List[FoodLoadout]] = {}
         for stat in stat_keys:
             ranked = sorted(
                 loadouts,
-                key=lambda l: (-total_for(l, stat), -l.avg_duration_sec, l.name_key),
+                key=lambda loadout: (-total_for(loadout, stat), -loadout.avg_duration_sec, loadout.name_key),
             )
             results[stat] = ranked[:3]
         balanced_scores: Dict[str, float] = {}
@@ -389,7 +389,11 @@ class FoodCalculatorModel:
 
             balanced_ranked = sorted(
                 loadouts,
-                key=lambda l: (-balanced_score(l), -l.avg_duration_sec, l.name_key),
+                key=lambda loadout: (
+                    -balanced_score(loadout),
+                    -loadout.avg_duration_sec,
+                    loadout.name_key,
+                ),
             )
             results[BALANCED_KEY] = balanced_ranked[:3]
             for loadout in loadouts:

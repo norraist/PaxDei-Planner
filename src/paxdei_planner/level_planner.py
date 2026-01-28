@@ -1,13 +1,25 @@
 # planner/level_planner.py
 from __future__ import annotations
 
-import math, os, csv, json, time, sys, sqlite3
-from pathlib import Path
+import csv
+import json
+import math
+import os
+import sqlite3
+import sys
+import time
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Tuple, Set, Iterable, Any, Callable, TypedDict
+from pathlib import Path
+from typing import Any, Callable, Dict, Iterable, List, Optional, Set, Tuple, TypedDict
 
 from .data_loader import load_game_data
-from .xp_model import xp_expected, xp_success_avg, xp_failure_avg, success_chance, practical_unlock_level, mastery_level  # expects (level, difficulty, unlock, xp_multiplier) OR adapt as needed
+from .xp_model import (
+    mastery_level,
+    practical_unlock_level,
+    success_chance,
+    xp_failure_avg,
+    xp_success_avg,
+)  # expects (level, difficulty, unlock, xp_multiplier) OR adapt as needed
 from .skills import get_skill_table
 
 XP_EPS = 1e-6
@@ -1092,7 +1104,6 @@ class LevelPlanner:
         Among feasible recipes for 'skill' at 'level', return top-K options by
         score = xp_expected / (1 + material_burden_per_craft).
         """
-        debug = False
         self._last_missing_crafter = None
         missing_seen: List[str] = []
         candidates = []
