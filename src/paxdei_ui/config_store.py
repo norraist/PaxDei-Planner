@@ -13,6 +13,7 @@ class SkillEntry:
     current_level: int
     current_xp: int
     target_level: int
+    blessing: bool = False
 
 
 @dataclass(slots=True)
@@ -37,6 +38,8 @@ class ProfileData:
     max_cross_skill_gap: int
     skills: List[SkillEntry] = field(default_factory=list)
     crafters: List[CrafterEntry] = field(default_factory=list)
+    food_available: List[str] = field(default_factory=list)
+    food_panel_collapsed: bool = False
 
     @classmethod
     def from_json(cls, payload: Dict[str, Any]) -> "ProfileData":
@@ -50,6 +53,7 @@ class ProfileData:
                 current_level=int(node.get("current_level", 1)),
                 current_xp=int(node.get("current_xp", 0)),
                 target_level=int(node.get("target_level", int(node.get("current_level", 1)) + 1)),
+                blessing=bool(node.get("blessing", False)),
             )
             for key, node in payload.get("skills", {}).items()
         ]
@@ -57,12 +61,20 @@ class ProfileData:
             CrafterEntry(key=key, name=str(node.get("name", key)), owned=bool(node.get("owned", False)))
             for key, node in payload.get("crafters", {}).items()
         ]
+        food_available = [
+            str(key)
+            for key in payload.get("food_available", [])
+            if isinstance(key, (str, int))
+        ]
+        food_panel_collapsed = bool(payload.get("food_panel_collapsed", False))
         return cls(
             premium_account=premium,
             avoid_relics=avoid_relics,
             max_cross_skill_gap=max_gap,
             skills=sorted(skills, key=lambda s: s.name.lower()),
             crafters=sorted(crafters, key=lambda c: c.name.lower()),
+            food_available=sorted(food_available),
+            food_panel_collapsed=food_panel_collapsed,
         )
 
     def to_json(self) -> Dict[str, Any]:
@@ -76,10 +88,13 @@ class ProfileData:
                     "current_level": s.current_level,
                     "current_xp": s.current_xp,
                     "target_level": s.target_level,
+                    "blessing": s.blessing,
                 }
                 for s in self.skills
             },
             "crafters": {c.key: {"name": c.name, "owned": c.owned} for c in self.crafters},
+            "food_available": list(self.food_available),
+            "food_panel_collapsed": bool(self.food_panel_collapsed),
         }
 
 
@@ -91,6 +106,25 @@ class ConfigStore:
         self.materials_path = materials_path
         self.profile = self._load_profile()
         self.materials = self._load_materials()
+        self._ensure_first_run_defaults()
+
+    def _ensure_first_run_defaults(self) -> None:
+        marker = self.profile_path.parent / ".first_run_complete"
+        if marker.exists():
+            return
+        for skill in self.profile.skills:
+            skill.current_level = 1
+            skill.current_xp = 0
+            skill.target_level = 40
+            skill.blessing = False
+        for crafter in self.profile.crafters:
+            crafter.owned = False
+        self.profile.premium_account = False
+        self.profile.avoid_relics = False
+        self.profile.food_available = []
+        self.profile.food_panel_collapsed = False
+        self.save_profile()
+        marker.write_text("initialized\n", encoding="utf-8")
 
     def _load_profile(self) -> ProfileData:
         with self.profile_path.open("r", encoding="utf-8") as handle:

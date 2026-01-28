@@ -1,90 +1,41 @@
 # Pax Dei – Crafting Leveling Planner
 
-This tool computes material-efficient leveling plans per crafting skill using your game's static JSON data.
+## Overview
+Pax Dei – Crafting Leveling Planner is a desktop companion that analyzes the official Static Data Bundle and localisation files to build efficient skill-by-skill leveling plans. It highlights the best recipes, required materials, and crafter prerequisites, then presents the results in an interactive UI with both a global checklist and per-skill breakdowns.
 
-## Features
-- Parses `StaticDataBundle.json` and `localisation_en.json`
-- Uses a calibrated XP simulator (success chance, pre-cap success XP, trivial post-cap, failure XP)
-- Respects unlocks (`UnlockAtSkillLevel`), `SkillDifficulty`, `IsDev`, stations/recipes mapping
-- Greedy + 1-step lookahead planner; optional Dijkstra *hook* (stub for extension)
-- Outputs per-skill step plans and a global shopping list (CSV + console)
+The application installs with a curated data bundle (static game data, localisation strings, XP tables, icons, default profile, and a sample plan). Users can refresh that bundle at any time without reinstalling the app, keeping leveling recommendations aligned with the latest game changes.
 
-## Quick start
+## Key Capabilities
+- Imports the Pax Dei StaticDataBundle and localisation files to discover skills, recipes, stations, and XP tables.
+- Evaluates recipe efficiency using success chance, XP multipliers, crafter ownership, and rarity penalties to produce multi-step plans.
+- Provides a PySide-based UI with editable player profile, crafter ownership, and material toggles.
+- Presents the best options per step, plus a consolidated shopping list and step-by-step checklist view.
+- Bundles icons, materials metadata, and a default snapshot so the UI shows a plan immediately after installation.
+- Supports on-demand data updates through a single “Check for data updates” button that downloads the latest bundle from GitHub releases.
 
-```bash
-python -m paxdei_planner.cli   --static /mnt/data/StaticDataBundle.json   --loc /mnt/data/localisation_en.json   --profile /mnt/data/leveling_planner/sample_profile.json   --weights /mnt/data/leveling_planner/sample_weights.json   --targets /mnt/data/leveling_planner/sample_targets.json   --out /mnt/data/leveling_planner/out
-```
+## Getting Started
+1. **Install** – Download the latest release from GitHub and run the Windows installer. It places the application under `Program Files\PaxDeiPlanner` and seeds user-editable config files under `%APPDATA%\PaxDeiPlanner\config`.
+2. **Launch** – Start “Pax Dei Planner” from the Start menu. The application opens to the Config page.
+3. **Configure** – Adjust current levels, target levels, and per-material toggles on the Config page. Crafter ownership can also be set here.
+4. **Save** – Click **Save** to persist modifications. Configuration is stored in JSON files under `%APPDATA%\PaxDeiPlanner\config` so future updates and reinstallations keep personal data intact.
+5. **Plan** – Use the toolbar’s **Refresh plan** action. Progress is displayed in the status bar while the Level Planner evaluates every skill.
+6. **Review** – Navigate between the global Checklist and individual skill pages to inspect options, nested material breakdowns, and XP details. CSV/TXT exports are written to the `out/` directory defined in `config/executor_config.json`.
 
-> Tip: run `python -m pip install -e .` from the repository root (or set `PYTHONPATH=src`) so the `paxdei_planner` package is importable when launching modules directly.
+## Updating Data
+- Open the Config page and select **Check for data updates**. The application compares the local manifest with the latest GitHub release. If a newer bundle exists, a download prompt appears. Confirming the update replaces the bundled StaticDataBundle, localisation, XP tables, icons, default profile, and sample snapshot without touching saved personal configs.
+- When a data update requires profile resets (for example, major skill tree revisions), the manifest will flag the requirement. The UI surfaces a warning before proceeding and offers to back up existing profile/material files.
+- Manual updates are also possible: download the `data_bundle.zip` from the latest release, extract it into `%APPDATA%\PaxDeiPlanner\data_bundle`, and restart the application.
 
-The tool prints a summary and writes CSV files into `--out`.
+## Managing Profiles and Materials
+- **Player profile** (`player_profile.json`) stores per-skill levels, XP, targets, premium flag, relic avoidance, and cross-skill gap settings. The Config page edits all of these fields. Advanced users can edit the JSON directly; the UI re-reads changes on launch.
+- **Materials config** (`materials_config.json`) contains a catalog of materials with names, descriptions, and enabled flags. Disable any material that should be excluded from planning.
+- **Snapshots** – The UI saves the most recent plan to `%APPDATA%\PaxDeiPlanner\out\level_plan.ui_plan.json`. On start-up it restores this snapshot, falling back to the bundled default if none exists.
 
-## Repository layout
-- `source_data/staticdatabundle` and `source_data/localisation`: raw game dumps that feed every CLI.
-- `config/`: checked-in `player_profile.json` + the generated `materials_config.json` that planners expect.
-- `out/`: level-plan CSV/TXT artifacts only (multi-skill executor default output).
-- `xp_tables/`: generated XP table CSVs (written by `utils/generate_xp_tables.py` or the executor).
-- `tests/web_validation/`: XP table validation harness (`run_web_validation.py`, cached golden data, and results).
-- `utils/`: helper CLIs such as `generate_profile.py` and troubleshooting scripts (`scan_keys.py`, etc.).
+## Frequently Asked Questions
+- **Where are exports saved?** The executor writes CSV files (`level_plan.csv`, `level_plan_materials.csv`) and a text breakdown (`level_plan_steps.txt`) into the `out/` directory specified in `config/executor_config.json`. The default location is within the installation directory’s `out/` folder.
+- **Does the application work offline?** Yes. The installer packages a complete data bundle and default plan. Internet access is only required when fetching updates.
+- **How are planner updates delivered?** Code updates arrive through new installer releases. Data updates (StaticDataBundle, localisation, XP tables, icons, default profile, snapshot) arrive through the in-app updater or manual bundle download.
+- **Can multiple profiles be maintained?** Duplicate `player_profile.json` and `materials_config.json` under `%APPDATA%\PaxDeiPlanner\config`, then swap them manually or via script before launching the UI. Future versions may add profile management directly within the app.
 
-## IDE-friendly executor
-
-To avoid juggling CLI flags inside your IDE, run:
-
-```bash
-python executor.py
-```
-
-The first run generates `config/executor_config.json`; edit the paths/mode (single-skill vs. multi-skill LevelPlanner), then re-run to execute with those settings. Multi-skill mode now also emits a `shopping_csv` file that aggregates the top option per step.
-
-## Desktop UI prototype
-
-The `paxdei_ui` package contains a PySide6-based desktop shell that renders the same plan data with a sidebar + card layout. Launch it with:
-
-```bash
-python -m paxdei_ui.app
-```
-
-Before running the UI, generate sidebar icons (per skill and for the Config/Checklist categories) via:
-
-```bash
-python utils/generate_ui_icons.py
-```
-
-Icons are written under `assets/icons/` and bundled in subsequent runs. The UI picks up your existing `config/player_profile.json` and `config/materials_config.json`, allows editing/saving, and calls `LevelPlanner` in the background to populate the three-column option cards for the global checklist and each skill.
-
-For XP table generation you can also run `python utils/generate_xp_tables.py` without CLI flags: the first run writes `config/xp_tables_config.json`, which you can edit and re-run from the IDE. The generator now writes into the top-level `xp_tables/` directory (and the executor defaults there as well). The multi-skill executor additionally writes a `steps_txt` file that lists every gather/craft sub-step (with nested breakdowns) for quick reference inside your IDE.
-
-To refresh *all* derived artifacts after dropping in a new `StaticDataBundle.json`/`localisation_en.json`, use:
-
-```bash
-python utils/regenerate_assets.py
-```
-
-It regenerates `config/player_profile.json`, ensures `config/materials_config.json`, and re-runs the XP-table generator (customize paths or skip steps with the provided flags).
-
-## XP table validation
-
-Use the harness under `tests/web_validation` to compare generated XP tables against the golden web data:
-
-```bash
-python tests/web_validation/run_web_validation.py --pred-dir xp_tables
-```
-
-It reuses the cached CDN fetcher (`web_golden_fetch_json.py`) and writes diffs into `tests/web_validation/results/`. Pass `--skip-fetch` when you only want to diff against the last downloaded golden tables.
-
-## Inputs
-- **StaticDataBundle.json**: game data (recipes, stations, skills, XP tables)
-- **localisation_en.json**: names and descriptions for display
-- **profile.json**: your current state per skill and owned stations
-- **premium_account** (in profile): boolean flag for +50% XP boost from a premium account
-- **avoid_relics** (in profile): boolean flag to skip any plan steps that require relic-tier materials
-- **max_cross_skill_gap** (in profile): maximum allowed difference between current and required level when another skill is needed as a prerequisite (default 5)
-- **materials_config.json**: generated automatically (next to your profile) on first run; lists every material with name/description and an `enabled` flag so you can globally disable items you never want planned
-- **weights.json**: per-item material weights/prices (default 1.0 if missing)
-- **targets.json**: desired target level per skill (omit to use +5 levels as default)
-
-## Notes
-- XP-to-level tables are auto-discovered from `StaticDataBundle.json`. If the tool cannot find them, it will fail with a helpful message reporting candidate paths.
-- Only `IsDev=false` recipes are considered.
-- The planner uses a universal shape with tier-aware constants that we fitted together.
+## Support
+- Report issues or request features on the project’s GitHub issue tracker. Attach planner logs (`out/level_plan_steps.txt`), profile JSON, and manifest version to help reproduce problems.

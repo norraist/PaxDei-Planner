@@ -3,13 +3,14 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 DEFAULT_EXECUTOR_CONFIG = Path("config/executor_config.json")
 
 
 @dataclass(slots=True)
 class ExecutorConfig:
+    bundle_root: Path
     static: Path
     loc: Path
     profile: Path
@@ -20,28 +21,50 @@ class ExecutorConfig:
     xp_tables_dir: Path
     out_dir: Path
     topk: int = 3
+    bundle_manifest_url: Optional[str] = None
+    bundle_archive_url: Optional[str] = None
+    default_snapshot: Optional[Path] = None
 
     @classmethod
     def from_json(cls, data: Dict[str, Any], root: Path) -> "ExecutorConfig":
-        def _resolve(value: str | None, default: str) -> Path:
+        def _resolve(value: str | None, default: str, base: Path | None = None) -> Path:
             raw = value or default
             p = Path(raw)
             return p if p.is_absolute() else (root / p)
 
-        static = _resolve(data.get("static"), "source_data/staticdatabundle/StaticDataBundle.json")
-        loc = _resolve(
-            data.get("loc"),
-            "source_data/localisation/localisation_en.json",
-        )
-        profile = _resolve(data.get("profile"), "config/player_profile.json")
-        materials_config = _resolve(data.get("materials_config"), "config/materials_config.json")
+        bundle_root = _resolve(data.get("bundle_root"), ".")
+
+        def _bundle(value: str | None, default: str) -> Path:
+            raw = value or default
+            p = Path(raw)
+            return p if p.is_absolute() else (bundle_root / p)
+
+        static = _bundle(data.get("static"), "source_data/staticdatabundle/StaticDataBundle.json")
+        loc_value = data.get("loc")
+        if loc_value:
+            loc = Path(loc_value)
+            if not loc.is_absolute():
+                loc = _bundle(loc_value, "source_data/localisation/localisation_en.json")
+        else:
+            loc = _bundle(None, "source_data/localisation/localisation_en.json")
+        profile = _bundle(data.get("profile"), "config/player_profile.json")
+        materials_config = _bundle(data.get("materials_config"), "config/materials_config.json")
         plan_csv = _resolve(data.get("plan_csv"), "out/level_plan.csv")
         shopping_csv = _resolve(data.get("shopping_csv"), "out/level_plan_materials.csv")
         steps_txt = _resolve(data.get("steps_txt"), "out/level_plan_steps.txt")
         xp_tables_dir = _resolve(data.get("xp_tables_dir"), "xp_tables")
         out_dir = _resolve(data.get("out_dir"), "out")
         topk = int(data.get("topk", 3))
+        manifest_url = data.get("bundle_manifest_url")
+        archive_url = data.get("bundle_archive_url")
+        default_snapshot = None
+        snapshot_value = data.get("default_snapshot")
+        if snapshot_value:
+            default_snapshot = Path(snapshot_value)
+            if not default_snapshot.is_absolute():
+                default_snapshot = _bundle(snapshot_value, snapshot_value)
         return cls(
+            bundle_root=bundle_root,
             static=static,
             loc=loc,
             profile=profile,
@@ -52,6 +75,9 @@ class ExecutorConfig:
             xp_tables_dir=xp_tables_dir,
             out_dir=out_dir,
             topk=topk,
+            bundle_manifest_url=manifest_url,
+            bundle_archive_url=archive_url,
+            default_snapshot=default_snapshot,
         )
 
 

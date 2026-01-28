@@ -52,6 +52,7 @@ class SkillState:
     current_level: int
     current_xp: int
     target_level: int
+    blessing: bool = False
 
 @dataclass
 class Profile:

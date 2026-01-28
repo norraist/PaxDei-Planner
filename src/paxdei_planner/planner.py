@@ -1,10 +1,11 @@
 from __future__ import annotations
+import math
 from dataclasses import dataclass
 from typing import Dict, List, Tuple, Optional
 
 try:
     from .schemas import GameData, Profile, Weights, Recipe
-    from .xp_model import success_chance, xp_expected
+    from .xp_model import success_chance, xp_success_avg, xp_failure_avg, practical_unlock_level, mastery_level
     from .costs import craft_cost
     from .skills import xp_to_next_level, get_skill_table
 except ImportError:
@@ -16,9 +17,36 @@ except ImportError:
     if ROOT not in sys.path:
         sys.path.insert(0, ROOT)
     from paxdei_planner.schemas import GameData, Profile, Weights, Recipe  # type: ignore
-    from paxdei_planner.xp_model import success_chance, xp_expected  # type: ignore
+    from paxdei_planner.xp_model import success_chance, xp_success_avg, xp_failure_avg, practical_unlock_level, mastery_level  # type: ignore
     from paxdei_planner.costs import craft_cost  # type: ignore
     from paxdei_planner.skills import xp_to_next_level, get_skill_table  # type: ignore
+
+def _recipe_grants_xp(recipe: Recipe) -> bool:
+    if not getattr(recipe, "grants_xp", True):
+        return False
+    key = getattr(recipe, "key", "")
+    if key.startswith("recipe_crafter_") or key.startswith("recipe_item_unlock_crafter_"):
+        return False
+    outputs = getattr(recipe, "outputs", {}) or {}
+    for out_key in outputs.keys():
+        if isinstance(out_key, str) and out_key.startswith("crafter_"):
+            return False
+    return True
+
+
+def _expected_xp_for_recipe(level: int, recipe: Recipe, blessing: bool) -> Tuple[float, float]:
+    """
+    Returns (expected_xp, success_chance) using the premium-on baseline from xp_model.
+    """
+    chance_level = level + 1 if blessing else level
+    chance = success_chance(chance_level, recipe.difficulty)
+    success = xp_success_avg(level, recipe.difficulty, recipe.xp_multiplier, skill=recipe.skill)
+    failure = xp_failure_avg(level, recipe.difficulty, recipe.unlock_at, recipe.xp_multiplier, skill=recipe.skill)
+    if isinstance(failure, float) and not math.isnan(failure):
+        expected = chance * success + (1 - chance) * failure
+    else:
+        expected = chance * success
+    return expected, chance
 
 @dataclass
 class PlanStep:
@@ -41,7 +69,9 @@ def _feasible_recipes(g: GameData, skill: str, level: int, owned_stations: set[s
     for r in g.recipes:
         if r.is_dev:
             continue
-        if not getattr(r, "grants_xp", True):
+        if not _recipe_grants_xp(r):
+            continue
+        if getattr(r, "key", "").startswith("recipe_building_piece_"):
             continue
         if materials_cfg:
             disabled = False
@@ -54,7 +84,11 @@ def _feasible_recipes(g: GameData, skill: str, level: int, owned_stations: set[s
                 continue
         if r.skill != skill:
             continue
-        if level < r.unlock_at:
+        practical_unlock = practical_unlock_level(getattr(r, "unlock_at", 0), getattr(r, "difficulty", 0))
+        if level < practical_unlock:
+            continue
+        mastery_lvl = mastery_level(getattr(r, "difficulty", 0))
+        if level >= mastery_lvl:
             continue
         # If recipe requires a station and we don't own it, skip
         if r.station and r.station not in owned_stations:
@@ -62,13 +96,20 @@ def _feasible_recipes(g: GameData, skill: str, level: int, owned_stations: set[s
         out.append(r)
     return out
 
-def _best_recipe_now(g: GameData, rlist: List[Recipe], level: int, weights: Dict[str, float]) -> Tuple[Optional[Recipe], float, float, float]:
+def _best_recipe_now(
+    g: GameData,
+    rlist: List[Recipe],
+    level: int,
+    weights: Dict[str, float],
+    blessing: bool,
+) -> Tuple[Optional[Recipe], float, float, float, float]:
     best = None
     best_ratio = -1.0
     best_exp = 0.0
     best_cost = 0.0
+    best_chance = 0.0
     for r in rlist:
-        exp = xp_expected(level, r.difficulty, r.unlock_at, r.xp_multiplier, skill=r.skill)
+        exp, chance = _expected_xp_for_recipe(level, r, blessing)
         if exp <= 0:
             continue
         cost = craft_cost(r, weights)
@@ -78,7 +119,11 @@ def _best_recipe_now(g: GameData, rlist: List[Recipe], level: int, weights: Dict
             best = r
             best_exp = exp
             best_cost = cost
-    return best, best_exp, best_cost, best_ratio
+            best_chance = chance
+    return best, best_exp, best_cost, best_ratio, best_chance
+
+PREMIUM_XP_MULTIPLIER = 1.5
+
 
 def plan_skill(g: GameData, skill: str, prof: Profile, weights: Weights, lookahead: int = 1) -> PlanResult:
     # Pull current & target from the new nested profile
@@ -101,7 +146,8 @@ def plan_skill(g: GameData, skill: str, prof: Profile, weights: Weights, lookahe
     total_cost = 0.0
     total_crafts = 0
 
-    xp_boost = 1.5 if prof.premium_account else 1.0
+    xp_boost = 1.0 if prof.premium_account else (1.0 / PREMIUM_XP_MULTIPLIER)
+    blessing = bool(getattr(state, "blessing", False))
 
     while curr_level < target_level:
         feas = _feasible_recipes(g, skill, curr_level, owned_stations)
@@ -117,7 +163,9 @@ def plan_skill(g: GameData, skill: str, prof: Profile, weights: Weights, lookahe
             else:
                 raise RuntimeError(f"No feasible recipes for {skill} at level {curr_level}. Consider building a station or revising targets.")
 
-        best, exp_per_base, cost_per, ratio = _best_recipe_now(g, feas, curr_level, weights.material_weight)
+        best, exp_per_base, cost_per, ratio, chance = _best_recipe_now(
+            g, feas, curr_level, weights.material_weight, blessing
+        )
         if not best:
             raise RuntimeError(f"No best recipe found for {skill} at level {curr_level}.")
         exp_per = exp_per_base * xp_boost
@@ -141,7 +189,7 @@ def plan_skill(g: GameData, skill: str, prof: Profile, weights: Weights, lookahe
             count=crafts,
             exp_gain=step_exp,
             cost=step_cost,
-            notes=f"{best.name or best.key} | p_succ~{success_chance(curr_level, best.difficulty):.2f}, exp/craft~{exp_per:.1f}, cost/craft~{cost_per:.1f}"
+            notes=f"{best.name or best.key} | p_succ~{chance:.2f}, exp/craft~{exp_per:.1f}, cost/craft~{cost_per:.1f}"
         ))
 
         # Advance levels

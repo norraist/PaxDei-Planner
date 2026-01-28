@@ -8,6 +8,7 @@ from typing import Any, Dict, Iterable, List
 
 import bootstrap  # noqa: F401
 
+from paxdei_planner.bundle import DEFAULT_BUNDLE_DIR
 from paxdei_planner.cli import _load_profile
 from paxdei_planner.data_loader import load_game_data
 from paxdei_planner.level_planner import LevelPlanner
@@ -21,6 +22,9 @@ DEFAULT_PROFILE = "config/player_profile.json"
 DEFAULT_MATERIALS = "config/materials_config.json"
 
 CONFIG_TEMPLATE: Dict[str, Any] = {
+    "bundle_root": ".",
+    "bundle_manifest_url": "",
+    "bundle_archive_url": "",
     "mode": "multi",  # "multi" (LevelPlanner) or "single" (per-skill greedy planner)
     "static": DEFAULT_STATIC,
     "loc": DEFAULT_LOC,
@@ -61,6 +65,20 @@ def _load_weights(path: str | None) -> Weights:
     return Weights(material_weight={str(k): float(v) for k, v in data.items()})
 
 
+def _bundle_root(config: Dict[str, Any]) -> Path:
+    raw = config.get("bundle_root", DEFAULT_BUNDLE_DIR)
+    base = Path(raw)
+    return base if base.is_absolute() else (Path.cwd() / base).resolve()
+
+
+def _bundle_path(config: Dict[str, Any], key: str, default: str) -> str:
+    raw = config.get(key) or default
+    candidate = Path(raw)
+    if candidate.is_absolute():
+        return str(candidate)
+    return str((_bundle_root(config) / candidate).resolve())
+
+
 def _select_skills(requested: Iterable[str], available: Dict[str, Any]) -> List[str]:
     if requested:
         return [sk for sk in requested if sk in available]
@@ -69,9 +87,12 @@ def _select_skills(requested: Iterable[str], available: Dict[str, Any]) -> List[
 
 def run_single_skill(config: Dict[str, Any]) -> None:
     print("[executor] Running single-skill planner")
-    mat_cfg = config.get("materials_config") or os.path.join(os.path.dirname(config["profile"]), "materials_config.json")
-    g = load_game_data(config["static"], config["loc"], materials_config=mat_cfg)
-    profile = _load_profile(config["profile"])
+    static_path = _bundle_path(config, "static", DEFAULT_STATIC)
+    loc_path = _bundle_path(config, "loc", DEFAULT_LOC)
+    profile_path = _bundle_path(config, "profile", DEFAULT_PROFILE)
+    mat_cfg = _bundle_path(config, "materials_config", DEFAULT_MATERIALS)
+    g = load_game_data(static_path, loc_path, materials_config=mat_cfg)
+    profile = _load_profile(profile_path)
     weights = _load_weights(config.get("weights"))
 
     out_dir = Path(config.get("out_dir", "out")).resolve()
@@ -99,15 +120,13 @@ def run_single_skill(config: Dict[str, Any]) -> None:
 
 def run_multi_skill(config: Dict[str, Any]) -> None:
     print("[executor] Running multi-skill LevelPlanner")
-    static_path = config["static"]
-    loc_path = config.get("loc") or os.path.join(
-        os.path.dirname(static_path), "localisation_en.json"
-    )
-    profile_path = config["profile"]
-    xp_tables_dir = config.get("xp_tables_dir", "xp_tables")
+    static_path = _bundle_path(config, "static", DEFAULT_STATIC)
+    loc_path = _bundle_path(config, "loc", DEFAULT_LOC)
+    profile_path = _bundle_path(config, "profile", DEFAULT_PROFILE)
+    xp_tables_dir = _bundle_path(config, "xp_tables_dir", "xp_tables")
     Path(xp_tables_dir).mkdir(parents=True, exist_ok=True)
 
-    materials_config_path = config.get("materials_config") or os.path.join(os.path.dirname(profile_path), "materials_config.json")
+    materials_config_path = _bundle_path(config, "materials_config", DEFAULT_MATERIALS)
     planner = LevelPlanner(static_path, loc_path, profile_path, xp_tables_dir, materials_config_path=materials_config_path)
     plan = planner.plan(top_k=int(config.get("topk", 3)))
 

@@ -1,12 +1,12 @@
 {
   "item_raw_material_plant_herb_aeonium": {
     "name": "Aeonium",
-    "description": "A striking succulent with rosette-shaped leaves, its unique appearance adding a touch of exotic beauty to gardens and landscapes. \\nCan be gathered in Cursed Rocklands, Lands of Stone and Scrublands biomes.",
+    "description": "A striking succulent with rosette-shaped leaves, its unique appearance adding a touch of exotic beauty to gardens and landscapes.  Can be gathered in Cursed Rocklands, Lands of Stone and Scrublands biomes.",
     "enabled": true
   },
   "item_raw_material_mineral_agate": {
     "name": "Agate",
-    "description": "Nature's artwork, a mesmerizing display of swirling colors and patterns, forged in the depths of the earth and cherished for its beauty and symbolism throughout the ages. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "description": "Nature's artwork, a mesmerizing display of swirling colors and patterns, forged in the depths of the earth and cherished for its beauty and symbolism throughout the ages.  Found by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
     "enabled": true
   },
   "item_unlock_crafter_alchemy_workbench_2": {
@@ -16,7 +16,7 @@
   },
   "item_raw_material_plant_flower_alfalfa": {
     "name": "Alfalfa",
-    "description": "Vigorous legume with vibrant green foliage, enriches soils and serves as a nutritious fodder for livestock, sustaining farms and fields with its abundant growth. \\nCan be gathered in Scrublands and The Pale biomes.",
+    "description": "Vigorous legume with vibrant green foliage, enriches soils and serves as a nutritious fodder for livestock, sustaining farms and fields with its abundant growth.  Can be gathered in Scrublands and The Pale biomes.",
     "enabled": true
   },
   "item_material_extract_plant_flower_alfalfa": {
@@ -31,13 +31,13 @@
   },
   "item_raw_material_gemstone_amber": {
     "name": "Amber",
-    "description": "Congealed drops of sweat from ancient trees. \\nFound by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
+    "description": "Congealed drops of sweat from ancient trees.  Found by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
     "enabled": true
   },
   "item_raw_material_enchanting_demira_resin": {
     "name": "Ambergrasp",
-    "description": "A dark, thorny plant with coiled branches gripping a glowing humming amber sap. \\nCan be gathered in all biomes in the Lyonesse.",
-    "enabled": false
+    "description": "A dark, thorny plant with coiled branches gripping a glowing humming amber sap.  Can be gathered in all biomes in the Lyonesse.",
+    "enabled": true
   },
   "item_material_enchanting_extract_fine": {
     "name": "Ambergrasp Concentrate",
@@ -56,7 +56,7 @@
   },
   "item_raw_material_plant_herb_angelica": {
     "name": "Angelica",
-    "description": "A regal herb of the wild, known for its fragrant blooms and aromatic leaves, lending a touch of elegance to the countryside. \\nCan be gathered in Old Forest and Lands of Stone biomes.",
+    "description": "A regal herb of the wild, known for its fragrant blooms and aromatic leaves, lending a touch of elegance to the countryside.  Can be gathered in Old Forest and Lands of Stone biomes.",
     "enabled": true
   },
   "item_material_extract_plant_herb_angelica": {
@@ -106,7 +106,7 @@
   },
   "item_raw_material_ore_gold": {
     "name": "Aurum Ore",
-    "description": "Valuable metal, smelt it into coins and ingots. \\nFound by mining Gneiss, Granite and Limestone deposits.",
+    "description": "Valuable metal, smelt it into coins and ingots.  Found by mining Gneiss, Granite and Limestone deposits.",
     "enabled": true
   },
   "item_material_thread_gold": {
@@ -136,12 +136,12 @@
   },
   "item_raw_material_grain_barley": {
     "name": "Barley Grain",
-    "description": "A versatile and ancient cereal crop, prized for its nutritional value and used in brewing, cooking, and animal feed throughout history. \\nCan be gathered in Lands of Stone and Scrublands biomes in the Home Valleys.",
+    "description": "A versatile and ancient cereal crop, prized for its nutritional value and used in brewing, cooking, and animal feed throughout history.  Can be gathered in Lands of Stone and Scrublands biomes in the Home Valleys.",
     "enabled": true
   },
   "item_raw_material_grass_barley": {
     "name": "Barley Stalks",
-    "description": "A humble yet essential crop, harvested from the earth's bounty, offering nourishment in the form of hearty bread, sustaining us through the seasons of toil and harvest. \\nCan be gathered in Lands of Stone and Scrublands biomes in the Home Valleys.",
+    "description": "A humble yet essential crop, harvested from the earth's bounty, offering nourishment in the form of hearty bread, sustaining us through the seasons of toil and harvest.  Can be gathered in Lands of Stone and Scrublands biomes in the Home Valleys.",
     "enabled": true
   },
   "item_unlock_crafter_alcohol_crafters_1": {
@@ -201,7 +201,7 @@
   },
   "item_raw_material_plant_flower_batflower_flower": {
     "name": "Batflower",
-    "description": "Dark, intricate blossom, evokes twilight magic. \\nCan be gathered in Forsaken Forest in the Wildlands.",
+    "description": "Dark, intricate blossom, evokes twilight magic.  Can be gathered in Forsaken Forest in the Wildlands.",
     "enabled": true
   },
   "item_material_extract_plant_flower_batflower_flower": {
@@ -246,12 +246,12 @@
   },
   "item_raw_material_plant_flower_beardediris": {
     "name": "Bearded Iris",
-    "description": "Majestic blooms with velvety petals, crowned by fuzzy \"beards,\" lending regal elegance and vibrant color to gardens and landscapes alike. \\nCan be gathered in Grasslands in the Wildlands.",
+    "description": "Majestic blooms with velvety petals, crowned by fuzzy \"beards,\" lending regal elegance and vibrant color to gardens and landscapes alike.  Can be gathered in Grasslands in the Wildlands.",
     "enabled": true
   },
   "item_raw_material_plant_herb_beebalm": {
     "name": "Bee Balm",
-    "description": "A fragrant herb of the wild, its vibrant blooms attract bees and butterflies, filling the air with a sweet aroma and adding a splash of color to meadows and gardens alike. \\nCan be gathered in Old Forest, Forsaken Forest and Grasslands biomes.",
+    "description": "A fragrant herb of the wild, its vibrant blooms attract bees and butterflies, filling the air with a sweet aroma and adding a splash of color to meadows and gardens alike.  Can be gathered in Old Forest, Forsaken Forest and Grasslands biomes.",
     "enabled": true
   },
   "item_unlock_crafter_beehive_1": {
@@ -266,7 +266,7 @@
   },
   "item_raw_material_plant_flower_campion": {
     "name": "Bladder Campion",
-    "description": "Delicate wildflower with inflated calyxes, its white petals dance in the breeze, adorning meadows and hedgerows with ephemeral beauty. \\nCan be gathered in The Pale in the Wildlands.",
+    "description": "Delicate wildflower with inflated calyxes, its white petals dance in the breeze, adorning meadows and hedgerows with ephemeral beauty.  Can be gathered in The Pale in the Wildlands.",
     "enabled": true
   },
   "item_material_extract_plant_flower_campion": {
@@ -276,7 +276,7 @@
   },
   "item_raw_material_gemstone_blizzard_stone": {
     "name": "Blizzard Stone",
-    "description": "The poor man's diamond. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "description": "The poor man's diamond.  Found by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
     "enabled": true
   },
   "item_raw_material_animal_carcass_boar": {
@@ -396,8 +396,8 @@
   },
   "item_raw_material_enchanting_shard": {
     "name": "Canonite",
-    "description": "Broken chunks of stone scorched and marked by faint inscriptions. Many believe them cursed, for even the Inquisition avoids their touch. \\nCan be gathered in all biomes in the Lyonesse.",
-    "enabled": false
+    "description": "Broken chunks of stone scorched and marked by faint inscriptions. Many believe them cursed, for even the Inquisition avoids their touch.  Can be gathered in all biomes in the Lyonesse.",
+    "enabled": true
   },
   "item_material_enchanting_powder_exquisite": {
     "name": "Canonite Pearls",
@@ -416,7 +416,7 @@
   },
   "item_raw_material_plant_flower_castor_plant": {
     "name": "Castor Plant",
-    "description": "Produces slow burning oil that is also said to be used to purge evil. \\nCan be gathered in Drowned Lands.",
+    "description": "Produces slow burning oil that is also said to be used to purge evil.  Can be gathered in Drowned Lands.",
     "enabled": true
   },
   "item_raw_material_animal_carcass_wolf": {
@@ -461,12 +461,12 @@
   },
   "item_raw_material_gemstone_citrine": {
     "name": "Citrine",
-    "description": "Rays of the sun, trapped in a gem. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "description": "Rays of the sun, trapped in a gem.  Found by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
     "enabled": true
   },
   "item_raw_material_soil_clay": {
     "name": "Clay",
-    "description": "Soft, until baked. \\nCan be gathered in all biomes near water.",
+    "description": "Soft, until baked.  Can be gathered in all biomes near water.",
     "enabled": true
   },
   "item_material_clay_shingles": {
@@ -526,7 +526,7 @@
   },
   "item_raw_material_plant_herb_cobralily": {
     "name": "Cobra Lily",
-    "description": "A fascinating carnivorous plant, its hooded structure and intricate patterns lure unsuspecting prey, embodying nature's ingenuity and the beauty of adaptation. \\nCan be gathered in Drowned Lands.",
+    "description": "A fascinating carnivorous plant, its hooded structure and intricate patterns lure unsuspecting prey, embodying nature's ingenuity and the beauty of adaptation.  Can be gathered in Drowned Lands.",
     "enabled": true
   },
   "item_unlock_crafter_cooking_hearth_2": {
@@ -541,7 +541,7 @@
   },
   "item_raw_material_ore_copper": {
     "name": "Copper Ore",
-    "description": "Lifeblood of the ancient miners. \\nFound by mining Copper deposits in all biomes in the Home Valleys.",
+    "description": "Lifeblood of the ancient miners.  Found by mining Copper deposits in all biomes in the Home Valleys.",
     "enabled": true
   },
   "item_material_hardened_corded_padding_linen": {
@@ -561,7 +561,7 @@
   },
   "item_raw_material_plant_fiber_cotton": {
     "name": "Cotton Fiber",
-    "description": "A soft fiber, used to make finer and more comfortable textiles. \\nCan be gathered in Drowned Lands.",
+    "description": "A soft fiber, used to make finer and more comfortable textiles.  Can be gathered in Drowned Lands.",
     "enabled": true
   },
   "item_material_cotton_wadding": {
@@ -581,7 +581,7 @@
   },
   "item_raw_material_plant_flower_crane": {
     "name": "Crane Flower",
-    "description": "Exotic bloom, reminiscent of crane wings, captivates with vibrant hues. \\nCan be gathered in Drowned Lands.",
+    "description": "Exotic bloom, reminiscent of crane wings, captivates with vibrant hues.  Can be gathered in Drowned Lands.",
     "enabled": true
   },
   "item_material_extract_plant_flower_crane": {
@@ -591,7 +591,7 @@
   },
   "item_raw_material_plant_flower_crown_beard": {
     "name": "Crown Beard",
-    "description": "Majestic wildflower, its golden clusters resembling regal crowns, gracing meadows with a touch of royal splendor. \\nCan be gathered in Drowned Lands.",
+    "description": "Majestic wildflower, its golden clusters resembling regal crowns, gracing meadows with a touch of royal splendor.  Can be gathered in Drowned Lands.",
     "enabled": true
   },
   "item_material_extract_plant_crown_beard": {
@@ -606,12 +606,12 @@
   },
   "item_raw_material_mineral_cuprite": {
     "name": "Cuprite",
-    "description": "The crimson heart of the earth, its fiery hue captivating alchemists' imaginations, believed to hold secrets of transformation and vitality within its radiant depths. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "description": "The crimson heart of the earth, its fiery hue captivating alchemists' imaginations, believed to hold secrets of transformation and vitality within its radiant depths.  Found by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
     "enabled": true
   },
   "item_raw_material_plant_flower_daisy": {
     "name": "Daisy",
-    "description": "A delicate bloom of the meadows, whispering tales of innocence and simplicity, adorning fields with its cheerful presence. \\nCan be gathered in Grasslands and Scrublands biomes.",
+    "description": "A delicate bloom of the meadows, whispering tales of innocence and simplicity, adorning fields with its cheerful presence.  Can be gathered in Grasslands and Scrublands biomes.",
     "enabled": true
   },
   "item_material_extract_plant_daisy": {
@@ -621,7 +621,7 @@
   },
   "item_raw_material_plant_flower_dandelion": {
     "name": "Dandelion",
-    "description": "Cheerful yellow flower, offers culinary and herbal benefits. \\nCan be gathered in Grasslands.",
+    "description": "Cheerful yellow flower, offers culinary and herbal benefits.  Can be gathered in Grasslands.",
     "enabled": true
   },
   "item_material_extract_plant_dandelion": {
@@ -641,12 +641,12 @@
   },
   "item_raw_material_plant_flower_datura_leaves": {
     "name": "Datura's Leaves",
-    "description": "Velvety green foliage, adorned with intricate veins, harboring the potent essence of the night, veiled in an aura of mystique and danger. \\nCan be gathered in Scrublands.",
+    "description": "Velvety green foliage, adorned with intricate veins, harboring the potent essence of the night, veiled in an aura of mystique and danger.  Can be gathered in Scrublands.",
     "enabled": true
   },
   "item_raw_material_plant_flower_datura_seed_pod": {
     "name": "Datura's Seed Pod",
-    "description": "A curious orb, resembling a prickly vessel of secrets, harboring potent seeds within, enticing curious minds with its mystical allure and enigmatic beauty. \\nCan be gathered in Scrublands.",
+    "description": "A curious orb, resembling a prickly vessel of secrets, harboring potent seeds within, enticing curious minds with its mystical allure and enigmatic beauty.  Can be gathered in Scrublands.",
     "enabled": true
   },
   "item_material_extract_plant_flower_deadly_nightshade_fruit": {
@@ -706,7 +706,7 @@
   },
   "item_raw_material_plant_flower_edelweis": {
     "name": "Edelweiss",
-    "description": "An emblem of purity and resilience, its woolly white petals are though to symbolize courage and enduring beauty. \\nCan be gathered in Cursed Rocklands in the Wildlands.",
+    "description": "An emblem of purity and resilience, its woolly white petals are though to symbolize courage and enduring beauty.  Can be gathered in Cursed Rocklands in the Wildlands.",
     "enabled": true
   },
   "item_material_extract_stinkhorn": {
@@ -716,7 +716,7 @@
   },
   "item_raw_material_gemstone_emeralds": {
     "name": "Emerald",
-    "description": "A gemstone of life. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "description": "A gemstone of life.  Found by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
     "enabled": true
   },
   "item_material_extract_loios_tears": {
@@ -726,7 +726,7 @@
   },
   "item_raw_material_plant_herb_fennel": {
     "name": "Fennel",
-    "description": "A fragrant herb with feathery leaves and a licorice-like flavor, prized for its culinary versatility and digestive properties, adding depth to dishes and delighting the palate. \\nCan be gathered in The Pale in the Wildlands.",
+    "description": "A fragrant herb with feathery leaves and a licorice-like flavor, prized for its culinary versatility and digestive properties, adding depth to dishes and delighting the palate.  Can be gathered in The Pale in the Wildlands.",
     "enabled": true
   },
   "item_material_axe_handle_fine": {
@@ -791,12 +791,12 @@
   },
   "item_raw_material_plant_fiber_flax": {
     "name": "Flax Fiber",
-    "description": "Strong fibrous plant, used to make linen. \\nCan be gathered in Grasslands, Blessed Meadows and 2 other biomes.",
+    "description": "Strong fibrous plant, used to make linen.  Can be gathered in Grasslands, Blessed Meadows and 2 other biomes.",
     "enabled": true
   },
   "item_raw_material_plant_fiber_flax_seeds": {
     "name": "Flax Seeds",
-    "description": "Tiny, glossy seeds harvested from the flax plant. \\nCan be gathered in Grasslands, Blessed Meadows and 2 other biomes.",
+    "description": "Tiny, glossy seeds harvested from the flax plant.  Can be gathered in Grasslands, Blessed Meadows and 2 other biomes.",
     "enabled": true
   },
   "item_unlock_crafter_fletching_workbench_2": {
@@ -806,12 +806,12 @@
   },
   "item_raw_material_rock_flint": {
     "name": "Flint",
-    "description": "Splinters with sharp edges. \\nCan be gathered in all biomes in the Home Valleys near water.",
+    "description": "Splinters with sharp edges.  Can be gathered in all biomes in the Home Valleys near water.",
     "enabled": true
   },
   "item_raw_material_mineral_fluorite": {
     "name": "Fluorite",
-    "description": "Mystical gem, enhances alchemical transformations. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "description": "Mystical gem, enhances alchemical transformations.  Found by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
     "enabled": true
   },
   "item_material_extract_berserker": {
@@ -841,12 +841,12 @@
   },
   "item_raw_material_plant_herb_garlic": {
     "name": "Garlic",
-    "description": "A small miracle of nature. \\nCan be gathered in Old Forest and Evergreen Forest biomes.",
+    "description": "A small miracle of nature.  Can be gathered in Old Forest and Evergreen Forest biomes.",
     "enabled": true
   },
   "item_raw_material_gemstone_garnet": {
     "name": "Garnet",
-    "description": "A protective stone said to hold a drop of pure fire within its heart. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "description": "A protective stone said to hold a drop of pure fire within its heart.  Found by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
     "enabled": true
   },
   "item_material_glass_regular": {
@@ -866,12 +866,12 @@
   },
   "item_raw_material_rock_gneiss": {
     "name": "Gneiss",
-    "description": "Metamorphic rock, hard and sparkly. \\nFound by mining Gneiss deposits and by gathering in all biomes in the Home Valleys and Wildlands.",
+    "description": "Metamorphic rock, hard and sparkly.  Found by mining Gneiss deposits and by gathering in all biomes in the Home Valleys and Wildlands.",
     "enabled": true
   },
   "item_raw_material_plant_flower_californianpoppy": {
     "name": "Golden Poppy",
-    "description": "A floral treasure. \\nCan be gathered in The Pale.",
+    "description": "A floral treasure.  Can be gathered in The Pale.",
     "enabled": true
   },
   "item_material_extract_plant_flower_californianpoppy": {
@@ -881,7 +881,7 @@
   },
   "item_raw_material_rock_granite": {
     "name": "Granite",
-    "description": "A noble stone of formidable strength and enduring beauty. \\nFound by mining Granite deposits in Forsaken Forest and The Pale biomes in the Wildlands.",
+    "description": "A noble stone of formidable strength and enduring beauty.  Found by mining Granite deposits in Forsaken Forest and The Pale biomes in the Wildlands.",
     "enabled": true
   },
   "item_raw_material_heartwood_beech": {
@@ -901,32 +901,32 @@
   },
   "item_raw_material_plant_herb_hellebore": {
     "name": "Hellebore",
-    "description": "A resilient flower of winter's embrace, its elegant blooms defy the cold, bringing hope and beauty to the frost-kissed landscape with their subtle charm and quiet strength. \\nCan be gathered in Evergreen Forest in the Home Valleys.",
+    "description": "A resilient flower of winter's embrace, its elegant blooms defy the cold, bringing hope and beauty to the frost-kissed landscape with their subtle charm and quiet strength.  Can be gathered in Evergreen Forest in the Home Valleys.",
     "enabled": true
   },
   "item_raw_material_mineral_hematite": {
     "name": "Hematite",
-    "description": "Earth's magnetic gem, revered by alchemists for its transformative powers. \\nFound by mining Iron deposits in all biomes in the Wildlands.",
+    "description": "Earth's magnetic gem, revered by alchemists for its transformative powers.  Found by mining Iron deposits in all biomes in the Wildlands.",
     "enabled": true
   },
   "item_raw_material_plant_flower_hemlock_roots": {
     "name": "Hemlock Roots",
-    "description": "Twisted and deadly, buried in the earth's embrace. \\nCan be gathered in Drowned Lands in the Wildlands.",
+    "description": "Twisted and deadly, buried in the earth's embrace.  Can be gathered in Drowned Lands in the Wildlands.",
     "enabled": true
   },
   "item_raw_material_plant_flower_hemlock_sap": {
     "name": "Hemlock Sap",
-    "description": "Lethal essence, coursing through twisted veins, harboring nature's silent killer, a sinister whisper in the forest's shadows. \\nCan be gathered in Drowned Lands in the Wildlands.",
+    "description": "Lethal essence, coursing through twisted veins, harboring nature's silent killer, a sinister whisper in the forest's shadows.  Can be gathered in Drowned Lands in the Wildlands.",
     "enabled": true
   },
   "item_raw_material_plant_flower_henbane_seeds": {
     "name": "Henbane Seeds",
-    "description": "Tiny orbs of peril, nestled within sinister pods, their innocent appearance belies the deadly potency they hold, a warning whispered by the winds of the wild. \\nCan be gathered in Scrublands, Corrupted Plains and Drowned Lands biomes.",
+    "description": "Tiny orbs of peril, nestled within sinister pods, their innocent appearance belies the deadly potency they hold, a warning whispered by the winds of the wild.  Can be gathered in Scrublands, Corrupted Plains and Drowned Lands biomes.",
     "enabled": true
   },
   "item_raw_material_plant_flower_highmallow": {
     "name": "High Mallow",
-    "description": "A resilient herb of the wild, its tall stems adorned with pale pink blooms, offering medicinal properties and a touch of grace to untamed landscapes. \\nCan be gathered in The Pale.",
+    "description": "A resilient herb of the wild, its tall stems adorned with pale pink blooms, offering medicinal properties and a touch of grace to untamed landscapes.  Can be gathered in The Pale.",
     "enabled": true
   },
   "item_material_extract_plant_flower_highmallow": {
@@ -941,7 +941,7 @@
   },
   "item_raw_material_plant_flower_hops": {
     "name": "Hops",
-    "description": "The fragrant, bitter flowers of the hop plant, essential for brewing beer, imparting aroma, flavor, and bitterness. \\nCan be gathered in Forsaken Forest in the Wildlands.",
+    "description": "The fragrant, bitter flowers of the hop plant, essential for brewing beer, imparting aroma, flavor, and bitterness.  Can be gathered in Forsaken Forest in the Wildlands.",
     "enabled": true
   },
   "item_material_button_horn": {
@@ -956,7 +956,7 @@
   },
   "item_raw_material_ore_iron_impure": {
     "name": "Impure Iron Ore",
-    "description": "Impure iron ore, wrested from the bowels of the earth by the sweat of laborers' brows. \\nFound by mining Iron deposits in all biomes in the Home Valleys.",
+    "description": "Impure iron ore, wrested from the bowels of the earth by the sweat of laborers' brows.  Found by mining Iron deposits in all biomes in the Home Valleys.",
     "enabled": true
   },
   "item_material_leather_generic_inferior": {
@@ -1011,7 +1011,7 @@
   },
   "item_raw_material_ore_iron": {
     "name": "Iron Ore",
-    "description": "Smelt it down. \\nFound by mining Iron deposits in all biomes in the Wildlands.",
+    "description": "Smelt it down.  Found by mining Iron deposits in all biomes in the Wildlands.",
     "enabled": true
   },
   "item_material_iron_sheet": {
@@ -1071,7 +1071,7 @@
   },
   "item_raw_material_plant_flower_lavender": {
     "name": "Lavender",
-    "description": "A fragrant treasure of nature, its delicate purple blooms release an aromatic symphony, enchanting the air with a calming embrace. \\nCan be gathered in Drowned Lands.",
+    "description": "A fragrant treasure of nature, its delicate purple blooms release an aromatic symphony, enchanting the air with a calming embrace.  Can be gathered in Drowned Lands.",
     "enabled": true
   },
   "item_material_extract_plant_flower_lavender": {
@@ -1081,7 +1081,7 @@
   },
   "item_raw_material_mineral_lead": {
     "name": "Lead",
-    "description": "One of Alchemist's base metals, a cornerstone of transformation and other ancient alchemical endeavors. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "description": "One of Alchemist's base metals, a cornerstone of transformation and other ancient alchemical endeavors.  Found by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
     "enabled": true
   },
   "item_material_leather_bands": {
@@ -1116,12 +1116,12 @@
   },
   "item_raw_material_plant_herb_lemongrass": {
     "name": "Lemongrass",
-    "description": "A fragrant herb with slender stalks and a citrusy aroma, prized for its culinary uses and refreshing scent, infusing dishes with zesty flavor and invigorating the senses. \\nCan be gathered in Lands of Stone in the Wildlands.",
+    "description": "A fragrant herb with slender stalks and a citrusy aroma, prized for its culinary uses and refreshing scent, infusing dishes with zesty flavor and invigorating the senses.  Can be gathered in Lands of Stone in the Wildlands.",
     "enabled": true
   },
   "item_raw_material_plant_herb_lily": {
     "name": "Lily of the Valley",
-    "description": "A delicate woodland flower, its tiny bell-shaped blooms exude a sweet fragrance, evoking the magic of springtime and adding a touch of enchantment to shaded gardens. \\nCan be gathered in Grasslands and Scrublands biomes.",
+    "description": "A delicate woodland flower, its tiny bell-shaped blooms exude a sweet fragrance, evoking the magic of springtime and adding a touch of enchantment to shaded gardens.  Can be gathered in Grasslands and Scrublands biomes.",
     "enabled": true
   },
   "item_material_extract_plant_herb_lily": {
@@ -1141,7 +1141,7 @@
   },
   "item_raw_material_rock_limestone": {
     "name": "Limestone",
-    "description": "Durable yet porous, best kept away from the elements. \\nFound by mining Limestone deposits in Scrublands, Drowned Lands and The Pale biomes.",
+    "description": "Durable yet porous, best kept away from the elements.  Found by mining Limestone deposits in Scrublands, Drowned Lands and The Pale biomes.",
     "enabled": true
   },
   "item_material_linen_cloth": {
@@ -1166,7 +1166,7 @@
   },
   "item_raw_material_plant_flower_loios_tears_leaves": {
     "name": "Loios' Tears Leaves",
-    "description": "Leaves of wisdom, believed to hold the knowledge of the ages in the alchemist's quest for enlightenment. \\nCan be gathered in Eerie Pines in the Wildlands.",
+    "description": "Leaves of wisdom, believed to hold the knowledge of the ages in the alchemist's quest for enlightenment.  Can be gathered in Eerie Pines in the Wildlands.",
     "enabled": true
   },
   "item_material_wood_long_stock_fine": {
@@ -1186,7 +1186,7 @@
   },
   "item_raw_material_mineral_magnetite": {
     "name": "Magnetite",
-    "description": "Nature's magnetic marvel, revered by alchemists for its potent energy and transformative properties. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "description": "Nature's magnetic marvel, revered by alchemists for its potent energy and transformative properties.  Found by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
     "enabled": true
   },
   "item_material_malt": {
@@ -1196,17 +1196,17 @@
   },
   "item_raw_material_plant_herb_mandrake": {
     "name": "Mandrake",
-    "description": "A mystical herb with forked roots, steeped in legend and folklore, believed to possess magical properties and ancient wisdom, shrouded in mystery and reverence throughout the ages. \\nCan be gathered in Evergreen Forest and Eerie Pines biomes in the Wildlands.",
+    "description": "A mystical herb with forked roots, steeped in legend and folklore, believed to possess magical properties and ancient wisdom, shrouded in mystery and reverence throughout the ages.  Can be gathered in Evergreen Forest and Eerie Pines biomes in the Wildlands.",
     "enabled": true
   },
   "item_raw_material_plant_flower_marshmerigold": {
     "name": "Marsh Marigold",
-    "description": "A cheerful herald of spring, its golden blooms brightening damp meadows and stream banks, welcoming the return of warmth and life to the marshy realms. \\nCan be gathered in Drowned Lands.",
+    "description": "A cheerful herald of spring, its golden blooms brightening damp meadows and stream banks, welcoming the return of warmth and life to the marshy realms.  Can be gathered in Drowned Lands.",
     "enabled": true
   },
   "item_raw_material_plant_herb_meadowsweet": {
     "name": "Meadowsweet",
-    "description": "A graceful wildflower with clusters of fragrant white blooms, known for its delicate beauty and herbal remedies, gracing meadows and stream banks with its serene presence. \\nCan be gathered in all biomes near water.",
+    "description": "A graceful wildflower with clusters of fragrant white blooms, known for its delicate beauty and herbal remedies, gracing meadows and stream banks with its serene presence.  Can be gathered in all biomes near water.",
     "enabled": true
   },
   "item_material_extract_plant_herb_meadowsweet": {
@@ -1231,12 +1231,12 @@
   },
   "item_raw_material_plant_herb_mistletoe": {
     "name": "Mistletoe",
-    "description": "A symbol of holiday tradition and romance, its evergreen leaves and white berries evoke festive cheer and the promise of affectionate kisses beneath its boughs. \\nCan be gathered in Old Forest and Forsaken Forest biomes in the Wildlands.",
+    "description": "A symbol of holiday tradition and romance, its evergreen leaves and white berries evoke festive cheer and the promise of affectionate kisses beneath its boughs.  Can be gathered in Old Forest and Forsaken Forest biomes in the Wildlands.",
     "enabled": true
   },
   "item_raw_material_plant_herb_mustard": {
     "name": "Mustard",
-    "description": "Fiery flowers from ancient seeds, enlivens feasts. \\nCan be gathered in Scrublands.",
+    "description": "Fiery flowers from ancient seeds, enlivens feasts.  Can be gathered in Scrublands.",
     "enabled": true
   },
   "item_material_leather_splits_nubuk": {
@@ -1256,32 +1256,32 @@
   },
   "item_raw_material_grain_oat": {
     "name": "Oat Grain",
-    "description": "A hearty and nutritious cereal crop, renowned for its versatility in various culinary applications, from breakfast cereals to baking and brewing. \\nCan be gathered in Old Forest and Lands of Stone biomes.",
+    "description": "A hearty and nutritious cereal crop, renowned for its versatility in various culinary applications, from breakfast cereals to baking and brewing.  Can be gathered in Old Forest and Lands of Stone biomes.",
     "enabled": true
   },
   "item_raw_material_gemstone_obsidian": {
     "name": "Obsidian",
-    "description": "A fragment of the darkest night. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "description": "A fragment of the darkest night.  Found by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
     "enabled": true
   },
   "item_raw_material_gemstone_onyx": {
     "name": "Onyx",
-    "description": "Dampens love and is said to cause misfortune. \\nFound by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
+    "description": "Dampens love and is said to cause misfortune.  Found by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
     "enabled": false
   },
   "item_raw_material_gemstone_opal": {
     "name": "Opal",
-    "description": "Strands of the rainbow, trapped in a gem. \\nFound by mining Iron deposits in all biomes in the Wildlands.",
+    "description": "Strands of the rainbow, trapped in a gem.  Found by mining Iron deposits in all biomes in the Wildlands.",
     "enabled": true
   },
   "item_raw_material_plant_herb_parsley": {
     "name": "Parsley",
-    "description": "A versatile herb with vibrant green leaves, prized for its fresh flavor and culinary versatility, adding a pop of color and a burst of freshness to dishes both savory and sweet. \\nCan be gathered in Drowned Lands.",
+    "description": "A versatile herb with vibrant green leaves, prized for its fresh flavor and culinary versatility, adding a pop of color and a burst of freshness to dishes both savory and sweet.  Can be gathered in Drowned Lands.",
     "enabled": true
   },
   "item_raw_material_plant_flower_pasque": {
     "name": "Pasque Flower",
-    "description": "A delicate harbinger of spring, its velvet petals unfurling amidst the lingering frost, symbolizing renewal and hope in the awakening of nature's slumber. \\nCan be gathered in Lands of Stone.",
+    "description": "A delicate harbinger of spring, its velvet petals unfurling amidst the lingering frost, symbolizing renewal and hope in the awakening of nature's slumber.  Can be gathered in Lands of Stone.",
     "enabled": true
   },
   "item_material_extract_plant_flower_pasque": {
@@ -1291,12 +1291,12 @@
   },
   "item_raw_material_gemstone_pearls": {
     "name": "Pearl",
-    "description": "Reflections of the moon on the ocean of time. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "description": "Reflections of the moon on the ocean of time.  Found by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
     "enabled": true
   },
   "item_raw_material_plant_flower_periwinkle": {
     "name": "Periwinkle",
-    "description": "Delicate woodland flower, carpets the forest floor in hues of blue. \\nCan be gathered in Grasslands.",
+    "description": "Delicate woodland flower, carpets the forest floor in hues of blue.  Can be gathered in Grasslands.",
     "enabled": true
   },
   "item_material_extract_plant_periwinkle": {
@@ -1311,7 +1311,7 @@
   },
   "item_raw_material_plant_flower_plantago": {
     "name": "Plantago",
-    "description": "A humble herb of the fields, its slender stems and ribbed leaves offer healing properties and sustenance, quietly thriving amidst nature's tapestry. \\nCan be gathered in Grasslands.",
+    "description": "A humble herb of the fields, its slender stems and ribbed leaves offer healing properties and sustenance, quietly thriving amidst nature's tapestry.  Can be gathered in Grasslands.",
     "enabled": true
   },
   "item_material_extract_plant_flower_plantago": {
@@ -1331,22 +1331,22 @@
   },
   "item_raw_material_ore_iron_pure": {
     "name": "Pure Iron Ore",
-    "description": "High quality iron ore. \\nFound by mining Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "description": "High quality iron ore.  Found by mining Iron deposits in all biomes in the Lyonesse and Wildlands.",
     "enabled": true
   },
   "item_raw_material_mineral_pyrite": {
     "name": "Pyrite",
-    "description": "Earth's golden illusion, captivating alchemists with its deceptive beauty and transformative potential. \\nFound by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
+    "description": "Earth's golden illusion, captivating alchemists with its deceptive beauty and transformative potential.  Found by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
     "enabled": true
   },
   "item_raw_material_mineral_quartz": {
     "name": "Quartz",
-    "description": "Earth's crystal guardian, revered by alchemists for its clarity and amplification of energies. \\nFound by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
+    "description": "Earth's crystal guardian, revered by alchemists for its clarity and amplification of energies.  Found by mining Iron deposits in all biomes in the Home Valleys and Wildlands.",
     "enabled": true
   },
   "item_raw_material_mineral_quicksilver": {
     "name": "Quicksilver",
-    "description": "One of the three Primes of Alchemy. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "description": "One of the three Primes of Alchemy.  Found by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
     "enabled": true
   },
   "item_material_quilted_padding_linen": {
@@ -1366,7 +1366,7 @@
   },
   "item_raw_material_plant_flower_rain_lily": {
     "name": "Rain Lily",
-    "description": "Lily that typically blooms following heavy rains. \\nCan be gathered in all biomes near water.",
+    "description": "Lily that typically blooms following heavy rains.  Can be gathered in all biomes near water.",
     "enabled": true
   },
   "item_material_leather_generic_rawhide": {
@@ -1376,17 +1376,17 @@
   },
   "item_raw_material_plant_cabbage_red": {
     "name": "Red Cabbage",
-    "description": "Food fit for kings. And pigs. \\nCan be gathered in Lands of Stone in the Wildlands.",
+    "description": "Food fit for kings. And pigs.  Can be gathered in Lands of Stone in the Wildlands.",
     "enabled": true
   },
   "item_raw_material_plant_onion_red": {
     "name": "Red Onion",
-    "description": "A vibrant bulb of the earth, bestowing pungent flavor and colorful zest to our culinary creations, enlivening dishes with its bold presence. \\nCan be gathered in Forsaken Forest.",
+    "description": "A vibrant bulb of the earth, bestowing pungent flavor and colorful zest to our culinary creations, enlivening dishes with its bold presence.  Can be gathered in Forsaken Forest.",
     "enabled": true
   },
   "item_raw_material_plant_flower_redpoppy": {
     "name": "Red Poppy",
-    "description": "A vibrant symbol of remembrance, its scarlet petals dance in the wind, honoring the sacrifices of the fallen with timeless grace and solemn beauty. \\nCan be gathered in Lands of Stone.",
+    "description": "A vibrant symbol of remembrance, its scarlet petals dance in the wind, honoring the sacrifices of the fallen with timeless grace and solemn beauty.  Can be gathered in Lands of Stone.",
     "enabled": true
   },
   "item_material_extract_plant_flower_redpoppy": {
@@ -1396,7 +1396,7 @@
   },
   "item_raw_material_grass_reeds": {
     "name": "Reed",
-    "description": "Poor man's wood. \\nCan be gathered in all biomes near water.",
+    "description": "Poor man's wood.  Can be gathered in all biomes near water.",
     "enabled": true
   },
   "item_material_leather_reinforced_plate": {
@@ -1411,7 +1411,7 @@
   },
   "item_raw_material_plant_herb_rosemary": {
     "name": "Rosemary",
-    "description": "Fragrant herb with pine-like aroma, adding robust flavor to dishes. \\nCan be gathered in The Pale.",
+    "description": "Fragrant herb with pine-like aroma, adding robust flavor to dishes.  Can be gathered in The Pale.",
     "enabled": true
   },
   "item_raw_material_medium_animal_hide_rough": {
@@ -1456,17 +1456,17 @@
   },
   "item_raw_material_grain_rye": {
     "name": "Rye Grain",
-    "description": "Rye grain, a sturdy crop that withstands the harshest winters, provides bread to fill our bellies and strength to toil the fields. \\nCan be gathered in Lands of Stone, Scrublands and 2 other biomes.",
+    "description": "Rye grain, a sturdy crop that withstands the harshest winters, provides bread to fill our bellies and strength to toil the fields.  Can be gathered in Lands of Stone, Scrublands and 2 other biomes.",
     "enabled": true
   },
   "item_raw_material_plant_herb_sage": {
     "name": "Sage",
-    "description": "Fragrant herb, adds savory flavor to dishes. \\nCan be gathered in Grasslands.",
+    "description": "Fragrant herb, adds savory flavor to dishes.  Can be gathered in Grasslands.",
     "enabled": true
   },
   "item_raw_material_rock_sand": {
     "name": "Sand",
-    "description": "Time treated rocks. \\nFound by mining Copper, Gneiss, Granite, Iron, Limestone and Tin deposits in all biomes.",
+    "description": "Time treated rocks.  Found by mining Copper, Gneiss, Granite, Iron, Limestone and Tin deposits in all biomes.",
     "enabled": true
   },
   "item_raw_material_rock_sandstone": {
@@ -1476,12 +1476,12 @@
   },
   "item_raw_material_sapwood_beech": {
     "name": "Sapwood",
-    "description": "Easy to work and shape, but this wood type is neither very strong nor durable. \\nCan be gathered in all biomes in the Home Valleys and Wildlands and chopped from trees with an axe.",
+    "description": "Easy to work and shape, but this wood type is neither very strong nor durable.  Can be gathered in all biomes in the Home Valleys and Wildlands and chopped from trees with an axe.",
     "enabled": true
   },
   "item_raw_material_mineral_sepentine": {
     "name": "Serpentine",
-    "description": "This stone has been described as being extra natural. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "description": "This stone has been described as being extra natural.  Found by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
     "enabled": true
   },
   "item_material_crafting_sewing_needles": {
@@ -1516,7 +1516,7 @@
   },
   "item_raw_material_ore_silver": {
     "name": "Silver Ore",
-    "description": "Smelt it down. \\nFound by mining Gneiss, Granite and Limestone deposits.",
+    "description": "Smelt it down.  Found by mining Gneiss, Granite and Limestone deposits.",
     "enabled": true
   },
   "item_material_thread_silver": {
@@ -1546,12 +1546,12 @@
   },
   "item_raw_material_plant_herb_snapdragon": {
     "name": "Snapdragon",
-    "description": "A charming flower with colorful blossoms resembling dragon mouths, bringing whimsy and vibrancy to gardens and bouquets, enchanting all who behold its playful allure. \\nCan be gathered in Cursed Rocklands and Lands of Stone biomes.",
+    "description": "A charming flower with colorful blossoms resembling dragon mouths, bringing whimsy and vibrancy to gardens and bouquets, enchanting all who behold its playful allure.  Can be gathered in Cursed Rocklands and Lands of Stone biomes.",
     "enabled": true
   },
   "item_raw_material_plant_flower_soapwort": {
     "name": "Soapwort",
-    "description": "A hardy herb of ancient lore, its frothy white blooms and cleansing properties have been cherished through the ages, offering purity and freshness to those who seek it. \\nCan be gathered in Scrublands.",
+    "description": "A hardy herb of ancient lore, its frothy white blooms and cleansing properties have been cherished through the ages, offering purity and freshness to those who seek it.  Can be gathered in Scrublands.",
     "enabled": true
   },
   "item_material_extract_plant_flower_soapwort": {
@@ -1561,7 +1561,7 @@
   },
   "item_raw_material_plant_flower_sowthistle": {
     "name": "Sow Thistle",
-    "description": "Hardy wild plant, prized by foragers. \\nCan be gathered in Lands of Stone and Scrublands biomes.",
+    "description": "Hardy wild plant, prized by foragers.  Can be gathered in Lands of Stone and Scrublands biomes.",
     "enabled": true
   },
   "item_material_extract_plant_sowthistle": {
@@ -1576,7 +1576,7 @@
   },
   "item_raw_material_plant_flower_bushy_starworth": {
     "name": "Starwort",
-    "description": "A humble plant. \\nCan be gathered in Forsaken Forest.",
+    "description": "A humble plant.  Can be gathered in Forsaken Forest.",
     "enabled": true
   },
   "item_material_extract_plant_bushy_starworth": {
@@ -1676,7 +1676,7 @@
   },
   "item_raw_material_mineral_sulfur": {
     "name": "Sulfur",
-    "description": "One of the three Primes of Alchemy. \\nFound by mining Iron deposits in all biomes in the Wildlands.",
+    "description": "One of the three Primes of Alchemy.  Found by mining Iron deposits in all biomes in the Wildlands.",
     "enabled": true
   },
   "item_material_sword_hilt": {
@@ -1696,7 +1696,7 @@
   },
   "item_raw_material_plant_flower_tansy": {
     "name": "Tansy",
-    "description": "A hardy herb of the countryside, its sunny yellow blossoms and aromatic leaves bring cheer to meadows and hedgerows, warding off pests and delighting passersby with its vibrant presence. \\nCan be gathered in Lands of Stone.",
+    "description": "A hardy herb of the countryside, its sunny yellow blossoms and aromatic leaves bring cheer to meadows and hedgerows, warding off pests and delighting passersby with its vibrant presence.  Can be gathered in Lands of Stone.",
     "enabled": true
   },
   "item_material_extract_plant_flower_tansy": {
@@ -1706,7 +1706,7 @@
   },
   "item_raw_material_plant_herb_thyme": {
     "name": "Thyme",
-    "description": "A fragrant herb with tiny leaves, prized for its versatility and earthy flavor, adding depth to culinary dishes and herbal remedies alike. \\nCan be gathered in Lands of Stone.",
+    "description": "A fragrant herb with tiny leaves, prized for its versatility and earthy flavor, adding depth to culinary dishes and herbal remedies alike.  Can be gathered in Lands of Stone.",
     "enabled": true
   },
   "item_material_ingot_tin": {
@@ -1716,7 +1716,7 @@
   },
   "item_raw_material_ore_tin": {
     "name": "Tin Ore",
-    "description": "Soft, dull to the eye. \\nFound by mining Tin deposits in all biomes in the Home Valleys.",
+    "description": "Soft, dull to the eye.  Found by mining Tin deposits in all biomes in the Home Valleys.",
     "enabled": true
   },
   "item_vial_tiny": {
@@ -1726,17 +1726,17 @@
   },
   "item_raw_material_gemstone_topaz": {
     "name": "Topaz",
-    "description": "The stone that harmonizes most fortunately with gold. \\nFound by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
+    "description": "The stone that harmonizes most fortunately with gold.  Found by mining Copper, Gneiss, Iron, Limestone and Tin deposits in all biomes.",
     "enabled": true
   },
   "item_raw_material_gemstone_tourmaline": {
     "name": "Tourmaline",
-    "description": "A stone to bring clarity of mind. \\nFound by mining Iron deposits in all biomes in the Wildlands.",
+    "description": "A stone to bring clarity of mind.  Found by mining Iron deposits in all biomes in the Wildlands.",
     "enabled": true
   },
   "item_raw_material_mineral_turquoise": {
     "name": "Turquoise",
-    "description": "Some believe the turquoise can warn its bearer of impending danger. \\nFound by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
+    "description": "Some believe the turquoise can warn its bearer of impending danger.  Found by mining Granite and Iron deposits in all biomes in the Lyonesse and Wildlands.",
     "enabled": true
   },
   "item_vial_medium": {
@@ -1751,7 +1751,7 @@
   },
   "item_raw_material_plant_herb_watercress": {
     "name": "Watercress",
-    "description": "Peppery aquatic herb, adds bite to salads.\n",
+    "description": "Peppery aquatic herb, adds bite to salads. ",
     "enabled": true
   },
   "item_material_ale_base_weak": {
@@ -1801,7 +1801,7 @@
   },
   "item_raw_material_grain_wheat": {
     "name": "Wheat Grain",
-    "description": "The lifeblood of our sustenance, harvested with sweat and toil, yielding the golden flour that feeds our families and sustains our villages. \\nCan be gathered in The Pale.",
+    "description": "The lifeblood of our sustenance, harvested with sweat and toil, yielding the golden flour that feeds our families and sustains our villages.  Can be gathered in The Pale.",
     "enabled": true
   },
   "item_material_extract_plant_flower_wolfsbane_leaves": {
@@ -1816,12 +1816,12 @@
   },
   "item_raw_material_plant_flower_wolfsbane_leaves": {
     "name": "Wolfsbane's Leaves",
-    "description": "Dark and ominous, their serrated edges and deep green hue conceal nature's deadly poison, a silent warning to all who tread among the shadows of the forest. \\nCan be gathered in Evergreen Forest and Cursed Rocklands biomes.",
+    "description": "Dark and ominous, their serrated edges and deep green hue conceal nature's deadly poison, a silent warning to all who tread among the shadows of the forest.  Can be gathered in Evergreen Forest and Cursed Rocklands biomes.",
     "enabled": true
   },
   "item_raw_material_plant_flower_wolfsbane_seeds": {
     "name": "Wolfsbane's Seeds",
-    "description": "Tiny capsules of danger, nestled within the sinister embrace of the plant's foliage, harboring lethal toxins and whispered tales of the wild's dark secrets. \\nCan be gathered in Evergreen Forest and Cursed Rocklands biomes.",
+    "description": "Tiny capsules of danger, nestled within the sinister embrace of the plant's foliage, harboring lethal toxins and whispered tales of the wild's dark secrets.  Can be gathered in Evergreen Forest and Cursed Rocklands biomes.",
     "enabled": true
   },
   "item_material_button_wood": {
@@ -1926,7 +1926,7 @@
   },
   "item_raw_material_plant_onion_yellow": {
     "name": "Yellow Onion",
-    "description": "A staple of the kitchen, its layers hold the essence of savory flavor, enriching dishes with its robust taste and aromatic depth. \\nCan be gathered in Old Forest, Blessed Meadows and Evergreen Forest biomes.",
+    "description": "A staple of the kitchen, its layers hold the essence of savory flavor, enriching dishes with its robust taste and aromatic depth.  Can be gathered in Old Forest, Blessed Meadows and Evergreen Forest biomes.",
     "enabled": true
   }
 }

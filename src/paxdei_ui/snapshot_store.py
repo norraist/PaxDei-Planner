@@ -37,12 +37,17 @@ def _serialize_option(opt: PlanStepOption) -> Dict[str, Any]:
         "crafts": opt.crafts,
         "xp_per_craft": opt.xp_per_craft,
         "total_xp": opt.total_xp,
+        "total_xp_chain": opt.total_xp_chain,
         "material_burden": opt.material_burden,
         "materials": list(opt.materials),
+        "materials_qty": opt.materials_qty,
         "materials_tree": opt.materials_tree,
         "craft_summary": opt.craft_summary,
+        "ingredient_breakdown": opt.ingredient_breakdown,
         "prereq_gaps": opt.prereq_gaps,
         "xp_breakdown": _serialize_xp_breakdown(opt.xp_breakdown),
+        "synergy_support": [[skill, item, qty] for skill, item, qty in opt.synergy_support],
+        "blessing_active": opt.blessing_active,
     }
 
 
@@ -53,6 +58,7 @@ def _serialize_step(step: PlanStep) -> Dict[str, Any]:
         "to_level": step.to_level,
         "note": step.note,
         "options": [_serialize_option(opt) for opt in step.options],
+        "category_options": {k: [_serialize_option(opt) for opt in v] for k, v in (step.category_options or {}).items()},
     }
 
 
@@ -84,22 +90,31 @@ def _deserialize_option(data: Dict[str, Any]) -> PlanStepOption:
         crafts=int(data.get("crafts", 0)),
         xp_per_craft=float(data.get("xp_per_craft", 0.0)),
         total_xp=float(data.get("total_xp", 0.0)),
+        total_xp_chain=float(data.get("total_xp_chain", 0.0)),
         material_burden=float(data.get("material_burden", 0.0)),
         materials=[(str(item), int(qty)) for item, qty in data.get("materials", [])],
+        materials_qty=int(data.get("materials_qty", 0)),
         materials_tree=data.get("materials_tree", ""),
         craft_summary=data.get("craft_summary", []),
+        ingredient_breakdown=data.get("ingredient_breakdown", []),
         prereq_gaps=data.get("prereq_gaps", []),
         xp_breakdown=xp_rows,
+        synergy_support=[(str(entry[0]), str(entry[1]), int(entry[2])) for entry in data.get("synergy_support", []) if isinstance(entry, (list, tuple)) and len(entry) >= 3],
+        blessing_active=bool(data.get("blessing_active", False)),
     )
 
 
 def _deserialize_step(data: Dict[str, Any]) -> PlanStep:
     options = [_deserialize_option(opt) for opt in data.get("options", [])]
+    category_options: dict[str, list[PlanStepOption]] = {}
+    for key, entries in (data.get("category_options") or {}).items():
+        category_options[str(key)] = [_deserialize_option(opt) for opt in entries]
     return PlanStep(
         skill=data.get("skill", ""),
         from_level=int(data.get("from_level", 0)),
         to_level=int(data.get("to_level", 0)),
         options=options,
+        category_options=category_options,
         note=data.get("note", ""),
     )
 

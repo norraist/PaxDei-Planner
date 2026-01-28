@@ -1,0 +1,54 @@
+name: Release Windows
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set version from tag
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}".TrimStart("v")
+          "APP_VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+
+      - name: Build PyInstaller bundle
+        run: |
+          python -m PyInstaller packaging/windows/paxdei_ui.spec
+
+      - name: Install Inno Setup
+        run: choco install innosetup --yes --no-progress
+
+      - name: Build installer
+        run: iscc /DAppVersion=${{ env.APP_VERSION }} packaging/windows/installer.iss
+
+      - name: Package portable zip
+        run: |
+          Compress-Archive -Path dist/paxdei_planner_ui/* -DestinationPath dist/PaxDeiPlanner_Portable.zip
+
+      - name: Publish release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            packaging/windows/PaxDeiPlanner_Setup.exe
+            dist/PaxDeiPlanner_Portable.zip

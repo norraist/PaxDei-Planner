@@ -22,6 +22,7 @@ def _load_profile(profile_path: str) -> Profile:
                 current_level=int(node.get("current_level", 1)),
                 current_xp=int(node.get("current_xp", 0)),
                 target_level=int(node.get("target_level", 40)),
+                blessing=bool(node.get("blessing", False)),
             )
         crafters = pj["crafters"]
         return Profile(skills=skills, crafters=crafters, premium_account=premium, avoid_relics=avoid_relics, max_cross_skill_gap=max_gap)
@@ -38,6 +39,7 @@ def _load_profile(profile_path: str) -> Profile:
             current_level=int(lvl),
             current_xp=int(current_xp.get(sk, 0)),
             target_level=int(targets.get(sk, int(lvl) + 5)),
+            blessing=False,
         )
     # Synthesize crafters dict from owned_stations list
     crafters: Dict[str, Dict[str, Any]] = {s: {"name": s, "owned": True} for s in owned_stations}

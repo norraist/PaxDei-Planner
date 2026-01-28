@@ -4,10 +4,10 @@ Generate XP tables for every recipe using the PaxDei planner internals.
 from __future__ import annotations
 
 import argparse
-import csv
 import json
 import math
 import os
+import sqlite3
 import sys
 from pathlib import Path
 from typing import Any, Dict, Iterable, Optional
@@ -25,6 +25,8 @@ from paxdei_planner.xp_model import (
     xp_failure_avg,
     xp_success_avg,
     xp_success_range,
+    practical_unlock_level,
+    mastery_level,
 )
 
 DEFAULT_CFG_PATH = Path("config/xp_tables_config.json")
@@ -57,19 +59,34 @@ def _iter_recipes(
             continue
         yield r
 
-def _levels_for_recipe(r: Recipe, extra_levels: int = 10) -> list[int | str]:
+def _levels_for_recipe(
+    r: Recipe,
+    extra_levels: int = 10,
+    *,
+    start_level: Optional[int] = None,
+    mastery_level_limit: Optional[int] = None,
+) -> list[int | str]:
     """
     Produce the list of levels to print rows for:
-      from r.unlock_at ... (r.difficulty + extra_levels), with a final "+ row".
+      from the first craftable level ... up to the mastery limit (or difficulty + extra),
+      with a final "+ row".
     Matches the style we validated earlier.
     """
-    start = max(0, int(r.unlock_at))
+    start = start_level if start_level is not None else max(0, int(r.unlock_at))
     end = int(r.difficulty) + int(extra_levels)
+    if mastery_level_limit is not None:
+        end = min(end, mastery_level_limit)
     levels = list(range(start, end + 1))
     # Replace the last numeric level with a "+ row" label
     if levels:
         levels[-1] = f"{end}+"
     return levels
+
+def _expected_from_chance(success_avg: float, failure_avg: float, chance: float) -> float:
+    if not isinstance(failure_avg, (int, float)) or math.isnan(failure_avg):
+        return success_avg
+    return chance * success_avg + (1 - chance) * failure_avg
+
 
 def _row_for_level(level, r: Recipe) -> dict:
     """
@@ -83,11 +100,13 @@ def _row_for_level(level, r: Recipe) -> dict:
         base = int(level)
 
     ps = success_chance(base, r.difficulty)
+    ps_bless = success_chance(base + 1, r.difficulty)
     xs_min, xs_avg, xs_max = xp_success_range(base, r.difficulty, r.xp_multiplier, skill=r.skill)
     xf_avg = xp_failure_avg(base, r.difficulty, r.unlock_at, r.xp_multiplier, skill=r.skill)
     # For >= difficulty, xp_failure_avg() returns NaN; display as empty string.
     xf_display = "" if (not isinstance(xf_avg, float) or math.isnan(xf_avg)) else int(round(xf_avg))
     x_exp = xp_expected(base, r.difficulty, r.unlock_at, r.xp_multiplier, skill=r.skill)
+    x_exp_bless = _expected_from_chance(xs_avg, xf_avg, ps_bless)
 
     return {
         "Skill Level": label,
@@ -97,75 +116,115 @@ def _row_for_level(level, r: Recipe) -> dict:
         "XP (Success) Max": int(round(xs_max)),
         "XP (Failure) Avg": xf_display,
         "XP (Expected) Avg": int(round(x_exp)),
+        "XP (Bless) Avg": int(round(x_exp_bless)),
     }
 
-def _write_recipe_csv(out_dir: str, r: Recipe) -> str:
-    """
-    Write one CSV for a single recipe. Files are grouped by skill for easy browsing.
-    """
-    skill_dir = os.path.join(out_dir, r.skill or "unknown_skill")
-    os.makedirs(skill_dir, exist_ok=True)
-    filename = f"{r.key}.csv"
-    path = os.path.join(skill_dir, filename)
+def _init_db(conn: sqlite3.Connection) -> None:
+    conn.executescript(
+        """
+        CREATE TABLE IF NOT EXISTS recipe_meta (
+            recipe_key TEXT PRIMARY KEY,
+            recipe_name TEXT,
+            skill TEXT,
+            unlock_at INTEGER,
+            practical_unlock INTEGER,
+            difficulty INTEGER,
+            mastery_level INTEGER,
+            xp_multiplier REAL,
+            station TEXT
+        );
+        CREATE TABLE IF NOT EXISTS recipe_xp (
+            recipe_key TEXT NOT NULL,
+            level INTEGER NOT NULL,
+            chance REAL,
+            success_min REAL,
+            success_avg REAL,
+            success_max REAL,
+            failure_avg REAL,
+            expected_avg REAL,
+            bless_avg REAL,
+            PRIMARY KEY (recipe_key, level)
+        );
+        CREATE INDEX IF NOT EXISTS idx_recipe_xp_key_level
+            ON recipe_xp(recipe_key, level);
+        """
+    )
 
-    fieldnames = [
-        "Skill Level",
-        "Success Chance",
-        "XP (Success) Min",
-        "XP (Success) Avg",
-        "XP (Success) Max",
-        "XP (Failure) Avg",
-        "XP (Expected) Avg",
-    ]
 
-    with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        # header block with context
-        w.writerow([f"Recipe Key", r.key])
-        w.writerow([f"Recipe Name", r.name or ""])
-        w.writerow(["Skill", r.skill or ""])
-        w.writerow(["UnlockAtSkillLevel", r.unlock_at])
-        w.writerow(["SkillDifficulty", r.difficulty])
-        w.writerow(["XPMultiplier", r.xp_multiplier])
-        w.writerow(["Station", r.station or ""])
-        w.writerow([])  # blank line
-        w.writerow(fieldnames)
+def _write_recipe_sqlite(conn: sqlite3.Connection, r: Recipe) -> None:
+    practical_unlock = practical_unlock_level(r.unlock_at, r.difficulty)
+    mastery_lvl = mastery_level(r.difficulty)
+    conn.execute(
+        """
+        INSERT OR REPLACE INTO recipe_meta
+            (recipe_key, recipe_name, skill, unlock_at, practical_unlock, difficulty,
+             mastery_level, xp_multiplier, station)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            r.key,
+            r.name or "",
+            r.skill or "",
+            int(r.unlock_at),
+            int(practical_unlock),
+            int(r.difficulty),
+            int(mastery_lvl),
+            float(r.xp_multiplier),
+            r.station or "",
+        ),
+    )
 
-        for lvl in _levels_for_recipe(r, extra_levels=10):
-            row = _row_for_level(lvl, r)
-            w.writerow([row[h] for h in fieldnames])
-
-    return path
-
-def _write_master_index(out_dir: str, written: list[tuple[str, Recipe]]) -> str:
-    """
-    A master CSV listing all generated recipe tables with key metadata and file paths.
-    """
-    path = os.path.join(out_dir, "xp_tables_index.csv")
-    with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        w.writerow([
-            "skill",
-            "recipe_key",
-            "recipe_name",
-            "unlock_at",
-            "difficulty",
-            "xp_multiplier",
-            "station",
-            "csv_path",
-        ])
-        for csv_path, r in written:
-            w.writerow([
-                r.skill or "",
+    levels = _levels_for_recipe(
+        r,
+        extra_levels=10,
+        start_level=practical_unlock,
+        mastery_level_limit=mastery_lvl,
+    )
+    if not levels:
+        levels = [practical_unlock]
+    rows = []
+    for lvl in levels:
+        row = _row_for_level(lvl, r)
+        level_label = row["Skill Level"]
+        if isinstance(level_label, str):
+            digits = "".join(ch for ch in level_label if ch.isdigit())
+            level_val = int(digits) if digits else 0
+        else:
+            level_val = int(level_label)
+        chance_str = str(row["Success Chance"]).strip().rstrip("%")
+        try:
+            chance = float(chance_str) / 100.0
+        except ValueError:
+            chance = 0.0
+        def as_float(value) -> float:
+            if value in ("", None):
+                return float("nan")
+            try:
+                return float(value)
+            except Exception:
+                return float("nan")
+        rows.append(
+            (
                 r.key,
-                r.name or "",
-                r.unlock_at,
-                r.difficulty,
-                r.xp_multiplier,
-                r.station or "",
-                os.path.relpath(csv_path, out_dir),
-            ])
-    return path
+                level_val,
+                chance,
+                as_float(row["XP (Success) Min"]),
+                as_float(row["XP (Success) Avg"]),
+                as_float(row["XP (Success) Max"]),
+                as_float(row["XP (Failure) Avg"]),
+                as_float(row["XP (Expected) Avg"]),
+                as_float(row["XP (Bless) Avg"]),
+            )
+        )
+    conn.executemany(
+        """
+        INSERT OR REPLACE INTO recipe_xp
+            (recipe_key, level, chance, success_min, success_avg, success_max,
+             failure_avg, expected_avg, bless_avg)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        rows,
+    )
 
 def run(static_path: str, loc_path: str, out_dir: str,
         include_dev: bool = False,
@@ -174,21 +233,28 @@ def run(static_path: str, loc_path: str, out_dir: str,
         materials_config: Optional[str] = None) -> None:
     os.makedirs(out_dir, exist_ok=True)
     g: GameData = load_game_data(static_path, loc_path, materials_config=materials_config)
-
-    written: list[tuple[str, Recipe]] = []
-    for r in _iter_recipes(g,
-                           include_dev=include_dev,
-                           only_skill=only_skill,
-                           name_filter=name_filter):
-        csv_path = _write_recipe_csv(out_dir, r)
-        written.append((csv_path, r))
-
-    idx = _write_master_index(out_dir, written)
-    print(f"Wrote {len(written)} recipe tables.")
-    print(f"Master index: {idx}")
+    db_path = os.path.join(out_dir, "xp_tables.db")
+    if os.path.exists(db_path):
+        os.remove(db_path)
+    conn = sqlite3.connect(db_path)
+    try:
+        _init_db(conn)
+        count = 0
+        for r in _iter_recipes(
+            g,
+            include_dev=include_dev,
+            only_skill=only_skill,
+            name_filter=name_filter,
+        ):
+            _write_recipe_sqlite(conn, r)
+            count += 1
+        conn.commit()
+    finally:
+        conn.close()
+    print(f"Wrote {count} recipe tables to {db_path}.")
 
 def main():
-    ap = argparse.ArgumentParser(description="Generate Crafting XP tables for every recipe.")
+    ap = argparse.ArgumentParser(description="Generate Crafting XP tables for every recipe (SQLite).")
     ap.add_argument("--static", required=False, help="Path to StaticDataBundle.json")
     ap.add_argument("--loc", required=False, help="Path to localisation_en.json")
     ap.add_argument("--out", required=False, help="Output directory for CSVs")
