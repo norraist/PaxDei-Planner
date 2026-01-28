@@ -46,7 +46,7 @@ jobs:
             if ($trim.StartsWith("[") -and $trim.EndsWith("]")) {
               $inProject = ($trim -eq "[project]")
             }
-            if ($inProject -and $trim -match '^(version\\s*=)') {
+            if ($inProject -and $trim -match '^(version\s*=)') {
               $updated = $true
               "$($matches[1]) `"$appVersion`""
             } else {
