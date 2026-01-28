@@ -42,7 +42,7 @@ jobs:
           $inProject = $false
           $updated = $false
           $output = foreach ($line in $lines) {
-            $trim = $line.Trim()
+            $trim = $line.Trim().TrimStart([char]0xFEFF)
             if ($trim.StartsWith("[") -and $trim.EndsWith("]")) {
               $inProject = ($trim -eq "[project]")
             }
