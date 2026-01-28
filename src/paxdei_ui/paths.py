@@ -121,6 +121,8 @@ def load_executor_config(path: Path | None = None) -> ExecutorConfig:
         fallback_paths = [
             root / "data_bundle" / "config" / "executor_config.json",
             root / "config" / "executor_config.json",
+            root / "_internal" / "config" / "executor_config.json",
+            root / "_internal" / "data_bundle" / "config" / "executor_config.json",
         ]
         for candidate in fallback_paths:
             if candidate.exists():
