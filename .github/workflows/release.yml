@@ -33,6 +33,12 @@ jobs:
           "APP_VERSION=$version" | Out-File -FilePath $env:GITHUB_ENV -Append
           "TAG_NAME=v$version" | Out-File -FilePath $env:GITHUB_ENV -Append
 
+      - name: Debug pyproject.toml
+        shell: pwsh
+        run: |
+          Get-Content -Path pyproject.toml | Select-String "^\[project\]|^version"
+
+
       - name: Update pyproject.toml version
         shell: pwsh
         run: |
