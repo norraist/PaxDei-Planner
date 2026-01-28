@@ -36,30 +36,28 @@ jobs:
       - name: Update pyproject.toml version
         shell: pwsh
         run: |
-          @'
-          import re
-          from pathlib import Path
-          
-          path = Path("pyproject.toml")
-          text = path.read_text(encoding="utf-8")
-          
-          in_project = False
-          updated = False
-          lines = []
-          for line in text.splitlines():
-              stripped = line.strip()
-              if stripped.startswith("[") and stripped.endswith("]"):
-                  in_project = stripped == "[project]"
-              if in_project and re.match(r'^version\\s*=\\s*[\\\"\\\'].*[\\\"\\\']\\s*$', stripped):
-                  line = re.sub(r'version\\s*=\\s*[\\\"\\\'].*[\\\"\\\']', f'version = \"{__import__(\"os\").environ[\"APP_VERSION\"]}\"', line)
-                  updated = True
-              lines.append(line)
-          
-          if not updated:
-              raise SystemExit("No version line updated in pyproject.toml")
-          
-          path.write_text("\\n".join(lines) + "\\n", encoding="utf-8")
-          '@ | python -
+          $path = "pyproject.toml"
+          $appVersion = $env:APP_VERSION
+          $lines = Get-Content -Path $path
+          $inProject = $false
+          $updated = $false
+          $output = foreach ($line in $lines) {
+            $trim = $line.Trim()
+            if ($trim.StartsWith("[") -and $trim.EndsWith("]")) {
+              $inProject = ($trim -eq "[project]")
+            }
+            if ($inProject -and $trim -match '^(version\\s*=)') {
+              $updated = $true
+              "$($matches[1]) `"$appVersion`""
+            } else {
+              $line
+            }
+          }
+          if (-not $updated) {
+            Write-Error "No version line updated in pyproject.toml"
+            exit 1
+          }
+          Set-Content -Path $path -Value $output -Encoding UTF8
 
       - name: Setup Python
         uses: actions/setup-python@v5
