@@ -1,5 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
 from pathlib import Path
+import sys
 
 if "__file__" in globals():
     spec_path = Path(__file__).resolve()
@@ -12,6 +13,9 @@ from PyInstaller.utils.hooks import collect_data_files, collect_submodules
 block_cipher = None
 
 project_root = spec_path.parents[2]
+src_root = project_root / "src"
+if str(src_root) not in sys.path:
+    sys.path.insert(0, str(src_root))
 bundle_dir = project_root / "data_bundle"
 config_dir = project_root / "config"
 
@@ -22,8 +26,8 @@ hidden = collect_submodules("paxdei_planner") + collect_submodules("paxdei_ui")
 datas = collect_data_files("PySide6")
 
 a = Analysis(
-    [str(project_root / "src" / "paxdei_ui" / "__main__.py")],
-    pathex=[str(project_root)],
+    [str(src_root / "paxdei_ui" / "__main__.py")],
+    pathex=[str(project_root), str(src_root)],
     binaries=[],
     datas=datas + bundle_data + config_files,
     hiddenimports=hidden,

@@ -15,6 +15,7 @@ real game data bundles.
 - Ensures the UI entry script can be executed without relative-import failures.
 - Confirms the packaged entrypoint module is importable.
 - Confirms entrypoint imports succeed even when launched outside the repo root.
+- Guards the PyInstaller spec to ensure the src path is included for module discovery.
 
 ## Error and edge cases
 
@@ -24,6 +25,7 @@ real game data bundles.
 - Update checks re-enable the button and surface success/failure messages.
 - Bundle updates skip downloads when already up to date and invoke refreshes for newer versions.
 - Entry points remain importable when the current working directory is unrelated to the repo.
+- PyInstaller spec includes the source path so bundled modules resolve at runtime.
 
 ## Test isolation
 
