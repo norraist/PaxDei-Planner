@@ -7,6 +7,12 @@ import threading
 from pathlib import Path
 from typing import List
 
+if __package__ in (None, ""):
+    _pkg_root = Path(__file__).resolve().parents[1]
+    if str(_pkg_root) not in sys.path:
+        sys.path.insert(0, str(_pkg_root))
+    __package__ = "paxdei_ui"
+
 from PySide6 import QtCore, QtGui, QtWidgets
 
 from .config_store import ConfigStore

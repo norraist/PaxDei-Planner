@@ -12,6 +12,7 @@ real game data bundles.
 - Filters pending synergy supports by target skill and completion status.
 - Drives the "Check for data updates" button state and messaging in the Config page.
 - Verifies the bundle update worker handles no-op updates and versioned bundle refreshes.
+- Ensures the UI entry script can be executed without relative-import failures.
 
 ## Error and edge cases
 
